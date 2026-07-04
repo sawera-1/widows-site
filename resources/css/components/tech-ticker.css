@@ -1,0 +1,216 @@
+:root {
+  --tt-accent: #d81d1f;
+  
+  /* Light Theme */
+  --tt-shadow-light: 0 4px 18px rgba(0,0,0,0.07);
+  --tt-glow-light: rgba(216,29,31,0.10);
+  --tt-border-hover-light: rgba(216,29,31,0.28);
+  --tt-shadow-hover-light: 0 20px 40px rgba(0,0,0,0.11), 0 0 24px rgba(216,29,31,0.16);
+  --tt-icon-shadow-light: rgba(216,29,31,0.55);
+
+  /* Dark Theme */
+  --tt-shadow-dark: 0 4px 22px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.04);
+  --tt-glow-dark: rgba(216,29,31,0.10);
+  --tt-border-hover-dark: rgba(216,29,31,0.28);
+  --tt-shadow-hover-dark: 0 20px 44px rgba(0,0,0,0.65), 0 0 24px rgba(216,29,31,0.12);
+  --tt-icon-shadow-dark: rgba(216,29,31,0.55);
+  
+  /* Defaults (Light) */
+  --tt-bg: var(--theme-section-bg);
+  --tt-card-bg: var(--theme-card-bg);
+  --tt-border: var(--theme-border);
+  --tt-shadow: var(--tt-shadow-light);
+  --tt-glow: var(--tt-glow-light);
+  --tt-border-hover: var(--tt-border-hover-light);
+  --tt-shadow-hover: var(--tt-shadow-hover-light);
+  --tt-text-title: var(--theme-text-primary);
+  --tt-icon: var(--theme-text-primary);
+  --tt-icon-hover: var(--theme-text-primary);
+  --tt-icon-shadow: var(--tt-icon-shadow-light);
+  --tt-label: var(--theme-text-secondary);
+  --tt-label-hover: var(--theme-text-primary);
+}
+
+html.theme-dark {
+  --tt-shadow: var(--tt-shadow-dark);
+  --tt-glow: var(--tt-glow-dark);
+  --tt-border-hover: var(--tt-border-hover-dark);
+  --tt-shadow-hover: var(--tt-shadow-hover-dark);
+  --tt-icon-shadow: var(--tt-icon-shadow-dark);
+}
+
+/* ─── Section ─────────────────────────── */
+.tt-section {
+  width: 100%;
+  padding: clamp(30px, 4vw, 50px) 0;
+  background: var(--tt-bg);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* ─── Header ─────────────────────────── */
+.tt-header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 0 20px;
+}
+.tt-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: clamp(1.55rem, 3.5vw, 2.6rem);
+  font-weight: 800;
+  color: var(--tt-text-title);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.tt-accent { color: var(--tt-accent); }
+
+/* ─── Viewport (clip + fade edges) ───── */
+.tt-viewport {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.tt-viewport::before,
+.tt-viewport::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: clamp(50px, 8vw, 120px);
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+.tt-viewport::before {
+  left: 0;
+  background: linear-gradient(to right, var(--tt-bg) 0%, transparent 100%);
+}
+.tt-viewport::after {
+  right: 0;
+  background: linear-gradient(to left, var(--tt-bg) 0%, transparent 100%);
+}
+
+/* ─── Scrolling track ─────────────────── */
+.tt-track {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 1.8vw, 22px);
+  width: max-content;
+  padding: 14px 0 18px;
+  animation: ttRoll 100s linear infinite;
+}
+.tt-viewport:hover .tt-track {
+  animation-play-state: paused;
+}
+@keyframes ttRoll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-33.3333%); }
+}
+
+/* ─── Card ────────────────────────────── */
+.tt-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 1.6vw, 20px);
+
+  width:  clamp(130px, 16vw, 190px);
+  height: clamp(140px, 17.5vw, 210px);
+
+  background: var(--tt-card-bg);
+  border-radius: 18px;
+  border: 1px solid var(--tt-border);
+  box-shadow: var(--tt-shadow);
+
+  flex-shrink: 0;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform   0.3s cubic-bezier(0.25,1,0.5,1),
+    box-shadow  0.3s cubic-bezier(0.25,1,0.5,1),
+    border-color 0.3s ease;
+}
+
+/* radial top glow on hover */
+.tt-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(ellipse 80% 50% at 50% 0%, var(--tt-glow) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.tt-card:hover {
+  transform: translateY(-8px) scale(1.04);
+  border-color: var(--tt-border-hover);
+  box-shadow: var(--tt-shadow-hover);
+}
+.tt-card:hover::before { opacity: 1; }
+
+/* ─── Icon ────────────────────────────── */
+.tt-icon {
+  width:  clamp(56px, 6.5vw, 85px);
+  height: clamp(56px, 6.5vw, 85px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--tt-icon);
+  position: relative;
+  z-index: 1;
+  transition: color 0.28s ease, filter 0.28s ease, transform 0.28s ease;
+  font-size: clamp(56px, 6.5vw, 85px);
+}
+.tt-icon i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.tt-card:hover .tt-icon {
+  color: var(--tt-icon-hover);
+  filter: drop-shadow(0 0 11px var(--tt-icon-shadow));
+  transform: scale(1.1);
+}
+
+/* ─── Label ───────────────────────────── */
+.tt-label {
+  font-family: 'Roboto', sans-serif;
+  font-size: clamp(0.68rem, 1vw, 0.88rem);
+  font-weight: 700;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.25;
+  color: var(--tt-label);
+  position: relative;
+  z-index: 1;
+  transition: color 0.28s ease;
+}
+.tt-card:hover .tt-label {
+  color: var(--tt-label-hover);
+}
+
+/* ─── Responsive overrides ────────────── */
+@media (max-width: 1200px) {
+  .tt-section { padding: 50px 0; }
+}
+
+@media (max-width: 1024px) {
+  .tt-section  { padding: 45px 0; }
+  .tt-header   { margin-bottom: 38px; }
+  .tt-track    { animation-duration: 60s; }
+}
+
+@media (max-width: 768px) {
+  .tt-section  { padding: 40px 0; }
+  .tt-header   { margin-bottom: 30px; }
+  .tt-track    { gap: 11px; animation-duration: 50s; }
+}
+
+@media (max-width: 480px) {
+  .tt-section  { padding: 35px 0; }
+  .tt-header   { margin-bottom: 24px; }
+  .tt-track    { gap: 9px; animation-duration: 40s; }
+}
