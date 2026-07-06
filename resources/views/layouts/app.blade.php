@@ -1,49 +1,49 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="theme-dark">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', 'CORAMMERS')</title>
-    <meta name="description" content="@yield('description', 'CORAMMERS — High-performance mobile apps, modern websites, smart SEO strategies, and scalable solutions.')">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@yield('title', 'CORAMMERS — Modern Digital Solutions')</title>
+    <meta name="description" content="@yield('meta_description', 'We provide mobile, web, SEO, and email solutions to grow your business.')">
+    <link rel="icon" href="/assets/logo/fav.webp" type="image/webp">
 
-    <!-- Global CSS & JS via Vite -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- Set theme BEFORE first paint so there is no light/dark flash --}}
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('codecaks-theme');
+                if (t !== 'light' && t !== 'dark') {
+                    t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                }
+                document.documentElement.setAttribute('data-theme', t);
+            } catch (e) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     @stack('styles')
-    
-    @stack('scripts')
 </head>
-<body class="antialiased w-full">
+<body>
+    @include('partials.loader')
+    @include('partials.header')
+    @include('partials.menubar')
+    @include('partials.search')
+    @include('partials.cursor')
 
-    <!-- Global Custom Cursor -->
-    <div id="customCursor" aria-hidden="true">
-        <div class="cursor-outer"></div>
-        <div class="cursor-inner"></div>
+    <div class="page-wrapper page-ready">
+        @yield('content')
     </div>
 
-    <!-- Header -->
-    @include('partials.header')
-
-    <!-- Compact Menu Bar (mobile/scroll) -->
-    @include('partials.menu-bar')
-
-    <!-- Search Overlay -->
-    @include('partials.search-overlay')
-
-    <!-- Main Content -->
-    <main id="pageMain" class="page-main">
-        @yield('content')
-    </main>
-
-    <!-- Footer -->
     @include('partials.footer')
+    @include('partials.scroll-top')
 
-    <!-- Scroll To Top -->
-    <x-scroll-to-top />
-
-    <script type="module">
-        if (window.Alpine) {
-            window.Alpine.start();
-        }
-    </script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    @stack('scripts')
 </body>
 </html>

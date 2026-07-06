@@ -1,60 +1,9 @@
-@import './header.css';
-@import './footer.css';
-@import './search-overlay.css';
-@import './menu-bar.css';
-@import './components/scroll-to-top.css';
-@import './components/badge-ticker.css';
-@import './components/tech-ticker.css';
-@import './components/client-ticker.css';
-@import './components/about-section.css';
-@import './components/trust-badges-section.css';
-@import './components/blog-section.css';
-@import './components/book-consultation-section.css';
-@import './components/contact-banner.css';
-@import './components/contact-banner-two.css';
-@import './components/experience-section.css';
-@import './components/faq-section.css';
-@import './components/industry-section.css';
-@import './components/reviews-section.css';
-@import './components/portfolio-section.css';
-@import './components/why-choose-us-section.css';
-@import './components/stats-section.css';
-@import './components/services-stack-section.css';
-@import './components/hero-section.css';
-@import './components/custom-cursor.css';
+@import 'tailwindcss';
 
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
 
-/* ──────────────────────────────────────────────
-   GLOBAL THEME SYSTEM
-   ────────────────────────────────────────────── */
-:root {
-  --theme-main-bg: #ffffff;
-  --theme-section-bg: #f8f8f8;
-  --theme-section-alt-bg: #f8f8f8;
-  --theme-card-bg: #ffffff;
-  --theme-text-primary: #111111;
-  --theme-text-secondary: #555555;
-  --theme-border: rgba(0, 0, 0, 0.08);
-  --theme-accent: #d81d1f;
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
 }
-
-html.theme-dark {
-  --theme-main-bg: #0f0f0f;
-  --theme-section-bg: #141414;
-  --theme-section-alt-bg: #212121;
-  --theme-card-bg: #1a1a1a;
-  --theme-text-primary: #ffffff;
-  --theme-text-secondary: rgba(255, 255, 255, 0.75);
-  --theme-border: rgba(255, 255, 255, 0.08);
-  --theme-accent: #d81d1f;
-}
-
-/* Base Tailwind Directives (if needed) */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@import './components/staff-augmentation-section.css';
-@import './components/staff-augmentation-section-2.css';
-@import './pages/staff-2.css';
-
-.hd-unified-bg { background: var(--theme-section-alt-bg, #212121); }
