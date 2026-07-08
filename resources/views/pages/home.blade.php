@@ -674,12 +674,16 @@
             var cs = getComputedStyle(track);
             var gap = parseFloat(cs.columnGap || cs.gap || '28') || 28;
             var setWidth = 0;
+            // batch ALL layout reads first, then one DOM write — appending
+            // clone-by-clone to the live track forces a reflow per iteration
             originals.forEach(function (c) { setWidth += c.getBoundingClientRect().width + gap; });
-            // clone until the strip is at least one set wider than the viewport
-            var need = Math.max(2, Math.ceil(wrap.getBoundingClientRect().width / setWidth) + 2);
+            var wrapWidth = wrap.getBoundingClientRect().width;
+            var need = Math.max(2, Math.ceil(wrapWidth / setWidth) + 2);
+            var frag = document.createDocumentFragment();
             for (var k = 1; k < need; k++) {
-                originals.forEach(function (c) { track.appendChild(c.cloneNode(true)); });
+                originals.forEach(function (c) { frag.appendChild(c.cloneNode(true)); });
             }
+            track.appendChild(frag);
             track.style.setProperty('--rev-shift', setWidth + 'px');
             track.style.animationDuration = Math.max(12, setWidth / SPEED) + 's';
         }
@@ -706,19 +710,26 @@
         var state = Array.from(cardsEl).map(function () { return { curX: 0, curY: 0, tgtX: 0, tgtY: 0, cx: 0, cy: 0, w: 200 }; });
         var mouse = { x: 0, y: 0, inside: false };
         var raf = null, enabled = false;
-        setTimeout(function () { enabled = true; }, 1400);
-        var clamp = function (v, lo, hi) { return Math.max(lo, Math.min(hi, v)); };
-        var lerp = function (a, b, t) { return a + (b - a) * t; };
-        function tick() {
-            raf = null;
-            if (!enabled) { raf = requestAnimationFrame(tick); return; }
-            var moving = false;
+        /* Card centres are static page coordinates once the entrance settles —
+           measure them ONCE (and on resize), never inside the rAF loop. The
+           loop below is then write-only: zero forced reflows per frame. */
+        function measureCards() {
             wrappers.forEach(function (wrp, i) {
                 var r = wrp.getBoundingClientRect();
                 state[i].cx = r.left + window.scrollX + r.width / 2;
                 state[i].cy = r.top + window.scrollY + r.height / 2;
                 state[i].w = r.width;
             });
+        }
+        setTimeout(function () { measureCards(); enabled = true; }, 1400);
+        var mrt;
+        window.addEventListener('resize', function () { clearTimeout(mrt); mrt = setTimeout(measureCards, 200); });
+        var clamp = function (v, lo, hi) { return Math.max(lo, Math.min(hi, v)); };
+        var lerp = function (a, b, t) { return a + (b - a) * t; };
+        function tick() {
+            raf = null;
+            if (!enabled) { raf = requestAnimationFrame(tick); return; }
+            var moving = false;
             var closest = -1, min = Infinity;
             if (mouse.inside) {
                 state.forEach(function (s, i) {
