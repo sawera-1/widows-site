@@ -231,3 +231,22 @@
     svcUpdateAll();
   }
 })();
+
+/* ── Deferred hero videos: keep ~9MB of mp4 off the critical path ──────────
+   Sources carry data-src; we attach them after window.load so first paint,
+   LCP and the hero images never compete with video bytes. */
+(function () {
+  function loadDeferredVideos() {
+    document.querySelectorAll('video[data-lazy-video]').forEach(function (v) {
+      v.querySelectorAll('source[data-src]').forEach(function (s) {
+        s.src = s.getAttribute('data-src');
+        s.removeAttribute('data-src');
+      });
+      v.load();
+      var p = v.play();
+      if (p && p.catch) p.catch(function () {});
+    });
+  }
+  if (document.readyState === 'complete') loadDeferredVideos();
+  else window.addEventListener('load', loadDeferredVideos);
+})();

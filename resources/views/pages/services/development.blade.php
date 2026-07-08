@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Corammers')
-@section('meta_description', 'We engineer high-performance websites and applications optimized for speed, scalability, and seamless user experience using modern technologies.')
+@section('title', 'Web & Mobile Development Services — Corammers')
+@section('meta_description', 'Web and mobile development by Corammers — fast, scalable Laravel, React and native apps built to convert.')
 
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/pages/services-development.css') }}">
+<link rel="stylesheet" href="{{ asset_v('css/pages/services-development.css') }}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 @endpush
 
@@ -189,7 +189,7 @@
     $starIcon = '<svg width="18" height="18" viewBox="0 0 16 16" fill="#ffb33e" style="flex-shrink:0"><path d="M8 1.5L9.7 6H14.3L10.6 8.9L12 13.4L8 10.8L4 13.4L5.4 8.9L1.7 6H6.3L8 1.5Z" stroke="#ffb33e" stroke-width="1.2" stroke-linejoin="round"></path></svg>';
     $arrowIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>';
 
-    $robo = '<img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="pw-robo-light" style="object-fit:contain;display:block"><img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="pw-robo-dark" style="object-fit:contain;display:block">';
+    $robo = '<img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="pw-robo-light" style="object-fit:contain;display:block"><img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="pw-robo-dark" style="object-fit:contain;display:block">';
 @endphp
 
 <div class="pw-services-development">

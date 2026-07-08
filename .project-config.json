@@ -18,15 +18,16 @@
       "composer": "/home/u177106441/bin/composer",
       "dns": "cloudflare (zone corammerswork.com, A record DNS-only)",
       "post_pull": [
+        "grep -q alt-php84 public/.htaccess || sed -i '1i <FilesMatch \"\\\\.php$\">\\nSetHandler application/x-httpd-alt-php84___lsphp\\n</FilesMatch>' public/.htaccess",
         "composer install --no-dev --optimize-autoloader --no-interaction",
         "php artisan migrate --force",
-        "npm install --no-audit --no-fund",
-        "npm run build",
         "php artisan config:cache",
         "php artisan route:cache",
         "php artisan view:cache",
         "chmod -R 775 storage bootstrap/cache"
-      ]
+      ],
+      "php_version_note": "App requires PHP >= 8.4.1 but Hostinger web default is 8.3. The first post_pull step re-injects a LiteSpeed PHP 8.4 handler into public/.htaccess (idempotent). Permanent alternative: set PHP 8.4 in hPanel MultiPHP Manager.",
+      "build_note": "No npm/Vite build: the site serves hand-written public/css + public/js directly."
     }
   ]
 }

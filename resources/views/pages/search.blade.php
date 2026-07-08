@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
-@section('title', 'Corammers')
-@section('meta_description', 'Search across projects, blog articles, team members and pages on Corammers.')
+@section('title', 'Search — Corammers')
+@section('robots', 'noindex, follow')
+@section('meta_description', 'Search Corammers — find services, projects and insights.')
 
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/pages/search.css') }}">
+<link rel="stylesheet" href="{{ asset_v('css/pages/search.css') }}">
 @endpush
 
 @section('content')

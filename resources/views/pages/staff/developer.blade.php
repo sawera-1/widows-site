@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Corammers')
-@section('meta_description', 'Scale your development team on-demand. Hire expert Next.js, WordPress, PHP, Laravel, React, Node, mobile and AI developers for web, ecommerce and custom solutions.')
+@section('title', 'Hire Dedicated Developers — Corammers')
+@section('meta_description', 'Hire dedicated web and mobile developers from Corammers. Vetted engineers across React, Laravel, Node and more — flexible engagement models.')
 
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/pages/staff-developer.css') }}">
+<link rel="stylesheet" href="{{ asset_v('css/pages/staff-developer.css') }}">
 @endpush
 
 @section('content')
@@ -21,7 +21,7 @@
                 <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:14px">
                     <div style="display:flex;flex-direction:column;align-items:center">
                         <div style="display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:14px;flex-shrink:0;border:1.5px solid rgba(216,29,31,0.4);background:rgba(216,29,31,0.1);animation:float-robot 3s ease-in-out infinite;box-shadow:0 8px 20px rgba(216,29,31,0.15)">
-                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block">
+                            <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block">
                         </div>
                         <div style="width:54px;height:4px;background:linear-gradient(90deg, #D81D1F, transparent);border-radius:2px;margin-top:8px"></div>
                     </div>
@@ -111,7 +111,7 @@
                 <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:14px">
                     <div style="display:flex;flex-direction:column;align-items:center">
                         <div class="section-robot-badge">
-                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block">
+                            <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block">
                         </div>
                         <div style="width:54px;height:4px;background:linear-gradient(90deg, var(--primary), transparent);border-radius:2px;margin-top:8px"></div>
                     </div>
@@ -232,7 +232,7 @@
                 <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:14px">
                     <div style="display:flex;flex-direction:column;align-items:center">
                         <div class="section-robot-badge">
-                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block">
+                            <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block">
                         </div>
                         <div style="width:54px;height:4px;background:linear-gradient(90deg, var(--primary), transparent);border-radius:2px;margin-top:8px"></div>
                     </div>
@@ -318,7 +318,7 @@
                 <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:14px">
                     <div style="display:flex;flex-direction:column;align-items:center">
                         <div class="section-robot-badge">
-                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block">
+                            <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block">
                         </div>
                         <div style="width:54px;height:4px;background:linear-gradient(90deg, var(--primary), transparent);border-radius:2px;margin-top:8px"></div>
                     </div>

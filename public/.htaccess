@@ -28,34 +28,39 @@
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript
     AddOutputFilterByType DEFLATE application/javascript application/json
-    AddOutputFilterByType DEFLATE image/svg+xml application/xml
+    AddOutputFilterByType DEFLATE image/svg+xml application/xml text/xml
 </IfModule>
 <IfModule mod_brotli.c>
     AddOutputFilterByType BROTLI_COMPRESS text/html text/css application/javascript image/svg+xml
 </IfModule>
 
 # ── Performance: long-lived caching for static assets ────────────────────────
+# CSS/JS URLs carry a ?v=<mtime> version stamp (see asset_v() helper), so a
+# far-future immutable cache is safe: any deploy that changes a file also
+# changes its URL, and browsers fetch the new one immediately.
+<IfModule mod_mime.c>
+    AddType font/woff2 .woff2
+</IfModule>
 <IfModule mod_expires.c>
     ExpiresActive On
-    # CSS/JS use static (non-fingerprinted) filenames, so they must revalidate
-    # on each load — otherwise a deploy that changes app.css is invisible to
-    # browsers that cached the old file. ETag/Last-Modified make this cheap (304).
-    ExpiresByType text/css                "access plus 0 seconds"
-    ExpiresByType application/javascript  "access plus 0 seconds"
+    ExpiresByType text/css                "access plus 1 year"
+    ExpiresByType application/javascript  "access plus 1 year"
     ExpiresByType image/webp              "access plus 1 year"
     ExpiresByType image/png               "access plus 1 year"
     ExpiresByType image/jpeg              "access plus 1 year"
     ExpiresByType image/svg+xml           "access plus 1 year"
     ExpiresByType image/x-icon            "access plus 1 year"
     ExpiresByType font/woff2              "access plus 1 year"
-    ExpiresByType video/mp4               "access plus 1 month"
+    ExpiresByType video/mp4               "access plus 1 year"
     ExpiresByType text/html               "access plus 0 seconds"
 </IfModule>
 <IfModule mod_headers.c>
-    <FilesMatch "\.(webp|png|jpe?g|svg|ico|woff2|mp4)$">
+    <FilesMatch "\.(css|js|webp|png|jpe?g|svg|ico|woff2|mp4)$">
         Header set Cache-Control "public, max-age=31536000, immutable"
     </FilesMatch>
-    <FilesMatch "\.(css|js)$">
-        Header set Cache-Control "public, no-cache, must-revalidate"
-    </FilesMatch>
+
+    # Baseline security headers (also score under Lighthouse best practices)
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set X-Frame-Options "SAMEORIGIN"
 </IfModule>

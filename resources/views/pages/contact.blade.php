@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Corammers')
-@section('meta_description', 'Get in touch with Corammers  send us a message about your project, request a quote, or just say hello.')
+@section('title', 'Contact Us — Corammers')
+@section('meta_description', 'Start your project with Corammers. Get a free consultation for web development, mobile apps, UI/UX design, AI solutions and digital marketing.')
 
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/pages/contact.css') }}">
+<link rel="stylesheet" href="{{ asset_v('css/pages/contact.css') }}">
 @endpush
 
 @section('content')

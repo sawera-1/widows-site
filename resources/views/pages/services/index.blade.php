@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Corammers')
-@section('meta_description', 'From data-driven social strategies to high-converting campaigns, we craft scalable, high-performance marketing machines that drive real ROI.')
+@section('title', 'Services — Web, Mobile, AI & Marketing — Corammers')
+@section('meta_description', 'Explore Corammers services: web and mobile development, UI/UX design, AI solutions and digital marketing engineered for growth.')
 
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/pages/services.css') }}">
+<link rel="stylesheet" href="{{ asset_v('css/pages/services.css') }}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 @endpush
 
@@ -186,8 +186,8 @@
             <div class="process-label-row" style="align-items:flex-start">
               <div style="display:flex;flex-direction:column;align-items:center">
                 <div class="process-robot-badge">
-                  <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
-                  <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:block">
+                  <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
+                  <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:block">
                 </div>
                 <div class="process-divider" style="margin:12px 0 0;width:48px"></div>
               </div>
@@ -254,8 +254,8 @@
         <div class="svc-header">
           <div class="svc-label-row">
             <div class="svc-robot-badge">
-              <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
-              <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:block">
+              <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
+              <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:block">
             </div>
             <div class="svc-label-pill">
               <span class="svc-label-dot"></span>
@@ -274,7 +274,7 @@
                 <div class="svc-panel-bg" style="background:{{ $svc['bg'] }}"></div>
                 <div class="svc-panel-glow" style="background:radial-gradient(ellipse at 72% 50%,{{ $svc['glow'] }} 0%,transparent 62%)"></div>
                 <div class="svc-panel-img-wrap">
-                  <img loading="lazy" decoding="async" src="/assets/service/{{ $i + 1 }}.png" alt="{{ $svc['title'] }}">
+                  <img loading="lazy" decoding="async" src="/assets/service/{{ $i + 1 }}.webp" alt="{{ $svc['title'] }}">
                 </div>
                 <div class="svc-panel-overlay"></div>
                 <div class="svc-panel-dot"><i></i></div>
@@ -308,8 +308,8 @@
             <div class="process-label-row" style="align-items:flex-start">
               <div style="display:flex;flex-direction:column;align-items:center">
                 <div class="process-robot-badge">
-                  <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
-                  <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:block">
+                  <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
+                  <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:block">
                 </div>
                 <div class="process-divider" style="margin:12px 0 0;width:48px"></div>
               </div>
@@ -393,8 +393,8 @@
         <div class="sa-left">
           <div class="sa-label-row">
             <div class="sa-robot-badge">
-              <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
-              <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:block">
+              <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
+              <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:block">
             </div>
             <div class="sa-label-pill">
               <span class="sa-label-dot"></span>
@@ -464,8 +464,8 @@
           <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:14px">
             <div style="display:flex;flex-direction:column;align-items:center">
               <div class="faq-header-robot">
-                <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
-                <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:block">
+                <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
+                <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:block">
               </div>
               <div class="faq-header-divider"></div>
             </div>

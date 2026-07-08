@@ -552,7 +552,7 @@ button,
   --label-color: #111111;
   --heading-color: #181818;
   --sub-color: #555555;
-  --robot-src: url('/assets/robo.png');
+  --robot-src: url('/assets/robo.webp');
 
   /* card theme (Experience / Industry) */
   --card-bg: linear-gradient(145deg, #ffffff, #fafafa);
@@ -594,7 +594,7 @@ button,
   --label-color: #ffffff;
   --heading-color: #ffffff;
   --sub-color: #b0b0b0;
-  --robot-src: url('/assets/robo.png');
+  --robot-src: url('/assets/robo.webp');
 
   --card-bg: linear-gradient(145deg, #1d1d1d, #191919);
   --card-bg-h: linear-gradient(145deg, #212121, #1c1c1c);

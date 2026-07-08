@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Corammers')
-@section('meta_description', 'Scale your team with vetted developers, designers, marketers and AI experts through flexible staff augmentation.')
+@section('title', 'Staff Augmentation Services — Corammers')
+@section('meta_description', 'Scale your team with Corammers staff augmentation — vetted developers, designers and marketing specialists, ready to embed with your team.')
 
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/pages/staff.css') }}">
+<link rel="stylesheet" href="{{ asset_v('css/pages/staff.css') }}">
 @endpush
 
 @section('content')
@@ -19,8 +19,8 @@
                 <div class="hero-left go">
                     <div class="section-label-row">
                         <div class="section-robot-badge">
-                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
-                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
+                            <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
+                            <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
                         </div>
                         <div class="section-label-pill">
                             <span class="section-label-dot"></span>
@@ -149,8 +149,8 @@
                             <div class="reveal">
                                 <div class="section-label-row">
                                     <div class="section-robot-badge">
-                                        <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
-                                        <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
+                                        <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
+                                        <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
                                     </div>
                                     <div class="section-label-pill">
                                         <span class="section-label-dot"></span>
@@ -212,8 +212,8 @@
                             <div style="display:flex;flex-direction:column;align-items:center;margin:0 auto 22px;width:fit-content">
                                 <div class="section-label-row">
                                     <div class="section-robot-badge">
-                                        <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
-                                        <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
+                                        <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
+                                        <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
                                     </div>
                                     <div class="section-label-pill">
                                         <span class="section-label-dot"></span>
@@ -287,8 +287,8 @@
                     <div class="what-left">
                         <div class="section-label-row">
                             <div class="section-robot-badge">
-                                <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
-                                <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
+                                <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
+                                <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
                             </div>
                             <div class="section-label-pill">
                                 <span class="section-label-dot"></span>
@@ -386,8 +386,8 @@
                     <div style="display:flex;flex-direction:column;align-items:center">
                         <div class="section-label-row">
                             <div class="section-robot-badge">
-                                <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
-                                <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
+                                <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
+                                <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
                             </div>
                             <div class="section-label-pill">
                                 <span class="section-label-dot"></span>
@@ -516,8 +516,8 @@
                     <div style="display:flex;flex-direction:column;gap:6px">
                         <div class="section-label-row">
                             <div class="section-robot-badge">
-                                <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
-                                <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
+                                <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
+                                <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
                             </div>
                             <div class="section-label-pill">
                                 <span class="section-label-dot"></span>
@@ -563,8 +563,8 @@
                     <div style="display:flex;flex-direction:column;align-items:center">
                         <div class="section-label-row">
                             <div class="section-robot-badge">
-                                <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
-                                <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
+                                <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
+                                <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
                             </div>
                             <div class="section-label-pill">
                                 <span class="section-label-dot"></span>
@@ -611,8 +611,8 @@
                 <div>
                     <div class="section-label-row">
                         <div class="section-robot-badge">
-                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
-                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
+                            <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
+                            <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
                         </div>
                         <div class="section-label-pill">
                             <span class="section-label-dot"></span>

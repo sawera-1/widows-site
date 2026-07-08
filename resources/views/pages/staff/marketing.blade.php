@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Corammers')
-@section('meta_description', 'Hire dedicated Marketing Associates who execute, manage and optimize your campaigns — from social media to CRM automation — for consistent performance and growth.')
+@section('title', 'Hire Digital Marketing Experts — Corammers')
+@section('meta_description', 'Hire digital marketing specialists from Corammers — SEO, paid media and growth strategy that deliver measurable results.')
 
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/pages/staff-marketing.css') }}">
+<link rel="stylesheet" href="{{ asset_v('css/pages/staff-marketing.css') }}">
 @endpush
 
 @section('content')
@@ -21,7 +21,7 @@
                 <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:14px">
                     <div style="display:flex;flex-direction:column;align-items:center">
                         <div style="display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:14px;flex-shrink:0;border:1.5px solid rgba(216,29,31,0.4);background:rgba(216,29,31,0.1);animation:float-robot 3s ease-in-out infinite;box-shadow:0 8px 20px rgba(216,29,31,0.15)">
-                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block">
+                            <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block">
                         </div>
                         <div style="width:54px;height:4px;background:linear-gradient(90deg, #D81D1F, transparent);border-radius:2px;margin-top:8px"></div>
                     </div>
@@ -107,8 +107,8 @@
                 <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:14px">
                     <div style="display:flex;flex-direction:column;align-items:center">
                         <div class="pw-robot-badge" style="display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:14px;flex-shrink:0;border:1.5px solid rgba(var(--primary-rgb),0.4);background:rgba(var(--primary-rgb),0.1);animation:float-robot 3s ease-in-out infinite;box-shadow:0 8px 20px rgba(var(--primary-rgb),0.15)">
-                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="pw-robot-light" style="width:32px;height:32px;object-fit:contain">
-                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="pw-robot-dark" style="width:32px;height:32px;object-fit:contain">
+                            <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="pw-robot-light" style="width:32px;height:32px;object-fit:contain">
+                            <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="pw-robot-dark" style="width:32px;height:32px;object-fit:contain">
                         </div>
                         <div class="pw-robot-line" style="width:54px;height:4px;border-radius:2px;margin-top:8px"></div>
                     </div>
@@ -194,8 +194,8 @@
                 <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:14px">
                     <div style="display:flex;flex-direction:column;align-items:center">
                         <div class="pw-robot-badge" style="display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:14px;flex-shrink:0;border:1.5px solid rgba(var(--primary-rgb),0.4);background:rgba(var(--primary-rgb),0.1);animation:float-robot 3s ease-in-out infinite;box-shadow:0 8px 20px rgba(var(--primary-rgb),0.15)">
-                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="pw-robot-light" style="width:32px;height:32px;object-fit:contain">
-                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="pw-robot-dark" style="width:32px;height:32px;object-fit:contain">
+                            <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="pw-robot-light" style="width:32px;height:32px;object-fit:contain">
+                            <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="pw-robot-dark" style="width:32px;height:32px;object-fit:contain">
                         </div>
                         <div class="pw-robot-line" style="width:54px;height:4px;border-radius:2px;margin-top:8px"></div>
                     </div>
@@ -276,8 +276,8 @@
                 <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:14px">
                     <div style="display:flex;flex-direction:column;align-items:center">
                         <div class="pw-robot-badge" style="display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:14px;flex-shrink:0;border:1.5px solid rgba(var(--primary-rgb),0.4);background:rgba(var(--primary-rgb),0.1);animation:float-robot 3s ease-in-out infinite;box-shadow:0 8px 20px rgba(var(--primary-rgb),0.15)">
-                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="pw-robot-light" style="width:32px;height:32px;object-fit:contain">
-                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="pw-robot-dark" style="width:32px;height:32px;object-fit:contain">
+                            <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="pw-robot-light" style="width:32px;height:32px;object-fit:contain">
+                            <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="pw-robot-dark" style="width:32px;height:32px;object-fit:contain">
                         </div>
                         <div class="pw-robot-line" style="width:54px;height:4px;border-radius:2px;margin-top:8px"></div>
                     </div>

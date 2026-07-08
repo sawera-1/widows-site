@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
-@section('title', 'Corammers')
-@section('meta_description', 'We craft visual experiences that drive real results — UI/UX design, graphic design, video editing, and creative direction.')
+@section('title', 'UI/UX Design Services — Corammers')
+@section('meta_description', 'UI/UX and product design services by Corammers — research, prototyping and pixel-perfect interfaces users love.')
 
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/pages/services-design.css') }}">
+<link rel="stylesheet" href="{{ asset_v('css/pages/services-design.css') }}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 @endpush
 
 @section('content')
 @php
-    $robot = '<img loading="lazy" decoding="async" class="robo-light" src="/assets/robo.png" alt="Robot" width="32" height="32" style="object-fit:contain"><img loading="lazy" decoding="async" class="robo-dark" src="/assets/robo.png" alt="Robot" width="32" height="32" style="object-fit:contain">';
+    $robot = '<img loading="lazy" decoding="async" class="robo-light" src="/assets/robo.webp" alt="Robot" width="32" height="32" style="object-fit:contain"><img loading="lazy" decoding="async" class="robo-dark" src="/assets/robo.webp" alt="Robot" width="32" height="32" style="object-fit:contain">';
 
     $techCol1 = [
         ['name' => 'UI/UX Design', 'abbr' => 'UIUX', 'color' => '#a259ff', 'bg' => 'rgba(162,89,255,0.13)'],

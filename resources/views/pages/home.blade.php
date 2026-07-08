@@ -1,10 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Corammers')
-@section('meta_description', 'We help businesses grow with high-performance mobile apps, modern websites, smart SEO strategies, and scalable email solutions.')
+@section('title', 'Corammers — Web, Mobile, AI & Digital Marketing Agency')
+@section('meta_description', 'Corammers builds high-performance websites, mobile apps, AI solutions and growth marketing. Engineering with vision — human + AI.')
 
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/pages/home.css') }}">
+{{-- The centre hero card is the LCP element — fetch it at top priority --}}
+<link rel="preload" as="image" href="/assets/hero/hero3.webp" fetchpriority="high">
+<link rel="stylesheet" href="{{ asset_v('css/pages/home.css') }}">
 @endpush
 
 @section('content')
@@ -29,7 +31,7 @@
     ];
 
     // Robot badge helper markup (light + dark image swap)
-    $robot = '<img loading="lazy" decoding="async" class="robot-light" src="/assets/robo.png" alt="Robot"><img loading="lazy" decoding="async" class="robot-dark" src="/assets/robo.png" alt="Robot">';
+    $robot = '<img loading="lazy" decoding="async" class="robot-light" src="/assets/robo.webp" alt="Robot"><img loading="lazy" decoding="async" class="robot-dark" src="/assets/robo.webp" alt="Robot">';
 @endphp
 
 <div class="pw-home page-main">
@@ -47,15 +49,17 @@
             <span class="hero-line3">
                 <span class="hero-is">is</span>
                 <span class="video-icon">
-                    <video autoplay loop muted playsinline>
-                        <source src="{{ $VIDEO_HUMAN }}" type="video/mp4">
+                    {{-- 5.4MB mp4: deferred via data-src so it never blocks first paint --}}
+                    <video autoplay loop muted playsinline preload="none" data-lazy-video>
+                        <source data-src="{{ $VIDEO_HUMAN }}" type="video/mp4">
                     </video>
                 </span>
                 <span>human</span>
                 <span class="hero-plus">+</span>
                 <span class="video-icon">
-                    <video autoplay loop muted playsinline>
-                        <source src="{{ $VIDEO_AI }}" type="video/mp4">
+                    {{-- 3.7MB mp4: deferred via data-src so it never blocks first paint --}}
+                    <video autoplay loop muted playsinline preload="none" data-lazy-video>
+                        <source data-src="{{ $VIDEO_AI }}" type="video/mp4">
                     </video>
                 </span>
                 <span>AI</span>
@@ -68,7 +72,7 @@
                 <div class="hero-card-wrapper hero-card-{{ $i }}"
                      style="--drag-x:{{ $cardPos[$i]['dragX'] }};--card-rotate:{{ $cardPos[$i]['rotate'] }}deg;--card-scale:{{ $cardPos[$i]['scale'] }};--card-rotate-y:{{ $cardPos[$i]['rotateY'] }}deg;--card-delay:{{ 0.12 + $i * 0.14 }}s;left:{{ $cardPos[$i]['left'] }}px;top:{{ $cardPos[$i]['top'] }}px;z-index:1;">
                     <div class="hero-card-el">
-                        <img src="{{ $img['src'] }}" alt="{{ $img['alt'] }}" draggable="false" loading="{{ $i < 3 ? 'eager' : 'lazy' }}">
+                        <img src="{{ $img['src'] }}" alt="{{ $img['alt'] }}" draggable="false" loading="{{ $i < 3 ? 'eager' : 'lazy' }}" decoding="async" @if ($i === 2) fetchpriority="high" @endif>
                     </div>
                 </div>
             @endforeach
@@ -169,7 +173,7 @@
                         <div class="svc-panel" style="--i:{{ $i }};">
                             <div class="svc-panel-bg" style="background:{{ $svc['bg'] }};"></div>
                             <div class="svc-panel-glow" style="background:radial-gradient(ellipse at 72% 50%,{{ $svc['glow'] }} 0%,transparent 62%);"></div>
-                            <div class="svc-panel-img-wrap"><img loading="lazy" decoding="async" src="/assets/service/{{ $i + 1 }}.png" alt="{{ $svc['title'] }}"></div>
+                            <div class="svc-panel-img-wrap"><img loading="lazy" decoding="async" src="/assets/service/{{ $i + 1 }}.webp" alt="{{ $svc['title'] }}"></div>
                             <div class="svc-panel-overlay"></div>
                             <div class="svc-panel-dot"><i></i></div>
                             <div class="svc-panel-content">

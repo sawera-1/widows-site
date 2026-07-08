@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Corammers')
-@section('meta_description', 'Ideas, insights and inspiration from the Corammers journal.')
+@section('title', 'Blog & Insights — Corammers')
+@section('meta_description', 'Insights on web development, design systems, AI and digital growth from the Corammers engineering team.')
 
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/pages/blog.css') }}">
+<link rel="stylesheet" href="{{ asset_v('css/pages/blog.css') }}">
 @endpush
 
 @section('content')
@@ -44,8 +44,8 @@
         <div class="sec-eyebrow-row">
             <div class="sec-robot-col">
                 <div class="sec-robot-badge">
-                    <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="pw-robot-light">
-                    <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="pw-robot-dark">
+                    <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="pw-robot-light">
+                    <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="pw-robot-dark">
                 </div>
                 <div class="sec-robot-divider"></div>
             </div>

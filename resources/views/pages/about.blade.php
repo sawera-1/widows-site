@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
-@section('title', 'Corammers')
-@section('meta_description', 'A multidisciplinary tech studio crafting AI-powered apps, immersive VR experiences, and enterprise web platforms that scale without limits.')
+@section('title', 'About Us — Corammers')
+@section('meta_description', 'Meet Corammers: an engineering-led digital agency where human creativity meets AI. Our team, mission and the way we build.')
 
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/pages/about.css') }}">
+<link rel="stylesheet" href="{{ asset_v('css/pages/about.css') }}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 @endpush
 
 @section('content')
 @php
-    $robo = '<img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="pw-robo-dark" style="width:32px;height:32px;object-fit:contain;display:block"><img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="pw-robo-light" style="width:32px;height:32px;object-fit:contain;display:block">';
+    $robo = '<img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="pw-robo-dark" style="width:32px;height:32px;object-fit:contain;display:block"><img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="pw-robo-light" style="width:32px;height:32px;object-fit:contain;display:block">';
 
     $experienceItems = [
         ['num' => '01', 'title' => 'Web Development Experience', 'sub' => 'Frontend & Backend Mastery', 'desc' => 'From pixel-perfect interfaces to robust server-side architectures, we craft end-to-end web solutions using React, Next.js, Laravel, and Node.js engineered for performance, scalability, and lasting impact.', 'tags' => ['React', 'Next.js', 'Laravel', 'Node.js']],

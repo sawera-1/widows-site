@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Corammers')
-@section('meta_description', 'Explore our curated selection of high-performance web platforms, mobile applications, AI solutions, custom apps, and creative UI/UX design work.')
+@section('title', 'Portfolio — Our Work — Corammers')
+@section('meta_description', 'Selected work by Corammers — websites, mobile apps, AI products and brand experiences delivered for real clients.')
 
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/pages/portfolio.css') }}">
+<link rel="stylesheet" href="{{ asset_v('css/pages/portfolio.css') }}">
 @endpush
 
 @php
@@ -177,8 +177,8 @@
                 <div style="margin-bottom:48px">
                     <div class="pf-label-row">
                         <div class="pf-robot-badge">
-                            <img loading="lazy" decoding="async" class="robo-dark" src="/assets/robo.png" alt="Robot" style="width:32px;height:32px;object-fit:contain">
-                            <img loading="lazy" decoding="async" class="robo-light" src="/assets/robo.png" alt="Robot" style="width:32px;height:32px;object-fit:contain">
+                            <img loading="lazy" decoding="async" class="robo-dark" src="/assets/robo.webp" alt="Robot" style="width:32px;height:32px;object-fit:contain">
+                            <img loading="lazy" decoding="async" class="robo-light" src="/assets/robo.webp" alt="Robot" style="width:32px;height:32px;object-fit:contain">
                         </div>
                         <div class="pf-label-group">
                             <div class="pf-label-pill">

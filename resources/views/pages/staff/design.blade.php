@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Corammers')
-@section('meta_description', 'Hire dedicated UI/UX designers, graphic designers and video editors. High-quality visuals and experiences that elevate your brand and drive conversions.')
+@section('title', 'Hire UI/UX Designers — Corammers')
+@section('meta_description', 'Hire UI/UX designers from Corammers — product design, prototyping and design systems that ship.')
 
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/pages/staff-design.css') }}">
+<link rel="stylesheet" href="{{ asset_v('css/pages/staff-design.css') }}">
 @endpush
 
 @section('content')
@@ -21,7 +21,7 @@
                  <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:14px">
                     <div style="display:flex;flex-direction:column;align-items:center">
                         <div style="display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:14px;flex-shrink:0;border:1.5px solid rgba(216,29,31,0.4);background:rgba(216,29,31,0.1);animation:float-robot 3s ease-in-out infinite;box-shadow:0 8px 20px rgba(216,29,31,0.15)">
-                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block">
+                            <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block">
                         </div>
                         <div style="width:54px;height:4px;background:linear-gradient(90deg, #D81D1F, transparent);border-radius:2px;margin-top:8px"></div>
                     </div>
@@ -83,7 +83,7 @@
         <div class="sd-services-inner">
             <div class="sd-reveal" style="margin-bottom:40px">
                 <div class="section-label-row">
-                    <div class="section-robot-badge"><img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block"></div>
+                    <div class="section-robot-badge"><img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block"></div>
                     <div class="section-label-pill">
                         <span class="section-label-dot"></span>
                         <span class="section-label">Dedicated Talent</span>
@@ -165,7 +165,7 @@
         <div class="sd-pricing-inner">
             <div class="sd-reveal" style="margin-bottom:40px">
                 <div class="section-label-row">
-                    <div class="section-robot-badge"><img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block"></div>
+                    <div class="section-robot-badge"><img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block"></div>
                     <div class="section-label-pill">
                         <span class="section-label-dot"></span>
                         <span class="section-label">Transparent Rates</span>
@@ -242,7 +242,7 @@
         <div class="sd-team-inner">
             <div style="margin-bottom:40px">
                 <div class="section-label-row">
-                    <div class="section-robot-badge"><img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block"></div>
+                    <div class="section-robot-badge"><img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block"></div>
                     <div class="section-label-pill">
                         <span class="section-label-dot"></span>
                         <span class="section-label">Our Experts</span>

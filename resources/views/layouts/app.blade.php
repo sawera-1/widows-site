@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'CORAMMERS — Modern Digital Solutions')</title>
-    <meta name="description" content="@yield('meta_description', 'We provide mobile, web, SEO, and email solutions to grow your business.')">
-    <link rel="icon" href="/assets/logo/fav.webp" type="image/webp">
+
+    {{-- ── Core SEO ─────────────────────────────────────────────────────── --}}
+    <title>@yield('title', 'Corammers — Web, Mobile, AI & Digital Marketing Agency')</title>
+    <meta name="description" content="@yield('meta_description', 'Corammers builds high-performance websites, mobile apps, AI solutions and growth marketing. Engineering with vision — human + AI.')">
+    <link rel="canonical" href="{{ url()->current() }}">
+    <meta name="robots" content="@yield('robots', 'index, follow, max-image-preview:large')">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b0b0d">
 
     {{-- Set theme BEFORE first paint so there is no light/dark flash --}}
     <script>
@@ -22,12 +27,90 @@
         })();
     </script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    {{-- ── Fonts: self-hosted woff2 (no third-party requests) ──────────── --}}
+    <link rel="preload" href="/fonts/montserrat-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/poppins-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="{{ asset_v('css/fonts.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset_v('css/app.css') }}">
     @stack('styles')
+
+    {{-- ── Icons ────────────────────────────────────────────────────────── --}}
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" href="/assets/logo/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    {{-- ── Social cards (Open Graph + Twitter) ─────────────────────────── --}}
+    <meta property="og:site_name" content="Corammers">
+    <meta property="og:type" content="@yield('og_type', 'website')">
+    <meta property="og:title" content="@yield('title', 'Corammers — Web, Mobile, AI & Digital Marketing Agency')">
+    <meta property="og:description" content="@yield('meta_description', 'Corammers builds high-performance websites, mobile apps, AI solutions and growth marketing. Engineering with vision — human + AI.')">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:image" content="@yield('og_image', asset('assets/logo/og-image.png'))">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@yield('title', 'Corammers — Web, Mobile, AI & Digital Marketing Agency')">
+    <meta name="twitter:description" content="@yield('meta_description', 'Corammers builds high-performance websites, mobile apps, AI solutions and growth marketing. Engineering with vision — human + AI.')">
+    <meta name="twitter:image" content="@yield('og_image', asset('assets/logo/og-image.png'))">
+
+    {{-- ── Structured data: Organization + WebSite (+ auto breadcrumbs) ── --}}
+    @php
+        $ldOrg = [
+            '@context' => 'https://schema.org',
+            '@type' => 'Organization',
+            'name' => 'Corammers',
+            'url' => url('/'),
+            'logo' => asset('assets/logo/logo.png'),
+            'email' => 'info@corammers.com',
+            'contactPoint' => [[
+                '@type' => 'ContactPoint',
+                'email' => 'info@corammers.com',
+                'contactType' => 'customer support',
+            ]],
+        ];
+        $ldSite = [
+            '@context' => 'https://schema.org',
+            '@type' => 'WebSite',
+            'name' => 'Corammers',
+            'url' => url('/'),
+            'potentialAction' => [
+                '@type' => 'SearchAction',
+                'target' => ['@type' => 'EntryPoint', 'urlTemplate' => url('/search').'?q={search_term_string}'],
+                'query-input' => 'required name=search_term_string',
+            ],
+        ];
+    @endphp
+    <script type="application/ld+json">{!! json_encode($ldOrg, JSON_UNESCAPED_SLASHES) !!}</script>
+    <script type="application/ld+json">{!! json_encode($ldSite, JSON_UNESCAPED_SLASHES) !!}</script>
+    @if (count(request()->segments()) > 0)
+        @php
+            $bcLabels = [
+                'about' => 'About', 'contact' => 'Contact', 'industry' => 'Industries',
+                'blog' => 'Blog', 'detail' => 'Article', 'search' => 'Search',
+                'staff' => 'Staff Augmentation', 'developer' => 'Hire Developers',
+                'media' => 'Hire Social Media Experts', 'design' => 'Design',
+                'marketing' => 'Marketing', 'services' => 'Services',
+                'development' => 'Development', 'ai' => 'AI Solutions',
+                'portfolio' => 'Portfolio',
+            ];
+            $bcItems = [['@type' => 'ListItem', 'position' => 1, 'name' => 'Home', 'item' => url('/')]];
+            $bcPath = '';
+            foreach (request()->segments() as $i => $seg) {
+                $bcPath .= '/'.$seg;
+                $bcItems[] = [
+                    '@type' => 'ListItem',
+                    'position' => $i + 2,
+                    'name' => $bcLabels[$seg] ?? \Illuminate\Support\Str::title(str_replace('-', ' ', $seg)),
+                    'item' => url($bcPath),
+                ];
+            }
+            $ldCrumbs = ['@context' => 'https://schema.org', '@type' => 'BreadcrumbList', 'itemListElement' => $bcItems];
+        @endphp
+        <script type="application/ld+json">{!! json_encode($ldCrumbs, JSON_UNESCAPED_SLASHES) !!}</script>
+    @endif
+    @stack('schema')
 </head>
 <body>
     @include('partials.loader')
@@ -43,7 +126,7 @@
     @include('partials.footer')
     @include('partials.scroll-top')
 
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset_v('js/app.js') }}" defer></script>
     @stack('scripts')
 </body>
 </html>

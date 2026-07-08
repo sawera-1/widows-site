@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
-@section('title', 'Corammers')
-@section('meta_description', 'From data-driven social strategies to precision SEO  we craft scalable, high-performance marketing machines that drive real ROI.')
+@section('title', 'Digital Marketing Services — Corammers')
+@section('meta_description', 'Digital marketing services by Corammers — SEO, content and paid campaigns engineered for measurable growth.')
 
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/pages/services-marketing.css') }}">
+<link rel="stylesheet" href="{{ asset_v('css/pages/services-marketing.css') }}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 @endpush
 
 @section('content')
 @php
-    $robot = '<img loading="lazy" decoding="async" class="robo-light" src="/assets/robo.png" alt="Robot" width="32" height="32" style="object-fit:contain;display:block"><img loading="lazy" decoding="async" class="robo-dark" src="/assets/robo.png" alt="Robot" width="32" height="32" style="object-fit:contain;display:block">';
+    $robot = '<img loading="lazy" decoding="async" class="robo-light" src="/assets/robo.webp" alt="Robot" width="32" height="32" style="object-fit:contain;display:block"><img loading="lazy" decoding="async" class="robo-dark" src="/assets/robo.webp" alt="Robot" width="32" height="32" style="object-fit:contain;display:block">';
 
     $arrowIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>';
 

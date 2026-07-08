@@ -1,10 +1,28 @@
 @extends('layouts.app')
 
-@section('title', 'Corammers')
+@section('title', 'Building a Scalable Design System for Modern SaaS Products — Corammers Blog')
 @section('meta_description', 'A well-crafted design system removes ambiguity, accelerates delivery, and ensures every pixel speaks the same language — from prototype to production.')
+@section('og_type', 'article')
+
+@push('schema')
+<script type="application/ld+json">{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'BlogPosting',
+    'headline' => 'Building a Scalable Design System for Modern SaaS Products',
+    'description' => 'A well-crafted design system removes ambiguity, accelerates delivery, and ensures every pixel speaks the same language — from prototype to production.',
+    'image' => asset('assets/logo/og-image.png'),
+    'author' => ['@type' => 'Organization', 'name' => 'Corammers'],
+    'publisher' => [
+        '@type' => 'Organization',
+        'name' => 'Corammers',
+        'logo' => ['@type' => 'ImageObject', 'url' => asset('assets/logo/logo.png')],
+    ],
+    'mainEntityOfPage' => url()->current(),
+], JSON_UNESCAPED_SLASHES) !!}</script>
+@endpush
 
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/pages/blog-detail.css') }}">
+<link rel="stylesheet" href="{{ asset_v('css/pages/blog-detail.css') }}">
 @endpush
 
 @section('content')
@@ -102,8 +120,8 @@
                 <div class="blog-badge-row">
                     <div class="badge-stack">
                         <div class="blog-robot-badge">
-                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-img robot-img-light">
-                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-img robot-img-dark">
+                            <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-img robot-img-light">
+                            <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-img robot-img-dark">
                         </div>
                         <div class="badge-underline"></div>
                     </div>
@@ -257,8 +275,8 @@ Most importantly: measure usage. If a component exists but nobody uses it, find 
                 <div class="blog-badge-row">
                     <div class="badge-stack">
                         <div class="blog-robot-badge">
-                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-img robot-img-light">
-                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-img robot-img-dark">
+                            <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-img robot-img-light">
+                            <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-img robot-img-dark">
                         </div>
                         <div class="badge-underline"></div>
                     </div>

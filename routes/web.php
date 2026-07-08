@@ -35,3 +35,33 @@ Route::view('/portfolio/design', 'pages.portfolio.design')->name('portfolio.desi
 
 // Search (reads ?q= and echoes it into the results view)
 Route::get('/search', \App\Http\Controllers\SearchController::class)->name('search');
+
+// ─────────────────────────────────────────────────────────────────────────────
+// SEO: sitemap + robots. Dynamic (not static files) so the domain is derived
+// from the request — nothing to edit when the site moves to its real domain.
+// ─────────────────────────────────────────────────────────────────────────────
+Route::get('/sitemap.xml', function () {
+    $pages = [
+        '', 'about', 'contact', 'industry', 'blog', 'blog/detail',
+        'staff', 'staff/developer', 'staff/media', 'staff/design', 'staff/marketing',
+        'services', 'services/development', 'services/design', 'services/marketing', 'services/ai',
+        'portfolio', 'portfolio/development', 'portfolio/design',
+    ];
+    $lastmod = date('Y-m-d', filemtime(base_path('routes/web.php')));
+    $xml = '<?xml version="1.0" encoding="UTF-8"?>'."\n"
+         .'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'."\n";
+    foreach ($pages as $page) {
+        $xml .= '  <url><loc>'.url($page).'</loc><lastmod>'.$lastmod.'</lastmod></url>'."\n";
+    }
+    $xml .= '</urlset>'."\n";
+
+    return response($xml, 200, ['Content-Type' => 'application/xml'])
+        ->header('Cache-Control', 'public, max-age=3600');
+})->name('sitemap');
+
+Route::get('/robots.txt', function () {
+    $txt = "User-agent: *\nAllow: /\nDisallow: /search\n\nSitemap: ".url('/sitemap.xml')."\n";
+
+    return response($txt, 200, ['Content-Type' => 'text/plain'])
+        ->header('Cache-Control', 'public, max-age=3600');
+});
