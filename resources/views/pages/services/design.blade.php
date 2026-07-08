@@ -1,15 +1,16 @@
 @extends('layouts.app')
 
-@section('title', 'Design Services — CodeOaks')
+@section('title', 'Corammers')
 @section('meta_description', 'We craft visual experiences that drive real results — UI/UX design, graphic design, video editing, and creative direction.')
 
 @push('styles')
 <link rel="stylesheet" href="{{ asset('css/pages/services-design.css') }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 @endpush
 
 @section('content')
 @php
-    $robot = '<img loading="lazy" decoding="async" class="robo-light" src="/assets/robolight.webp" alt="Robot" width="32" height="32" style="object-fit:contain"><img loading="lazy" decoding="async" class="robo-dark" src="/assets/robo.webp" alt="Robot" width="32" height="32" style="object-fit:contain">';
+    $robot = '<img loading="lazy" decoding="async" class="robo-light" src="/assets/robo.png" alt="Robot" width="32" height="32" style="object-fit:contain"><img loading="lazy" decoding="async" class="robo-dark" src="/assets/robo.png" alt="Robot" width="32" height="32" style="object-fit:contain">';
 
     $techCol1 = [
         ['name' => 'UI/UX Design', 'abbr' => 'UIUX', 'color' => '#a259ff', 'bg' => 'rgba(162,89,255,0.13)'],
@@ -30,7 +31,7 @@
     $techCol3 = [
         ['name' => 'Video Editing', 'abbr' => 'VID', 'color' => '#9999ff', 'bg' => 'rgba(153,153,255,0.13)'],
         ['name' => 'Motion Design', 'abbr' => 'MOTION', 'color' => '#d291ff', 'bg' => 'rgba(210,145,255,0.13)'],
-        ['name' => 'Short-form Content', 'abbr' => 'SHORT', 'color' => '#ff6b6b', 'bg' => 'rgba(255,107,107,0.13)'],
+       ['name' => 'Creative Tools', 'abbr' => 'TOOLS', 'color' => '#00c4cc', 'bg' => 'rgba(0,196,204,0.13)'],
         ['name' => 'Creative Editing', 'abbr' => 'EDIT', 'color' => '#00c9a7', 'bg' => 'rgba(0,201,167,0.13)'],
         ['name' => 'Visual Effects', 'abbr' => 'VFX', 'color' => '#f7df1e', 'bg' => 'rgba(247,223,30,0.13)'],
         ['name' => 'Content Production', 'abbr' => 'PROD', 'color' => '#ff4ecd', 'bg' => 'rgba(255,78,205,0.13)'],
@@ -105,6 +106,34 @@
         ['src' => '/assets/project/uiux/7.webp', 'title' => 'Logo', 'desc' => 'FlexFlox', 'cls' => '', 'h' => 210],
     ];
     $arrowIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>';
+
+    /* ─── Shared Devicon class map ─── */
+    $devicons = [
+        'UI/UX Design' => 'devicon-figma-plain',
+        'Wireframing' => 'devicon-framermotion-original',
+        'Prototyping' => 'devicon-xd-plain',
+        'Design Systems' => 'devicon-storybook-plain',
+        'UX Research' => 'devicon-google-plain',
+        'Interaction Design' => 'devicon-framermotion-original',
+        'Brand Identity' => 'devicon-illustrator-plain',
+        'Logo Design' => 'devicon-illustrator-plain',
+        'Visual Systems' => 'devicon-photoshop-plain',
+        'Creative Direction' => 'devicon-behance-plain',
+        'Image Editing' => 'devicon-photoshop-plain',
+        'Content Design' => 'devicon-canva-original',
+        'Video Editing' => 'devicon-premierepro-plain',
+        'Motion Design' => 'devicon-aftereffects-plain',
+        'Short-form Content' => 'devicon-capcut-plain',
+        'Creative Editing' => 'devicon-premierepro-plain',
+        'Visual Effects' => 'devicon-aftereffects-plain',
+        'Content Production' => '<svg width="1.4rem" height="1.4rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>',
+        'Figma' => 'devicon-figma-plain',
+        'Design Thinking' => 'devicon-xd-plain',
+        'Creative Tools' => 'devicon-photoshop-plain',
+        'UI Systems' => 'devicon-storybook-plain',
+        'Prototyping Flow' => 'devicon-framermotion-original',
+        'Visual Strategy' => 'devicon-behance-plain',
+    ];
 @endphp
 
 <div class="pw-services-design">
@@ -120,7 +149,14 @@
                         <div class="dev-v-ticker-track dev-v-ticker-track-up" style="--spd:22s">
                             @foreach(array_merge($techCol1, $techCol1) as $t)
                                 <div class="dev-tech-card">
-                                    <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">{!! $icoVisual !!}</div>
+                                    <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">
+                                        @php $icon = $devicons[$t['name']] ?? 'devicon-figma-plain'; @endphp
+                                        @if(str_starts_with($icon, '<svg'))
+                                            {!! $icon !!}
+                                        @else
+                                            <i class="{{ $icon }}"></i>
+                                        @endif
+                                    </div>
                                     <div class="dev-tech-card-info">
                                         <span class="dev-tech-card-name">{{ $t['name'] }}</span>
                                         <span class="dev-tech-card-abbr">{{ $t['abbr'] }}</span>
@@ -133,7 +169,14 @@
                         <div class="dev-v-ticker-track dev-v-ticker-track-down" style="--spd:26s">
                             @foreach(array_merge($techCol2, $techCol2) as $t)
                                 <div class="dev-tech-card">
-                                    <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">{!! $icoVisual !!}</div>
+                                    <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">
+                                        @php $icon = $devicons[$t['name']] ?? 'devicon-figma-plain'; @endphp
+                                        @if(str_starts_with($icon, '<svg'))
+                                            {!! $icon !!}
+                                        @else
+                                            <i class="{{ $icon }}"></i>
+                                        @endif
+                                    </div>
                                     <div class="dev-tech-card-info">
                                         <span class="dev-tech-card-name">{{ $t['name'] }}</span>
                                         <span class="dev-tech-card-abbr">{{ $t['abbr'] }}</span>
@@ -182,7 +225,14 @@
                         <div class="dev-v-ticker-track dev-v-ticker-track-down" style="--spd:28s">
                             @foreach(array_merge($techCol3, $techCol3) as $t)
                                 <div class="dev-tech-card">
-                                    <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">{!! $icoVideo !!}</div>
+                                    <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">
+                                        @php $icon = $devicons[$t['name']] ?? 'devicon-figma-plain'; @endphp
+                                        @if(str_starts_with($icon, '<svg'))
+                                            {!! $icon !!}
+                                        @else
+                                            <i class="{{ $icon }}"></i>
+                                        @endif
+                                    </div>
                                     <div class="dev-tech-card-info">
                                         <span class="dev-tech-card-name">{{ $t['name'] }}</span>
                                         <span class="dev-tech-card-abbr">{{ $t['abbr'] }}</span>
@@ -195,7 +245,14 @@
                         <div class="dev-v-ticker-track dev-v-ticker-track-up" style="--spd:34s">
                             @foreach(array_merge($techCol4, $techCol4) as $t)
                                 <div class="dev-tech-card">
-                                    <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">{!! $icoUiux !!}</div>
+                                    <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">
+                                        @php $icon = $devicons[$t['name']] ?? 'devicon-figma-plain'; @endphp
+                                        @if(str_starts_with($icon, '<svg'))
+                                            {!! $icon !!}
+                                        @else
+                                            <i class="{{ $icon }}"></i>
+                                        @endif
+                                    </div>
                                     <div class="dev-tech-card-info">
                                         <span class="dev-tech-card-name">{{ $t['name'] }}</span>
                                         <span class="dev-tech-card-abbr">{{ $t['abbr'] }}</span>
@@ -248,7 +305,7 @@
                                 {!! $arrowIcon !!}
                             </a>
                             <div class="wd-intro-stat">
-                                <strong>150+</strong>
+                                <strong>200+</strong>
                                 <span>Projects Delivered</span>
                             </div>
                         </div>
@@ -545,29 +602,74 @@
         </section>
 
         {{-- BOOK CONSULTATION --}}
-        <section class="bc-section">
-            <div class="bc-inner">
-                <div class="bc-heading-block">
-                    <div class="bc-eyebrow-pill">
-                        <span class="bc-eyebrow-dot"></span>
-                        Free Consultation
-                    </div>
-                    <div class="bc-title-row">
-                        <div class="bc-robo-wrap">
-                            <div class="bc-robo-bg"></div>
-                            <div class="bc-robo-ring"></div>
-                            {!! $robot !!}
+       <section class="wd-section bc-section">
+        <div class="wd-inner">
+            <div class="dev-intro-two-col bc-two-col reveal">
+
+                {{-- LEFT SIDE: Content --}}
+                <div>
+                    <div style="display:flex;flex-direction:column;align-items:flex-start;margin-bottom:24px">
+                        <div class="wd-label-row" style="align-items:flex-start">
+                            <div style="display:flex;flex-direction:column;align-items:center">
+                                <div class="wd-robot-badge">{!! $robot !!}</div>
+                                <div class="wd-section-divider" style="margin:12px 0 0;width:48px"></div>
+                            </div>
+                            <div class="wd-label-pill" style="margin-top:6px">
+                                <span class="wd-label-dot"></span>
+                                <span class="wd-label-text">Consultation</span>
+                            </div>
                         </div>
-                        <h2 class="bc-heading-title">Book a <em>Free</em> Consultation</h2>
+                        <h2 class="wd-intro-heading" style="margin:24px 0 0">Book a <span style="color:var(--accent-theme,#D81D1F)">Consultation</span></h2>
                     </div>
-                    <p class="bc-heading-sub">Schedule a free 30-minute session with our team — no commitment, just clarity on your project.</p>
+
+                    <p class="wd-intro-text">
+                        Schedule a free strategy consultation with our experts to discuss your business goals, project requirements, staffing needs, AI solutions, development initiatives, and growth opportunities. We'll help identify the most effective path forward for your organization.
+                    </p>
+
+                    {{-- Trust Metrics --}}
+                    <div class="bc-stats-row">
+                        @foreach([
+                            ['value' => '200+', 'label' => 'Projects Delivered'],
+                            ['value' => '98%', 'label' => 'Client Satisfaction'],
+                            ['value' => '24h', 'label' => 'Avg Response Time'],
+                            ['value' => '50+', 'label' => 'Expert Specialists'],
+                        ] as $stat)
+                            <div class="wd-intro-stat">
+                                <strong>{{ $stat['value'] }}</strong>
+                                <span>{{ $stat['label'] }}</span>
+                            </div>
+                        @endforeach
+                    </div>
+
+                    <p class="wd-intro-text">
+                        Whether you're looking to scale your team, launch a new product, implement AI solutions, or improve operational efficiency — our specialists will help you identify the best strategy and next steps.
+                    </p>
+
+                    <ul class="dev-staff-perks" style="margin-top:4px;margin-bottom:0">
+                        @foreach([
+                            'Free initial consultation',
+                            'Discuss project requirements',
+                            'Expert technical guidance',
+                            'Personalized solution recommendations',
+                            'Clear project roadmap',
+                            'Fast response and support'
+                        ] as $benefit)
+                            <li class="dev-staff-perk">
+                                <span class="dev-staff-perk-dot"></span>
+                                {{ $benefit }}
+                            </li>
+                        @endforeach
+                    </ul>
                 </div>
 
-                <div class="bc-calendly-wrap">
-                    <div class="calendly-inline-widget" data-url="https://calendly.com/mshayantariq/schedule-a-meeting?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:280px;height:950px;width:100%"></div>
+                {{-- RIGHT SIDE: Booking Widget --}}
+                <div class="dev-staff-card bc-widget-col" style="padding:10px;cursor:default">
+                    <div class="calendly-inline-widget" data-url="https://calendly.com/mshayantariq/schedule-a-meeting?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:280px;height:700px;width:100%"></div>
                 </div>
+
             </div>
-        </section>
+        </div>
+    </section>
 
     </main>
 </div>
@@ -653,4 +755,5 @@
     }
 })();
 </script>
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 @endpush

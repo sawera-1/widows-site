@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
-@section('title', 'Development Services — CodeOaks')
+@section('title', 'Corammers')
 @section('meta_description', 'We engineer high-performance websites and applications optimized for speed, scalability, and seamless user experience using modern technologies.')
 
 @push('styles')
 <link rel="stylesheet" href="{{ asset('css/pages/services-development.css') }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 @endpush
 
 @section('content')
@@ -45,6 +46,34 @@
 
     /* generic tech glyph used in ticker icon wraps */
     $techGlyph = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>';
+
+    /* ─── Shared Devicon class map ─── */
+    $devicons = [
+        'HTML5' => 'devicon-html5-plain',
+        'React' => 'devicon-react-original',
+        'Node.js' => 'devicon-nodejs-plain',
+        'Express.js' => 'devicon-express-original',
+        'Python' => 'devicon-python-plain',
+        'Next.js' => 'devicon-nextjs-plain',
+        'TypeScript' => 'devicon-typescript-plain',
+        'CSS3' => 'devicon-css3-plain',
+        'CSS' => 'devicon-css3-plain',
+        'Vue.js' => 'devicon-vuejs-plain',
+        'Laravel' => 'devicon-laravel-plain',
+        'WordPress' => 'devicon-wordpress-plain',
+        'PHP' => 'devicon-php-plain',
+        'JavaScript' => 'devicon-javascript-plain',
+        'TailwindCSS' => 'devicon-tailwindcss-original',
+        'MongoDB' => 'devicon-mongodb-plain',
+        'MySQL' => 'devicon-mysql-plain',
+        'Firebase' => 'devicon-firebase-plain',
+        'Docker' => 'devicon-docker-plain',
+        'Git' => 'devicon-git-plain',
+        'GitHub' => 'devicon-github-original',
+        'Vercel' => 'devicon-vercel-original',
+        'GraphQL' => 'devicon-graphql-plain',
+        'Figma' => 'devicon-figma-plain',
+    ];
 
     $tickerItems = [
         ['label' => 'Custom Websites', 'icon' => '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="14" rx="2"></rect><path d="M8 21h8M12 17v4"></path></svg>'],
@@ -160,7 +189,7 @@
     $starIcon = '<svg width="18" height="18" viewBox="0 0 16 16" fill="#ffb33e" style="flex-shrink:0"><path d="M8 1.5L9.7 6H14.3L10.6 8.9L12 13.4L8 10.8L4 13.4L5.4 8.9L1.7 6H6.3L8 1.5Z" stroke="#ffb33e" stroke-width="1.2" stroke-linejoin="round"></path></svg>';
     $arrowIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>';
 
-    $robo = '<img loading="lazy" decoding="async" src="/assets/robolight.webp" alt="Robot" class="pw-robo-light" style="object-fit:contain;display:block"><img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="pw-robo-dark" style="object-fit:contain;display:block">';
+    $robo = '<img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="pw-robo-light" style="object-fit:contain;display:block"><img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="pw-robo-dark" style="object-fit:contain;display:block">';
 @endphp
 
 <div class="pw-services-development">
@@ -175,7 +204,9 @@
                     <div class="dev-v-ticker-track dev-v-ticker-track-up" style="--spd:22s">
                         @foreach(array_merge($techCol1, $techCol1) as $t)
                         <div class="dev-tech-card">
-                            <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">{!! $techGlyph !!}</div>
+                            <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">
+                                <i class="{{ $devicons[$t['name']] ?? 'devicon-code-plain' }}"></i>
+                            </div>
                             <div class="dev-tech-card-info">
                                 <span class="dev-tech-card-name">{{ $t['name'] }}</span>
                                 <span class="dev-tech-card-abbr">{{ $t['abbr'] }}</span>
@@ -188,7 +219,9 @@
                     <div class="dev-v-ticker-track dev-v-ticker-track-down" style="--spd:26s">
                         @foreach(array_merge($techCol2, $techCol2) as $t)
                         <div class="dev-tech-card">
-                            <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">{!! $techGlyph !!}</div>
+                            <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">
+                                <i class="{{ $devicons[$t['name']] ?? 'devicon-code-plain' }}"></i>
+                            </div>
                             <div class="dev-tech-card-info">
                                 <span class="dev-tech-card-name">{{ $t['name'] }}</span>
                                 <span class="dev-tech-card-abbr">{{ $t['abbr'] }}</span>
@@ -235,7 +268,9 @@
                     <div class="dev-v-ticker-track dev-v-ticker-track-down" style="--spd:28s">
                         @foreach(array_merge($techCol3, $techCol3) as $t)
                         <div class="dev-tech-card">
-                            <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">{!! $techGlyph !!}</div>
+                            <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">
+                                <i class="{{ $devicons[$t['name']] ?? 'devicon-code-plain' }}"></i>
+                            </div>
                             <div class="dev-tech-card-info">
                                 <span class="dev-tech-card-name">{{ $t['name'] }}</span>
                                 <span class="dev-tech-card-abbr">{{ $t['abbr'] }}</span>
@@ -248,7 +283,9 @@
                     <div class="dev-v-ticker-track dev-v-ticker-track-up" style="--spd:34s">
                         @foreach(array_merge($techCol4, $techCol4) as $t)
                         <div class="dev-tech-card">
-                            <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">{!! $techGlyph !!}</div>
+                            <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">
+                                <i class="{{ $devicons[$t['name']] ?? 'devicon-code-plain' }}"></i>
+                            </div>
                             <div class="dev-tech-card-info">
                                 <span class="dev-tech-card-name">{{ $t['name'] }}</span>
                                 <span class="dev-tech-card-abbr">{{ $t['abbr'] }}</span>
@@ -601,27 +638,72 @@
         </div>
     </section>
 
-    {{-- ═══ BOOK CONSULTATION SECTION (inlined) ═══ --}}
-    <section class="bc-section">
-        <div class="bc-inner">
-            <div class="bc-heading-block">
-                <div class="bc-eyebrow-pill">
-                    <span class="bc-eyebrow-dot"></span>
-                    Free Consultation
-                </div>
-                <div class="bc-title-row">
-                    <div class="bc-robo-wrap">
-                        <div class="bc-robo-bg"></div>
-                        <div class="bc-robo-ring"></div>
-                        <img loading="lazy" decoding="async" src="/assets/robolight.webp" alt="Robot" class="pw-robo-light" style="width:30px;height:30px;object-fit:contain;display:block;position:relative;z-index:1">
-                        <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="pw-robo-dark" style="width:30px;height:30px;object-fit:contain;display:block;position:relative;z-index:1">
+    {{-- ═══ BOOK CONSULTATION SECTION ═══ --}}
+    <section class="wd-section bc-section">
+        <div class="wd-inner">
+            <div class="dev-intro-two-col bc-two-col reveal">
+
+                {{-- LEFT SIDE: Content --}}
+                <div>
+                    <div style="display:flex;flex-direction:column;align-items:flex-start;margin-bottom:24px">
+                        <div class="wd-label-row" style="align-items:flex-start">
+                            <div style="display:flex;flex-direction:column;align-items:center">
+                                <div class="wd-robot-badge">{!! $robo !!}</div>
+                                <div class="wd-section-divider" style="margin:12px 0 0;width:48px"></div>
+                            </div>
+                            <div class="wd-label-pill" style="margin-top:6px">
+                                <span class="wd-label-dot"></span>
+                                <span class="wd-label-text">Consultation</span>
+                            </div>
+                        </div>
+                        <h2 class="wd-intro-heading" style="margin:24px 0 0">Book a <span style="color:var(--accent-theme,#D81D1F)">Consultation</span></h2>
                     </div>
-                    <h2 class="bc-heading-title">Book a <em>Free</em> Consultation</h2>
+
+                    <p class="wd-intro-text">
+                        Schedule a free strategy consultation with our experts to discuss your business goals, project requirements, staffing needs, AI solutions, development initiatives, and growth opportunities. We'll help identify the most effective path forward for your organization.
+                    </p>
+
+                    {{-- Trust Metrics --}}
+                    <div class="bc-stats-row">
+                        @foreach([
+                            ['value' => '200+', 'label' => 'Projects Delivered'],
+                            ['value' => '98%', 'label' => 'Client Satisfaction'],
+                            ['value' => '24h', 'label' => 'Avg Response Time'],
+                            ['value' => '50+', 'label' => 'Expert Specialists'],
+                        ] as $stat)
+                            <div class="wd-intro-stat">
+                                <strong>{{ $stat['value'] }}</strong>
+                                <span>{{ $stat['label'] }}</span>
+                            </div>
+                        @endforeach
+                    </div>
+
+                    <p class="wd-intro-text">
+                        Whether you're looking to scale your team, launch a new product, implement AI solutions, or improve operational efficiency — our specialists will help you identify the best strategy and next steps.
+                    </p>
+
+                    <ul class="dev-staff-perks" style="margin-top:4px;margin-bottom:0">
+                        @foreach([
+                            'Free initial consultation',
+                            'Discuss project requirements',
+                            'Expert technical guidance',
+                            'Personalized solution recommendations',
+                            'Clear project roadmap',
+                            'Fast response and support'
+                        ] as $benefit)
+                            <li class="dev-staff-perk">
+                                <span class="dev-staff-perk-dot"></span>
+                                {{ $benefit }}
+                            </li>
+                        @endforeach
+                    </ul>
                 </div>
-                <p class="bc-heading-sub">Schedule a free 30-minute session with our team — no commitment, just clarity on your project.</p>
-            </div>
-            <div class="bc-calendly-wrap">
-                <div class="calendly-inline-widget" data-url="https://calendly.com/mshayantariq/schedule-a-meeting?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:280px;height:950px;width:100%"></div>
+
+                {{-- RIGHT SIDE: Booking Widget --}}
+                <div class="dev-staff-card bc-widget-col" style="padding:10px;cursor:default">
+                    <div class="calendly-inline-widget" data-url="https://calendly.com/mshayantariq/schedule-a-meeting?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:280px;height:700px;width:100%"></div>
+                </div>
+
             </div>
         </div>
     </section>

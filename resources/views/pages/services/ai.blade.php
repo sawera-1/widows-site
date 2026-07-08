@@ -1,17 +1,18 @@
 @extends('layouts.app')
 
-@section('title', 'AI Solutions — CodeOaks')
+@section('title', 'Corammers')
 @section('meta_description', 'From intelligent automation agents to generative content systems, we architect AI products that grow with your business.')
 
 @push('styles')
 <link rel="stylesheet" href="{{ asset('css/pages/services-ai.css') }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 @endpush
 
 @php
     // ─── ROBOT ICON (theme-aware: two imgs, toggled by small JS on data-theme) ───
     $robo = function () {
-        return '<img loading="lazy" decoding="async" class="pw-robo-light" src="/assets/robolight.webp" alt="Robot" width="32" height="32" style="object-fit:contain;display:block">'
-             . '<img loading="lazy" decoding="async" class="pw-robo-dark" src="/assets/robo.webp" alt="Robot" width="32" height="32" style="object-fit:contain;display:none">';
+        return '<img loading="lazy" decoding="async" class="pw-robo-light" src="/assets/robo.png" alt="Robot" width="32" height="32" style="object-fit:contain;display:block">'
+             . '<img loading="lazy" decoding="async" class="pw-robo-dark" src="/assets/robo.png" alt="Robot" width="32" height="32" style="object-fit:contain;display:none">';
     };
 
     $arrowIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>';
@@ -134,6 +135,34 @@
     ];
 
     $starIcon = '<svg width="18" height="18" viewBox="0 0 16 16" fill="#ffb33e" style="flex-shrink:0"><path d="M8 1.5L9.7 6H14.3L10.6 8.9L12 13.4L8 10.8L4 13.4L5.4 8.9L1.7 6H6.3L8 1.5Z" stroke="#ffb33e" stroke-width="1.2" stroke-linejoin="round"/></svg>';
+
+    /* ─── Shared Devicon class map ─── */
+    $devicons = [
+        'AI Automation' => 'devicon-python-plain',
+        'LLM Agents' => 'devicon-google-plain',
+        'Generative AI' => 'devicon-tensorflow-original',
+        'Smart Workflows' => 'devicon-jupyter-plain',
+        'Predictive AI' => 'devicon-pytorch-original',
+        'Neural Networks' => 'devicon-tensorflow-original',
+        'Chatbots' => 'devicon-npm-original-wordmark',
+        'AI Integrations' => 'devicon-nodejs-plain',
+        'Workflow Automation' => 'devicon-githubactions-plain',
+        'Data Intelligence' => 'devicon-pandas-plain',
+        'Cloud AI Systems' => 'devicon-amazonwebservices-plain-wordmark',
+        'AI Optimization' => 'devicon-scikitlearn-plain',
+        'GPT Systems' => '<svg width="1.4rem" height="1.4rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>',
+        'AI Content Creation' => 'devicon-canva-original',
+        'Voice AI' => 'devicon-c-plain',
+        'AI Video Tools' => 'devicon-premierepro-plain',
+        'Automation Bots' => 'devicon-javascript-plain',
+        'AI Analytics' => 'devicon-jupyter-plain',
+        'LangChain' => 'devicon-python-plain',
+        'API Systems' => 'devicon-express-original',
+        'n8n Automation' => 'devicon-nodejs-plain',
+        'AI Pipelines' => 'devicon-gitlab-plain',
+        'Cloud Deployment' => 'devicon-docker-plain',
+        'Smart Systems' => 'devicon-typescript-plain',
+    ];
 @endphp
 
 @section('content')
@@ -149,7 +178,14 @@
                     <div class="dev-v-ticker-track dev-v-ticker-track-up" style="--spd:22s">
                         @foreach(array_merge($techCol1, $techCol1) as $t)
                             <div class="dev-tech-card">
-                                <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">{!! $sparkle !!}</div>
+                                <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">
+                                    @php $icon = $devicons[$t['name']] ?? 'devicon-python-plain'; @endphp
+                                    @if(str_starts_with($icon, '<svg'))
+                                        {!! $icon !!}
+                                    @else
+                                        <i class="{{ $icon }}"></i>
+                                    @endif
+                                </div>
                                 <div class="dev-tech-card-info">
                                     <span class="dev-tech-card-name">{{ $t['name'] }}</span>
                                     <span class="dev-tech-card-abbr">{{ $t['abbr'] }}</span>
@@ -162,7 +198,14 @@
                     <div class="dev-v-ticker-track dev-v-ticker-track-down" style="--spd:26s">
                         @foreach(array_merge($techCol2, $techCol2) as $t)
                             <div class="dev-tech-card">
-                                <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">{!! $sparkle !!}</div>
+                                <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">
+                                    @php $icon = $devicons[$t['name']] ?? 'devicon-python-plain'; @endphp
+                                    @if(str_starts_with($icon, '<svg'))
+                                        {!! $icon !!}
+                                    @else
+                                        <i class="{{ $icon }}"></i>
+                                    @endif
+                                </div>
                                 <div class="dev-tech-card-info">
                                     <span class="dev-tech-card-name">{{ $t['name'] }}</span>
                                     <span class="dev-tech-card-abbr">{{ $t['abbr'] }}</span>
@@ -211,7 +254,14 @@
                     <div class="dev-v-ticker-track dev-v-ticker-track-down" style="--spd:28s">
                         @foreach(array_merge($techCol3, $techCol3) as $t)
                             <div class="dev-tech-card">
-                                <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">{!! $sparkle !!}</div>
+                                <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">
+                                    @php $icon = $devicons[$t['name']] ?? 'devicon-python-plain'; @endphp
+                                    @if(str_starts_with($icon, '<svg'))
+                                        {!! $icon !!}
+                                    @else
+                                        <i class="{{ $icon }}"></i>
+                                    @endif
+                                </div>
                                 <div class="dev-tech-card-info">
                                     <span class="dev-tech-card-name">{{ $t['name'] }}</span>
                                     <span class="dev-tech-card-abbr">{{ $t['abbr'] }}</span>
@@ -224,7 +274,14 @@
                     <div class="dev-v-ticker-track dev-v-ticker-track-up" style="--spd:34s">
                         @foreach(array_merge($techCol4, $techCol4) as $t)
                             <div class="dev-tech-card">
-                                <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">{!! $sparkle !!}</div>
+                                <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">
+                                    @php $icon = $devicons[$t['name']] ?? 'devicon-python-plain'; @endphp
+                                    @if(str_starts_with($icon, '<svg'))
+                                        {!! $icon !!}
+                                    @else
+                                        <i class="{{ $icon }}"></i>
+                                    @endif
+                                </div>
                                 <div class="dev-tech-card-info">
                                     <span class="dev-tech-card-name">{{ $t['name'] }}</span>
                                     <span class="dev-tech-card-abbr">{{ $t['abbr'] }}</span>
@@ -278,7 +335,7 @@
                             {!! $arrowIcon !!}
                         </a>
                         <div class="wd-intro-stat">
-                            <strong>150+</strong>
+                            <strong>200+</strong>
                             <span>Projects Delivered</span>
                         </div>
                     </div>
@@ -501,7 +558,7 @@
                 <h2 class="pf-heading">Work That<br><span>Speaks</span> Loudly</h2>
                 <p class="pf-desc">From high-performance SaaS dashboards to immersive mobile experiences — every project we ship is crafted with precision, purpose, and a relentless focus on exceptional user experience.</p>
                 <div class="pf-stats">
-                    <div class="pf-stat"><span class="pf-stat-value">50+</span><span class="pf-stat-label">Projects</span></div>
+                    <div class="pf-stat"><span class="pf-stat-value">200+</span><span class="pf-stat-label">Projects</span></div>
                     <div class="pf-stat"><span class="pf-stat-value">5+</span><span class="pf-stat-label">Years</span></div>
                     <div class="pf-stat"><span class="pf-stat-value">98%</span><span class="pf-stat-label">Satisfaction</span></div>
                 </div>
@@ -592,27 +649,71 @@
         </div>
     </section>
 
-    {{-- ═══ BOOK CONSULTATION ═══ --}}
-    <section class="bc-section">
-        <div class="bc-inner">
-            <div class="bc-heading-block">
-                <div class="bc-eyebrow-pill">
-                    <span class="bc-eyebrow-dot"></span>
-                    Free Consultation
-                </div>
-                <div class="bc-title-row">
-                    <div class="bc-robo-wrap">
-                        <div class="bc-robo-bg"></div>
-                        <div class="bc-robo-ring"></div>
-                        <img loading="lazy" decoding="async" class="pw-robo-light" src="/assets/robolight.webp" alt="Robot" style="width:30px;height:30px;object-fit:contain;display:block;position:relative;z-index:1">
-                        <img loading="lazy" decoding="async" class="pw-robo-dark" src="/assets/robo.webp" alt="Robot" style="width:30px;height:30px;object-fit:contain;display:none;position:relative;z-index:1">
+   {{-- BOOK CONSULTATION --}}
+       <section class="wd-section bc-section">
+        <div class="wd-inner">
+            <div class="dev-intro-two-col bc-two-col reveal">
+
+                {{-- LEFT SIDE: Content --}}
+                <div>
+                    <div style="display:flex;flex-direction:column;align-items:flex-start;margin-bottom:24px">
+                        <div class="wd-label-row" style="align-items:flex-start">
+                            <div style="display:flex;flex-direction:column;align-items:center">
+                                <div class="wd-robot-badge">{!! $robo() !!}</div>                                <div class="wd-section-divider" style="margin:12px 0 0;width:48px"></div>
+                            </div>
+                            <div class="wd-label-pill" style="margin-top:6px">
+                                <span class="wd-label-dot"></span>
+                                <span class="wd-label-text">Consultation</span>
+                            </div>
+                        </div>
+                        <h2 class="wd-intro-heading" style="margin:24px 0 0">Book a <span style="color:var(--accent-theme,#D81D1F)">Consultation</span></h2>
                     </div>
-                    <h2 class="bc-heading-title">Book a <em>Free</em> Consultation</h2>
+
+                    <p class="wd-intro-text">
+                        Schedule a free strategy consultation with our experts to discuss your business goals, project requirements, staffing needs, AI solutions, development initiatives, and growth opportunities. We'll help identify the most effective path forward for your organization.
+                    </p>
+
+                    {{-- Trust Metrics --}}
+                    <div class="bc-stats-row">
+                        @foreach([
+                            ['value' => '200+', 'label' => 'Projects Delivered'],
+                            ['value' => '98%', 'label' => 'Client Satisfaction'],
+                            ['value' => '24h', 'label' => 'Avg Response Time'],
+                            ['value' => '50+', 'label' => 'Expert Specialists'],
+                        ] as $stat)
+                            <div class="wd-intro-stat">
+                                <strong>{{ $stat['value'] }}</strong>
+                                <span>{{ $stat['label'] }}</span>
+                            </div>
+                        @endforeach
+                    </div>
+
+                    <p class="wd-intro-text">
+                        Whether you're looking to scale your team, launch a new product, implement AI solutions, or improve operational efficiency — our specialists will help you identify the best strategy and next steps.
+                    </p>
+
+                    <ul class="dev-staff-perks" style="margin-top:4px;margin-bottom:0">
+                        @foreach([
+                            'Free initial consultation',
+                            'Discuss project requirements',
+                            'Expert technical guidance',
+                            'Personalized solution recommendations',
+                            'Clear project roadmap',
+                            'Fast response and support'
+                        ] as $benefit)
+                            <li class="dev-staff-perk">
+                                <span class="dev-staff-perk-dot"></span>
+                                {{ $benefit }}
+                            </li>
+                        @endforeach
+                    </ul>
                 </div>
-                <p class="bc-heading-sub">Schedule a free 30-minute session with our team — no commitment, just clarity on your project.</p>
-            </div>
-            <div class="bc-calendly-wrap">
-                <div class="calendly-inline-widget" data-url="https://calendly.com/mshayantariq/schedule-a-meeting?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:280px;height:950px;width:100%"></div>
+
+                {{-- RIGHT SIDE: Booking Widget --}}
+                <div class="dev-staff-card bc-widget-col" style="padding:10px;cursor:default">
+                    <div class="calendly-inline-widget" data-url="https://calendly.com/mshayantariq/schedule-a-meeting?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:280px;height:700px;width:100%"></div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -659,4 +760,5 @@
     }
 })();
 </script>
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 @endpush

@@ -25,7 +25,7 @@
 
         <div>
             <p class="of-col-label"><span class="of-col-accent"></span>Contact</p>
-            <a href="mailto:hello@codeoaks.com" class="of-email">hello@codeoaks.com</a>
+            <a href="mailto:info@corammers.com" class="of-email">info@corammers.com</a>
         </div>
 
         <nav aria-label="Footer pages navigation">
@@ -52,14 +52,14 @@
 
     <div class="of-ticker-wrap" aria-hidden="true">
         <div class="of-ticker-track">
-            <span class="of-ticker-text">Web Development&nbsp;&nbsp;✱&nbsp;&nbsp;Mobile&nbsp;&nbsp;✱&nbsp;&nbsp;E-Commerce&nbsp;&nbsp;✱&nbsp;&nbsp;AI Solutions&nbsp;&nbsp;✱&nbsp;&nbsp;SEO&nbsp;&nbsp;✱&nbsp;&nbsp;UI/UX&nbsp;&nbsp;✱&nbsp;&nbsp;CodeOaks&nbsp;&nbsp;✱&nbsp;&nbsp;</span>
-            <span class="of-ticker-text">Web Development&nbsp;&nbsp;✱&nbsp;&nbsp;Mobile&nbsp;&nbsp;✱&nbsp;&nbsp;E-Commerce&nbsp;&nbsp;✱&nbsp;&nbsp;AI Solutions&nbsp;&nbsp;✱&nbsp;&nbsp;SEO&nbsp;&nbsp;✱&nbsp;&nbsp;UI/UX&nbsp;&nbsp;✱&nbsp;&nbsp;CodeOaks&nbsp;&nbsp;✱&nbsp;&nbsp;</span>
+            <span class="of-ticker-text">Web Development&nbsp;&nbsp;✱&nbsp;&nbsp;Mobile&nbsp;&nbsp;✱&nbsp;&nbsp;E-Commerce&nbsp;&nbsp;✱&nbsp;&nbsp;AI Solutions&nbsp;&nbsp;✱&nbsp;&nbsp;SEO&nbsp;&nbsp;✱&nbsp;&nbsp;UI/UX&nbsp;&nbsp;✱&nbsp;&nbsp;Corammers&nbsp;&nbsp;✱&nbsp;&nbsp;</span>
+            <span class="of-ticker-text">Web Development&nbsp;&nbsp;✱&nbsp;&nbsp;Mobile&nbsp;&nbsp;✱&nbsp;&nbsp;E-Commerce&nbsp;&nbsp;✱&nbsp;&nbsp;AI Solutions&nbsp;&nbsp;✱&nbsp;&nbsp;SEO&nbsp;&nbsp;✱&nbsp;&nbsp;UI/UX&nbsp;&nbsp;✱&nbsp;&nbsp;Corammers&nbsp;&nbsp;✱&nbsp;&nbsp;</span>
         </div>
     </div>
 
     <div class="of-bottom">
         <div class="of-bottom-inner">
-            <p class="of-copy">©2025 CodeOaks, All Rights Reserved.</p>
+            <p class="of-copy">©2025 corammers, All Rights Reserved.</p>
             <p class="of-copy">Premium Laravel Theme.</p>
         </div>
     </div>

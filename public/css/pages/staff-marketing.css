@@ -2,8 +2,8 @@
 
 /* ─── CSS Custom Properties (global so child components can inherit) ─── */
 :root {
-  --primary: var(--primary);
-  --primary-dark: #9dc42e;
+  --primary: #D81D1F;
+  --primary-dark: #D81D1F;
   --secondary: #D81D1F;
   --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -701,8 +701,8 @@
 }
 
 .sd-light .section-label-pill {
-  border-color: rgba(124, 179, 5, 0.4);
-  background: rgba(124, 179, 5, 0.05);
+  border-color: rgba(216, 29, 31, 0.4);
+  background: rgba(216, 29, 31, 0.05);
 }
 
 .section-label-dot {
@@ -1287,8 +1287,8 @@
 /* light theme (default) */
 .pw-staff-marketing {
   --primary: #D81D1F;
-  --primary-rgb: 53, 88, 71;
-  --primary-dark: #9dc42e;
+  --primary-rgb: 216, 29, 31;
+  --primary-dark: #D81D1F;
   --secondary: #D81D1F;
   --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -1316,8 +1316,8 @@
   color: #ffffff !important;
 }
 .pw-staff-marketing .section-label-pill {
-  border-color: rgba(124, 179, 5, 0.4);
-  background: rgba(124, 179, 5, 0.05);
+  border-color: rgba(216, 29, 31, 0.4);
+  background: rgba(216, 29, 31, 0.05);
 }
 .pw-staff-marketing .section-label {
   color: #111111;
@@ -1326,7 +1326,7 @@
 /* dark theme */
 [data-theme="dark"] .pw-staff-marketing {
   --primary: #D81D1F;
-  --primary-rgb: 188, 234, 62;
+  --primary-rgb: 216, 29, 31;
   --bg: #212121;
   --bg-alt: #1c1c1c;
   --surface: #262626;
@@ -1503,7 +1503,7 @@
 
 /* ─────────── HiringSection (px-*) ─────────── */
 .pw-staff-marketing .px-wrap {
-  --acc: #D81D1F; --acc2: #2a483a;
+  --acc: #D81D1F; --acc2: #6b0f11;
   --bg: #f5f5f3; --bg2: #f5f5f3; --bg3: #ffffff;
   --fg: #111111; --fg2: #6b6b6b;
   --br: rgba(0,0,0,0.08); --br-acc: rgba(216,29,31,0.35);
@@ -1511,7 +1511,7 @@
   background: var(--bg);
 }
 [data-theme="dark"] .pw-staff-marketing .px-wrap {
-  --acc: #D81D1F; --acc2: #8aba1a;
+  --acc: #D81D1F; --acc2: #ff8080;
   --bg: #212121; --bg2: #212121; --bg3: #262626;
   --fg: #f0f0ec; --fg2: rgba(240,240,236,0.50);
   --br: rgba(255,255,255,0.07); --br-acc: rgba(216,29,31,0.35);
@@ -1521,18 +1521,18 @@
 .pw-staff-marketing .px-s1-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
 .pw-staff-marketing .px-img-col {
   position: relative; border-radius: 28px; overflow: hidden; aspect-ratio: 4/5;
-  background: linear-gradient(135deg, #162010 0%, #263d1a 40%, #D81D1F 100%);
+  background: linear-gradient(135deg, #1a0808 0%, #2e1010 40%, #D81D1F 100%);
   box-shadow: 0 32px 96px rgba(0,0,0,0.22), 0 0 0 1px rgba(255,255,255,0.04);
 }
 .pw-staff-marketing .px-img-col img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; display: block; }
-.pw-staff-marketing .px-img-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(10,18,6,0.72) 100%); z-index: 2; }
+.pw-staff-marketing .px-img-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(10,10,10,0.72) 100%); z-index: 2; }
 .pw-staff-marketing .px-float-badge {
   position: absolute; bottom: 28px; left: 28px; right: 28px; z-index: 5;
   background: rgba(255,255,255,0.92); backdrop-filter: blur(18px) saturate(140%);
   -webkit-backdrop-filter: blur(18px) saturate(140%); border-radius: 18px;
   border: 1px solid rgba(216,29,31,0.35); padding: 18px 22px; display: flex; align-items: center; gap: 16px;
 }
-[data-theme="dark"] .pw-staff-marketing .px-float-badge { background: rgba(18,24,12,0.88); border: 1px solid rgba(216,29,31,0.18); }
+[data-theme="dark"] .pw-staff-marketing .px-float-badge { background: rgba(24,24,24,0.88); border: 1px solid rgba(216,29,31,0.18); }
 .pw-staff-marketing .px-float-badge-icon {
   width: 50px; height: 50px; border-radius: 14px; flex-shrink: 0;
   background: rgba(216,29,31,0.15); display: flex; align-items: center; justify-content: center;
@@ -1547,21 +1547,21 @@
   padding: 10px 14px 10px 12px; border-radius: 10px 0 0 10px;
   display: flex; flex-direction: column; align-items: center; gap: 5px;
   writing-mode: vertical-rl; font-family: var(--font-body);
-  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #0f1409;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #181818;
 }
 .pw-staff-marketing .px-content-col { display: flex; flex-direction: column; gap: 0; }
 @keyframes dot-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 .pw-staff-marketing .px-heading { font-family: var(--font-head); font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 800; line-height: 1.03; letter-spacing: -0.04em; color: var(--fg); margin-bottom: 22px; }
 .pw-staff-marketing .px-heading-acc {
-  background: linear-gradient(90deg, #D81D1F 0%, #4a7a63 60%, #2a483a 100%);
+  background: linear-gradient(90deg, #D81D1F 0%, #a51518 60%, #6b0f11 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: block;
 }
-[data-theme="dark"] .pw-staff-marketing .px-heading-acc { background: linear-gradient(90deg, #D81D1F 0%, #a8d820 60%, #7aaa12 100%); -webkit-background-clip: text; background-clip: text; }
+[data-theme="dark"] .pw-staff-marketing .px-heading-acc { background: linear-gradient(90deg, #D81D1F 0%, #f04446 60%, #ff8080 100%); -webkit-background-clip: text; background-clip: text; }
 .pw-staff-marketing .px-subtext { font-family: var(--font-body); font-size: 1rem; line-height: 1.9; color: var(--fg2); font-weight: 300; margin-bottom: 18px; }
 .pw-staff-marketing .px-highlight {
   border-radius: 20px; padding: 28px 28px 28px 36px; margin: 28px 0 32px;
   border: 1px solid rgba(216,29,31,0.5);
-  background: linear-gradient(135deg, rgba(240,248,220,1) 0%, rgba(222,242,185,0.6) 100%);
+  background: linear-gradient(135deg, rgba(253,235,235,1) 0%, rgba(250,215,215,0.6) 100%);
   position: relative; overflow: hidden;
 }
 [data-theme="dark"] .pw-staff-marketing .px-highlight {
@@ -1587,7 +1587,7 @@
 .pw-staff-marketing .px-badge {
   display: inline-flex; align-items: center; gap: 7px; padding: 6px 14px; border-radius: 100px;
   background: rgba(216,29,31,0.12); border: 1.2px solid rgba(216,29,31,0.45);
-  font-family: 'Montserrat', sans-serif; font-size: 0.78rem; font-weight: 600; color: #2a4810;
+  font-family: 'Montserrat', sans-serif; font-size: 0.78rem; font-weight: 600; color: #D81D1F;
   white-space: nowrap; letter-spacing: 0.02em;
 }
 [data-theme="dark"] .pw-staff-marketing .px-badge { background: rgba(216,29,31,0.1); border: 1.2px solid rgba(216,29,31,0.3); color: #D81D1F; }
@@ -1631,7 +1631,7 @@
 .pw-staff-marketing .px-stats {
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-bottom: 72px;
   border-radius: 24px; overflow: hidden; border: 1px solid rgba(216,29,31,0.18);
-  background: linear-gradient(135deg, #1e3319 0%, #2b4d28 40%, #D81D1F 100%);
+  background: linear-gradient(135deg, #1a0808 0%, #2e1010 40%, #D81D1F 100%);
 }
 [data-theme="dark"] .pw-staff-marketing .px-stats { border: 1px solid rgba(216,29,31,0.2); }
 .pw-staff-marketing .px-stat-item { padding: 44px 32px; text-align: center; position: relative; transition: all 0.6s cubic-bezier(.22,1,.36,1); }
@@ -1717,7 +1717,7 @@
   display: inline-flex; align-items: center; gap: 7px; border-radius: 100px; padding: 5px 14px 5px 9px; margin-bottom: 16px;
   font-family: 'Montserrat', sans-serif; font-size: 10.5px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase;
   transition: background .4s ease, border-color .4s ease, color .4s ease;
-  background: rgba(90,135,50,0.08); border: 1px solid rgba(90,135,50,0.22); color: #4a7a1e;
+  background: rgba(216,29,31,0.08); border: 1px solid rgba(216,29,31,0.22); color: #D81D1F;
 }
 [data-theme="dark"] .pw-staff-marketing .bc-eyebrow-pill { background: rgba(216,29,31,0.1); border: 1px solid rgba(216,29,31,0.28); color: #D81D1F; }
 .pw-staff-marketing .bc-eyebrow-dot { width: 7px; height: 7px; border-radius: 50%; background: #D81D1F; animation: bc-dot-pulse 2.2s ease infinite; }
@@ -1737,4 +1737,162 @@
   .pw-staff-marketing .bc-heading-sub { font-size: 13px; max-width: 320px; }
   .pw-staff-marketing .bc-robo-wrap { width: 40px; height: 40px; }
   .pw-staff-marketing .bc-robo-wrap img { width: 24px; height: 24px; }
+}
+
+/* ══════════════════ LOAD MORE — blog-style split btn ══════════════════ */
+.pw-staff-marketing .sd-split-btn {
+  position: relative;
+  height: 52px;
+  width: 200px;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: inline-block;
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+.pw-staff-marketing .sd-split-btn-default {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  background: var(--primary);
+  color: #ffffff;
+  border-radius: 16px;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+[data-theme="dark"] .pw-staff-marketing .sd-split-btn-default {
+  color: #111111;
+}
+
+.pw-staff-marketing .sd-split-btn:hover .sd-split-btn-default {
+  opacity: 0;
+  transform: translateY(-115%) scale(0.86);
+}
+
+.pw-staff-marketing .sd-split-btn-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: inherit;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.pw-staff-marketing .sd-split-btn-row {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(115%);
+  pointer-events: none;
+}
+.pw-staff-marketing .sd-split-btn:hover .sd-split-btn-row {
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.pw-staff-marketing .sd-split-btn-icon {
+  flex: 0 0 52px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #222;
+  color: #fff;
+  border-radius: 14px;
+}
+[data-theme="dark"] .pw-staff-marketing .sd-split-btn-icon {
+  background: #e4e4e4;
+  color: #111;
+}
+
+.pw-staff-marketing .sd-split-btn-text {
+  flex: 1;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #222;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  border-radius: 14px;
+}
+[data-theme="dark"] .pw-staff-marketing .sd-split-btn-text {
+  background: #e4e4e4;
+  color: #111;
+}
+
+/* Triangular 3-dot icon */
+.pw-staff-marketing .sd-dots-arrow {
+  position: relative;
+  width: 11px;
+  height: 11px;
+  display: inline-block;
+  flex-shrink: 0;
+  transition: opacity 0.3s ease;
+}
+.pw-staff-marketing .sd-dots-arrow span {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.pw-staff-marketing .sd-dots-arrow .d1 { top: 0; left: 0; }
+.pw-staff-marketing .sd-dots-arrow .d2 { top: 50%; right: 0; transform: translateY(-50%); }
+.pw-staff-marketing .sd-dots-arrow .d3 { bottom: 0; left: 0; }
+
+/* Circle spinner */
+.pw-staff-marketing .sd-split-spinner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  opacity: 0;
+  visibility: hidden;
+  animation: lm2-spin 0.9s linear infinite;
+  transition: opacity 0.3s ease;
+  color: currentColor;
+}
+@keyframes lm2-spin { to { transform: rotate(360deg); } }
+
+.pw-staff-marketing .sd-split-btn.is-loading .sd-dots-arrow { opacity: 0; }
+.pw-staff-marketing .sd-split-btn.is-loading .sd-split-spinner {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* newly loaded employee cards stagger-in */
+.pw-staff-marketing .emp-card.lm2-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.pw-staff-marketing .emp-card.lm2-reveal.lm2-reveal-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+  .pw-staff-marketing .sd-split-btn { width: 170px; }
+  .pw-staff-marketing .sd-split-btn-label { font-size: 0.85rem; }
 }

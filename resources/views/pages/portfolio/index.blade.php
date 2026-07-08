@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Portfolio — CodeOaks')
+@section('title', 'Corammers')
 @section('meta_description', 'Explore our curated selection of high-performance web platforms, mobile applications, AI solutions, custom apps, and creative UI/UX design work.')
 
 @push('styles')
@@ -53,14 +53,16 @@
     ];
 
     $aiDesignProjects = [
-        ['image' => '/assets/project/aiDes/ai1.webp', 'title' => 'AI Design 1'],
-        ['image' => '/assets/project/aiDes/ai2.webp', 'title' => 'AI Design 2'],
-        ['image' => '/assets/project/aiDes/ai3.webp', 'title' => 'AI Design 3'],
-        ['image' => '/assets/project/aiDes/ai4.webp', 'title' => 'AI Design 4'],
-        ['image' => '/assets/project/aiDes/ai5.webp', 'title' => 'AI Design 5'],
-        ['image' => '/assets/project/aiDes/ai6.webp', 'title' => 'AI Design 6'],
-        ['image' => '/assets/project/aiDes/ai7.webp', 'title' => 'AI Design 7'],
+        
+        ['image' => '/assets/project/aiDes/ai1.webp','title' => 'ai1', 'url' => 'https://www.youtube.com/watch?v=e_cr04R6vrg&list=PLPGkp4Y87woaZQGn0Do9TBhgNq06hgVQt'],
+        ['image' => '/assets/project/aiDes/ai2.webp','title' => 'ai2', 'url' => 'https://www.youtube.com/watch?v=y8wJJ6CyfvY&list=PLPGkp4Y87woaZQGn0Do9TBhgNq06hgVQt&index=3'],
+        ['image' => '/assets/project/aiDes/ai3.webp','title' => 'ai3', 'url' => 'https://www.youtube.com/watch?v=Bvt45L4Krtc&list=PLPGkp4Y87woaZQGn0Do9TBhgNq06hgVQt&index=6'],
+        ['image' => '/assets/project/aiDes/ai4.webp','title' => 'ai4', 'url' => 'https://www.youtube.com/watch?v=9Uv7a4YjrFU&list=PLPGkp4Y87woaZQGn0Do9TBhgNq06hgVQt&index=2'],
+        ['image' => '/assets/project/aiDes/ai5.webp','title' => 'ai5', 'url' => 'https://www.youtube.com/watch?v=d79Tf7NZ0Kg&list=PLPGkp4Y87woaZQGn0Do9TBhgNq06hgVQt&index=4'],
+        ['image' => '/assets/project/aiDes/ai6.webp','title' => 'ai6', 'url' => 'https://www.youtube.com/watch?v=HH-zJqaATaY&list=PLPGkp4Y87woaZQGn0Do9TBhgNq06hgVQt&index=9'],
+        ['image' => '/assets/project/aiDes/ai7.webp', 'title' => 'ai7','url' => 'https://www.youtube.com/watch?v=b3iuAslbR6w&list=PLPGkp4Y87woaZQGn0Do9TBhgNq06hgVQt&index=8'],
     ];
+    
 
     $customProjects = [
         ['title' => 'Robotech', 'shortDesc' => 'Advanced robotics and industrial automation solutions.', 'desc' => 'A cutting-edge platform for robotics technology, showcasing industrial automation, smart machinery, and future-tech solutions for modern manufacturing.', 'tag' => 'AI', 'image' => '/assets/project/custom/1.webp', 'tech' => ['React', 'Three.js', 'Node.js', 'WebGL'], 'features' => ['3D model interaction', 'Real-time telemetry dashboard', 'Automated maintenance scheduling'], 'demo' => ['username' => 'admin@robotech.io', 'password' => 'robot_secure_99'], 'url' => 'https://templates.heydenstd.com/robotech/template-kit/home/?storefront=envato-elementsTB_iframe=true&width=600&height=550'],
@@ -110,7 +112,7 @@
         ['key' => 'custom', 'label' => 'Custom App'],
         ['key' => 'mobile', 'label' => 'Mobile App'],
         ['key' => 'ai-solution', 'label' => 'AI Solution'],
-        ['key' => 'ai-design', 'label' => 'AI Design'],
+        ['key' => 'ai-design', 'label' => 'AI Creative'],
         ['key' => 'uiux', 'label' => 'UI/UX'],
     ];
 
@@ -175,8 +177,8 @@
                 <div style="margin-bottom:48px">
                     <div class="pf-label-row">
                         <div class="pf-robot-badge">
-                            <img loading="lazy" decoding="async" class="robo-dark" src="/assets/robo.webp" alt="Robot" style="width:32px;height:32px;object-fit:contain">
-                            <img loading="lazy" decoding="async" class="robo-light" src="/assets/robolight.webp" alt="Robot" style="width:32px;height:32px;object-fit:contain">
+                            <img loading="lazy" decoding="async" class="robo-dark" src="/assets/robo.png" alt="Robot" style="width:32px;height:32px;object-fit:contain">
+                            <img loading="lazy" decoding="async" class="robo-light" src="/assets/robo.png" alt="Robot" style="width:32px;height:32px;object-fit:contain">
                         </div>
                         <div class="pf-label-group">
                             <div class="pf-label-pill">
@@ -237,9 +239,9 @@
                 <div class="pf-inner">
                     <div class="proj-grid">
                         @foreach($webProjects as $p)
-                            <div class="pf-card pf-card-visible" style="background:var(--surface);cursor:pointer" onclick="window.open('{{ $p['url'] }}','_blank')">
+                            <div class="pf-card pf-card-visible"@if($loop->iteration > 3) hidden @endif style="background:var(--surface);cursor:pointer" onclick="window.open('{{ $p['url'] }}','_blank')">
                                 <div style="position:relative;height:252px;overflow:hidden">
-                                    <img src="{{ $p['image'] }}" alt="{{ $p['title'] }}" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover">
+                                    <img src="{{ $p['image'] }}" alt="{{ $p['title'] }}" loading="lazy" class="pf-web-slide-img" style="display:block;width:100%;height:auto;position:absolute;top:0;left:0;will-change:transform">
                                     <div style="position:absolute;top:14px;left:14px;z-index:10">{!! $pfBadge($p['tag']) !!}</div>
                                     <div style="position:absolute;bottom:0;left:0;right:0;height:60px;z-index:4;pointer-events:none;background:linear-gradient(to top,var(--surface),transparent)"></div>
                                 </div>
@@ -254,6 +256,27 @@
                             </div>
                         @endforeach
                     </div>
+                    <div class="pf-loadmore-wrap">
+                        <button type="button" class="split-btn pf-loadmore-btn" style="width:240px">
+                            <span class="split-btn-default">
+                                <span class="split-btn-label">Load More</span>
+                                <span style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px">
+                                    <span class="dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                                    <svg class="split-btn-spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" /></svg>
+                                </span>
+                            </span>
+                            <span class="split-btn-row">
+                                <span class="split-btn-icon">
+                                    <span style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px">
+                                        <span class="dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                                        <svg class="split-btn-spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" /></svg>
+                                    </span>
+                                </span>
+                                <span class="split-btn-text">Load More</span>
+                            </span>
+                        </button>
+                        <div class="pf-done" style="display:none">All Projects Loaded</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -264,7 +287,7 @@
                 <div class="pf-inner">
                     <div class="custom-grid">
                         @foreach($customProjects as $idx => $p)
-                            <div class="pf-card pf-card-visible" style="border-radius:20px;height:auto;display:flex;flex-direction:column;background:var(--surface)">
+                            <div class="pf-card pf-card-visible"@if($loop->iteration > 3) hidden @endif style="border-radius:20px;height:auto;display:flex;flex-direction:column;background:var(--surface)">
                                 <div style="position:relative;height:238px;overflow:hidden">
                                     <img src="{{ $p['image'] }}" alt="{{ $p['title'] }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
                                     <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(0,0,0,0.38) 100%);pointer-events:none"></div>
@@ -312,6 +335,27 @@
                             </div>
                         @endforeach
                     </div>
+                    <div class="pf-loadmore-wrap">
+                        <button type="button" class="split-btn pf-loadmore-btn" style="width:240px">
+                            <span class="split-btn-default">
+                                <span class="split-btn-label">Load More</span>
+                                <span style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px">
+                                    <span class="dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                                    <svg class="split-btn-spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" /></svg>
+                                </span>
+                            </span>
+                            <span class="split-btn-row">
+                                <span class="split-btn-icon">
+                                    <span style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px">
+                                        <span class="dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                                        <svg class="split-btn-spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" /></svg>
+                                    </span>
+                                </span>
+                                <span class="split-btn-text">Load More</span>
+                            </span>
+                        </button>
+                        <div class="pf-done" style="display:none">All Projects Loaded</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -322,7 +366,7 @@
                 <div class="pf-inner">
                     <div class="proj-grid">
                         @foreach($mobileProjects as $p)
-                            <div class="pf-card pf-card-visible" style="background:var(--surface)">
+                            <div class="pf-card pf-card-visible"@if($loop->iteration > 3) hidden @endif style="background:var(--surface)">
                                 <div style="position:relative;height:252px;overflow:hidden">
                                     <img src="{{ $p['image'] }}" alt="{{ $p['title'] }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
                                     <div style="position:absolute;top:14px;left:14px;z-index:10">{!! $pfBadge($p['tag']) !!}</div>
@@ -335,6 +379,27 @@
                             </div>
                         @endforeach
                     </div>
+                    <div class="pf-loadmore-wrap">
+                        <button type="button" class="split-btn pf-loadmore-btn" style="width:240px">
+                            <span class="split-btn-default">
+                                <span class="split-btn-label">Load More</span>
+                                <span style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px">
+                                    <span class="dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                                    <svg class="split-btn-spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" /></svg>
+                                </span>
+                            </span>
+                            <span class="split-btn-row">
+                                <span class="split-btn-icon">
+                                    <span style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px">
+                                        <span class="dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                                        <svg class="split-btn-spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" /></svg>
+                                    </span>
+                                </span>
+                                <span class="split-btn-text">Load More</span>
+                            </span>
+                        </button>
+                        <div class="pf-done" style="display:none">All Projects Loaded</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -345,33 +410,122 @@
                 <div class="pf-inner">
                     <div class="ai-grid">
                         @foreach($aiSolutionProjects as $p)
-                            <div class="pf-card pf-card-visible" style="border-radius:12px;overflow:hidden;position:relative">
+                            <div class="pf-card pf-card-visible"@if($loop->iteration > 2) hidden @endif style="border-radius:12px;overflow:hidden;position:relative">
                                 <div style="width:100%;aspect-ratio:16/9;overflow:hidden;position:relative">
                                     <img src="{{ $p['image'] }}" alt="{{ $p['title'] }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
                                 </div>
                             </div>
                         @endforeach
+                    </div>
+                    <div class="pf-loadmore-wrap">
+                        <button type="button" class="split-btn pf-loadmore-btn" style="width:240px">
+                            <span class="split-btn-default">
+                                <span class="split-btn-label">Load More</span>
+                                <span style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px">
+                                    <span class="dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                                    <svg class="split-btn-spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" /></svg>
+                                </span>
+                            </span>
+                            <span class="split-btn-row">
+                                <span class="split-btn-icon">
+                                    <span style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px">
+                                        <span class="dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                                        <svg class="split-btn-spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" /></svg>
+                                    </span>
+                                </span>
+                                <span class="split-btn-text">Load More</span>
+                            </span>
+                        </button>
+                        <div class="pf-done" style="display:none">All Projects Loaded</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        {{-- ══════════ AI DESIGN PANEL ══════════ --}}
-        <section class="pf-panel" data-panel="ai-design">
-            <div class="pf-section" style="padding-top:80px">
-                <div class="pf-inner">
-                    <div class="ai-grid">
-                        @foreach($aiDesignProjects as $p)
-                            <div class="pf-card pf-card-visible" style="border-radius:12px;overflow:hidden;position:relative">
-                                <div style="width:100%;aspect-ratio:16/9;overflow:hidden;position:relative">
-                                    <img src="{{ $p['image'] }}" alt="{{ $p['title'] }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+      {{-- ══════════ AI DESIGN PANEL ══════════ --}}
+{{--
+    CHANGE SUMMARY vs original:
+    1. Card gains  cursor:pointer  +  onclick="window.open(...)"
+    2. Image wrapper gains  position:relative + overflow:hidden  (for zoom clipping)
+    3. Image gains  .pf-card-img  class for the hover-zoom transition
+    4. NEW: .pf-video-overlay div with .pf-play-btn-wrap + .pf-play-btn
+       sits inside the image wrapper. The wrap adds THREE staggered
+       animated pulse rings (::before/::after + .pf-play-btn-wrap span)
+       so a ring is always mid-expansion.
+    Everything else (grid, aspect-ratio, load-more, hidden logic) is unchanged.
+--}}
+<section class="pf-panel" data-panel="ai-design">
+    <div class="pf-section" style="padding-top:80px">
+        <div class="pf-inner">
+            <div class="ai-grid">
+                @foreach($aiDesignProjects as $p)
+                    {{--
+                        CHANGED: added  cursor:pointer  and  onclick  to open the YouTube URL.
+                        The overlay's pointer-events:none lets this onclick fire
+                        whether the user clicks the image, the play button, or a pulse ring.
+                    --}}
+                    <div class="pf-card pf-card-visible"
+                         @if($loop->iteration > 2) hidden @endif
+                         style="border-radius:12px;overflow:hidden;position:relative;cursor:pointer"
+                         onclick="window.open('{{ $p['url'] }}','_blank')">
+
+                        <div style="width:100%;aspect-ratio:16/9;overflow:hidden;position:relative">
+
+                            <img src="{{ $p['image'] }}"
+                                 alt="{{ $p['title'] }}"
+                                 loading="lazy"
+                                 class="pf-card-img"
+                                 style="width:100%;height:100%;object-fit:cover;display:block">
+
+                            {{-- NEW: play button overlay with 3 staggered pulse rings --}}
+                            <div class="pf-video-overlay">
+                                <div class="pf-play-btn-wrap">
+                                    <span class="pf-ring pf-ring-3"></span>
+                                    <div class="pf-play-btn">
+                                        {{--
+                                            Solid black triangle. viewBox is square, polygon
+                                            is optically centred. margin-left on the svg
+                                            nudges the visual centre rightward.
+                                        --}}
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#000000" aria-hidden="true">
+                                            <polygon points="6,3 20,12 6,21"/>
+                                        </svg>
+                                    </div>
                                 </div>
                             </div>
-                        @endforeach
+                            {{-- END play button overlay --}}
+
+                        </div>
                     </div>
-                </div>
+                @endforeach
             </div>
-        </section>
+
+            {{-- Load More — unchanged --}}
+            <div class="pf-loadmore-wrap">
+                <button type="button" class="split-btn pf-loadmore-btn" style="width:240px">
+                    <span class="split-btn-default">
+                        <span class="split-btn-label">Load More</span>
+                        <span style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px">
+                            <span class="dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                            <svg class="split-btn-spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" /></svg>
+                        </span>
+                    </span>
+                    <span class="split-btn-row">
+                        <span class="split-btn-icon">
+                            <span style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px">
+                                <span class="dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                                <svg class="split-btn-spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" /></svg>
+                            </span>
+                        </span>
+                        <span class="split-btn-text">Load More</span>
+                    </span>
+                </button>
+                <div class="pf-done" style="display:none">All Projects Loaded</div>
+            </div>
+        </div>
+    </div>
+</section>
+    
 
         {{-- ══════════ UI/UX PANEL ══════════ --}}
         <section class="pf-panel" data-panel="uiux">
@@ -379,12 +533,33 @@
                 <div class="pf-inner">
                     <div class="proj-grid">
                         @foreach($designProjects as $p)
-                            <div class="pf-card pf-card-visible">
+                            <div class="pf-card pf-card-visible"@if($loop->iteration > 3) hidden @endif>
                                 <div class="pf-card-img-wrap">
                                     <img src="{{ $p['image'] }}" alt="Design Project" loading="lazy" class="pf-card-img">
                                 </div>
                             </div>
                         @endforeach
+                    </div>
+                    <div class="pf-loadmore-wrap">
+                        <button type="button" class="split-btn pf-loadmore-btn" style="width:240px">
+                            <span class="split-btn-default">
+                                <span class="split-btn-label">Load More</span>
+                                <span style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px">
+                                    <span class="dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                                    <svg class="split-btn-spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" /></svg>
+                                </span>
+                            </span>
+                            <span class="split-btn-row">
+                                <span class="split-btn-icon">
+                                    <span style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px">
+                                        <span class="dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                                        <svg class="split-btn-spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" /></svg>
+                                    </span>
+                                </span>
+                                <span class="split-btn-text">Load More</span>
+                            </span>
+                        </button>
+                        <div class="pf-done" style="display:none">All Projects Loaded</div>
                     </div>
                 </div>
             </div>
@@ -506,6 +681,85 @@
             }
         });
     });
+
+    // Load More functionality
+    root.querySelectorAll('.pf-panel').forEach(function(panel) {
+        var btn = panel.querySelector('.pf-loadmore-btn');
+        var done = panel.querySelector('.pf-done');
+        var isAiPanel = panel.dataset.panel === 'ai-solution' || panel.dataset.panel === 'ai-design';
+        var BATCH = isAiPanel ? 2 : 3;
+        var loading = false;
+        
+        if (btn) {
+            btn.addEventListener('click', function () {
+                if (loading) return;
+                loading = true;
+                btn.classList.add('is-loading');
+                
+                var labels = btn.querySelectorAll('.split-btn-label, .split-btn-text');
+                var oldText = labels[0].innerText;
+                labels.forEach(function(l) { l.innerText = 'Loading...'; });
+                
+                setTimeout(function() {
+                    var hidden = panel.querySelectorAll('.pf-card[hidden]');
+                    for (var i = 0; i < BATCH && i < hidden.length; i++) {
+                        hidden[i].removeAttribute('hidden');
+                    }
+                    
+                    loading = false;
+                    btn.classList.remove('is-loading');
+                    labels.forEach(function(l) { l.innerText = oldText; });
+                    
+                    if (panel.querySelectorAll('.pf-card[hidden]').length === 0) {
+                        btn.style.display = 'none';
+                        if (done) done.style.display = 'inline-flex';
+                    }
+                }, 600);
+            });
+        }
+    });
+
+    // ── Web panel: slow image pan-down on hover (exact port of React WebCard) ──
+    // Image is height:auto so it renders at its natural aspect ratio,
+    // taller than the 252px container. On hover we translate it upward
+    // by (rendered height − 252) px over 10 s, then snap back in 0.6 s.
+    (function () {
+        var isMobile = window.matchMedia('(max-width: 768px)').matches;
+        var CONTAINER_H = 252;
+
+        root.querySelectorAll('.pf-web-slide-img').forEach(function (img) {
+            var scrollDist = 0;
+
+            function calcDist() {
+                var nH = img.naturalHeight || 0;
+                var nW = img.naturalWidth  || 1;
+                var dist = nH * (img.offsetWidth / nW) - CONTAINER_H;
+                scrollDist = dist > 0 ? dist : 0;
+            }
+
+            // Measure once image is loaded
+            if (img.complete && img.naturalWidth) {
+                calcDist();
+            } else {
+                img.addEventListener('load', calcDist);
+            }
+            // Re-measure on window resize
+            window.addEventListener('resize', calcDist);
+
+            var card = img.closest('.pf-card');
+            if (!card) return;
+
+            card.addEventListener('mouseenter', function () {
+                if (isMobile || scrollDist <= 0) return;
+                img.style.transition = 'transform 10s cubic-bezier(0.22,1,0.36,1)';
+                img.style.transform  = 'translateY(-' + scrollDist + 'px)';
+            });
+            card.addEventListener('mouseleave', function () {
+                img.style.transition = 'transform 0.6s cubic-bezier(0.22,1,0.36,1)';
+                img.style.transform  = 'translateY(0px)';
+            });
+        });
+    })();
 })();
 </script>
 @endpush

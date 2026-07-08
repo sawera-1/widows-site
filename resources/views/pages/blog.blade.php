@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Blog — CodeOaks')
-@section('meta_description', 'Ideas, insights and inspiration from the CodeOaks journal.')
+@section('title', 'Corammers')
+@section('meta_description', 'Ideas, insights and inspiration from the Corammers journal.')
 
 @push('styles')
 <link rel="stylesheet" href="{{ asset('css/pages/blog.css') }}">
@@ -44,8 +44,8 @@
         <div class="sec-eyebrow-row">
             <div class="sec-robot-col">
                 <div class="sec-robot-badge">
-                    <img loading="lazy" decoding="async" src="/assets/robolight.webp" alt="Robot" class="pw-robot-light">
-                    <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="pw-robot-dark">
+                    <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="pw-robot-light">
+                    <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="pw-robot-dark">
                 </div>
                 <div class="sec-robot-divider"></div>
             </div>
@@ -103,11 +103,17 @@
             <button type="button" class="split-btn" style="width:240px" id="blogLoadMore">
                 <span class="split-btn-default">
                     <span class="split-btn-label">Load More Posts</span>
-                    <span class="dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                    <span style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px">
+                        <span class="dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                        <svg class="split-btn-spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" /></svg>
+                    </span>
                 </span>
                 <span class="split-btn-row">
                     <span class="split-btn-icon">
-                        <span class="dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                        <span style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px">
+                            <span class="dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                            <svg class="split-btn-spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" /></svg>
+                        </span>
                     </span>
                     <span class="split-btn-text">Load More Posts</span>
                 </span>
@@ -140,16 +146,32 @@
     var btn = root.querySelector('#blogLoadMore');
     var done = root.querySelector('#blogDone');
     var BATCH = 6;
+    var loading = false;
     if (btn) {
         btn.addEventListener('click', function () {
-            var hidden = root.querySelectorAll('.blog-card[hidden]');
-            for (var i = 0; i < BATCH && i < hidden.length; i++) {
-                hidden[i].removeAttribute('hidden');
-            }
-            if (root.querySelectorAll('.blog-card[hidden]').length === 0) {
-                btn.style.display = 'none';
-                if (done) done.style.display = 'inline-flex';
-            }
+            if (loading) return;
+            loading = true;
+            btn.classList.add('is-loading');
+            
+            var labels = btn.querySelectorAll('.split-btn-label, .split-btn-text');
+            var oldText = labels[0].innerText;
+            labels.forEach(function(l) { l.innerText = 'Loading...'; });
+            
+            setTimeout(function() {
+                var hidden = root.querySelectorAll('.blog-card[hidden]');
+                for (var i = 0; i < BATCH && i < hidden.length; i++) {
+                    hidden[i].removeAttribute('hidden');
+                }
+                
+                loading = false;
+                btn.classList.remove('is-loading');
+                labels.forEach(function(l) { l.innerText = oldText; });
+                
+                if (root.querySelectorAll('.blog-card[hidden]').length === 0) {
+                    btn.style.display = 'none';
+                    if (done) done.style.display = 'inline-flex';
+                }
+            }, 600);
         });
     }
 })();

@@ -1,15 +1,16 @@
 @extends('layouts.app')
 
-@section('title', 'About — CodeOaks')
+@section('title', 'Corammers')
 @section('meta_description', 'A multidisciplinary tech studio crafting AI-powered apps, immersive VR experiences, and enterprise web platforms that scale without limits.')
 
 @push('styles')
 <link rel="stylesheet" href="{{ asset('css/pages/about.css') }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 @endpush
 
 @section('content')
 @php
-    $robo = '<img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="pw-robo-dark" style="width:32px;height:32px;object-fit:contain;display:block"><img loading="lazy" decoding="async" src="/assets/robolight.webp" alt="Robot" class="pw-robo-light" style="width:32px;height:32px;object-fit:contain;display:block">';
+    $robo = '<img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="pw-robo-dark" style="width:32px;height:32px;object-fit:contain;display:block"><img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="pw-robo-light" style="width:32px;height:32px;object-fit:contain;display:block">';
 
     $experienceItems = [
         ['num' => '01', 'title' => 'Web Development Experience', 'sub' => 'Frontend & Backend Mastery', 'desc' => 'From pixel-perfect interfaces to robust server-side architectures, we craft end-to-end web solutions using React, Next.js, Laravel, and Node.js engineered for performance, scalability, and lasting impact.', 'tags' => ['React', 'Next.js', 'Laravel', 'Node.js']],
@@ -552,9 +553,37 @@
         </div>
         <div class="tt-viewport">
             <div class="tt-track">
+                @php
+                    $devicons = [
+                        'React' => 'devicon-react-original',
+                        'Next.js' => 'devicon-nextjs-plain',
+                        'Node.js' => 'devicon-nodejs-plain',
+                        'Express.js' => 'devicon-express-original',
+                        'Laravel' => 'devicon-laravel-original',
+                        'Vue.js' => 'devicon-vuejs-plain',
+                        'TypeScript' => 'devicon-typescript-plain',
+                        'JavaScript' => 'devicon-javascript-plain',
+                        'PHP' => 'devicon-php-plain',
+                        'Python' => 'devicon-python-plain',
+                        'HTML5' => 'devicon-html5-plain',
+                        'CSS' => 'devicon-css3-plain',
+                        'TailwindCSS' => 'devicon-tailwindcss-original',
+                        'MongoDB' => 'devicon-mongodb-plain',
+                        'MySQL' => 'devicon-mysql-plain',
+                        'Firebase' => 'devicon-firebase-plain',
+                        'Docker' => 'devicon-docker-plain',
+                        'Git' => 'devicon-git-plain',
+                        'GitHub' => 'devicon-github-original',
+                        'Vercel' => 'devicon-vercel-original',
+                        'GraphQL' => 'devicon-graphql-plain',
+                        'Figma' => 'devicon-figma-plain'
+                    ];
+                @endphp
                 @foreach ($techTripled as $tech)
                     <div class="tt-card">
-                        <div class="tt-icon"><span style="font-family:Poppins,sans-serif;font-weight:800;font-size:clamp(1.4rem,3vw,2rem)">{{ strtoupper(substr($tech, 0, 2)) }}</span></div>
+                        <div class="tt-icon">
+                            <i class="{{ $devicons[$tech] ?? 'devicon-code-plain' }}" style="font-size: clamp(2rem, 4.5vw, 3.2rem);"></i>
+                        </div>
                         <span class="tt-label">{{ $tech }}</span>
                     </div>
                 @endforeach

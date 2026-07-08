@@ -1,17 +1,20 @@
 @extends('layouts.app')
 
-@section('title', 'Marketing Services — CodeOaks')
-@section('meta_description', 'From data-driven social strategies to precision SEO — we craft scalable, high-performance marketing machines that drive real ROI.')
+@section('title', 'Corammers')
+@section('meta_description', 'From data-driven social strategies to precision SEO  we craft scalable, high-performance marketing machines that drive real ROI.')
 
 @push('styles')
 <link rel="stylesheet" href="{{ asset('css/pages/services-marketing.css') }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 @endpush
 
 @section('content')
 @php
-    $robot = '<img loading="lazy" decoding="async" class="robo-light" src="/assets/robolight.webp" alt="Robot" width="32" height="32" style="object-fit:contain;display:block"><img loading="lazy" decoding="async" class="robo-dark" src="/assets/robo.webp" alt="Robot" width="32" height="32" style="object-fit:contain;display:block">';
+    $robot = '<img loading="lazy" decoding="async" class="robo-light" src="/assets/robo.png" alt="Robot" width="32" height="32" style="object-fit:contain;display:block"><img loading="lazy" decoding="async" class="robo-dark" src="/assets/robo.png" alt="Robot" width="32" height="32" style="object-fit:contain;display:block">';
 
     $arrowIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>';
+
+    $starIcon = '<svg width="18" height="18" viewBox="0 0 16 16" fill="#ffb33e" style="flex-shrink:0"><path d="M8 1.5L9.7 6H14.3L10.6 8.9L12 13.4L8 10.8L4 13.4L5.4 8.9L1.7 6H6.3L8 1.5Z" stroke="#ffb33e" stroke-width="1.2" stroke-linejoin="round"></path></svg>';
 
     /* ─── react-icons substitutes (simple inline glyphs) ─── */
     $icBullhorn = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l14-6v14L3 13v-2z"/><path d="M17 8a3 3 0 0 1 0 8"/><path d="M6 13v5a1 1 0 0 0 1 1h2"/></svg>';
@@ -99,10 +102,57 @@
         ['title' => 'Google Ads Management', 'tier' => 'Search', 'price' => '$400', 'desc' => 'High-intent search campaign management for maximum lead quality.', 'features' => ['Search campaign setup', 'Keyword research', 'Ad copy creation', 'Conversion tracking', 'Targeting setup', 'Monthly optimization', 'Engagement tracking', 'Basic automation'], 'ticker1' => ['Google Ads', 'Search', 'PMax', 'Shopping'], 'ticker2' => ['Analytics 4', 'GTM', 'Optimizer', 'Merchant Center'], 'highlight' => false, 'icon' => '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>'],
         ['title' => 'Email Marketing', 'tier' => 'Nurture', 'price' => '$200', 'desc' => 'Convert subscribers into loyal customers with strategic email campaigns.', 'features' => ['Up to 24 campaigns/year', 'Template design', 'List setup', 'Monthly report', 'Engagement tracking', 'Basic automation', 'Targeting setup', 'Monthly optimization'], 'ticker1' => ['Mailchimp', 'Klaviyo', 'ActiveCampaign', 'SendGrid'], 'ticker2' => ['Automation', 'Copywriting', 'Design', 'Strategy'], 'highlight' => false, 'icon' => '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>'],
     ];
+$reviews = [
+        ['name' => 'Sarah Mitchell', 'role' => 'CEO, ProBuild', 'text' => "the dashboard sync is literally so fast now and the team was super helpful with everything best agency we've worked with tbh", 'image' => '/assets/project/web/1.webp', 'avatar' => '/assets/im1.webp'],
+        ['name' => 'James Okafor', 'role' => 'CTO, EasyBridge', 'text' => 'needed a system that actually scales and these guys delivered everything works perfectly and the quality is top notch really happy with it', 'image' => '/assets/project/custom/3.webp', 'avatar' => null],
+        ['name' => 'Lucas Bernhard', 'role' => 'Researcher, SpaceBound', 'text' => "the app looks so good honestly didn't think it would be this nice but the design is just fire super easy to use too thanks guys", 'image' => '/assets/project/mobile/1.webp', 'avatar' => '/assets/im3.webp'],
+        ['name' => 'Priya Nair', 'role' => 'Partner, Robotech', 'text' => 'handled the complicated ai stuff for our dashboard really well it was a tough project but they made it look easy solid results all around', 'image' => '/assets/project/custom/1.webp', 'avatar' => '/assets/im2.webp'],
+        ['name' => 'Alex Chen', 'role' => 'Founder, DesignFlow', 'text' => 'love how clean the dashboard looks its exactly what i wanted the ui is super minimal and fast they really got our vision from day one', 'image' => '/assets/project/uiux/8.webp', 'avatar' => null],
+        ['name' => 'Sophia Kim', 'role' => 'Manager, StayFit', 'text' => 'mobile app is super smooth no lag at all just a great user experience u can tell they care about the small details highly recommend', 'image' => '/assets/project/mobile/2.webp', 'avatar' => null],
+        ['name' => 'Marcus Thorne', 'role' => 'Founder, TechFlow', 'text' => 'the custom software they built is a game changer for our warehouse operations super efficient and easy for the team to pick up definitely the best choice for us', 'image' => '/assets/project/custom/2.webp', 'avatar' => null],
+        ['name' => 'Elena Rossi', 'role' => 'Director, VibeDesign', 'text' => 'honestly obsessed with the new branding and logo they did it just fits our vibe perfectly and the team was so chill to work with 10/10', 'image' => '/assets/project/uiux/6.webp', 'avatar' => null],
+        ['name' => 'Omar Farouq', 'role' => 'Operations Lead, SyncAI', 'text' => 'honestly was skeptical about ai automation at first but the workflow they built just runs itself now we cut manual hours by like 70% which is insane', 'image' => '/assets/project/aiSol/1.webp', 'avatar' => null],
+        ['name' => 'Nadia Petrov', 'role' => 'Creative Director, PixelMind', 'text' => 'the ai design visuals they created blew us away every concept was unique and on brand felt like they really understood our aesthetic from the very first call', 'image' => '/assets/project/aiDes/ai3.webp', 'avatar' => null],
+    ];
 
+    $collage = [
+        ['src' => '/assets/project/web/1.webp', 'title' => 'ProBuild — Construction', 'desc' => 'Next-gen architectural excellence', 'cls' => 'pf-card-tall', 'h' => 420],
+        ['src' => '/assets/project/custom/3.webp', 'title' => 'EasyBridge — Fintech', 'desc' => 'Seamless mortgage application platform', 'cls' => '', 'h' => 200],
+        ['src' => '/assets/project/mobile/1.webp', 'title' => 'NASA Explorer', 'desc' => 'Interactive space exploration interface', 'cls' => '', 'h' => 200],
+        ['src' => '/assets/project/aiSol/3.webp', 'title' => 'n8n', 'desc' => 'AI', 'cls' => '', 'h' => 210],
+        ['src' => '/assets/project/uiux/7.webp', 'title' => 'Logo', 'desc' => 'FlexFlox', 'cls' => '', 'h' => 210],
+    ];
     $tickerMask = 'overflow:hidden;width:100%;-webkit-mask-image:linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%);mask-image:linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%)';
     $tickerStyle = 'display:flex;width:max-content;gap:6px;padding:2px 0;animation:tickerScroll 22s linear infinite';
     $tickerStyle2 = 'display:flex;width:max-content;gap:6px;padding:2px 0;animation:tickerScroll 18s linear infinite';
+
+    /* ─── Shared Devicon class map ─── */
+    $devicons = [
+        'Social Media' => 'devicon-facebook-plain',
+        'Content Strategy' => 'devicon-wordpress-plain',
+        'Paid Ads' => 'devicon-google-plain',
+        'Email Marketing' => '<svg width="1.4rem" height="1.4rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>',
+        'SEO Strategy' => 'devicon-google-plain',
+        'Analytics' => 'devicon-google-plain',
+        'Brand Identity' => 'devicon-behance-plain',
+        'Influencer Marketing' => '<svg width="1.4rem" height="1.4rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>',
+        'Funnel Optimization' => 'devicon-woocommerce-plain',
+        'Content Creation' => 'devicon-wordpress-plain',
+        'Lead Generation' => 'devicon-linkedin-plain',
+        'Campaign Strategy' => 'devicon-twitter-original',
+        'SEO Optimization' => 'devicon-google-plain',
+        'Email Campaigns' => 'devicon-salesforce-plain',
+        'Social Growth' => 'devicon-facebook-plain',
+        'Content Marketing' => 'devicon-wordpress-plain',
+        'Ad Campaigns' => 'devicon-google-plain',
+        'Conversion Funnels' => 'devicon-woocommerce-plain',
+        'Brand Strategy' => 'devicon-behance-plain',
+        'Audience Targeting' => 'devicon-facebook-plain',
+        'Growth Hacking' => 'devicon-google-plain',
+        'Content Planning' => 'devicon-trello-plain',
+        'CRM & Retention' => 'devicon-salesforce-plain',
+        'Performance Tracking' => 'devicon-google-plain',
+    ];
 @endphp
 
 <div class="pw-services-marketing">
@@ -118,7 +168,14 @@
                         <div class="dev-v-ticker-track dev-v-ticker-track-up" style="--spd:22s">
                             @foreach(array_merge($techCol1, $techCol1) as $t)
                                 <div class="dev-tech-card">
-                                    <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">{!! $t['icon'] !!}</div>
+                                    <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">
+                                        @php $icon = $devicons[$t['name']] ?? 'devicon-google-plain'; @endphp
+                                        @if(str_starts_with($icon, '<svg'))
+                                            {!! $icon !!}
+                                        @else
+                                            <i class="{{ $icon }}"></i>
+                                        @endif
+                                    </div>
                                     <div class="dev-tech-card-info">
                                         <span class="dev-tech-card-name">{{ $t['name'] }}</span>
                                         <span class="dev-tech-card-abbr">{{ $t['abbr'] }}</span>
@@ -131,7 +188,14 @@
                         <div class="dev-v-ticker-track dev-v-ticker-track-down" style="--spd:26s">
                             @foreach(array_merge($techCol2, $techCol2) as $t)
                                 <div class="dev-tech-card">
-                                    <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">{!! $t['icon'] !!}</div>
+                                    <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">
+                                        @php $icon = $devicons[$t['name']] ?? 'devicon-google-plain'; @endphp
+                                        @if(str_starts_with($icon, '<svg'))
+                                            {!! $icon !!}
+                                        @else
+                                            <i class="{{ $icon }}"></i>
+                                        @endif
+                                    </div>
                                     <div class="dev-tech-card-info">
                                         <span class="dev-tech-card-name">{{ $t['name'] }}</span>
                                         <span class="dev-tech-card-abbr">{{ $t['abbr'] }}</span>
@@ -181,7 +245,14 @@
                         <div class="dev-v-ticker-track dev-v-ticker-track-down" style="--spd:28s">
                             @foreach(array_merge($techCol3, $techCol3) as $t)
                                 <div class="dev-tech-card">
-                                    <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">{!! $t['icon'] !!}</div>
+                                    <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">
+                                        @php $icon = $devicons[$t['name']] ?? 'devicon-google-plain'; @endphp
+                                        @if(str_starts_with($icon, '<svg'))
+                                            {!! $icon !!}
+                                        @else
+                                            <i class="{{ $icon }}"></i>
+                                        @endif
+                                    </div>
                                     <div class="dev-tech-card-info">
                                         <span class="dev-tech-card-name">{{ $t['name'] }}</span>
                                         <span class="dev-tech-card-abbr">{{ $t['abbr'] }}</span>
@@ -194,7 +265,14 @@
                         <div class="dev-v-ticker-track dev-v-ticker-track-up" style="--spd:34s">
                             @foreach(array_merge($techCol4, $techCol4) as $t)
                                 <div class="dev-tech-card">
-                                    <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">{!! $t['icon'] !!}</div>
+                                    <div class="dev-tech-icon-wrap" style="background:{{ $t['bg'] }};color:{{ $t['color'] }}">
+                                        @php $icon = $devicons[$t['name']] ?? 'devicon-google-plain'; @endphp
+                                        @if(str_starts_with($icon, '<svg'))
+                                            {!! $icon !!}
+                                        @else
+                                            <i class="{{ $icon }}"></i>
+                                        @endif
+                                    </div>
                                     <div class="dev-tech-card-info">
                                         <span class="dev-tech-card-name">{{ $t['name'] }}</span>
                                         <span class="dev-tech-card-abbr">{{ $t['abbr'] }}</span>
@@ -436,7 +514,181 @@
                 </div>
             </div>
         </section>
+        {{-- PORTFOLIO --}}
+        <section class="pf-section">
+            <div class="pf-home-inner">
+                <div class="pf-content">
+                    <div class="pf-label-row">
+                        <div class="pf-robot-float">{!! $robot !!}</div>
+                        <div class="pf-pill">
+                            <span class="pf-dot-pulse"></span>
+                            <span class="pf-pill-text">Our Work</span>
+                        </div>
+                    </div>
+                    <div class="pf-divider"></div>
+                    <h2 class="pf-heading">Work That<br><span class="pf-accent">Speaks</span> Loudly</h2>
+                    <p class="pf-desc">From high-performance SaaS dashboards to immersive mobile experiences — every project we ship is crafted with precision, purpose, and a relentless focus on exceptional user experience.</p>
+                    <div class="pf-stats">
+                        @foreach([['value' => '200+', 'label' => 'Projects'], ['value' => '5+', 'label' => 'Years'], ['value' => '98%', 'label' => 'Satisfaction']] as $stat)
+                            <div class="pf-stat">
+                                <span class="pf-stat-value">{{ $stat['value'] }}</span>
+                                <span class="pf-stat-label">{{ $stat['label'] }}</span>
+                            </div>
+                        @endforeach
+                    </div>
+                    <a href="/portfolio" class="pf-btn">View Portfolio</a>
+                </div>
 
+                <div class="pf-collage">
+                    @foreach($collage as $item)
+                        <a href="/portfolio" class="pf-collage-card {{ $item['cls'] }}" style="height:{{ $item['h'] }}px">
+                            <img class="pf-collage-img" src="{{ $item['src'] }}" alt="{{ $item['title'] }}" loading="lazy">
+                            <div class="pf-collage-overlay"></div>
+                            <div class="pf-collage-content">
+                                <h4 class="pf-collage-title">{{ $item['title'] }}</h4>
+                                <p class="pf-collage-desc">{{ $item['desc'] }}</p>
+                                <div class="pf-collage-explore">
+                                    <span>Explore</span>
+                                    <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M1 6H11M6 1L11 6L6 11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                                </div>
+                            </div>
+                            <div class="pf-badge-dot"></div>
+                        </a>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+
+    {{-- ═══ REVIEWS SECTION (inlined) ═══ --}}
+    <section class="rev-section-bg">
+        <div class="rev-inner">
+            <div class="rev-header-wrap">
+                <div style="max-width:700px">
+                    <div class="rev-label-row">
+                        <div class="rev-robot-badge">{!! $robot !!}</div>
+                        <div class="rev-label-pill">
+                            <span class="rev-label-dot"></span>
+                            <span class="rev-label">Testimonials</span>
+                        </div>
+                    </div>
+                    <div class="rev-divider"></div>
+                    <h2 class="rev-heading">Words from our <br><span>Happy Clients</span></h2>
+                </div>
+                <div class="rev-nav">
+                    <button class="rev-nav-btn" data-rev-dir="-1" aria-label="Previous">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    </button>
+                    <button class="rev-nav-btn" data-rev-dir="1" aria-label="Next">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="rev-track-wrap">
+                <div class="rev-track">
+                    @foreach($reviews as $r)
+                    <div class="rev-card">
+                        <div class="rev-card-img-wrap">
+                            <img loading="lazy" decoding="async" src="{{ $r['image'] }}" alt="{{ $r['name'] }}" class="rev-card-img">
+                            <div class="rev-card-img-overlay"></div>
+                        </div>
+                        <div class="rev-card-body">
+                            <div class="rev-stars">
+                                @for($s = 0; $s < 5; $s++){!! $starIcon !!}@endfor
+                            </div>
+                            <p class="rev-text">{{ $r['text'] }}</p>
+                            <div class="rev-card-foot">
+                                <div class="rev-person">
+                                    <div class="rev-avatar-circle">
+                                        @if($r['avatar'])
+                                        <img loading="lazy" decoding="async" src="{{ $r['avatar'] }}" alt="{{ $r['name'] }}">
+                                        @else
+                                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="12" fill="var(--accent-theme)" fill-opacity="0.1"></rect><path d="M12 11C13.6569 11 15 9.65685 15 8C15 6.34315 13.6569 5 12 5C10.3431 5 9 6.34315 9 8C9 9.65685 10.3431 11 12 11Z" stroke="var(--accent-theme)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M18 19C18 16.2386 15.3137 14 12 14C8.68629 14 6 16.2386 6 19" stroke="var(--accent-theme)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                        @endif
+                                    </div>
+                                    <div>
+                                        <p class="rev-name">{{ $r['name'] }}</p>
+                                        <p class="rev-role">{{ $r['role'] }}</p>
+                                    </div>
+                                </div>
+                                <div class="rev-fiverr">fi</div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </section>
+    {{-- BOOK CONSULTATION --}}
+       <section class="wd-section bc-section">
+        <div class="wd-inner">
+            <div class="dev-intro-two-col bc-two-col reveal">
+
+                {{-- LEFT SIDE: Content --}}
+                <div>
+                    <div style="display:flex;flex-direction:column;align-items:flex-start;margin-bottom:24px">
+                        <div class="wd-label-row" style="align-items:flex-start">
+                            <div style="display:flex;flex-direction:column;align-items:center">
+                                <div class="wd-robot-badge">{!! $robot !!}</div>
+                                <div class="wd-section-divider" style="margin:12px 0 0;width:48px"></div>
+                            </div>
+                            <div class="wd-label-pill" style="margin-top:6px">
+                                <span class="wd-label-dot"></span>
+                                <span class="wd-label-text">Consultation</span>
+                            </div>
+                        </div>
+                        <h2 class="wd-intro-heading" style="margin:24px 0 0">Book a <span style="color:var(--accent-theme,#D81D1F)">Consultation</span></h2>
+                    </div>
+
+                    <p class="wd-intro-text">
+                        Schedule a free strategy consultation with our experts to discuss your business goals, project requirements, staffing needs, AI solutions, development initiatives, and growth opportunities. We'll help identify the most effective path forward for your organization.
+                    </p>
+
+                    {{-- Trust Metrics --}}
+                    <div class="bc-stats-row">
+                        @foreach([
+                            ['value' => '200+', 'label' => 'Projects Delivered'],
+                            ['value' => '98%', 'label' => 'Client Satisfaction'],
+                            ['value' => '24h', 'label' => 'Avg Response Time'],
+                            ['value' => '50+', 'label' => 'Expert Specialists'],
+                        ] as $stat)
+                            <div class="wd-intro-stat">
+                                <strong>{{ $stat['value'] }}</strong>
+                                <span>{{ $stat['label'] }}</span>
+                            </div>
+                        @endforeach
+                    </div>
+
+                    <p class="wd-intro-text">
+                        Whether you're looking to scale your team, launch a new product, implement AI solutions, or improve operational efficiency — our specialists will help you identify the best strategy and next steps.
+                    </p>
+
+                    <ul class="dev-staff-perks" style="margin-top:4px;margin-bottom:0">
+                        @foreach([
+                            'Free initial consultation',
+                            'Discuss project requirements',
+                            'Expert technical guidance',
+                            'Personalized solution recommendations',
+                            'Clear project roadmap',
+                            'Fast response and support'
+                        ] as $benefit)
+                            <li class="dev-staff-perk">
+                                <span class="dev-staff-perk-dot"></span>
+                                {{ $benefit }}
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+
+                {{-- RIGHT SIDE: Booking Widget --}}
+                <div class="dev-staff-card bc-widget-col" style="padding:10px;cursor:default">
+                    <div class="calendly-inline-widget" data-url="https://calendly.com/mshayantariq/schedule-a-meeting?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:280px;height:700px;width:100%"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
     </main>
 </div>
 @endsection
@@ -469,4 +721,5 @@
     }
 })();
 </script>
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 @endpush

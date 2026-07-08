@@ -206,13 +206,25 @@ h5 {
 }
 
 /* ── Floating Video Button ── */
+.about-video-anchor {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  pointer-events: auto;
+}
+
 .video-btn {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   user-select: none;
-  will-change: left, top;
+  position: relative;
 }
 
 .vbtn-ring {
@@ -268,7 +280,7 @@ h5 {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0e1a14;
+  color: #ffffff;
   box-shadow: 0 8px 32px var(--accent-color), 0 2px 10px rgba(0, 0, 0, 0.3);
   transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.22s ease;
 }
@@ -1768,3 +1780,48 @@ h5 {
    (set by JS) but had no overflow rule, so the collapsed content spilled out and
    overlapped the next item. Clip it and animate the expand. */
 .spec-body { overflow: hidden; transition: max-height 0.45s cubic-bezier(0.22,1,0.36,1); }
+
+/* ═══════════════════════════════════════════
+   PORTFOLIO SVG DASHBOARD THEME VARS
+   (ps-dash-* classes used inside the inline SVG on ps-right)
+═══════════════════════════════════════════ */
+.ps-dash-bg   { fill: #f0f0ee; }
+.ps-dash-panel { fill: #ffffff; }
+.ps-dash-accent { fill: #D81D1F; }
+.ps-dash-txt  { fill: #1a1a1a; }
+.ps-dash-val  { fill: #1a1a1a; }
+.ps-dash-line { stroke: rgba(0,0,0,0.08); }
+.ps-dash-stroke { stroke: #D81D1F; }
+[data-theme="dark"] .ps-dash-bg    { fill: #1a1a1a; }
+[data-theme="dark"] .ps-dash-panel { fill: #232323; }
+[data-theme="dark"] .ps-dash-accent { fill: #D81D1F; }
+[data-theme="dark"] .ps-dash-txt   { fill: rgba(255,255,255,0.65); }
+[data-theme="dark"] .ps-dash-val   { fill: #ffffff; }
+[data-theme="dark"] .ps-dash-line  { stroke: rgba(255,255,255,0.07); }
+[data-theme="dark"] .ps-dash-stroke { stroke: #D81D1F; }
+
+/* ═══════════════════════════════════════════
+   TECH TICKER — ICON TEXT VISIBILITY FIX
+   The icon is rendered as a 2-letter bold text abbreviation.
+   Ensure it is visually prominent and not invisible against the card.
+═══════════════════════════════════════════ */
+.tt-icon span {
+  color: #D81D1F;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+[data-theme="dark"] .tt-icon span {
+  color: #D81D1F;
+}
+.tt-card:hover .tt-icon span {
+  color: #D81D1F;
+  filter: drop-shadow(0 0 8px rgba(216,29,31,0.5));
+}
+[data-theme="dark"] .tt-card:hover .tt-icon span {
+  color: #D81D1F;
+  filter: drop-shadow(0 0 8px rgba(216,29,31,0.5));
+}

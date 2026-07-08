@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Development Portfolio — CodeOaks')
-@section('meta_description', 'A curated collection spanning website development, mobile apps, and tailored software solutions — engineered for performance and scale.')
+@section('title', 'Corammers')
+@section('meta_description', 'A curated collection spanning website development, mobile apps, and tailored software solutions  engineered for performance and scale.')
 
 @push('styles')
 <link rel="stylesheet" href="{{ asset('css/pages/portfolio-development.css') }}">
@@ -111,6 +111,7 @@
 
     {{-- ── HERO ── --}}
     <section class="pf-hero">
+        <canvas class="pf-hero-canvas" data-sphere></canvas>
         <div class="pf-hero-content">
             <div class="pf-hero-badge">
                 <span class="pf-hero-badge-pulse"></span>
@@ -134,8 +135,8 @@
                 <div class="pf-reveal" style="margin-bottom:48px">
                     <div class="pf-label-row">
                         <div class="pf-robot-badge">
-                            <img loading="lazy" decoding="async" class="robo-dark" src="/assets/robo.webp" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block">
-                            <img loading="lazy" decoding="async" class="robo-light" src="/assets/robolight.webp" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block">
+                            <img loading="lazy" decoding="async" class="robo-dark" src="/assets/robo.png" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block">
+                            <img loading="lazy" decoding="async" class="robo-light" src="/assets/robo.png" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block">
                         </div>
                         <div class="pf-label-group">
                             <div class="pf-label-pill">
@@ -194,9 +195,10 @@
                 <div class="proj-grid">
                     @foreach($webProjects as $p)
                         @php $cfg = $tagWeb[$p['tag']] ?? $tagWeb['SaaS']; @endphp
-                        <div class="pf-card pfd-card" data-url="{{ $p['url'] }}">
+                        <div class="pf-card pfd-card" data-url="{{ $p['url'] }}" @if($loop->iteration > 3) hidden @endif>
                             <div class="pfd-card-media">
-                                <img src="{{ $p['image'] }}" alt="{{ $p['title'] }}" loading="lazy" draggable="false">
+                                <img src="{{ $p['image'] }}" alt="{{ $p['title'] }}" loading="lazy" class="pf-web-slide-img" style="display:block;width:100%;height:auto;position:absolute;top:0;left:0;will-change:transform">
+
                                 <div class="pfd-badge">
                                     <span class="pfd-tag" style="--tag-bg:{{ $cfg['bg'] }};--tag-border:{{ $cfg['border'] }};--tag-color:{{ $cfg['color'] }};--tag-dot:{{ $cfg['dot'] }}">
                                         <span class="pfd-tag-dot"></span>
@@ -217,7 +219,23 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="pfd-loadmore-wrap"><div class="pfd-loadmore">All Project Loaded</div></div>
+                <div class="pf-loadmore-wrap">
+                    <button type="button" class="split-btn pf-loadmore-btn" style="width:240px">
+                        <span class="split-btn-default">
+                            <span class="split-btn-label">Load More</span>
+                            <span class="dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                            <svg class="split-btn-spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" /></svg>
+                        </span>
+                        <span class="split-btn-row">
+                            <span class="split-btn-icon">
+                                <span class="dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                                <svg class="split-btn-spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" /></svg>
+                            </span>
+                            <span class="split-btn-text">Load More</span>
+                        </span>
+                    </button>
+                    <div class="pf-done" style="display:none">All Projects Loaded</div>
+                </div>
             </div>
         </section>
 
@@ -227,7 +245,7 @@
                 <div class="custom-grid">
                     @foreach($customProjects as $p)
                         @php $cfg = $tagCustom[$p['tag']] ?? $tagCustom['SaaS']; @endphp
-                        <div class="pf-card pfd-custom-card">
+                        <div class="pf-card pfd-custom-card" @if($loop->iteration > 3) hidden @endif>
                             <div class="pfd-custom-media">
                                 <img src="{{ $p['image'] }}" alt="{{ $p['title'] }}" loading="lazy">
                                 <div class="pfd-custom-media-grad"></div>
@@ -281,7 +299,23 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="pfd-loadmore-wrap" style="margin-top:80px"><div class="pfd-loadmore">All Project Loaded</div></div>
+                <div class="pf-loadmore-wrap" style="margin-top:80px">
+                    <button type="button" class="split-btn pf-loadmore-btn" style="width:240px">
+                        <span class="split-btn-default">
+                            <span class="split-btn-label">Load More</span>
+                            <span class="dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                            <svg class="split-btn-spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" /></svg>
+                        </span>
+                        <span class="split-btn-row">
+                            <span class="split-btn-icon">
+                                <span class="dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                                <svg class="split-btn-spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" /></svg>
+                            </span>
+                            <span class="split-btn-text">Load More</span>
+                        </span>
+                    </button>
+                    <div class="pf-done" style="display:none">All Projects Loaded</div>
+                </div>
             </div>
         </section>
 
@@ -291,7 +325,7 @@
                 <div class="proj-grid">
                     @foreach($mobileProjects as $p)
                         @php $cfg = $tagMobile[$p['tag']] ?? $tagMobile['AI']; @endphp
-                        <div class="pf-card pfd-card">
+                        <div class="pf-card pfd-card" @if($loop->iteration > 3) hidden @endif>
                             <div class="pfd-card-media">
                                 <img src="{{ $p['image'] }}" alt="{{ $p['title'] }}" loading="lazy">
                                 <div class="pfd-badge">
@@ -310,7 +344,27 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="pfd-loadmore-wrap"><div class="pfd-loadmore">All Project Loaded</div></div>
+                <div class="pf-loadmore-wrap">
+                    <button type="button" class="split-btn pf-loadmore-btn" style="width:240px">
+                        <span class="split-btn-default">
+                            <span class="split-btn-label">Load More</span>
+                            <span style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px">
+                                <span class="dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                                <svg class="split-btn-spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" /></svg>
+                            </span>
+                        </span>
+                        <span class="split-btn-row">
+                            <span class="split-btn-icon">
+                                <span style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px">
+                                    <span class="dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                                    <svg class="split-btn-spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" /></svg>
+                                </span>
+                            </span>
+                            <span class="split-btn-text">Load More</span>
+                        </span>
+                    </button>
+                    <div class="pf-done" style="display:none">All Projects Loaded</div>
+                </div>
             </div>
         </section>
 
@@ -319,14 +373,34 @@
             <div class="pf-inner">
                 <div class="ai-grid">
                     @foreach($aiProjects as $p)
-                        <div class="pf-card pfd-ai-card">
+                        <div class="pf-card pfd-ai-card" @if($loop->iteration > 2) hidden @endif>
                             <div class="pfd-ai-media">
                                 <img src="{{ $p['image'] }}" alt="{{ $p['title'] }}" loading="lazy">
                             </div>
                         </div>
                     @endforeach
                 </div>
-                <div class="pfd-loadmore-wrap" style="margin-top:80px"><div class="pfd-loadmore">All Project Loaded</div></div>
+                <div class="pf-loadmore-wrap" style="margin-top:80px">
+                    <button type="button" class="split-btn pf-loadmore-btn" style="width:240px">
+                        <span class="split-btn-default">
+                            <span class="split-btn-label">Load More</span>
+                            <span style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px">
+                                <span class="dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                                <svg class="split-btn-spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" /></svg>
+                            </span>
+                        </span>
+                        <span class="split-btn-row">
+                            <span class="split-btn-icon">
+                                <span style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px">
+                                    <span class="dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                                    <svg class="split-btn-spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" /></svg>
+                                </span>
+                            </span>
+                            <span class="split-btn-text">Load More</span>
+                        </span>
+                    </button>
+                    <div class="pf-done" style="display:none">All Projects Loaded</div>
+                </div>
             </div>
         </section>
 
@@ -445,6 +519,197 @@
     if (document.readyState === 'complete') initPill();
     else window.addEventListener('load', initPill);
     setTimeout(initPill, 120);
+
+    /* ── Hero sphere canvas ── */
+    var canvas = root.querySelector('[data-sphere]');
+    if (canvas && canvas.getContext) {
+        var ctx = canvas.getContext('2d');
+        var W, H, cx, cy, R;
+        var mouse = { x: -9999, y: -9999 };
+        var accent = { r: 216, g: 29, b: 31 };
+
+        function resize() {
+            W = canvas.width = window.innerWidth;
+            H = canvas.height = window.innerHeight;
+            cx = W / 2; cy = H / 2;
+            R = Math.min(W, H) * 0.38;
+            if (R > 380) R = 380;
+        }
+        resize();
+
+        function randInSphere() {
+            while (true) {
+                var x = Math.random() * 2 - 1, y = Math.random() * 2 - 1, z = Math.random() * 2 - 1;
+                if (x * x + y * y + z * z <= 1) return [x, y, z];
+            }
+        }
+
+        var COUNT = 900, bubbles = [];
+        for (var i = 0; i < COUNT; i++) {
+            var rr = randInSphere();
+            bubbles.push({ x: rr[0], y: rr[1], z: rr[2], speed: 0.004 + Math.random() * 0.012, orbitAxis: Math.random() < 0.5 ? 'xz' : 'yz', phase: Math.random() * Math.PI * 2, r: 2.5 + Math.random() * 9, brightness: 0.03 + Math.random() * 0.16 });
+        }
+
+        var t = 0, rotY = 0, rotX = 0, rafId;
+        var rotateY = function (x, z, a) { return [x * Math.cos(a) - z * Math.sin(a), x * Math.sin(a) + z * Math.cos(a)]; };
+        var rotateX = function (y, z, a) { return [y * Math.cos(a) - z * Math.sin(a), y * Math.sin(a) + z * Math.cos(a)]; };
+
+        function draw() {
+            if (!W || !H) resize();
+            if (!ctx || !W || !H) { rafId = requestAnimationFrame(draw); return; }
+
+            ctx.clearRect(0, 0, W, H);
+            var tRY = ((mouse.x - cx) / W) * 0.28;
+            var tRX = ((mouse.y - cy) / H) * 0.18;
+            rotY += (tRY - rotY) * 0.04;
+            rotX += (tRX - rotX) * 0.04;
+
+            ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(15, 15, 15, 0.95)'; ctx.fill();
+
+            var ag = ctx.createRadialGradient(cx, cy, 0, cx, cy, R);
+            ag.addColorStop(0, 'rgba(40,40,40,0.8)');
+            ag.addColorStop(0.7, 'rgba(15,15,15,0.9)');
+            ag.addColorStop(1, 'rgba(5,5,5,1)');
+            ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2);
+            ctx.fillStyle = ag; ctx.fill();
+
+            var projected = bubbles.map(function (b) {
+                var x = b.x, y = b.y, z = b.z;
+                var dt = t * b.speed + b.phase;
+                if (b.orbitAxis === 'xz') { var r1 = rotateY(x, z, dt * 0.45); x = r1[0]; z = r1[1]; }
+                else { var r2 = rotateX(y, z, dt * 0.45); y = r2[0]; z = r2[1]; }
+                var r3 = rotateY(x, z, rotY); x = r3[0]; z = r3[1];
+                var r4 = rotateX(y, z, rotX); y = r4[0]; z = r4[1];
+                var r5 = rotateY(x, z, t * 0.003);
+                var sx = r5[0], sz = r5[1];
+                var scale = (sz + 1.15) / 2.15;
+                return { px: cx + sx * R * 0.9, py: cy + y * R * 0.9, radius: b.r * Math.max(0.2, scale), z: sz, brightness: b.brightness, depth: Math.max(0.2, scale) };
+            });
+            projected.sort(function (a, b) { return a.z - b.z; });
+            ctx.save();
+            ctx.beginPath(); ctx.arc(cx, cy, R * 0.975, 0, Math.PI * 2); ctx.clip();
+            projected.forEach(function (p) {
+                if (p.radius < 0.5) return;
+                var d = p.depth;
+                var base = Math.floor(p.brightness * 22 + 5);
+                var bg = ctx.createRadialGradient(p.px - p.radius * 0.2, p.py - p.radius * 0.25, 0, p.px, p.py, p.radius);
+                bg.addColorStop(0, 'rgba(' + (base + 30) + ',' + (base + 30) + ',' + (base + 30) + ',' + (0.95 * d) + ')');
+                bg.addColorStop(0.5, 'rgba(' + (base + 10) + ',' + (base + 10) + ',' + (base + 10) + ',' + (0.95 * d) + ')');
+                bg.addColorStop(1, 'rgba(0,0,0,' + (0.98 * d) + ')');
+                ctx.beginPath(); ctx.arc(p.px, p.py, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = bg; ctx.fill();
+                var isPrimary = p.brightness > 0.14;
+                var sg = ctx.createRadialGradient(p.px - p.radius * 0.3, p.py - p.radius * 0.3, 0, p.px - p.radius * 0.3, p.py - p.radius * 0.3, p.radius * 0.48);
+                if (isPrimary) {
+                    sg.addColorStop(0, 'rgba(' + accent.r + ',' + accent.g + ',' + accent.b + ',' + (0.8 * d) + ')');
+                    sg.addColorStop(0.4, 'rgba(' + accent.r + ',' + accent.g + ',' + accent.b + ',' + (0.2 * d) + ')');
+                    sg.addColorStop(1, 'rgba(0,0,0,0)');
+                } else {
+                    sg.addColorStop(0, 'rgba(255,255,255,' + (0.7 * d) + ')');
+                    sg.addColorStop(0.4, 'rgba(180,180,180,' + (0.3 * d) + ')');
+                    sg.addColorStop(1, 'rgba(0,0,0,0)');
+                }
+                ctx.beginPath(); ctx.arc(p.px, p.py, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = sg; ctx.fill();
+            });
+            ctx.restore();
+            ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2);
+            ctx.strokeStyle = 'rgba(' + accent.r + ',' + accent.g + ',' + accent.b + ',0.35)';
+            ctx.lineWidth = 2.5; ctx.stroke();
+            t++; rafId = requestAnimationFrame(draw);
+        }
+
+        window.addEventListener('resize', resize);
+        window.addEventListener('mousemove', function (e) { mouse.x = e.clientX; mouse.y = e.clientY; });
+        draw();
+    }
+
+    // ── LOAD MORE LOGIC ──
+    root.querySelectorAll('.pf-panel').forEach(function(panel) {
+        var btn = panel.querySelector('.pf-loadmore-btn');
+        var done = panel.querySelector('.pf-done');
+        var panelType = panel.getAttribute('data-panel');
+        var batchSize = (panelType === 'ai-solution' || panelType === 'ai-design' || panelType === 'logo') ? 2 : 3;
+        var loading = false;
+
+        if (btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (loading) return;
+                loading = true;
+                btn.classList.add('is-loading');
+
+                var labels = btn.querySelectorAll('.split-btn-label, .split-btn-text');
+                var oldText = labels[0] ? labels[0].innerText : 'Load More';
+                labels.forEach(function(l) { l.innerText = 'Loading...'; });
+
+                setTimeout(function() {
+                    var hiddenCards = panel.querySelectorAll('.pf-card[hidden]');
+                    for (var i = 0; i < batchSize && i < hiddenCards.length; i++) {
+                        hiddenCards[i].removeAttribute('hidden');
+                    }
+                    
+                    loading = false;
+                    btn.classList.remove('is-loading');
+                    labels.forEach(function(l) { l.innerText = oldText; });
+
+                    var remaining = panel.querySelectorAll('.pf-card[hidden]');
+                    if (remaining.length === 0) {
+                        btn.style.display = 'none';
+                        if (done) done.style.display = 'block';
+                    }
+                }, 600);
+            });
+            
+            var remaining = panel.querySelectorAll('.pf-card[hidden]');
+            if(remaining.length === 0) {
+                btn.style.display = 'none';
+                if (done) done.style.display = 'block';
+            }
+        }
+    });
+       // ── Web panel: slow image pan-down on hover (exact port of React WebCard) ──
+    // Image is height:auto so it renders at its natural aspect ratio,
+    // taller than the 252px container. On hover we translate it upward
+    // by (rendered height − 252) px over 10 s, then snap back in 0.6 s.
+    (function () {
+        var isMobile = window.matchMedia('(max-width: 768px)').matches;
+        var CONTAINER_H = 252;
+
+        root.querySelectorAll('.pf-web-slide-img').forEach(function (img) {
+            var scrollDist = 0;
+
+            function calcDist() {
+                var nH = img.naturalHeight || 0;
+                var nW = img.naturalWidth  || 1;
+                var dist = nH * (img.offsetWidth / nW) - CONTAINER_H;
+                scrollDist = dist > 0 ? dist : 0;
+            }
+
+            // Measure once image is loaded
+            if (img.complete && img.naturalWidth) {
+                calcDist();
+            } else {
+                img.addEventListener('load', calcDist);
+            }
+            // Re-measure on window resize
+            window.addEventListener('resize', calcDist);
+
+            var card = img.closest('.pf-card');
+            if (!card) return;
+
+            card.addEventListener('mouseenter', function () {
+                if (isMobile || scrollDist <= 0) return;
+                img.style.transition = 'transform 10s cubic-bezier(0.22,1,0.36,1)';
+                img.style.transform  = 'translateY(-' + scrollDist + 'px)';
+            });
+            card.addEventListener('mouseleave', function () {
+                img.style.transition = 'transform 0.6s cubic-bezier(0.22,1,0.36,1)';
+                img.style.transform  = 'translateY(0px)';
+            });
+        });
+    })();
 })();
 </script>
 @endpush

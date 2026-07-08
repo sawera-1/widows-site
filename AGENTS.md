@@ -1,4 +1,4 @@
-# CodeOaks — Laravel (Blade) site
+# Corammers — Laravel (Blade) site
 
 This project was converted from Next.js to a lean, server-rendered **Laravel 13**
 site. It is intentionally framework-light and fast: no React, no build step, no

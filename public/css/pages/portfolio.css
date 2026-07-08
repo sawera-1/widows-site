@@ -24,6 +24,13 @@
   --robot-badge-bg: color-mix(in srgb, #D81D1F, transparent 90%);
   --section-label: #111111;
   --filter-text-active: #ffffff;
+  --sb-accent: #D81D1F;
+  --sb-fg-on-accent: #fff;
+  --sb-split-bg: #1a1a1a;
+  --sb-split-fg: #fff;
+  --done-border: rgba(0, 0, 0, 0.08);
+  --done-bg: #efefec;
+  --done-color: #aaa;
 }
 
 .pf-dark {
@@ -49,6 +56,13 @@
   --robot-badge-bg: color-mix(in srgb, #D81D1F, transparent 90%);
   --section-label: #ffffff;
   --filter-text-active: #111111;
+  --sb-accent: #D81D1F;
+  --sb-fg-on-accent: #111;
+  --sb-split-bg: #333;
+  --sb-split-fg: #fff;
+  --done-border: rgba(255, 255, 255, 0.08);
+  --done-bg: #1a1a1a;
+  --done-color: #555;
 }
 
 /* ── Wrapper ── */
@@ -59,6 +73,12 @@
   transition: var(--transition);
   overflow-x: hidden;
   cursor: none;
+}
+
+@keyframes lmSpin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* ── HERO ── */
@@ -383,10 +403,13 @@
 }
 
 @keyframes pfPulseDot {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
     box-shadow: 0 0 8px var(--label-dot);
   }
+
   50% {
     opacity: 0.5;
     box-shadow: 0 0 3px var(--label-dot);
@@ -974,6 +997,7 @@
     padding: 0 20px;
   }
 }
+
 /* ═══════════════════════════════════════════════
    THEME VARIABLE BLOCKS (appended for Laravel)
    Maps the React pf-light / pf-dark token sets onto
@@ -1045,28 +1069,765 @@
 [data-theme="dark"] .pw-portfolio .pf-card:hover {
   box-shadow: 0 0 0 1.5px var(--primary), 0 32px 80px rgba(0, 0, 0, .5);
 }
+
 [data-theme="dark"] .pw-portfolio .pf-card-icon-wrap {
   color: var(--primary);
   background: color-mix(in srgb, var(--primary), transparent 92%);
 }
-[data-theme="dark"] .pw-portfolio .pf-card:hover .pf-card-tag-pill { color: var(--primary); }
+
+[data-theme="dark"] .pw-portfolio .pf-card:hover .pf-card-tag-pill {
+  color: var(--primary);
+}
+
 [data-theme="dark"] .pw-portfolio .pf-tech-pill {
   color: var(--primary);
   background: color-mix(in srgb, var(--primary), transparent 92%);
 }
 
 /* Robot badge image swap by theme (React chose src by isDark) */
-.pw-portfolio .pf-robot-badge .robo-dark { display: none; }
-.pw-portfolio .pf-robot-badge .robo-light { display: block; }
-[data-theme="dark"] .pw-portfolio .pf-robot-badge .robo-dark { display: block; }
-[data-theme="dark"] .pw-portfolio .pf-robot-badge .robo-light { display: none; }
+.pw-portfolio .pf-robot-badge .robo-dark {
+  display: none;
+}
+
+.pw-portfolio .pf-robot-badge .robo-light {
+  display: block;
+}
+
+[data-theme="dark"] .pw-portfolio .pf-robot-badge .robo-dark {
+  display: block;
+}
+
+[data-theme="dark"] .pw-portfolio .pf-robot-badge .robo-light {
+  display: none;
+}
 
 /* Category panels: hidden unless active (filter JS) */
-.pw-portfolio .pf-panel { display: none; }
-.pw-portfolio .pf-panel.pf-panel-active { display: block; }
+.pw-portfolio .pf-panel {
+  display: none;
+}
+
+.pw-portfolio .pf-panel.pf-panel-active {
+  display: block;
+}
 
 /* All cards visible by default (no JS-gated entrance) */
-.pw-portfolio .pf-card { opacity: 1; transform: none; }
+.pw-portfolio .pf-card {
+  opacity: 1;
+  transform: none;
+}
 
 /* Segmented pill: static under each active button (JS repositions) */
-.pw-portfolio .pf-segment-btn { cursor: pointer; }
+.pw-portfolio .pf-segment-btn {
+  cursor: pointer;
+}
+
+/* ── Web panel: vertical image slide-reveal on hover ──
+   Transition & translateY are applied dynamically by JS
+   (mirrors original React WebCard: 10s pan in, 0.6s snap back). */
+.pw-portfolio .pf-web-slide-img {
+  will-change: transform;
+}
+
+/* Variables for Load More Button */
+.pw-portfolio {
+  --sb-accent: var(--primary);
+  --sb-fg-on-accent: #fff;
+  --sb-split-bg: #1a1a1a;
+  --sb-split-fg: #fff;
+  --done-border: rgba(0, 0, 0, 0.08);
+  --done-bg: #efefec;
+  --done-color: #aaa;
+}
+
+[data-theme="dark"] .pw-portfolio {
+  --sb-accent: var(--primary);
+  --sb-fg-on-accent: #111;
+  --sb-split-bg: #333;
+  --sb-split-fg: #fff;
+  --done-border: rgba(255, 255, 255, 0.08);
+  --done-bg: #1a1a1a;
+  --done-color: #555;
+}
+
+/* ── Split button (hover reveal) ── */
+.split-btn {
+  position: relative;
+  height: 52px;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: inline-block;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.split-btn-default {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  background: var(--sb-accent);
+  color: var(--sb-fg-on-accent);
+  border-radius: 16px;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.split-btn:hover .split-btn-default {
+  opacity: 0;
+  transform: translateY(-115%) scale(0.86);
+}
+
+.split-btn-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--sb-fg-on-accent);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.split-btn-row {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(115%);
+  pointer-events: none;
+}
+
+.split-btn:hover .split-btn-row {
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.split-btn-icon {
+  flex: 0 0 52px;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sb-split-bg);
+  color: var(--sb-split-fg);
+  border-radius: 14px;
+}
+
+.split-btn-text {
+  flex: 1;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sb-split-bg);
+  color: var(--sb-split-fg);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  border-radius: 14px;
+}
+
+/* dots arrow */
+.dots-arrow {
+  position: relative;
+  width: 11px;
+  height: 11px;
+  display: inline-block;
+  flex-shrink: 0;
+  margin-left: 2px;
+}
+
+.dots-arrow span {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dots-arrow .d1 {
+  top: 0;
+  left: 0;
+}
+
+.dots-arrow .d2 {
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.dots-arrow .d3 {
+  bottom: 0;
+  left: 0;
+}
+
+.split-btn:hover .dots-arrow {
+  transform: translateX(2px);
+}
+
+.split-btn.is-loading .dots-arrow {
+  opacity: 0;
+}
+
+.split-btn-spinner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  opacity: 0;
+  visibility: hidden;
+  animation: lmSpin 1s linear infinite;
+  transition: opacity 0.3s ease;
+  color: currentColor;
+}
+
+.split-btn.is-loading .split-btn-spinner {
+  opacity: 1;
+  visibility: visible;
+}
+
+.split-btn-spinner circle {
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 20 12;
+}
+
+/* ── Load more / done ── */
+.pf-loadmore-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 56px;
+  width: 100%;
+}
+
+.pf-done {
+  height: 52px;
+  padding: 0 48px;
+  border-radius: 16px;
+  border: 1px solid var(--done-border);
+  background: var(--done-bg);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--done-color);
+  display: inline-flex;
+  align-items: center;
+}
+
+/* hidden extra posts */
+.pf-card[hidden] {
+  display: none !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   AI DESIGN VIDEO PLAY BUTTON OVERLAY
+   Add this block at the bottom of portfolio.css
+   (after the existing .pw-portfolio .pf-web-slide-img rule)
+   ══════════════════════════════════════════════════════════════ */
+
+/* Overlay container — fills the image wrapper, non-blocking for pointer
+   events on the card itself (the card's onclick handles the click) */
+.pf-video-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  pointer-events: none;
+  /* let card's onclick fire through */
+}
+
+/* The red circle */
+.pf-play-btn {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #FF0000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* layered shadow: red glow + neutral depth */
+  box-shadow:
+    0 4px 22px rgba(255, 0, 0, 0.38),
+    0 2px 10px rgba(0, 0, 0, 0.32);
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+  flex-shrink: 0;
+  will-change: transform;
+}
+
+/* Triangle: slight left offset compensates optical centering */
+.pf-play-btn svg {
+  display: block;
+  margin-left: 4px;
+}
+
+/* Hover state — enlarges and intensifies glow */
+.pf-card:hover .pf-play-btn {
+  transform: scale(1.16);
+  box-shadow:
+    0 8px 36px rgba(255, 0, 0, 0.58),
+    0 4px 14px rgba(0, 0, 0, 0.38);
+}
+
+/* Scale down gracefully on small screens */
+@media (max-width: 768px) {
+  .pf-play-btn {
+    width: 48px;
+    height: 48px;
+  }
+
+  .pf-play-btn svg {
+    width: 17px;
+    height: 17px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pf-play-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .pf-play-btn svg {
+    width: 15px;
+    height: 15px;
+    margin-left: 3px;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   AI DESIGN VIDEO PLAY BUTTON OVERLAY
+   Add this block at the bottom of portfolio.css
+   (after the existing .pw-portfolio .pf-web-slide-img rule)
+   ══════════════════════════════════════════════════════════════ */
+
+/* Overlay container — fills the image wrapper, non-blocking for pointer
+   events on the card itself (the card's onclick handles the click) */
+.pf-video-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  pointer-events: none;
+  /* let card's onclick fire through */
+}
+
+/* The red circle */
+.pf-play-btn {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #FF0000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* layered shadow: red glow + neutral depth */
+  box-shadow:
+    0 4px 22px rgba(255, 0, 0, 0.38),
+    0 2px 10px rgba(0, 0, 0, 0.32);
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+  flex-shrink: 0;
+  will-change: transform;
+}
+
+/* Triangle: slight left offset compensates optical centering */
+.pf-play-btn svg {
+  display: block;
+  margin-left: 4px;
+}
+
+/* Hover state — enlarges and intensifies glow */
+.pf-card:hover .pf-play-btn {
+  transform: scale(1.16);
+  box-shadow:
+    0 8px 36px rgba(255, 0, 0, 0.58),
+    0 4px 14px rgba(0, 0, 0, 0.38);
+}
+
+/* Scale down gracefully on small screens */
+@media (max-width: 768px) {
+  .pf-play-btn {
+    width: 48px;
+    height: 48px;
+  }
+
+  .pf-play-btn svg {
+    width: 17px;
+    height: 17px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pf-play-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .pf-play-btn svg {
+    width: 15px;
+    height: 15px;
+    margin-left: 3px;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   AI DESIGN VIDEO PLAY BUTTON OVERLAY (with animated pulse ring)
+   Add this block at the bottom of portfolio.css
+   (after the existing .pw-portfolio .pf-web-slide-img rule)
+   ══════════════════════════════════════════════════════════════ */
+
+/* Overlay container — fills the image wrapper, non-blocking for pointer
+   events on the card itself (the card's onclick handles the click) */
+.pf-video-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  pointer-events: none;
+  /* let card's onclick fire through */
+}
+
+/* Wrapper that holds the button + pulse rings, so rings can be
+   positioned relative to the button without affecting its own size */
+.pf-play-btn-wrap {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* The red circle (button itself) */
+.pf-play-btn {
+  position: relative;
+  z-index: 2;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #FF0000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 4px 22px rgba(255, 0, 0, 0.38),
+    0 2px 10px rgba(0, 0, 0, 0.32);
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+  will-change: transform;
+}
+
+/* Triangle: slight left offset compensates optical centering */
+.pf-play-btn svg {
+  display: block;
+  margin-left: 4px;
+}
+
+/* Pulse rings — two rings offset in time so a new one starts
+   as the previous one is fading out, giving a continuous radar effect */
+.pf-play-btn-wrap::before,
+.pf-play-btn-wrap::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: rgba(255, 0, 0, 0.55);
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0.7;
+  z-index: 1;
+  pointer-events: none;
+  animation: pf-pulse-ring 2.2s cubic-bezier(0.2, 0.7, 0.4, 1) infinite;
+}
+
+.pf-play-btn-wrap::after {
+  animation-delay: 1.1s;
+}
+
+@keyframes pf-pulse-ring {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.55;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(2.4);
+    opacity: 0;
+  }
+}
+
+/* Hover state — button itself pops slightly, rings pulse faster */
+.pf-card:hover .pf-play-btn {
+  transform: scale(1.16);
+  box-shadow:
+    0 8px 36px rgba(255, 0, 0, 0.58),
+    0 4px 14px rgba(0, 0, 0, 0.38);
+}
+
+.pf-card:hover .pf-play-btn-wrap::before,
+.pf-card:hover .pf-play-btn-wrap::after {
+  animation-duration: 1.3s;
+}
+
+/* Scale down gracefully on small screens */
+@media (max-width: 768px) {
+  .pf-play-btn-wrap {
+    width: 48px;
+    height: 48px;
+  }
+
+  .pf-play-btn {
+    width: 48px;
+    height: 48px;
+  }
+
+  .pf-play-btn-wrap::before,
+  .pf-play-btn-wrap::after {
+    width: 48px;
+    height: 48px;
+  }
+
+  .pf-play-btn svg {
+    width: 17px;
+    height: 17px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pf-play-btn-wrap {
+    width: 42px;
+    height: 42px;
+  }
+
+  .pf-play-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .pf-play-btn-wrap::before,
+  .pf-play-btn-wrap::after {
+    width: 42px;
+    height: 42px;
+  }
+
+  .pf-play-btn svg {
+    width: 15px;
+    height: 15px;
+    margin-left: 3px;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   AI DESIGN VIDEO PLAY BUTTON OVERLAY (zoom + 3-ring pulse)
+   Add this block at the bottom of portfolio.css
+   (after the existing .pw-portfolio .pf-web-slide-img rule)
+   ══════════════════════════════════════════════════════════════ */
+
+/* Image zoom on card hover — the outer wrapper already has
+   overflow:hidden (inline style) so the zoomed image gets clipped
+   cleanly instead of spilling outside the rounded card corners */
+.pf-card-img {
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.pf-card:hover .pf-card-img {
+  transform: scale(1.08);
+}
+
+/* Overlay container — fills the image wrapper, non-blocking for pointer
+   events on the card itself (the card's onclick handles the click) */
+.pf-video-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  pointer-events: none;
+  /* let card's onclick fire through */
+}
+
+/* Wrapper that holds the button + pulse rings, so rings can be
+   positioned relative to the button without affecting its own size */
+.pf-play-btn-wrap {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* The red circle (button itself) */
+.pf-play-btn {
+  position: relative;
+  z-index: 2;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #FF0000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 4px 22px rgba(255, 0, 0, 0.38),
+    0 2px 10px rgba(0, 0, 0, 0.32);
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+  will-change: transform;
+}
+
+/* Triangle: slight left offset compensates optical centering */
+.pf-play-btn svg {
+  display: block;
+  margin-left: 4px;
+}
+
+/* ── Pulse rings ──
+   Ring 1 = ::before, Ring 2 = ::after, Ring 3 = .pf-ring-3 span.
+   All three share the same 2.4s cycle but start 0.8s apart, so with
+   3 rings evenly spaced across a 2.4s loop there is ALWAYS a ring
+   somewhere mid-expansion — no dead gap like the 2-ring version had. */
+.pf-play-btn-wrap::before,
+.pf-play-btn-wrap::after,
+.pf-ring-3 {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: rgba(255, 0, 0, 0.55);
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0.7;
+  z-index: 1;
+  pointer-events: none;
+  animation: pf-pulse-ring 2.4s cubic-bezier(0.2, 0.7, 0.4, 1) infinite;
+}
+
+.pf-ring-3 {
+  display: block;
+}
+
+.pf-play-btn-wrap::before {
+  animation-delay: 0s;
+}
+
+.pf-play-btn-wrap::after {
+  animation-delay: 0.8s;
+}
+
+.pf-ring-3 {
+  animation-delay: 1.6s;
+}
+
+@keyframes pf-pulse-ring {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.55;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* Hover state — button pops, image zooms (above), rings speed up */
+.pf-card:hover .pf-play-btn {
+  transform: scale(1.16);
+  box-shadow:
+    0 8px 36px rgba(255, 0, 0, 0.58),
+    0 4px 14px rgba(0, 0, 0, 0.38);
+}
+
+.pf-card:hover .pf-play-btn-wrap::before,
+.pf-card:hover .pf-play-btn-wrap::after,
+.pf-card:hover .pf-ring-3 {
+  animation-duration: 1.4s;
+}
+
+/* Scale down gracefully on small screens */
+@media (max-width: 768px) {
+  .pf-play-btn-wrap {
+    width: 48px;
+    height: 48px;
+  }
+
+  .pf-play-btn {
+    width: 48px;
+    height: 48px;
+  }
+
+  .pf-play-btn-wrap::before,
+  .pf-play-btn-wrap::after,
+  .pf-ring-3 {
+    width: 48px;
+    height: 48px;
+  }
+
+  .pf-play-btn svg {
+    width: 17px;
+    height: 17px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pf-play-btn-wrap {
+    width: 42px;
+    height: 42px;
+  }
+
+  .pf-play-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .pf-play-btn-wrap::before,
+  .pf-play-btn-wrap::after,
+  .pf-ring-3 {
+    width: 42px;
+    height: 42px;
+  }
+
+  .pf-play-btn svg {
+    width: 15px;
+    height: 15px;
+    margin-left: 3px;
+  }
+}

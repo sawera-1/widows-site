@@ -140,7 +140,7 @@ h6 {
 }
 
 .industry-banner .btn-primary:hover {
-  background: #d4ff54 !important;
+  background: #ff4d4f !important;
   box-shadow: 0 15px 40px rgba(216, 29, 31, 0.4) !important;
 }
 
@@ -208,7 +208,7 @@ h6 {
 }
 
 .cta-section .btn-primary:hover {
-  background: #d4ff54 !important;
+  background: #ff4d4f !important;
   box-shadow: 0 15px 40px rgba(216, 29, 31, 0.4) !important;
 }
 
@@ -363,7 +363,7 @@ h6 {
 .btn-primary:hover {
   transform: translateY(-4px);
   box-shadow: var(--ip-btn-primary-hover-shadow, 0 15px 40px rgba(216, 29, 31, 0.35));
-  background: var(--ip-btn-primary-hover-bg, #d4ff54);
+  background: var(--ip-btn-primary-hover-bg, #ff4d4f);
   color: var(--ip-btn-primary-text, #1a1a2e);
 }
 
@@ -693,7 +693,7 @@ h6 {
 
 .challenge-right {
   padding: 44px;
-  background: linear-gradient(145deg, #2d4f3a 0%, #D81D1F 60%, #3d6b55 100%);
+  background: linear-gradient(145deg, #4f1717 0%, #D81D1F 60%, #6b2121 100%);
   position: relative;
   overflow: hidden;
 }
@@ -961,7 +961,7 @@ h6 {
 .case-number {
   font-size: 4rem;
   font-weight: 900;
-  background: var(--ip-counter-gradient, linear-gradient(135deg, #D81D1F 0%, #d4ff54 50%, #a8cc2a 100%));
+  background: var(--ip-counter-gradient, linear-gradient(135deg, #D81D1F 0%, #ff4d4f 50%, #b31416 100%));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -1522,13 +1522,13 @@ h6 {
   --ip-btn-primary-bg: #D81D1F;
   --ip-btn-primary-text: #ffffff;
   --ip-btn-primary-shadow: 0 10px 30px rgba(216,29,31,0.2);
-  --ip-btn-primary-hover-bg: #2a4438;
+  --ip-btn-primary-hover-bg: #ff4d4f;
   --ip-btn-primary-hover-shadow: 0 15px 40px rgba(216,29,31,0.35);
   --ip-btn-outline-border: rgba(216,29,31,0.4);
   --ip-btn-outline-color: #D81D1F;
   --ip-btn-outline-hover-border: #D81D1F;
   --ip-btn-outline-hover-color: #D81D1F;
-  --ip-counter-gradient: linear-gradient(135deg,#D81D1F 0%,#4a7a62 50%,#2d4f3a 100%);
+  --ip-counter-gradient: linear-gradient(135deg,#D81D1F 0%,#ff4d4f 50%,#b31416 100%);
   --ip-counter-shadow: drop-shadow(0 2px 8px rgba(216,29,31,0.25));
   --ip-counter-hover-shadow: drop-shadow(0 4px 16px rgba(216,29,31,0.4));
   --ip-tf-title-color: #D81D1F;
@@ -1607,13 +1607,13 @@ h6 {
   --ip-btn-primary-bg: #D81D1F;
   --ip-btn-primary-text: #1a1a2e;
   --ip-btn-primary-shadow: 0 10px 30px rgba(216,29,31,0.2);
-  --ip-btn-primary-hover-bg: #d4ff54;
+  --ip-btn-primary-hover-bg: #ff4d4f;
   --ip-btn-primary-hover-shadow: 0 15px 40px rgba(216,29,31,0.35);
   --ip-btn-outline-border: rgba(255,255,255,0.3);
   --ip-btn-outline-color: #ffffff;
   --ip-btn-outline-hover-border: #D81D1F;
   --ip-btn-outline-hover-color: #D81D1F;
-  --ip-counter-gradient: linear-gradient(135deg,#D81D1F 0%,#d4ff54 50%,#a8cc2a 100%);
+  --ip-counter-gradient: linear-gradient(135deg,#D81D1F 0%,#ff4d4f 50%,#b31416 100%);
   --ip-counter-shadow: drop-shadow(0 2px 8px rgba(216,29,31,0.3));
   --ip-counter-hover-shadow: drop-shadow(0 4px 16px rgba(216,29,31,0.5));
   --ip-tf-title-color: #D81D1F;

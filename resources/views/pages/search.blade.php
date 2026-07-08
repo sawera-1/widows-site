@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Search Results — CodeOaks')
-@section('meta_description', 'Search across projects, blog articles, team members and pages on CodeOaks.')
+@section('title', 'Corammers')
+@section('meta_description', 'Search across projects, blog articles, team members and pages on Corammers.')
 
 @push('styles')
 <link rel="stylesheet" href="{{ asset('css/pages/search.css') }}">

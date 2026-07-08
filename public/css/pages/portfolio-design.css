@@ -1093,30 +1093,173 @@
   border-color: var(--primary);
 }
 
-/* ── LOAD MORE (static "All Project Loaded" state) ── */
-.pw-portfolio-design .pf-loadmore-wrap {
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
+/* Variables for Load More Button */
+.pw-portfolio-design {
+  --sb-accent: var(--primary);
+  --sb-fg-on-accent: #fff;
+  --sb-split-bg: #1a1a1a;
+  --sb-split-fg: #fff;
+  --done-border: rgba(0, 0, 0, 0.08);
+  --done-bg: #efefec;
+  --done-color: #aaa;
 }
-.pw-portfolio-design .pf-loadmore-done {
+[data-theme="dark"] .pw-portfolio-design {
+  --sb-accent: var(--primary);
+  --sb-fg-on-accent: #111;
+  --sb-split-bg: #333;
+  --sb-split-fg: #fff;
+  --done-border: rgba(255, 255, 255, 0.08);
+  --done-bg: #1a1a1a;
+  --done-color: #555;
+}
+
+/* ── Split button (hover reveal) ── */
+.split-btn {
+  position: relative;
   height: 52px;
-  padding: 0 40px;
   border-radius: 16px;
-  background: rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: inline-block;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+.split-btn-default {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 11px;
+  background: var(--sb-accent);
+  color: var(--sb-fg-on-accent);
+  border-radius: 16px;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.split-btn:hover .split-btn-default {
+  opacity: 0;
+  transform: translateY(-115%) scale(0.86);
+}
+.split-btn-label {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 700;
-  color: #999;
-  letter-spacing: 0.05em;
+  color: var(--sb-fg-on-accent);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.split-btn-row {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(115%);
+  pointer-events: none;
+}
+.split-btn:hover .split-btn-row {
+  transform: translateY(0);
+}
+.split-btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  background: var(--sb-split-bg);
+  border-radius: 16px;
+  color: var(--sb-split-fg);
+  flex-shrink: 0;
+}
+.split-btn-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  background: var(--sb-split-bg);
+  border-radius: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--sb-split-fg);
+  letter-spacing: 0.02em;
+}
+.dots-arrow {
+  position: relative;
+  width: 11px;
+  height: 11px;
+  display: inline-block;
+  flex-shrink: 0;
+  margin-left: 2px;
+}
+
+.dots-arrow span {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dots-arrow .d1 { top: 0; left: 0; }
+.dots-arrow .d2 { top: 50%; right: 0; transform: translateY(-50%); }
+.dots-arrow .d3 { bottom: 0; left: 0; }
+
+.split-btn:hover .dots-arrow { transform: translateX(2px); }
+.split-btn.is-loading .dots-arrow { opacity: 0; }
+
+.split-btn-spinner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  opacity: 0;
+  visibility: hidden;
+  animation: lmSpin 1s linear infinite;
+  transition: opacity 0.3s ease;
+  color: currentColor;
+}
+
+.split-btn.is-loading .split-btn-spinner {
+  opacity: 1;
+  visibility: visible;
+}
+
+.split-btn-spinner circle {
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 20 12;
+}
+
+/* ── Load More Wrap & Done Pill ── */
+.pf-loadmore-wrap {
+  width: 100%;
+  margin-top: 56px;
+  display: flex;
+  justify-content: center;
+}
+.pf-done {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 14px 28px;
+  border-radius: 30px;
+  border: 1px solid var(--done-border);
+  background: var(--done-bg);
+  color: var(--done-color);
   text-transform: uppercase;
 }
-[data-theme="dark"] .pw-portfolio-design .pf-loadmore-done {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.1);
-  color: #666;
+.pw-portfolio-design .pf-card[hidden] {
+  display: none !important;
 }

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'CodeOaks — The vision of engineering is human + AI')
+@section('title', 'Corammers')
 @section('meta_description', 'We help businesses grow with high-performance mobile apps, modern websites, smart SEO strategies, and scalable email solutions.')
 
 @push('styles')
@@ -29,7 +29,7 @@
     ];
 
     // Robot badge helper markup (light + dark image swap)
-    $robot = '<img loading="lazy" decoding="async" class="robot-light" src="/assets/robolight.webp" alt="Robot"><img loading="lazy" decoding="async" class="robot-dark" src="/assets/robo.webp" alt="Robot">';
+    $robot = '<img loading="lazy" decoding="async" class="robot-light" src="/assets/robo.png" alt="Robot"><img loading="lazy" decoding="async" class="robot-dark" src="/assets/robo.png" alt="Robot">';
 @endphp
 
 <div class="pw-home page-main">
@@ -93,9 +93,7 @@
     </section>
 
     {{-- ════════════════ ABOUT ════════════════ --}}
-    <section class="home-section about-section">
-        <div class="home-inner">
-            <div class="about-label-row label-row">
+   <div class="home-inner">  <div class="about-label-row label-row">
                 <div class="robot-badge">{!! $robot !!}</div>
                 <div class="label-pill">
                     <span class="label-dot"></span>
@@ -109,33 +107,50 @@
             </h2>
             <p class="about-sub">
                 We are a team of passionate creators, engineers, and strategists dedicated to pushing the boundaries of what's possible in the digital world. Our mission is to empower businesses with cutting-edge technology.
-            </p>
+            </p></div>
+    <section class="hero">
 
-            <div class="about-banner-wrap">
+        <div class="about-inner">
+            <div class="about-banner-wrap reveal">
                 <img loading="lazy" decoding="async" src="/assets/about.webp" alt="About Us" class="about-banner-img">
+                <a href="https://www.youtube.com/@codecaks" target="_blank" rel="noopener noreferrer" class="about-video-anchor">
+                    <span class="video-btn">
+                        <span class="vbtn-ring vbtn-ring-1"></span>
+                        <span class="vbtn-ring vbtn-ring-2"></span>
+                        <span class="vbtn-ring vbtn-ring-3"></span>
+                        <span class="vbtn-core">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+                        </span>
+                        <span class="vbtn-label">Play</span>
+                    </span>
+                </a>
                 <div class="about-banner-glass">
                     <span class="glass-tag">Innovation First</span>
                     <p class="glass-text">We blend artistic creativity with technical excellence to build products that stand out.</p>
                 </div>
                 <div class="about-banner-overlay">
-                    <h3>United by Vision</h3>
-                    <p>Our global team works around the clock to ensure your project is delivered with the highest quality standards and innovative features.</p>
+                    <h3 style="font-family:Poppins;font-size:2rem;color:#fff;margin:0 0 12px;font-weight:800;letter-spacing:-0.02em">United by Vision</h3>
+                    <p style="font-family:Montserrat;font-size:1.05rem;color:rgba(255,255,255,0.9);max-width:540px;line-height:1.7;margin:0">
+                        Our global team works around the clock to ensure your project is
+                        delivered with the highest quality standards and innovative features.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
+
     {{-- ════════════════ SERVICES ════════════════ --}}
     @php
         $services = [
-            ['num' => '01.', 'title' => 'AI Solutions', 'desc' => 'Harness the power of large language models, diffusion networks, and custom AI pipelines. We integrate intelligent automation into your workflow enhancing creativity, not replacing it.', 'grad' => 'linear-gradient(135deg,#100808 0%,#200c0c 35%,#2e1010 60%,#180808 100%)', 'glow' => 'rgba(255,90,60,0.12)', 'href' => '/services/ai'],
-            ['num' => '02.', 'title' => 'Designing', 'desc' => 'From brand identity to pixel-perfect UI, we craft visual experiences that resonate. Our design language blends restraint with boldness clean grids, expressive type, and purposeful motion.', 'grad' => 'linear-gradient(135deg,#0c0516 0%,#1a0630 35%,#210840 60%,#100320 100%)', 'glow' => 'rgba(180,100,255,0.12)', 'href' => '/services/design'],
-            ['num' => '03.', 'title' => 'Marketing', 'desc' => 'Data-driven strategies that convert. We build full-funnel campaigns across organic and paid channels, turning audience insights into measurable growth that compounds over time.', 'grad' => 'linear-gradient(135deg,#061208 0%,#0c2010 35%,#122814 60%,#071209 100%)', 'glow' => 'rgba(100,220,80,0.12)', 'href' => '/services/marketing'],
-            ['num' => '04.', 'title' => 'Development', 'desc' => 'We engineer scalable, high-performance digital products from blazing-fast web apps to complex back-end architectures. Every line of code is written with purpose, precision, and longevity in mind.', 'grad' => 'linear-gradient(135deg,#060d14 0%,#0b1929 35%,#0d2035 60%,#071018 100%)', 'glow' => 'rgba(0,200,255,0.12)', 'href' => '/services/development'],
-            ['num' => '05.', 'title' => 'Staff Augmentation', 'desc' => 'Scale your team instantly with pre-vetted, senior-level talent. We embed dedicated specialists developers, designers, and strategists directly into your workflow, giving you the agility to move fast without the overhead of full-time hiring.', 'grad' => 'linear-gradient(135deg,#080e14 0%,#0d1a22 35%,#122130 60%,#090f16 100%)', 'glow' => 'rgba(255,0,111,0.1)', 'href' => '/staff'],
+            ['num' => '01.', 'title' => 'AI Solutions', 'desc' => 'Harness the power of large language models, diffusion networks, and custom AI pipelines. We integrate intelligent automation into your workflow enhancing creativity, not replacing it.', 'bg' => 'linear-gradient(135deg,#100808 0%,#200c0c 35%,#2e1010 60%,#180808 100%)', 'glow' => 'rgba(255,90,60,0.12)', 'href' => '/services/ai'],
+            ['num' => '02.', 'title' => 'Designing', 'desc' => 'From brand identity to pixel-perfect UI, we craft visual experiences that resonate. Our design language blends restraint with boldness clean grids, expressive type, and purposeful motion.', 'bg' => 'linear-gradient(135deg,#0c0516 0%,#1a0630 35%,#210840 60%,#100320 100%)', 'glow' => 'rgba(180,100,255,0.12)', 'href' => '/services/design'],
+            ['num' => '03.', 'title' => 'Marketing', 'desc' => 'Data-driven strategies that convert. We build full-funnel campaigns across organic and paid channels, turning audience insights into measurable growth that compounds over time.', 'bg' => 'linear-gradient(135deg,#061208 0%,#0c2010 35%,#122814 60%,#071209 100%)', 'glow' => 'rgba(100,220,80,0.12)', 'href' => '/services/marketing'],
+            ['num' => '04.', 'title' => 'Development', 'desc' => 'We engineer scalable, high-performance digital products from blazing-fast web apps to complex back-end architectures. Every line of code is written with purpose, precision, and longevity in mind.', 'bg' => 'linear-gradient(135deg,#060d14 0%,#0b1929 35%,#0d2035 60%,#071018 100%)', 'glow' => 'rgba(0,200,255,0.12)', 'href' => '/services/development'],
+            ['num' => '05.', 'title' => 'Staff Augmentation', 'desc' => 'Scale your team instantly with pre-vetted, senior-level talent. We embed dedicated specialists developers, designers, and strategists directly into your workflow, giving you the agility to move fast without the overhead of full-time hiring.', 'bg' => 'linear-gradient(135deg,#080e14 0%,#0d1a22 35%,#122130 60%,#090f16 100%)', 'glow' => 'rgba(255,0,111,0.1)', 'href' => '/staff'],
         ];
     @endphp
-    <section class="home-section">
+    <section class="home-section svc-stack-section">
         <div class="home-inner">
             <div class="label-row">
                 <div class="robot-badge">{!! $robot !!}</div>
@@ -148,23 +163,33 @@
             <h2 class="svc-heading">Our <span class="accent">Services</span></h2>
             <p class="svc-sub">We build, design, grow, and automate combining craft with technology to deliver digital experiences that captivate audiences and drive measurable results for ambitious brands.</p>
 
-            <div class="svc-stack">
-                @foreach ($services as $i => $svc)
-                    <div class="svc-panel">
-                        <div class="svc-panel-bg" style="background:{{ $svc['grad'] }};"></div>
-                        <div class="svc-panel-glow" style="background:radial-gradient(ellipse at 72% 50%,{{ $svc['glow'] }} 0%,transparent 62%);"></div>
-                        <div class="svc-panel-img"><img loading="lazy" decoding="async" src="/assets/service/{{ $i + 1 }}.png" alt="{{ $svc['title'] }}"></div>
-                        <div class="svc-panel-overlay"></div>
-                        <div class="svc-dot"><i></i></div>
-                        <div class="svc-panel-content">
-                            <span class="svc-num">{{ $svc['num'] }}</span>
-                            <h3 class="svc-title">{{ $svc['title'] }}</h3>
-                            <p class="svc-desc">{{ $svc['desc'] }}</p>
-                            <a href="{{ $svc['href'] }}" class="svc-work-btn">View Work</a>
+            <div class="svc-track" style="--panel-count:{{ count($services) }};">
+                <div class="svc-sticky">
+                    @foreach ($services as $i => $svc)
+                        <div class="svc-panel" style="--i:{{ $i }};">
+                            <div class="svc-panel-bg" style="background:{{ $svc['bg'] }};"></div>
+                            <div class="svc-panel-glow" style="background:radial-gradient(ellipse at 72% 50%,{{ $svc['glow'] }} 0%,transparent 62%);"></div>
+                            <div class="svc-panel-img-wrap"><img loading="lazy" decoding="async" src="/assets/service/{{ $i + 1 }}.png" alt="{{ $svc['title'] }}"></div>
+                            <div class="svc-panel-overlay"></div>
+                            <div class="svc-panel-dot"><i></i></div>
+                            <div class="svc-panel-content">
+                                <span class="svc-panel-num">{{ $svc['num'] }}</span>
+                                <h3 class="svc-panel-title">{{ $svc['title'] }}</h3>
+                                <p class="svc-panel-desc">{{ $svc['desc'] }}</p>
+                                <a href="{{ $svc['href'] }}" class="svc-btn">
+                                    View Work
+                                    <span class="svc-btn-dots"><span></span><span></span><span></span></span>
+                                </a>
+                            </div>
+                            <div class="svc-panel-bar"></div>
                         </div>
-                        <div class="svc-panel-bar"></div>
+                    @endforeach
+                    <div class="svc-progress" aria-hidden="true">
+                        @foreach ($services as $i => $svc)
+                            <span class="svc-progress-dot{{ $i === 0 ? ' is-active' : '' }}"></span>
+                        @endforeach
                     </div>
-                @endforeach
+                </div>
             </div>
         </div>
     </section>
@@ -213,7 +238,7 @@
             ['title' => 'Performance-First', 'text' => 'We obsess over load times, Core Web Vitals, and scalable architecture by default.', 'icon' => '<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 13L7 8.5L10.5 11L15 5" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="15" cy="5" r="1.5" fill="var(--accent)"/></svg>'],
             ['title' => 'Ongoing Support', 'text' => "We don't disappear after launch. Long-term partnerships are at the heart of what we do.", 'icon' => '<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2C5.134 2 2 5.134 2 9c0 1.628.542 3.13 1.453 4.33L2 16l2.82-1.38A6.944 6.944 0 0 0 9 16c3.866 0 7-3.134 7-7s-3.134-7-7-7z" stroke="var(--accent)" stroke-width="1.6" stroke-linejoin="round"/><path d="M6.5 9.5s.5 1.5 2.5 1.5 2.5-1.5 2.5-1.5" stroke="var(--accent)" stroke-width="1.4" stroke-linecap="round"/><circle cx="7" cy="8" r="0.8" fill="var(--accent)"/><circle cx="11" cy="8" r="0.8" fill="var(--accent)"/></svg>'],
         ];
-        $wcuStats = [['value' => '500+', 'label' => 'Projects'], ['value' => '8yr', 'label' => 'Experience'], ['value' => '98%', 'label' => 'Retention']];
+        $wcuStats = [['value' => '200+', 'label' => 'Projects'], ['value' => '8yr', 'label' => 'Experience'], ['value' => '98%', 'label' => 'Retention']];
     @endphp
     <section class="home-section">
         <div class="home-inner">
@@ -299,7 +324,7 @@
             ['src' => '/assets/project/aiSol/3.webp', 'title' => 'n8n', 'desc' => 'AI', 'style' => 'grid-column:2/3;grid-row:2/3;height:210px;', 'class' => ''],
             ['src' => '/assets/project/uiux/7.webp', 'title' => 'Logo', 'desc' => 'FlexFlox', 'style' => 'grid-column:3/4;grid-row:2/3;height:210px;', 'class' => ''],
         ];
-        $pfStats = [['value' => '50+', 'label' => 'Projects'], ['value' => '5+', 'label' => 'Years'], ['value' => '98%', 'label' => 'Satisfaction']];
+        $pfStats = [['value' => '200+', 'label' => 'Projects'], ['value' => '5+', 'label' => 'Years'], ['value' => '98%', 'label' => 'Satisfaction']];
     @endphp
     <section class="home-section">
         <div class="pf-home-inner">
@@ -490,7 +515,7 @@
     {{-- ════════════════ STATS ════════════════ --}}
     @php
         $stats = [
-            ['value' => 500, 'suffix' => '+', 'label' => 'Projects Delivered', 'icon' => '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>'],
+            ['value' => 200, 'suffix' => '+', 'label' => 'Projects Delivered', 'icon' => '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>'],
             ['value' => '1M', 'suffix' => '+', 'label' => 'Lines of Code', 'icon' => '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>'],
             ['value' => 100, 'suffix' => '+', 'label' => 'Happy Clients', 'icon' => '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>'],
             ['value' => 8, 'suffix' => '+', 'label' => 'Years of Experience', 'icon' => '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>'],
@@ -561,7 +586,7 @@
                 <div class="sa-trust">
                     <div class="sa-stars">{!! str_repeat($saStar, 5) !!}</div>
                     <div class="sa-trust-divider"></div>
-                    <span class="sa-trust-text"><strong>Excellent</strong> · 500+ projects delivered</span>
+                    <span class="sa-trust-text"><strong>Excellent</strong> ·  projects delivered</span>
                     <div class="sa-trust-divider"></div>
                     <span class="sa-trust-text" style="font-size:12px;opacity:0.75">Trustindex</span>
                 </div>

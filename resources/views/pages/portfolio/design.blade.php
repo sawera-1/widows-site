@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Design Portfolio — CodeOaks')
-@section('meta_description', 'Crafting intuitive digital experiences and meaningful brand identities — where aesthetics meets functionality.')
+@section('title', 'Corammers')
+@section('meta_description', 'Crafting intuitive digital experiences and meaningful brand identities where aesthetics meets functionality.')
 
 @push('styles')
 <link rel="stylesheet" href="{{ asset('css/pages/portfolio-design.css') }}">
@@ -77,8 +77,8 @@
                     <div style="margin-bottom:48px">
                         <div class="pf-label-row">
                             <div class="pf-robot-badge">
-                                <img loading="lazy" decoding="async" class="robo-light" src="/assets/robolight.webp" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block">
-                                <img loading="lazy" decoding="async" class="robo-dark" src="/assets/robo.webp" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block">
+                                <img loading="lazy" decoding="async" class="robo-light" src="/assets/robo.png" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block">
+                                <img loading="lazy" decoding="async" class="robo-dark" src="/assets/robo.png" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block">
                             </div>
                             <div class="pf-label-group">
                                 <div class="pf-label-pill">
@@ -144,29 +144,67 @@
                     {{-- UI/UX panel --}}
                     <div class="proj-grid pf-panel pf-panel-active" data-panel="uiux">
                         @foreach ($uiux as $p)
-                            <div class="pf-card">
+                            <div class="pf-card" @if($loop->iteration > 3) hidden @endif>
                                 <div class="pf-card-img-wrap">
                                     <img src="{{ $p['image'] }}" alt="Design Project" loading="lazy" class="pf-card-img">
                                 </div>
                             </div>
                         @endforeach
+                        <div class="pf-loadmore-wrap" style="grid-column: 1 / -1;">
+                            <button type="button" class="split-btn pf-loadmore-btn" style="width:240px">
+                                <span class="split-btn-default">
+                                    <span class="split-btn-label">Load More</span>
+                                    <span style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px">
+                                        <span class="dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                                        <svg class="split-btn-spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" /></svg>
+                                    </span>
+                                </span>
+                                <span class="split-btn-row">
+                                    <span class="split-btn-icon">
+                                        <span style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px">
+                                            <span class="dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                                            <svg class="split-btn-spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" /></svg>
+                                        </span>
+                                    </span>
+                                    <span class="split-btn-text">Load More</span>
+                                </span>
+                            </button>
+                            <div class="pf-done" style="display:none">All Projects Loaded</div>
+                        </div>
                     </div>
 
                     {{-- Logo panel (2-col like the React inline style) --}}
                     <div class="proj-grid pf-panel" data-panel="logo" style="grid-template-columns:repeat(2, 1fr)">
                         @foreach ($logo as $p)
-                            <div class="pf-card">
+                            <div class="pf-card" @if($loop->iteration > 2) hidden @endif>
                                 <div class="pf-card-img-wrap">
                                     <img src="{{ $p['image'] }}" alt="Design Project" loading="lazy" class="pf-card-img">
                                 </div>
                             </div>
                         @endforeach
+                        <div class="pf-loadmore-wrap" style="grid-column: 1 / -1;">
+                            <button type="button" class="split-btn pf-loadmore-btn" style="width:240px">
+                                <span class="split-btn-default">
+                                    <span class="split-btn-label">Load More</span>
+                                    <span class="dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                                    <svg class="split-btn-spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" /></svg>
+                                </span>
+                                <span class="split-btn-row">
+                                    <span class="split-btn-icon">
+                                        <span class="dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                                        <svg class="split-btn-spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" /></svg>
+                                    </span>
+                                    <span class="split-btn-text">Load More</span>
+                                </span>
+                            </button>
+                            <div class="pf-done" style="display:none">All Projects Loaded</div>
+                        </div>
                     </div>
 
                     {{-- AI Creative panel --}}
                     <div class="ai-grid pf-panel" data-panel="ai-creative">
                         @foreach ($ai as $p)
-                            <a class="pf-ai-card" href="{{ $p['url'] }}" target="_blank" rel="noopener noreferrer">
+                            <a class="pf-ai-card pf-card" href="{{ $p['url'] }}" target="_blank" rel="noopener noreferrer" @if($loop->iteration > 2) hidden @endif>
                                 <div class="pf-ai-card-img-wrap">
                                     <img src="{{ $p['image'] }}" alt="AI Project" loading="lazy" class="pf-ai-card-img">
                                     <span class="pf-ai-arrow">
@@ -181,13 +219,30 @@
                                 </div>
                             </a>
                         @endforeach
+                        <div class="pf-loadmore-wrap" style="grid-column: 1 / -1;">
+                            <button type="button" class="split-btn pf-loadmore-btn" style="width:240px">
+                                <span class="split-btn-default">
+                                    <span class="split-btn-label">Load More</span>
+                                    <span style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px">
+                                        <span class="dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                                        <svg class="split-btn-spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" /></svg>
+                                    </span>
+                                </span>
+                                <span class="split-btn-row">
+                                    <span class="split-btn-icon">
+                                        <span style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px">
+                                            <span class="dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                                            <svg class="split-btn-spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" /></svg>
+                                        </span>
+                                    </span>
+                                    <span class="split-btn-text">Load More</span>
+                                </span>
+                            </button>
+                            <div class="pf-done" style="display:none">All Projects Loaded</div>
+                        </div>
                     </div>
 
-                    {{-- All items are rendered up-front, so the "load more" flow ends
-                         immediately with the done state (matches "All Project Loaded"). --}}
-                    <div class="pf-loadmore-wrap">
-                        <div class="pf-loadmore-done">All Project Loaded</div>
-                    </div>
+
                 </div>
             </section>
 
@@ -287,7 +342,7 @@
         var ctx = canvas.getContext('2d');
         var W, H, cx, cy, R;
         var mouse = { x: -9999, y: -9999 };
-        var accent = { r: 188, g: 234, b: 62 };
+        var accent = { r: 216, g: 29, b: 31 };
 
         function resize() {
             W = canvas.width = window.innerWidth;
@@ -385,6 +440,51 @@
         window.addEventListener('mousemove', function (e) { mouse.x = e.clientX; mouse.y = e.clientY; });
         draw();
     }
+
+    // ── LOAD MORE LOGIC ──
+    root.querySelectorAll('.pf-panel').forEach(function(panel) {
+        var btn = panel.querySelector('.pf-loadmore-btn');
+        var done = panel.querySelector('.pf-done');
+        var panelType = panel.getAttribute('data-panel');
+        var batchSize = (panelType === 'ai-creative' || panelType === 'logo') ? 2 : 3;
+        var loading = false;
+
+        if (btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (loading) return;
+                loading = true;
+                btn.classList.add('is-loading');
+
+                var labels = btn.querySelectorAll('.split-btn-label, .split-btn-text');
+                var oldText = labels[0] ? labels[0].innerText : 'Load More';
+                labels.forEach(function(l) { l.innerText = 'Loading...'; });
+
+                setTimeout(function() {
+                    var hiddenCards = panel.querySelectorAll('.pf-card[hidden]');
+                    for (var i = 0; i < batchSize && i < hiddenCards.length; i++) {
+                        hiddenCards[i].removeAttribute('hidden');
+                    }
+                    
+                    loading = false;
+                    btn.classList.remove('is-loading');
+                    labels.forEach(function(l) { l.innerText = oldText; });
+
+                    var remaining = panel.querySelectorAll('.pf-card[hidden]');
+                    if (remaining.length === 0) {
+                        btn.style.display = 'none';
+                        if (done) done.style.display = 'block';
+                    }
+                }, 600);
+            });
+            
+            var remaining = panel.querySelectorAll('.pf-card[hidden]');
+            if(remaining.length === 0) {
+                btn.style.display = 'none';
+                if (done) done.style.display = 'block';
+            }
+        }
+    });
 })();
 </script>
 @endpush

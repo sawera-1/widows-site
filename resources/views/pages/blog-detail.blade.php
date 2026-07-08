@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Building a Scalable Design System for Modern SaaS Products — CodeOaks')
+@section('title', 'Corammers')
 @section('meta_description', 'A well-crafted design system removes ambiguity, accelerates delivery, and ensures every pixel speaks the same language — from prototype to production.')
 
 @push('styles')
@@ -102,8 +102,8 @@
                 <div class="blog-badge-row">
                     <div class="badge-stack">
                         <div class="blog-robot-badge">
-                            <img loading="lazy" decoding="async" src="/assets/robolight.webp" alt="Robot" class="robot-img robot-img-light">
-                            <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-img robot-img-dark">
+                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-img robot-img-light">
+                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-img robot-img-dark">
                         </div>
                         <div class="badge-underline"></div>
                     </div>
@@ -257,8 +257,8 @@ Most importantly: measure usage. If a component exists but nobody uses it, find 
                 <div class="blog-badge-row">
                     <div class="badge-stack">
                         <div class="blog-robot-badge">
-                            <img loading="lazy" decoding="async" src="/assets/robolight.webp" alt="Robot" class="robot-img robot-img-light">
-                            <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-img robot-img-dark">
+                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-img robot-img-light">
+                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-img robot-img-dark">
                         </div>
                         <div class="badge-underline"></div>
                     </div>
@@ -279,7 +279,7 @@ Most importantly: measure usage. If a component exists but nobody uses it, find 
                     ['q' => 'How long does a typical project take from kickoff to launch?', 'a' => "Project timelines vary based on scope and complexity. A focused landing page or blog can ship in 1–2 weeks, while a full-featured SaaS product typically spans 8–16 weeks. We share a detailed roadmap during our discovery phase so you always know what to expect."],
                     ['q' => 'Do you offer post-launch support and maintenance?', 'a' => "Absolutely. We offer flexible retainer packages covering bug fixes, performance monitoring, feature iterations, and security updates. Our goal is to be a long-term partner, not just a delivery team."],
                     ['q' => 'Can you work with an existing codebase or design system?', 'a' => "Yes — we regularly integrate with existing codebases, component libraries, and design systems. We conduct a thorough audit before committing to a scope so there are no surprises mid-project."],
-                    ['q' => 'How do we get started working together?', 'a' => "Simply fill out the contact form on this page or email us directly at hello@codeoaks.com We'll schedule a free 30-minute discovery call to understand your goals and outline the best path forward."],
+                    ['q' => 'How do we get started working together?', 'a' => "Simply fill out the contact form on this page or email us directly at info@corammers.com We'll schedule a free 30-minute discovery call to understand your goals and outline the best path forward."],
                 ];
             @endphp
 

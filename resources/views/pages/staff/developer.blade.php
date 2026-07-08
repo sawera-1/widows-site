@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Hire Developers — Staff Augmentation — CodeOaks')
+@section('title', 'Corammers')
 @section('meta_description', 'Scale your development team on-demand. Hire expert Next.js, WordPress, PHP, Laravel, React, Node, mobile and AI developers for web, ecommerce and custom solutions.')
 
 @push('styles')
@@ -21,7 +21,7 @@
                 <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:14px">
                     <div style="display:flex;flex-direction:column;align-items:center">
                         <div style="display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:14px;flex-shrink:0;border:1.5px solid rgba(216,29,31,0.4);background:rgba(216,29,31,0.1);animation:float-robot 3s ease-in-out infinite;box-shadow:0 8px 20px rgba(216,29,31,0.15)">
-                            <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block">
+                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block">
                         </div>
                         <div style="width:54px;height:4px;background:linear-gradient(90deg, #D81D1F, transparent);border-radius:2px;margin-top:8px"></div>
                     </div>
@@ -111,7 +111,7 @@
                 <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:14px">
                     <div style="display:flex;flex-direction:column;align-items:center">
                         <div class="section-robot-badge">
-                            <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block">
+                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block">
                         </div>
                         <div style="width:54px;height:4px;background:linear-gradient(90deg, var(--primary), transparent);border-radius:2px;margin-top:8px"></div>
                     </div>
@@ -232,7 +232,7 @@
                 <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:14px">
                     <div style="display:flex;flex-direction:column;align-items:center">
                         <div class="section-robot-badge">
-                            <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block">
+                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block">
                         </div>
                         <div style="width:54px;height:4px;background:linear-gradient(90deg, var(--primary), transparent);border-radius:2px;margin-top:8px"></div>
                     </div>
@@ -318,7 +318,7 @@
                 <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:14px">
                     <div style="display:flex;flex-direction:column;align-items:center">
                         <div class="section-robot-badge">
-                            <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block">
+                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block">
                         </div>
                         <div style="width:54px;height:4px;background:linear-gradient(90deg, var(--primary), transparent);border-radius:2px;margin-top:8px"></div>
                     </div>
@@ -365,14 +365,22 @@
             </div>
 
             <div class="load-more-wrap js-load-more-wrap">
-                <button type="button" class="js-load-more" style="position:relative;width:205px;height:52px;border-radius:16px;overflow:hidden;cursor:pointer;flex-shrink:0;border:none;padding:0;background:var(--primary)">
-                    <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:11px">
-                        <span style="font-family:'Montserrat', sans-serif;font-size:0.9rem;font-weight:700;color:#111;letter-spacing:0.02em;white-space:nowrap">Load More</span>
-                        <span style="position:relative;width:11px;height:11px;display:inline-block;flex-shrink:0;margin-left:2px">
-                            <span style="position:absolute;top:0;left:0;width:4px;height:4px;border-radius:50%;background:#111"></span>
-                            <span style="position:absolute;top:50%;right:0;transform:translateY(-50%);width:4px;height:4px;border-radius:50%;background:#111"></span>
-                            <span style="position:absolute;bottom:0;left:0;width:4px;height:4px;border-radius:50%;background:#111"></span>
+                <button type="button" class="sd-split-btn" id="devLoadMore">
+                    <span class="sd-split-btn-default">
+                        <span class="sd-split-btn-label">Load More</span>
+                        <span style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px">
+                            <span class="sd-dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                            <svg class="sd-split-spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="20 12" /></svg>
                         </span>
+                    </span>
+                    <span class="sd-split-btn-row">
+                        <span class="sd-split-btn-icon">
+                            <span style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px">
+                                <span class="sd-dots-arrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
+                                <svg class="sd-split-spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="20 12" /></svg>
+                            </span>
+                        </span>
+                        <span class="sd-split-btn-text">Load More</span>
                     </span>
                 </button>
             </div>
@@ -404,23 +412,47 @@
             reveals.forEach(function (el) { el.classList.add('sd-visible'); });
         }
 
-        /* Load More — reveal 4 more employees at a time */
+        /* Load More — reveal PAGE employees at a time, with spinner + stagger reveal */
+        var PAGE = 4;
         var wrap = root.querySelector('.js-load-more-wrap');
-        var btn = root.querySelector('.js-load-more');
+        var btn = root.querySelector('#devLoadMore');
         function hiddenCards() {
             return Array.prototype.slice.call(root.querySelectorAll('.js-emp-card[data-hidden="1"]'));
         }
-        var hidden = hiddenCards();
-        if (hidden.length === 0 && wrap) { wrap.style.display = 'none'; }
-        if (btn) {
-            btn.addEventListener('click', function () {
-                hidden.splice(0, 4).forEach(function (card) {
+        var hiddenList = hiddenCards();
+        if (hiddenList.length === 0 && wrap) { wrap.style.display = 'none'; }
+
+        var loading = false;
+        function loadMore() {
+            if (loading) return;
+            loading = true;
+            if (btn) btn.classList.add('is-loading');
+            var labels = btn ? btn.querySelectorAll('.sd-split-btn-label, .sd-split-btn-text') : [];
+            var oldText = labels.length ? labels[0].innerText : '';
+            labels.forEach(function(l) { l.innerText = 'Loading...'; });
+
+            setTimeout(function () {
+                var batch = hiddenList.splice(0, PAGE);
+                batch.forEach(function (card, i) {
+                    var delay = (i % PAGE) * 90;
                     card.style.display = '';
                     card.removeAttribute('data-hidden');
+                    card.classList.add('lm2-reveal');
+                    card.style.transitionDelay = delay + 'ms';
+                    void card.offsetHeight;
+                    card.classList.add('lm2-reveal-in');
                 });
-                hidden = hiddenCards();
-                if (hidden.length === 0 && wrap) { wrap.style.display = 'none'; }
-            });
+                hiddenList = hiddenCards();
+                loading = false;
+                if (btn) btn.classList.remove('is-loading');
+                labels.forEach(function(l) { l.innerText = oldText; });
+                if (hiddenList.length === 0 && wrap) {
+                    wrap.style.display = 'none';
+                }
+            }, 900);
+        }
+        if (btn) {
+            btn.addEventListener('click', loadMore);
         }
     })();
 </script>

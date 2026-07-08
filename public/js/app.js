@@ -166,4 +166,68 @@
       revealEls.forEach(function (el) { el.classList.add('is-visible'); });
     }
   }
+
+  /* ── Services stack: sticky, layered scroll-stacking panels (desktop only) ─
+     Each .svc-track holds a pinned .svc-sticky viewport; panels are absolutely
+     stacked and slide up over one another as scroll progress moves through the
+     track. Positions are computed and set directly in px/inline styles (not
+     left to a CSS percentage default) so the very first paint is correct.
+     Mobile / prefers-reduced-motion fall back to the static CSS layout. ────── */
+  var svcTracks = doc.querySelectorAll('.svc-track');
+  if (svcTracks.length) {
+    var svcDesktopMq = window.matchMedia('(min-width: 769px)');
+    var svcMotionMq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var svcTicking = false;
+
+    function svcUpdateAll() {
+      svcTicking = false;
+      var desktop = svcDesktopMq.matches && !svcMotionMq.matches;
+
+      svcTracks.forEach(function (track) {
+        var sticky = track.querySelector('.svc-sticky');
+        var panels = track.querySelectorAll('.svc-panel');
+        var dots = track.querySelectorAll('.svc-progress-dot');
+        var n = panels.length;
+        if (!sticky || !n) return;
+
+        if (!desktop) {
+          panels.forEach(function (p) {
+            p.style.transform = '';
+            p.style.filter = '';
+            p.classList.remove('is-active');
+          });
+          dots.forEach(function (d, i) { d.classList.toggle('is-active', i === 0); });
+          return;
+        }
+
+        var rect = track.getBoundingClientRect();
+        var scrollable = rect.height - sticky.offsetHeight;
+        var progress = scrollable > 0 ? Math.min(1, Math.max(0, -rect.top / scrollable)) : 0;
+        var active = Math.min(n - 1, Math.floor(progress * n));
+
+        panels.forEach(function (panel, i) {
+          if (i === 0) {
+            panel.style.transform = 'translateY(0)';
+          } else {
+            var segStart = i / n, segEnd = (i + 1) / n;
+            var local = Math.min(1, Math.max(0, (progress - segStart) / (segEnd - segStart)));
+            panel.style.transform = 'translateY(' + (100 - local * 100) + '%)';
+          }
+          panel.style.filter = i < active ? 'brightness(0.45)' : 'brightness(1)';
+          panel.classList.toggle('is-active', i === active);
+        });
+        dots.forEach(function (d, i) { d.classList.toggle('is-active', i === active); });
+      });
+    }
+
+    function svcOnScroll() {
+      if (!svcTicking) { svcTicking = true; requestAnimationFrame(svcUpdateAll); }
+    }
+
+    window.addEventListener('scroll', svcOnScroll, { passive: true });
+    window.addEventListener('resize', svcOnScroll, { passive: true });
+    svcDesktopMq.addEventListener('change', svcUpdateAll);
+    svcMotionMq.addEventListener('change', svcUpdateAll);
+    svcUpdateAll();
+  }
 })();

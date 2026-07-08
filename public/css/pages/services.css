@@ -271,6 +271,10 @@
   transform: rotate(5deg);
 }
 
+.tech-icon-wrap i {
+  font-size: 1.4rem;
+}
+
 .tech-card-info {
   display: flex;
   flex-direction: column;
@@ -1396,19 +1400,28 @@
   font-weight: 400;
   color: var(--sa-desc);
 }
-.svc-panels {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
+.svc-track {
+  position: relative;
+  height: calc(clamp(300px, 46vw, 520px) * var(--panel-count, 1));
+}
+.svc-sticky {
+  position: sticky;
+  top: 100px;
+  height: clamp(300px, 46vw, 520px);
+  overflow: hidden;
+  border-radius: 24px;
 }
 .svc-panel {
-  position: relative;
-  width: 100%;
-  height: clamp(300px, 46vw, 520px);
+  position: absolute;
+  inset: 0;
   border-radius: 24px;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.07);
   box-shadow: 0 24px 72px rgba(0,0,0,0.4), 0 6px 20px rgba(0,0,0,0.25);
+  z-index: calc(var(--i, 0) + 1);
+  filter: brightness(1);
+  transition: transform 0.6s cubic-bezier(0.22,1,0.36,1), filter 0.5s ease;
+  will-change: transform;
 }
 .svc-panel-bg { position: absolute; inset: 0; }
 .svc-panel-glow { position: absolute; inset: 0; pointer-events: none; }
@@ -1481,12 +1494,36 @@
 .svc-btn-dots span:nth-child(2) { top: 50%; right: 0; transform: translateY(-50%); }
 .svc-btn-dots span:nth-child(3) { bottom: 0; left: 0; }
 
-@media (max-width: 768px) {
+/* Progress rail: shows which panel is currently pinned/active */
+.svc-progress {
+  position: absolute;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 20;
+}
+.svc-progress-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  transition: background 0.35s ease, transform 0.35s ease;
+}
+.svc-progress-dot.is-active {
+  background: var(--svc-primary);
+  transform: scale(1.35);
+}
+
+@media (max-width: 768px), (prefers-reduced-motion: reduce) {
   .svc-header { padding-left: 0; text-align: center; margin-bottom: 40px; display: flex; flex-direction: column; align-items: center; }
-  .svc-panel { height: clamp(260px, 82vw, 480px); }
+  .svc-track { height: auto; }
+  .svc-sticky { position: static; height: auto; overflow: visible; display: flex; flex-direction: column; gap: 22px; }
+  .svc-panel { position: relative; inset: auto; height: clamp(260px, 82vw, 480px); transform: none !important; filter: none !important; z-index: auto !important; }
   .svc-panel-content { padding: 20px 22px; max-width: 100%; }
   .svc-panel-title { font-size: clamp(1.7rem,7vw,2.5rem); }
   .svc-panel-desc { font-size: 13px; }
+  .svc-progress { display: none; }
 }
 
 

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Industries We Serve — CodeOaks')
-@section('meta_description', 'Delivering tailored digital solutions across industries — from startups to enterprise-level organizations.')
+@section('title', 'Corammers')
+@section('meta_description', 'Delivering tailored digital solutions across industries from startups to enterprise-level organizations.')
 
 @push('styles')
 <link rel="stylesheet" href="{{ asset('css/pages/industry.css') }}">
@@ -87,8 +87,8 @@
         };
     };
 
-    /* Robot badge: light+dark webp, toggled by theme via CSS */
-    $robotBadge = '<div class="robot-badge"><img loading="lazy" decoding="async" src="/assets/robolight.webp" alt="Robot" class="ip-robot-light" style="width:32px;height:32px;object-fit:contain"><img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="ip-robot-dark" style="width:32px;height:32px;object-fit:contain"></div>';
+    /* Robot badge: single image */
+    $robotBadge = '<div class="robot-badge"><img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block"></div>';
 @endphp
 
 @section('content')
@@ -99,7 +99,7 @@
         <div class="banner-overlay"></div>
         <div class="banner-content reveal">
             <div class="label-row" style="justify-content:center;margin-bottom:24px">
-                <div class="robot-badge"><img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block"></div>
+                <div class="robot-badge"><img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block"></div>
                 <div class="label-pill">
                     <span class="label-dot"></span>
                     <span class="label-text">Our Expertise</span>
@@ -321,7 +321,7 @@
         <div class="cta-content container">
             <div class="reveal">
                 <div class="label-row" style="justify-content:center">
-                    <div class="robot-badge" style="border-color:rgba(216, 29, 31, 0.4);background:rgba(216, 29, 31, 0.1)"><img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block"></div>
+                    <div class="robot-badge" style="border-color:rgba(216, 29, 31, 0.4);background:rgba(216, 29, 31, 0.1)"><img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" style="width:32px;height:32px;object-fit:contain;display:block"></div>
                     <div class="label-pill" style="border-color:rgba(216, 29, 31, 0.3);background:rgba(216, 29, 31, 0.08)">
                         <span class="label-dot" style="background:#D81D1F;box-shadow:0 0 10px #D81D1F"></span>
                         <span class="label-text" style="color:#fff">Get Started</span>

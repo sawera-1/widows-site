@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Hire Top Talent On-Demand — CodeOaks')
+@section('title', 'Corammers')
 @section('meta_description', 'Scale your team with vetted developers, designers, marketers and AI experts through flexible staff augmentation.')
 
 @push('styles')
@@ -17,19 +17,17 @@
 
                 {{-- Left --}}
                 <div class="hero-left go">
-                    <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:14px">
-                        <div style="display:flex;flex-direction:column;align-items:center">
-                            <div class="section-robot-badge">
-                                <img loading="lazy" decoding="async" src="/assets/robolight.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
-                                <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
-                            </div>
-                            <div class="section-divider" style="margin-bottom:0;margin-top:8px"></div>
+                    <div class="section-label-row">
+                        <div class="section-robot-badge">
+                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
+                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
                         </div>
-                        <div class="hero-pill" style="margin-top:6px">
-                            <span class="hero-pill-dot"></span>
-                            <span class="hero-pill-text">Staff Augmentation</span>
+                        <div class="section-label-pill">
+                            <span class="section-label-dot"></span>
+                            <span class="section-label">Staff Augmentation</span>
                         </div>
                     </div>
+                    <div class="section-divider"></div>
 
                     <h1 class="hero-heading">
                         Hire Top Talent <span class="accent">On-Demand</span> for Your Business Growth
@@ -56,7 +54,7 @@
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--primary)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
                                 @endfor
                             </div>
-                            <div class="hero-trust-text"><strong>500+</strong> projects delivered</div>
+                            <div class="hero-trust-text"><strong>200+</strong> projects delivered</div>
                         </div>
                     </div>
                 </div>
@@ -64,7 +62,7 @@
                 {{-- Right --}}
                 <div class="hero-right go">
                     <div class="hero-float-badge">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D81D1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" /><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" /><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" /><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" /></svg>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#b6b1b1ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" /><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" /><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" /><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" /></svg>
                         20+ Experts Ready
                     </div>
 
@@ -90,9 +88,11 @@
         <section class="sec sec-alt">
             <div class="container">
                 <div style="text-align:center;margin-bottom:48px">
-                    <div class="hero-pill hero-pill--accent" style="margin-bottom:14px">
-                        <span class="hero-pill-dot"></span>
-                        <span class="hero-pill-text hero-pill-text--accent">By The Numbers</span>
+                    <div style="display:flex;flex-direction:column;align-items:center">
+                        <div class="section-label-pill" style="margin-bottom:14px">
+                            <span class="section-label-dot"></span>
+                            <span class="section-label">By The Numbers</span>
+                        </div>
                     </div>
                     <h2 class="sec-heading" style="margin-bottom:0;text-align:center">Our <span class="accent">Track Record</span></h2>
                 </div>
@@ -100,7 +100,7 @@
                 <div class="stats-grid">
                     @php
                         $stats = [
-                            ['num' => '100+', 'label' => 'Projects Delivered', 'icon' => '<path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" /><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" /><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" /><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />'],
+                            ['num' => '200+', 'label' => 'Projects Delivered', 'icon' => '<path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" /><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" /><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" /><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />'],
                             ['num' => '50+', 'label' => 'Clients Worldwide', 'icon' => '<circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" />'],
                             ['num' => '5+', 'label' => 'Years Experience', 'icon' => '<circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />'],
                             ['num' => '20+', 'label' => 'Experts Available', 'icon' => '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />'],
@@ -131,7 +131,7 @@
                                 <div class="px-img-overlay"></div>
                                 <div class="px-img-label">
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
-                                    Codeoaks
+                                    Corammers
                                 </div>
                                 <div class="px-float-badge">
                                     <div class="px-float-badge-icon">
@@ -147,19 +147,17 @@
 
                         <div class="px-content-col">
                             <div class="reveal">
-                                <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:14px">
-                                    <div style="display:flex;flex-direction:column;align-items:center">
-                                        <div class="section-robot-badge">
-                                            <img loading="lazy" decoding="async" src="/assets/robolight.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
-                                            <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
-                                        </div>
-                                        <div class="section-divider" style="margin-bottom:0;margin-top:8px"></div>
+                                <div class="section-label-row">
+                                    <div class="section-robot-badge">
+                                        <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
+                                        <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
                                     </div>
-                                    <div class="hero-pill" style="margin-top:6px">
-                                        <span class="hero-pill-dot"></span>
-                                        <span class="hero-pill-text">Staff Augmentation</span>
+                                    <div class="section-label-pill">
+                                        <span class="section-label-dot"></span>
+                                        <span class="section-label">Staff Augmentation</span>
                                     </div>
                                 </div>
+                                <div class="section-divider"></div>
                             </div>
 
                             <div class="reveal">
@@ -212,19 +210,17 @@
                     <div class="px-sec-header">
                         <div class="reveal">
                             <div style="display:flex;flex-direction:column;align-items:center;margin:0 auto 22px;width:fit-content">
-                                <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:14px">
-                                    <div style="display:flex;flex-direction:column;align-items:center">
-                                        <div class="section-robot-badge">
-                                            <img loading="lazy" decoding="async" src="/assets/robolight.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
-                                            <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
-                                        </div>
-                                        <div class="section-divider" style="margin-bottom:0;margin-top:8px"></div>
+                                <div class="section-label-row">
+                                    <div class="section-robot-badge">
+                                        <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
+                                        <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
                                     </div>
-                                    <div class="hero-pill" style="margin-top:6px">
-                                        <span class="hero-pill-dot"></span>
-                                        <span class="hero-pill-text">Our Advantages</span>
+                                    <div class="section-label-pill">
+                                        <span class="section-label-dot"></span>
+                                        <span class="section-label">Our Advantages</span>
                                     </div>
                                 </div>
+                                <div class="section-divider" style="margin-bottom:0"></div>
                             </div>
                         </div>
                         <div class="reveal">
@@ -289,19 +285,17 @@
             <div class="container">
                 <div class="what-inner">
                     <div class="what-left">
-                        <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:14px">
-                            <div style="display:flex;flex-direction:column;align-items:center">
-                                <div class="section-robot-badge">
-                                    <img loading="lazy" decoding="async" src="/assets/robolight.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
-                                    <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
-                                </div>
-                                <div class="section-divider" style="margin-bottom:0;margin-top:8px"></div>
+                        <div class="section-label-row">
+                            <div class="section-robot-badge">
+                                <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
+                                <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
                             </div>
-                            <div class="hero-pill hero-pill--accent" style="margin-top:6px">
-                                <span class="hero-pill-dot"></span>
-                                <span class="hero-pill-text hero-pill-text--accent">How It Works</span>
+                            <div class="section-label-pill">
+                                <span class="section-label-dot"></span>
+                                <span class="section-label">How It Works</span>
                             </div>
                         </div>
+                        <div class="section-divider"></div>
                         <h2 class="sec-heading">What Is <span class="accent">Staff Augmentation</span>?</h2>
                         <p class="sec-subtext" style="margin-bottom:32px">
                             Staff augmentation allows you to extend your in-house team with
@@ -390,19 +384,17 @@
             <div class="container">
                 <div class="cats-header">
                     <div style="display:flex;flex-direction:column;align-items:center">
-                        <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:14px">
-                            <div style="display:flex;flex-direction:column;align-items:center">
-                                <div class="section-robot-badge">
-                                    <img loading="lazy" decoding="async" src="/assets/robolight.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
-                                    <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
-                                </div>
-                                <div class="section-divider" style="margin-bottom:0;margin-top:8px"></div>
+                        <div class="section-label-row">
+                            <div class="section-robot-badge">
+                                <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
+                                <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
                             </div>
-                            <div class="hero-pill hero-pill--accent" style="margin-top:6px">
-                                <span class="hero-pill-dot"></span>
-                                <span class="hero-pill-text hero-pill-text--accent">Our Experts</span>
+                            <div class="section-label-pill">
+                                <span class="section-label-dot"></span>
+                                <span class="section-label">Our Experts</span>
                             </div>
                         </div>
+                        <div class="section-divider"></div>
                     </div>
                     <h2 class="sec-heading" style="margin-bottom:16px">Browse Our <span class="accent">Specialized Roles</span></h2>
                     <p class="sec-subtext" style="margin:0 auto 0">Choose from our diverse pool of vetted talent, ready to hit the ground running.</p>
@@ -522,19 +514,17 @@
             <div class="container">
                 <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px;flex-wrap:wrap;gap:22px">
                     <div style="display:flex;flex-direction:column;gap:6px">
-                        <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:14px">
-                            <div style="display:flex;flex-direction:column;align-items:center">
-                                <div class="section-robot-badge">
-                                    <img loading="lazy" decoding="async" src="/assets/robolight.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
-                                    <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
-                                </div>
-                                <div class="section-divider" style="margin-bottom:0;margin-top:8px"></div>
+                        <div class="section-label-row">
+                            <div class="section-robot-badge">
+                                <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
+                                <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
                             </div>
-                            <div class="hero-pill hero-pill--accent" style="margin-top:6px">
-                                <span class="hero-pill-dot"></span>
-                                <span class="hero-pill-text hero-pill-text--accent">The Talent</span>
+                            <div class="section-label-pill">
+                                <span class="section-label-dot"></span>
+                                <span class="section-label">The Talent</span>
                             </div>
                         </div>
+                        <div class="section-divider"></div>
                         <h2 class="sec-heading">Meet Our <span class="accent">Experts</span></h2>
                         <p class="sec-subtext">Hand-picked professionals with years of industry experience.</p>
                     </div>
@@ -571,19 +561,17 @@
             <div class="container">
                 <div style="text-align:center;margin-bottom:56px;display:flex;flex-direction:column;align-items:center">
                     <div style="display:flex;flex-direction:column;align-items:center">
-                        <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:14px">
-                            <div style="display:flex;flex-direction:column;align-items:center">
-                                <div class="section-robot-badge">
-                                    <img loading="lazy" decoding="async" src="/assets/robolight.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
-                                    <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
-                                </div>
-                                <div class="section-divider" style="margin-bottom:0;margin-top:8px"></div>
+                        <div class="section-label-row">
+                            <div class="section-robot-badge">
+                                <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
+                                <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
                             </div>
-                            <div class="hero-pill hero-pill--accent" style="margin-top:6px">
-                                <span class="hero-pill-dot"></span>
-                                <span class="hero-pill-text hero-pill-text--accent">Team Culture</span>
+                            <div class="section-label-pill">
+                                <span class="section-label-dot"></span>
+                                <span class="section-label">Team Culture</span>
                             </div>
                         </div>
+                        <div class="section-divider"></div>
                     </div>
                     <h2 class="sec-heading" style="margin-bottom:16px">See Us <span class="accent">In Action</span></h2>
                     <p class="sec-subtext" style="margin:0 auto">A glimpse into our collaborative environment and high standards.</p>
@@ -621,19 +609,17 @@
         <section class="faq-section-bg">
             <div class="faq-inner">
                 <div>
-                    <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:14px">
-                        <div style="display:flex;flex-direction:column;align-items:center">
-                            <div class="section-robot-badge">
-                                <img loading="lazy" decoding="async" src="/assets/robolight.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
-                                <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
-                            </div>
-                            <div class="section-divider" style="margin-bottom:0;margin-top:8px"></div>
+                    <div class="section-label-row">
+                        <div class="section-robot-badge">
+                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
+                            <img loading="lazy" decoding="async" src="/assets/robo.png" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
                         </div>
-                        <div class="hero-pill" style="margin-top:6px">
-                            <span class="hero-pill-dot"></span>
-                            <span class="hero-pill-text">Have Questions?</span>
+                        <div class="section-label-pill">
+                            <span class="section-label-dot"></span>
+                            <span class="section-label">Have Questions?</span>
                         </div>
                     </div>
+                    <div class="section-divider"></div>
 
                     <h2 class="faq-title">Frequently Asked <br><span style="color:var(--primary)">Questions</span></h2>
                 </div>
@@ -645,7 +631,7 @@
                             ['q' => 'How long does a typical project take from kickoff to launch?', 'a' => 'Project timelines vary based on scope and complexity. A focused landing page or blog can ship in 1–2 weeks, while a full-featured SaaS product typically spans 8–16 weeks. We share a detailed roadmap during our discovery phase so you always know what to expect.'],
                             ['q' => 'Do you offer post-launch support and maintenance?', 'a' => 'Absolutely. We offer flexible retainer packages covering bug fixes, performance monitoring, feature iterations, and security updates. Our goal is to be a long-term partner, not just a delivery team.'],
                             ['q' => 'Can you work with an existing codebase or design system?', 'a' => 'Yes we regularly integrate with existing codebases, component libraries, and design systems. We conduct a thorough audit before committing to a scope so there are no surprises mid-project.'],
-                            ['q' => 'How do we get started working together?', 'a' => "Simply fill out the contact form on this page or email us directly at hello@codeoaks.com We'll schedule a free 30-minute discovery call to understand your goals and outline the best path forward."],
+                            ['q' => 'How do we get started working together?', 'a' => "Simply fill out the contact form on this page or email us directly at  We'll schedule a free 30-minute discovery call to understand your goals and outline the best path forward."],
                         ];
                     @endphp
                     @foreach ($faqs as $item)

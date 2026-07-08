@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Contact — CodeOaks')
-@section('meta_description', 'Get in touch with CodeOaks — send us a message about your project, request a quote, or just say hello.')
+@section('title', 'Corammers')
+@section('meta_description', 'Get in touch with Corammers  send us a message about your project, request a quote, or just say hello.')
 
 @push('styles')
 <link rel="stylesheet" href="{{ asset('css/pages/contact.css') }}">
@@ -39,7 +39,7 @@
           <div>
             <p class="info-label">Email</p>
             <p class="info-value">
-              <a href="mailto:hello@codeoaks.com">hello@codeoaks.com</a>
+              <a href="mailto:info@corammers.com">info@corammers.com</a>
             </p>
           </div>
           <div>
