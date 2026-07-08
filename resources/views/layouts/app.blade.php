@@ -21,16 +21,18 @@
                     t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
                 }
                 document.documentElement.setAttribute('data-theme', t);
+                if (sessionStorage.getItem('cor-visited')) {
+                    document.documentElement.setAttribute('data-skip-loader', '');
+                }
             } catch (e) {
                 document.documentElement.setAttribute('data-theme', 'dark');
             }
         })();
     </script>
 
-    {{-- ── Fonts: self-hosted woff2 (no third-party requests) ──────────── --}}
-    <link rel="preload" href="/fonts/montserrat-400-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/fonts/poppins-800-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="{{ asset_v('css/fonts.css') }}">
+    {{-- ── Fonts: self-hosted woff2, @font-face inlined (zero render-blocking
+         requests for font CSS; font-display swap keeps text visible) ─────── --}}
+    <style>{!! file_get_contents(public_path('css/fonts.css')) !!}</style>
 
     <link rel="stylesheet" href="{{ asset_v('css/app.css') }}">
     @stack('styles')
