@@ -172,7 +172,7 @@ button {
     --of-accent-soft-border: rgba(216, 29, 31, .3);
     --stt-bg: #D81D1F;
     --stt-bg-hover: #D81D1F;
-    --stt-dot-color: #000000;
+    --stt-dot-color: #ffffff;
     --stt-shadow: 0 6px 24px rgba(216, 29, 31, .4), 0 2px 8px rgba(0, 0, 0, .12);
     --stt-shadow-hover: 0 14px 36px rgba(216, 29, 31, .55), 0 4px 12px rgba(0, 0, 0, .14)
 }

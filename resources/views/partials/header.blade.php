@@ -44,17 +44,17 @@
                                         <div class="sh-mega-body">
                                             <!-- Development -->
                                             <div class="sh-mega-col">
-                                                <a href="/services/development" class="sh-mega-link">Website Development</a>
-                                                <a href="/services/development" class="sh-mega-link">E-Commerce Development</a>
-                                                <a href="/services/development" class="sh-mega-link">Mobile App Development</a>
-                                                <a href="/services/development" class="sh-mega-link">Custom Development</a>
+                                                <a href="/services/development/web" class="sh-mega-link">Website Development</a>
+                                                <a href="/services/development/ecom" class="sh-mega-link">E-Commerce Development</a>
+                                                <a href="/services/development/mobile" class="sh-mega-link">Mobile App Development</a>
+                                                <a href="/services/development/custom" class="sh-mega-link">Custom Development</a>
                                             </div>
                                             <!-- Design -->
                                             <div class="sh-mega-col">
-                                                <a href="/services/design" class="sh-mega-link">UI/UX Design</a>
-                                                <a href="/services/design" class="sh-mega-link">Graphic Design</a>
-                                                <a href="/services/design" class="sh-mega-link">Video Editing</a>
-                                                <a href="/services/design" class="sh-mega-link">Visual Systems</a>
+                                                <a href="/services/design/uiux" class="sh-mega-link">UI/UX Design</a>
+                                                <a href="/services/design/graphic" class="sh-mega-link">Graphic Design</a>
+                                                <a href="/services/design/video" class="sh-mega-link">Video Editing</a>
+                                                <a href="/services/design/visual" class="sh-mega-link">Visual Systems</a>
                                             </div>
                                             <!-- Marketing -->
                                             <div class="sh-mega-col">
