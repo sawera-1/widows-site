@@ -1,11 +1,61 @@
 @extends('layouts.app')
 
-@section('title', 'Web & Mobile Development Services — Corammers')
+@section('title', 'Development Services — Corammers')
 @section('meta_description', 'Web and mobile development by Corammers — fast, scalable Laravel, React and native apps built to convert.')
 
 @push('styles')
 <link rel="stylesheet" href="{{ asset_v('css/pages/services-development.css') }}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+<style>
+/* === Consultation Section Mobile Fixes === */
+.bc-section {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box;
+}
+
+.bc-section .wd-intro-heading {
+    font-size: clamp(2rem, 5vw, 4rem) !important;
+    line-height: 1.2 !important;
+    word-wrap: break-word;
+}
+
+@media (max-width: 992px) {
+    .bc-section {
+        padding-top: 90px !important; /* Prevent floating menu overlap */
+        padding-bottom: 48px !important;
+    }
+
+    .bc-section .wd-inner {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+
+    .dev-intro-two-col.bc-two-col {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 40px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .dev-intro-two-col.bc-two-col > div {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    .bc-widget-col {
+        padding: 10px !important;
+    }
+
+    .calendly-inline-widget {
+        min-width: 100% !important; /* override the 280px inline min-width */
+    }
+}
+</style>
 @endpush
 
 @section('content')
@@ -90,24 +140,28 @@
             'perfectFor' => 'Growing businesses, startups, and personal brands ready to make an impact online.',
             'technologies' => ['HTML5', 'CSS3', 'JavaScript', 'React', 'Bootstrap', 'Tailwind CSS', 'WordPress', 'PHP'],
             'icon' => '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>',
+            'link' => '/services/development/web',
         ],
         [
             'title' => 'E-Commerce Development',
             'perfectFor' => 'Product businesses, online retailers, and dropshippers ready to scale.',
             'technologies' => ['Shopify', 'WordPress', 'WooCommerce', 'Magento', 'React', 'Next.js', 'Node.js', 'PHP', 'Stripe', 'PayPal'],
             'icon' => '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>',
+            'link' => '/services/development/ecom',
         ],
         [
             'title' => 'Mobile App Development',
             'perfectFor' => 'Businesses wanting a direct mobile channel to engage and retain customers.',
             'technologies' => ['React Native', 'Flutter', 'Swift', 'Kotlin', 'Firebase', 'REST APIs', 'App Store', 'Google Play'],
             'icon' => '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>',
+            'link' => '/services/development/mobile',
         ],
         [
             'title' => 'Custom Web Applications',
             'perfectFor' => 'Startups, SaaS products, and businesses with specific platform requirements.',
             'technologies' => ['React', 'Next.js', 'TypeScript', 'Node.js', 'Laravel', 'Vue.js', 'AngularJS', 'Ruby on Rails', 'Express.js', 'MongoDB', 'MySQL', 'PostgreSQL', 'AWS'],
             'icon' => '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>',
+            'link' => '/services/development/custom',
         ],
     ];
 
@@ -167,23 +221,23 @@
 
     $reviews = [
         ['name' => 'Sarah Mitchell', 'role' => 'CEO, ProBuild', 'text' => "the dashboard sync is literally so fast now and the team was super helpful with everything best agency we've worked with tbh", 'image' => '/assets/project/web/1.webp', 'avatar' => '/assets/im1.webp'],
-        ['name' => 'James Okafor', 'role' => 'CTO, EasyBridge', 'text' => 'needed a system that actually scales and these guys delivered everything works perfectly and the quality is top notch really happy with it', 'image' => '/assets/project/custom/3.webp', 'avatar' => null],
-        ['name' => 'Lucas Bernhard', 'role' => 'Researcher, SpaceBound', 'text' => "the app looks so good honestly didn't think it would be this nice but the design is just fire super easy to use too thanks guys", 'image' => '/assets/project/mobile/1.webp', 'avatar' => '/assets/im3.webp'],
-        ['name' => 'Priya Nair', 'role' => 'Partner, Robotech', 'text' => 'handled the complicated ai stuff for our dashboard really well it was a tough project but they made it look easy solid results all around', 'image' => '/assets/project/custom/1.webp', 'avatar' => '/assets/im2.webp'],
-        ['name' => 'Alex Chen', 'role' => 'Founder, DesignFlow', 'text' => 'love how clean the dashboard looks its exactly what i wanted the ui is super minimal and fast they really got our vision from day one', 'image' => '/assets/project/uiux/8.webp', 'avatar' => null],
-        ['name' => 'Sophia Kim', 'role' => 'Manager, StayFit', 'text' => 'mobile app is super smooth no lag at all just a great user experience u can tell they care about the small details highly recommend', 'image' => '/assets/project/mobile/2.webp', 'avatar' => null],
-        ['name' => 'Marcus Thorne', 'role' => 'Founder, TechFlow', 'text' => 'the custom software they built is a game changer for our warehouse operations super efficient and easy for the team to pick up definitely the best choice for us', 'image' => '/assets/project/custom/2.webp', 'avatar' => null],
-        ['name' => 'Elena Rossi', 'role' => 'Director, VibeDesign', 'text' => 'honestly obsessed with the new branding and logo they did it just fits our vibe perfectly and the team was so chill to work with 10/10', 'image' => '/assets/project/uiux/6.webp', 'avatar' => null],
-        ['name' => 'Omar Farouq', 'role' => 'Operations Lead, SyncAI', 'text' => 'honestly was skeptical about ai automation at first but the workflow they built just runs itself now we cut manual hours by like 70% which is insane', 'image' => '/assets/project/aiSol/1.webp', 'avatar' => null],
+        ['name' => 'James Okafor', 'role' => 'CTO, EasyBridge', 'text' => 'needed a system that actually scales and these guys delivered everything works perfectly and the quality is top notch really happy with it', 'image' => '/assets/project/custom/3.webm', 'avatar' => null],
+        ['name' => 'Lucas Bernhard', 'role' => 'Researcher, SpaceBound', 'text' => "the app looks so good honestly didn't think it would be this nice but the design is just fire super easy to use too thanks guys", 'image' => '/assets/project/mobile/1.webm', 'avatar' => '/assets/im3.webp'],
+        ['name' => 'Priya Nair', 'role' => 'Partner, Robotech', 'text' => 'handled the complicated ai stuff for our dashboard really well it was a tough project but they made it look easy solid results all around', 'image' => '/assets/project/custom/1.webm', 'avatar' => '/assets/im2.webp'],
+        ['name' => 'Alex Chen', 'role' => 'Founder, DesignFlow', 'text' => 'love how clean the dashboard looks its exactly what i wanted the ui is super minimal and fast they really got our vision from day one', 'image' => '/assets/project/uiux/8.webm', 'avatar' => null],
+        ['name' => 'Sophia Kim', 'role' => 'Manager, StayFit', 'text' => 'mobile app is super smooth no lag at all just a great user experience u can tell they care about the small details highly recommend', 'image' => '/assets/project/mobile/2.webm', 'avatar' => null],
+        ['name' => 'Marcus Thorne', 'role' => 'Founder, TechFlow', 'text' => 'the custom software they built is a game changer for our warehouse operations super efficient and easy for the team to pick up definitely the best choice for us', 'image' => '/assets/project/custom/2.webm', 'avatar' => null],
+        ['name' => 'Elena Rossi', 'role' => 'Director, VibeDesign', 'text' => 'honestly obsessed with the new branding and logo they did it just fits our vibe perfectly and the team was so chill to work with 10/10', 'image' => '/assets/project/uiux/6.webm', 'avatar' => null],
+        ['name' => 'Omar Farouq', 'role' => 'Operations Lead, SyncAI', 'text' => 'honestly was skeptical about ai automation at first but the workflow they built just runs itself now we cut manual hours by like 70% which is insane', 'image' => '/assets/project/aiSol/1.webm', 'avatar' => null],
         ['name' => 'Nadia Petrov', 'role' => 'Creative Director, PixelMind', 'text' => 'the ai design visuals they created blew us away every concept was unique and on brand felt like they really understood our aesthetic from the very first call', 'image' => '/assets/project/aiDes/ai3.webp', 'avatar' => null],
     ];
 
     $collageItems = [
         ['src' => '/assets/project/web/1.webp', 'title' => 'ProBuild — Construction', 'desc' => 'Next-gen architectural excellence', 'class' => 'pf-collage-card-tall'],
-        ['src' => '/assets/project/custom/3.webp', 'title' => 'EasyBridge — Fintech', 'desc' => 'Seamless mortgage application platform', 'class' => 'pf-collage-c2'],
-        ['src' => '/assets/project/mobile/1.webp', 'title' => 'NASA Explorer', 'desc' => 'Interactive space exploration interface', 'class' => 'pf-collage-c3'],
-        ['src' => '/assets/project/aiSol/3.webp', 'title' => 'n8n', 'desc' => 'AI', 'class' => 'pf-collage-c4'],
-        ['src' => '/assets/project/uiux/7.webp', 'title' => 'Logo', 'desc' => 'FlexFlox', 'class' => 'pf-collage-c5'],
+        ['src' => '/assets/project/custom/3.webm', 'title' => 'EasyBridge — Fintech', 'desc' => 'Seamless mortgage application platform', 'class' => 'pf-collage-c2'],
+        ['src' => '/assets/project/mobile/1.webm', 'title' => 'NASA Explorer', 'desc' => 'Interactive space exploration interface', 'class' => 'pf-collage-c3'],
+        ['src' => '/assets/project/aiSol/3.webm', 'title' => 'n8n', 'desc' => 'AI', 'class' => 'pf-collage-c4'],
+        ['src' => '/assets/project/uiux/7.webm', 'title' => 'Logo', 'desc' => 'FlexFlox', 'class' => 'pf-collage-c5'],
     ];
 
     $starIcon = '<svg width="18" height="18" viewBox="0 0 16 16" fill="#ffb33e" style="flex-shrink:0"><path d="M8 1.5L9.7 6H14.3L10.6 8.9L12 13.4L8 10.8L4 13.4L5.4 8.9L1.7 6H6.3L8 1.5Z" stroke="#ffb33e" stroke-width="1.2" stroke-linejoin="round"></path></svg>';
@@ -258,7 +312,7 @@
                 </p>
 
                 <div class="dev-hero-cta-row">
-                    <a href="/contact" class="dev-hero-btn">Contact Us {!! $arrowIcon !!}</a>
+                    <a href="/contact" class="dev-hero-btn">Contact Us</a>
                 </div>
             </div>
 
@@ -339,7 +393,7 @@
                     <p class="wd-intro-text">From pixel-perfect frontends to robust backend systems, our team architects digital products that grow with your business. We combine technical excellence with strategic thinking ensuring every line of code serves your goals.</p>
                     <p class="wd-intro-text">Whether you need a stunning marketing site, a complex SaaS platform, or a custom e-commerce solution, we deliver with precision, speed, and long-term scalability.</p>
                     <div style="display:flex;align-items:center;gap:28px;margin-top:14px;flex-wrap:wrap">
-                        <a href="/contact" class="dev-hero-btn">Contact Us {!! $arrowIcon !!}</a>
+                        <a href="/contact" class="dev-hero-btn">Contact Us</a>
                         <div class="wd-intro-stat">
                             <strong>150+</strong>
                             <span>Projects Delivered</span>
@@ -407,7 +461,7 @@
                         <span class="ds-v2-pill">{{ $tech }}</span>
                         @endforeach
                     </div>
-                    <a href="/contact" class="ds-v2-cta">Get Started</a>
+                    <a href="{{ $svc['link'] ?? '/contact' }}" class="ds-v2-cta">Learn More</a>
                 </div>
                 @endforeach
             </div>
@@ -494,7 +548,7 @@
                         <span class="pc-ticker-label">Tech Stack</span>
                         <div class="pc-ticker-wrap">
                             <div class="pc-card-ticker">
-                                @foreach(array_merge($plan['ticker1'], $plan['ticker1']) as $t)
+                                @foreach(array_merge(...array_fill(0, 8, $plan['ticker1'])) as $t)
                                 <span class="ds-v2-pill pc-mini-pill">{{ $t }}</span>
                                 @endforeach
                             </div>
@@ -505,7 +559,7 @@
                         <span class="pc-ticker-label">Tools &amp; Integrations</span>
                         <div class="pc-ticker-wrap">
                             <div class="pc-card-ticker pc-card-ticker--alt">
-                                @foreach(array_merge($plan['ticker2'], $plan['ticker2']) as $t)
+                                @foreach(array_merge(...array_fill(0, 8, $plan['ticker2'])) as $t)
                                 <span class="ds-v2-pill pc-mini-pill">{{ $t }}</span>
                                 @endforeach
                             </div>
@@ -559,7 +613,11 @@
             <div class="pf-home-collage">
                 @foreach($collageItems as $item)
                 <a href="/portfolio" class="pf-collage-card {{ $item['class'] }}">
+                    @if(Str::endsWith($item['src'], '.webm'))
+                    <video src="{{ $item['src'] }}" class="pf-collage-img" autoplay loop muted playsinline style="object-fit:cover; pointer-events:none;"></video>
+                    @else
                     <img src="{{ $item['src'] }}" alt="{{ $item['title'] }}" loading="lazy" class="pf-collage-img">
+                    @endif
                     <div class="pf-collage-overlay"></div>
                     <div class="pf-collage-content">
                         <h4 class="pf-collage-title">{{ $item['title'] }}</h4>
@@ -601,12 +659,16 @@
                 </div>
             </div>
 
-            <div class="rev-track-wrap">
-                <div class="rev-track">
+            <div class="rev-track-wrap" id="revTrackWrap">
+                <div class="rev-track" id="revTrack">
                     @foreach($reviews as $r)
                     <div class="rev-card">
                         <div class="rev-card-img-wrap">
+                            @if(Str::endsWith($r['image'], '.webm'))
+                            <video src="{{ $r['image'] }}" class="rev-card-img" autoplay loop muted playsinline style="object-fit:cover; pointer-events:none;"></video>
+                            @else
                             <img loading="lazy" decoding="async" src="{{ $r['image'] }}" alt="{{ $r['name'] }}" class="rev-card-img">
+                            @endif
                             <div class="rev-card-img-overlay"></div>
                         </div>
                         <div class="rev-card-body">
@@ -718,35 +780,75 @@
     var root = document.querySelector('.pw-services-development');
     if (!root) return;
 
-    /* Reviews carousel — advance by one card, wrap around */
+        /* Reviews carousel: seamless infinite marquee */
     var track = root.querySelector('.rev-track');
-    var trackWrap = root.querySelector('.rev-track-wrap');
-    if (track && trackWrap) {
-        var cards = track.querySelectorAll('.rev-card');
-        var idx = 0;
-        function step() {
-            if (!cards.length) return 0;
-            var cardW = cards[0].getBoundingClientRect().width;
-            var gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || '28') || 28;
-            return cardW + gap;
+    var wrap = root.querySelector('.rev-track-wrap');
+    if (track && wrap) {
+        var originals = Array.prototype.slice.call(track.children);
+        var N = originals.length;
+        
+        var SPEED = 1.2;
+        var currentScroll = 0;
+        var manualVelocity = 0;
+        var isHovered = false;
+        var setWidth = 0;
+        var rAF = null;
+
+        function setup() {
+            while (track.children.length > N) track.removeChild(track.lastChild);
+            if (!N) return;
+            var cs = getComputedStyle(track);
+            var gap = parseFloat(cs.columnGap || cs.gap || '28') || 28;
+            setWidth = 0;
+            originals.forEach(function (c) { setWidth += c.getBoundingClientRect().width + gap; });
+            var wrapWidth = wrap.getBoundingClientRect().width;
+            var need = Math.max(2, Math.ceil(wrapWidth / setWidth) + 2);
+            var frag = document.createDocumentFragment();
+            for (var k = 1; k < need; k++) {
+                originals.forEach(function (c) { frag.appendChild(c.cloneNode(true)); });
+            }
+            track.appendChild(frag);
+            track.style.animation = 'none';
         }
-        function apply() {
-            var max = cards.length - 1;
-            if (idx < 0) idx = max;
-            if (idx > max) idx = 0;
-            track.style.transition = 'transform 0.6s cubic-bezier(.2,.8,.4,1)';
-            track.style.transform = 'translateX(' + (-idx * step()) + 'px)';
+
+        function tick() {
+            if (!isHovered && Math.abs(manualVelocity) < 0.1) {
+                currentScroll += SPEED;
+            }
+            
+            if (Math.abs(manualVelocity) > 0.1) {
+                currentScroll += manualVelocity;
+                manualVelocity *= 0.92;
+            } else {
+                manualVelocity = 0;
+            }
+
+            if (setWidth > 0) {
+                if (currentScroll >= setWidth) currentScroll -= setWidth;
+                if (currentScroll < 0) currentScroll += setWidth;
+                track.style.transform = 'translate3d(' + (-currentScroll) + 'px, 0, 0)';
+            }
+            rAF = requestAnimationFrame(tick);
         }
+
+        setup();
+        rAF = requestAnimationFrame(tick);
+
+        track.addEventListener('mouseenter', function() { isHovered = true; });
+        track.addEventListener('mouseleave', function() { isHovered = false; });
+        track.addEventListener('touchstart', function() { isHovered = true; }, {passive: true});
+        track.addEventListener('touchend', function() { isHovered = false; });
+
         root.querySelectorAll('.rev-nav-btn').forEach(function (btn) {
             btn.addEventListener('click', function () {
-                idx += parseInt(btn.getAttribute('data-rev-dir'), 10);
-                apply();
+                var dir = btn.hasAttribute('data-rev-prev') ? -1 : (btn.hasAttribute('data-rev-next') ? 1 : 0);
+                if(dir === 0) dir = parseInt(btn.getAttribute('data-rev-dir'), 10) || 0;
+                manualVelocity += dir * 45;
             });
         });
-        var timer = setInterval(function () { idx++; apply(); }, 5000);
-        trackWrap.addEventListener('mouseenter', function () { clearInterval(timer); });
-        trackWrap.addEventListener('mouseleave', function () { timer = setInterval(function () { idx++; apply(); }, 5000); });
-        window.addEventListener('resize', apply);
+
+        var rt;
+        window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(setup, 200); });
     }
 })();
 </script>

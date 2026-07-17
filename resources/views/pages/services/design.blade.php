@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'UI/UX Design Services — Corammers')
+@section('title', 'Design Services — Corammers')
 @section('meta_description', 'UI/UX and product design services by Corammers — research, prototyping and pixel-perfect interfaces users love.')
 
 @push('styles')
@@ -51,10 +51,10 @@
     $icoVisual = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M8 12h8M12 8v8" /></svg>';
 
     $designServices = [
-        ['title' => 'UI/UX Design', 'perfectFor' => 'Businesses and startups wanting professional, conversion-focused design that users love.', 'technologies' => ['Figma', 'Adobe XD', 'Framer', 'Maze', 'Zeplin', 'Hotjar', 'Uizard', 'Galileo AI', 'Relume'], 'icon' => $icoUiux],
-        ['title' => 'Graphic Design', 'perfectFor' => 'Brands needing a consistent, professional visual identity that stands out.', 'technologies' => ['Adobe Illustrator', 'Photoshop', 'Figma', 'Canva Pro', 'InDesign', 'Adobe Firefly', 'Midjourney', 'Canva AI'], 'icon' => $icoGraphic],
-        ['title' => 'Video Editing', 'perfectFor' => 'Brands, creators, and businesses needing consistent, scroll-stopping video content.', 'technologies' => ['Adobe Premiere Pro', 'After Effects', 'DaVinci Resolve', 'CapCut Pro', 'Final Cut Pro', 'Runway ML', 'Descript', 'ElevenLabs', 'Topaz Video AI'], 'icon' => $icoVideo],
-        ['title' => 'Visual Systems', 'perfectFor' => 'Enterprises needing scalable design foundations and comprehensive visual guidelines.', 'technologies' => ['Design Systems', 'Tokenization', 'Brand Guidelines', 'Component Libraries', 'Storybook', 'Zeroheight'], 'icon' => $icoVisual],
+        ['title' => 'UI/UX Design', 'link' => '/services/design/uiux', 'perfectFor' => 'Businesses and startups wanting professional, conversion-focused design that users love.', 'technologies' => ['Figma', 'Adobe XD', 'Framer', 'Maze', 'Zeplin', 'Hotjar', 'Uizard', 'Galileo AI', 'Relume', 'ProtoPie', 'Sketch', 'Webflow'], 'icon' => $icoUiux],
+        ['title' => 'Graphic Design', 'link' => '/services/design/graphic', 'perfectFor' => 'Brands needing a consistent, professional visual identity that stands out.', 'technologies' => ['Adobe Illustrator', 'Photoshop', 'Figma', 'Canva Pro', 'InDesign', 'Adobe Firefly', 'Midjourney', 'Canva AI'], 'icon' => $icoGraphic],
+        ['title' => 'Video Editing', 'link' => '/services/design/video', 'perfectFor' => 'Brands, creators, and businesses needing consistent, scroll-stopping video content.', 'technologies' => ['Adobe Premiere Pro', 'After Effects', 'DaVinci Resolve', 'CapCut Pro', 'Final Cut Pro', 'Runway ML', 'Descript', 'ElevenLabs', 'Topaz Video AI'], 'icon' => $icoVideo],
+        ['title' => 'Visual Systems', 'link' => '/services/design/visual', 'perfectFor' => 'Enterprises needing scalable design foundations and comprehensive visual guidelines.', 'technologies' => ['Design Systems', 'Tokenization', 'Brand Guidelines', 'Component Libraries', 'Storybook', 'Zeroheight', 'Figma Variables', 'Design Tokens', 'Tailwind CSS'], 'icon' => $icoVisual],
     ];
 
     $icoDirection = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z" /><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" /><path d="M2 2l7.5 1.5" /><path d="M7 11c.105 0 .209-.004.312-.012" /></svg>';
@@ -87,24 +87,27 @@
 
     $reviews = [
         ['name' => 'Sarah Mitchell', 'role' => 'CEO, ProBuild', 'text' => "the dashboard sync is literally so fast now and the team was super helpful with everything best agency we've worked with tbh", 'image' => '/assets/project/web/1.webp', 'avatar' => '/assets/im1.webp'],
-        ['name' => 'James Okafor', 'role' => 'CTO, EasyBridge', 'text' => 'needed a system that actually scales and these guys delivered everything works perfectly and the quality is top notch really happy with it', 'image' => '/assets/project/custom/3.webp', 'avatar' => null],
-        ['name' => 'Lucas Bernhard', 'role' => 'Researcher, SpaceBound', 'text' => "the app looks so good honestly didn't think it would be this nice but the design is just fire super easy to use too thanks guys", 'image' => '/assets/project/mobile/1.webp', 'avatar' => '/assets/im3.webp'],
-        ['name' => 'Priya Nair', 'role' => 'Partner, Robotech', 'text' => 'handled the complicated ai stuff for our dashboard really well it was a tough project but they made it look easy solid results all around', 'image' => '/assets/project/custom/1.webp', 'avatar' => '/assets/im2.webp'],
-        ['name' => 'Alex Chen', 'role' => 'Founder, DesignFlow', 'text' => 'love how clean the dashboard looks its exactly what i wanted the ui is super minimal and fast they really got our vision from day one', 'image' => '/assets/project/uiux/8.webp', 'avatar' => null],
-        ['name' => 'Sophia Kim', 'role' => 'Manager, StayFit', 'text' => 'mobile app is super smooth no lag at all just a great user experience u can tell they care about the small details highly recommend', 'image' => '/assets/project/mobile/2.webp', 'avatar' => null],
-        ['name' => 'Marcus Thorne', 'role' => 'Founder, TechFlow', 'text' => 'the custom software they built is a game changer for our warehouse operations super efficient and easy for the team to pick up definitely the best choice for us', 'image' => '/assets/project/custom/2.webp', 'avatar' => null],
-        ['name' => 'Elena Rossi', 'role' => 'Director, VibeDesign', 'text' => 'honestly obsessed with the new branding and logo they did it just fits our vibe perfectly and the team was so chill to work with 10/10', 'image' => '/assets/project/uiux/6.webp', 'avatar' => null],
-        ['name' => 'Omar Farouq', 'role' => 'Operations Lead, SyncAI', 'text' => 'honestly was skeptical about ai automation at first but the workflow they built just runs itself now we cut manual hours by like 70% which is insane', 'image' => '/assets/project/aiSol/1.webp', 'avatar' => null],
+        ['name' => 'James Okafor', 'role' => 'CTO, EasyBridge', 'text' => 'needed a system that actually scales and these guys delivered everything works perfectly and the quality is top notch really happy with it', 'image' => '/assets/project/custom/3.webm', 'avatar' => null],
+        ['name' => 'Lucas Bernhard', 'role' => 'Researcher, SpaceBound', 'text' => "the app looks so good honestly didn't think it would be this nice but the design is just fire super easy to use too thanks guys", 'image' => '/assets/project/mobile/1.webm', 'avatar' => '/assets/im3.webp'],
+        ['name' => 'Priya Nair', 'role' => 'Partner, Robotech', 'text' => 'handled the complicated ai stuff for our dashboard really well it was a tough project but they made it look easy solid results all around', 'image' => '/assets/project/custom/1.webm', 'avatar' => '/assets/im2.webp'],
+        ['name' => 'Alex Chen', 'role' => 'Founder, DesignFlow', 'text' => 'love how clean the dashboard looks its exactly what i wanted the ui is super minimal and fast they really got our vision from day one', 'image' => '/assets/project/uiux/8.webm', 'avatar' => null],
+        ['name' => 'Sophia Kim', 'role' => 'Manager, StayFit', 'text' => 'mobile app is super smooth no lag at all just a great user experience u can tell they care about the small details highly recommend', 'image' => '/assets/project/mobile/2.webm', 'avatar' => null],
+        ['name' => 'Marcus Thorne', 'role' => 'Founder, TechFlow', 'text' => 'the custom software they built is a game changer for our warehouse operations super efficient and easy for the team to pick up definitely the best choice for us', 'image' => '/assets/project/custom/2.webm', 'avatar' => null],
+        ['name' => 'Elena Rossi', 'role' => 'Director, VibeDesign', 'text' => 'honestly obsessed with the new branding and logo they did it just fits our vibe perfectly and the team was so chill to work with 10/10', 'image' => '/assets/project/uiux/6.webm', 'avatar' => null],
+        ['name' => 'Omar Farouq', 'role' => 'Operations Lead, SyncAI', 'text' => 'honestly was skeptical about ai automation at first but the workflow they built just runs itself now we cut manual hours by like 70% which is insane', 'image' => '/assets/project/aiSol/1.webm', 'avatar' => null],
         ['name' => 'Nadia Petrov', 'role' => 'Creative Director, PixelMind', 'text' => 'the ai design visuals they created blew us away every concept was unique and on brand felt like they really understood our aesthetic from the very first call', 'image' => '/assets/project/aiDes/ai3.webp', 'avatar' => null],
     ];
 
     $collage = [
         ['src' => '/assets/project/web/1.webp', 'title' => 'ProBuild — Construction', 'desc' => 'Next-gen architectural excellence', 'cls' => 'pf-card-tall', 'h' => 420],
-        ['src' => '/assets/project/custom/3.webp', 'title' => 'EasyBridge — Fintech', 'desc' => 'Seamless mortgage application platform', 'cls' => '', 'h' => 200],
-        ['src' => '/assets/project/mobile/1.webp', 'title' => 'NASA Explorer', 'desc' => 'Interactive space exploration interface', 'cls' => '', 'h' => 200],
-        ['src' => '/assets/project/aiSol/3.webp', 'title' => 'n8n', 'desc' => 'AI', 'cls' => '', 'h' => 210],
-        ['src' => '/assets/project/uiux/7.webp', 'title' => 'Logo', 'desc' => 'FlexFlox', 'cls' => '', 'h' => 210],
+        ['src' => '/assets/project/custom/3.webm', 'title' => 'EasyBridge — Fintech', 'desc' => 'Seamless mortgage application platform', 'cls' => '', 'h' => 200],
+        ['src' => '/assets/project/mobile/1.webm', 'title' => 'NASA Explorer', 'desc' => 'Interactive space exploration interface', 'cls' => '', 'h' => 200],
+        ['src' => '/assets/project/aiSol/3.webm', 'title' => 'n8n', 'desc' => 'AI', 'cls' => '', 'h' => 210],
+        ['src' => '/assets/project/uiux/7.webm', 'title' => 'Logo', 'desc' => 'FlexFlox', 'cls' => '', 'h' => 210],
     ];
+    $tickerMask = 'overflow:hidden;width:100%;-webkit-mask-image:linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%);mask-image:linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%)';
+    $tickerStyle = 'display:flex;width:max-content;gap:6px;padding:2px 0;animation:tickerScroll 22s linear infinite';
+    $tickerStyle2 = 'display:flex;width:max-content;gap:6px;padding:2px 0;animation:tickerScroll 18s linear infinite';
     $arrowIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>';
 
     /* ─── Shared Devicon class map ─── */
@@ -214,7 +217,7 @@
                     <div class="dev-hero-cta-row">
                         <a href="/contact" class="dev-hero-btn">
                             Contact Us
-                            {!! $arrowIcon !!}
+                           
                         </a>
                     </div>
                 </div>
@@ -302,7 +305,7 @@
                         <div style="display:flex;align-items:center;gap:28px;margin-top:14px;flex-wrap:wrap">
                             <a href="/contact" class="dev-hero-btn">
                                 Contact Us
-                                {!! $arrowIcon !!}
+                                
                             </a>
                             <div class="wd-intro-stat">
                                 <strong>200+</strong>
@@ -375,7 +378,7 @@
                                     <span class="ds-v2-pill">{{ $tech }}</span>
                                 @endforeach
                             </div>
-                            <a href="/contact" class="ds-v2-cta">Get Started</a>
+                            <a href="{{ $svc['link'] ?? '/contact' }}" class="ds-v2-cta">Learn More</a>
                         </div>
                     @endforeach
                 </div>
@@ -451,10 +454,12 @@
                             <div class="pc-ticker-block">
                                 <span class="pc-ticker-label">Tech Stack</span>
                                 <div class="pc-ticker-wrap pc-ticker--light">
-                                    <div class="pc-card-ticker">
-                                        @foreach(array_merge($plan['ticker1'], $plan['ticker1']) as $t)
-                                            <span class="ds-v2-pill" style="font-size:0.64rem;padding:4px 12px">{{ $t }}</span>
-                                        @endforeach
+                                    <div style="{{ $tickerMask }}">
+                                        <div style="{{ $tickerStyle }}">
+                                            @foreach(array_merge(...array_fill(0, 8, $plan['ticker1'])) as $t)
+                                                <span class="ds-v2-pill pc-mini-pill" style="font-size:0.64rem;padding:4px 12px;border-width:1px;opacity:0.9">{{ $t }}</span>
+                                            @endforeach
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -462,10 +467,12 @@
                             <div class="pc-ticker-block">
                                 <span class="pc-ticker-label">Tools & Integrations</span>
                                 <div class="pc-ticker-wrap pc-ticker--light">
-                                    <div class="pc-card-ticker" style="animation-duration:18s">
-                                        @foreach(array_merge($plan['ticker2'], $plan['ticker2']) as $t)
-                                            <span class="ds-v2-pill" style="font-size:0.64rem;padding:4px 12px">{{ $t }}</span>
-                                        @endforeach
+                                    <div style="{{ $tickerMask }}">
+                                        <div style="{{ $tickerStyle2 }}">
+                                            @foreach(array_merge(...array_fill(0, 8, $plan['ticker2'])) as $t)
+                                                <span class="ds-v2-pill pc-mini-pill" style="font-size:0.64rem;padding:4px 12px;border-width:1px;opacity:0.9">{{ $t }}</span>
+                                            @endforeach
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -520,7 +527,11 @@
                 <div class="pf-collage">
                     @foreach($collage as $item)
                         <a href="/portfolio" class="pf-collage-card {{ $item['cls'] }}" style="height:{{ $item['h'] }}px">
-                            <img class="pf-collage-img" src="{{ $item['src'] }}" alt="{{ $item['title'] }}" loading="lazy">
+                            @if(str_ends_with($item['src'], '.webm'))
+                                <video class="pf-collage-img" src="{{ $item['src'] }}" autoplay loop muted playsinline></video>
+                            @else
+                                <img class="pf-collage-img" src="{{ $item['src'] }}" alt="{{ $item['title'] }}" loading="lazy">
+                            @endif
                             <div class="pf-collage-overlay"></div>
                             <div class="pf-collage-content">
                                 <h4 class="pf-collage-title">{{ $item['title'] }}</h4>
@@ -563,12 +574,16 @@
                     </div>
                 </div>
 
-                <div class="rev-track-wrap">
-                    <div class="rev-track" data-rev-track>
+                <div class="rev-track-wrap" id="revTrackWrap">
+                    <div class="rev-track" id="revTrack" data-rev-track>
                         @foreach(array_merge($reviews, $reviews) as $r)
                             <div class="rev-card">
                                 <div class="rev-card-media">
-                                    <img loading="lazy" decoding="async" src="{{ $r['image'] }}" alt="{{ $r['name'] }}">
+                                    @if(str_ends_with($r['image'], '.webm'))
+                                        <video loading="lazy" class="rev-card-media-inner" src="{{ $r['image'] }}" autoplay loop muted playsinline></video>
+                                    @else
+                                        <img loading="lazy" decoding="async" src="{{ $r['image'] }}" alt="{{ $r['name'] }}">
+                                    @endif
                                 </div>
                                 <div class="rev-card-body">
                                     <div class="rev-stars">
@@ -703,55 +718,75 @@
         fo.observe(flow);
     }
 
-    /* Reviews carousel */
-    var track = scope.querySelector('[data-rev-track]');
-    if (track) {
-        var GAP = 28;
-        var cards = track.children;
-        var half = cards.length / 2;
-        var index = 0;
-        var timer = null;
+    // Reviews carousel continuous loop
+    var track = scope.querySelector('.rev-track');
+    var wrap = scope.querySelector('.rev-track-wrap');
+    if (track && wrap) {
+        var originals = Array.prototype.slice.call(track.children);
+        var N = originals.length;
+        
+        var SPEED = 1.2;
+        var currentScroll = 0;
+        var manualVelocity = 0;
+        var isHovered = false;
+        var setWidth = 0;
+        var rAF = null;
 
-        function stepSize() {
-            if (!cards.length) return 0;
-            return cards[0].getBoundingClientRect().width + GAP;
-        }
-        function render() {
-            track.style.transform = 'translateX(' + (-index * stepSize()) + 'px)';
-        }
-        function go(dir) {
-            index += dir;
-            if (index >= half) {
-                index -= half;
-                track.style.transition = 'none';
-                render();
-                void track.offsetWidth;
-                track.style.transition = '';
-            } else if (index < 0) {
-                index += half;
-                track.style.transition = 'none';
-                render();
-                void track.offsetWidth;
-                track.style.transition = '';
+        function setup() {
+            while (track.children.length > N) track.removeChild(track.lastChild);
+            if (!N) return;
+            var cs = getComputedStyle(track);
+            var gap = parseFloat(cs.columnGap || cs.gap || '28') || 28;
+            setWidth = 0;
+            originals.forEach(function (c) { setWidth += c.getBoundingClientRect().width + gap; });
+            var wrapWidth = wrap.getBoundingClientRect().width;
+            var need = Math.max(2, Math.ceil(wrapWidth / setWidth) + 2);
+            var frag = document.createDocumentFragment();
+            for (var k = 1; k < need; k++) {
+                originals.forEach(function (c) { frag.appendChild(c.cloneNode(true)); });
             }
-            render();
+            track.appendChild(frag);
+            track.style.animation = 'none';
         }
-        function start() { timer = setInterval(function () { go(1); }, 5000); }
-        function stop() { clearInterval(timer); }
 
-        var prev = scope.querySelector('[data-rev-prev]');
-        var next = scope.querySelector('[data-rev-next]');
-        if (prev) prev.addEventListener('click', function () { go(-1); });
-        if (next) next.addEventListener('click', function () { go(1); });
+        function tick() {
+            if (!isHovered && Math.abs(manualVelocity) < 0.1) {
+                currentScroll += SPEED;
+            }
+            
+            if (Math.abs(manualVelocity) > 0.1) {
+                currentScroll += manualVelocity;
+                manualVelocity *= 0.92;
+            } else {
+                manualVelocity = 0;
+            }
 
-        var wrap = scope.querySelector('.rev-track-wrap');
-        if (wrap) {
-            wrap.addEventListener('mouseenter', stop);
-            wrap.addEventListener('mouseleave', start);
+            if (setWidth > 0) {
+                if (currentScroll >= setWidth) currentScroll -= setWidth;
+                if (currentScroll < 0) currentScroll += setWidth;
+                track.style.transform = 'translate3d(' + (-currentScroll) + 'px, 0, 0)';
+            }
+            rAF = requestAnimationFrame(tick);
         }
-        window.addEventListener('resize', render);
-        render();
-        start();
+
+        setup();
+        rAF = requestAnimationFrame(tick);
+
+        track.addEventListener('mouseenter', function() { isHovered = true; });
+        track.addEventListener('mouseleave', function() { isHovered = false; });
+        track.addEventListener('touchstart', function() { isHovered = true; }, {passive: true});
+        track.addEventListener('touchend', function() { isHovered = false; });
+
+        scope.querySelectorAll('.rev-nav-btn').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var dir = btn.hasAttribute('data-rev-prev') ? -1 : (btn.hasAttribute('data-rev-next') ? 1 : 0);
+                if(dir === 0) dir = parseInt(btn.getAttribute('data-rev-dir'), 10) || 0;
+                manualVelocity += dir * 45;
+            });
+        });
+
+        var rt;
+        window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(setup, 200); });
     }
 })();
 </script>

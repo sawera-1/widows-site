@@ -21,9 +21,6 @@
                     t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
                 }
                 document.documentElement.setAttribute('data-theme', t);
-                if (sessionStorage.getItem('cor-visited')) {
-                    document.documentElement.setAttribute('data-skip-loader', '');
-                }
             } catch (e) {
                 document.documentElement.setAttribute('data-theme', 'dark');
             }
@@ -34,6 +31,7 @@
          requests for font CSS; font-display swap keeps text visible) ─────── --}}
     <style>{!! file_get_contents(public_path('css/fonts.css')) !!}</style>
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <link rel="stylesheet" href="{{ asset_v('css/app.css') }}">
     @stack('styles')
 

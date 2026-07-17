@@ -27,6 +27,7 @@ return [
             ['label' => 'Development', 'href' => '/portfolio/development'],
             ['label' => 'Designing', 'href' => '/portfolio/design'],
         ]],
+        ['label' => 'Industries We Serve', 'href' => '/industry'],
         ['label' => 'Blog', 'href' => '/blog'],
         ['label' => 'Contact Us', 'href' => '/contact'],
     ],
@@ -54,8 +55,8 @@ return [
             ['label' => 'Development', 'href' => '/portfolio/development'],
             ['label' => 'Designing', 'href' => '/portfolio/design'],
         ]],
-        ['id' => null, 'label' => 'Blog', 'href' => '/blog'],
         ['id' => null, 'label' => 'Industries We Serve', 'href' => '/industry'],
+        ['id' => null, 'label' => 'Blog', 'href' => '/blog'],
         ['id' => null, 'label' => 'Contact Us', 'href' => '/contact'],
     ],
 

@@ -79,10 +79,10 @@
 
     /* ─── MARKETING SERVICE CARDS ─── */
     $developmentServices = [
-        ['title' => 'Social Media Marketing', 'perfectFor' => 'Small businesses, startups, and eCommerce brands wanting organic growth and strong brand presence.', 'technologies' => ['Multi-platform content strategy', 'Engaging posts & captions', 'Hashtag optimization', 'Monthly performance reports'], 'icon' => '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>'],
-        ['title' => 'Media Buying & Paid Ads', 'perfectFor' => 'Businesses ready to invest in paid traffic, eCommerce stores, and lead generation businesses.', 'technologies' => ['Campaign setup & management', 'Audience targeting', 'Ad creatives optimization', 'Performance tracking'], 'icon' => '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><line x1="12" y1="16" x2="12" y2="12" /><line x1="12" y1="8" x2="12.01" y2="8" /></svg>'],
-        ['title' => 'SEO & AEO Optimization', 'perfectFor' => 'Businesses wanting long-term organic visibility on Google and AI search platforms.', 'technologies' => ['Keyword & AI-intent research', 'On-page SEO optimization', 'Technical SEO improvements', 'Backlink building'], 'icon' => '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>'],
-        ['title' => 'Email Marketing', 'perfectFor' => 'Businesses looking to nurture leads and build long-term customer relationships.', 'technologies' => ['Campaign design & automation', 'Audience segmentation', 'Performance tracking', 'Conversion optimization'], 'icon' => '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>'],
+        ['title' => 'Social Media Marketing', 'link' => '/services/marketing/social', 'perfectFor' => 'Small businesses, startups, and eCommerce brands wanting organic growth and strong brand presence.', 'technologies' => ['Multi-platform content strategy', 'Engaging posts & captions', 'Hashtag optimization', 'Monthly performance reports'], 'icon' => '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>'],
+        ['title' => 'Media Buying & Paid Ads', 'link' => '/services/marketing/media', 'perfectFor' => 'Businesses ready to invest in paid traffic, eCommerce stores, and lead generation businesses.', 'technologies' => ['Strategic campaign setup & management', 'Audience targeting', 'Creative optimization', 'Continuous performance tracking'], 'icon' => '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><line x1="12" y1="16" x2="12" y2="12" /><line x1="12" y1="8" x2="12.01" y2="8" /></svg>'],
+        ['title' => 'SEO & AEO Optimization', 'link' => '/services/marketing/seo', 'perfectFor' => 'Businesses wanting long-term organic visibility on Google and AI search platforms.', 'technologies' => ['Keyword & AI-intent research', 'On-page SEO optimization', 'Technical SEO improvements', 'Backlink building'], 'icon' => '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>'],
+        ['title' => 'Email Marketing', 'link' => '/services/marketing/email', 'perfectFor' => 'Businesses looking to nurture leads and build long-term customer relationships.', 'technologies' => ['Campaign design & automation', 'Audience segmentation', 'Performance tracking', 'Conversion optimization'], 'icon' => '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>'],
     ];
 
     /* ─── BUILD STEPS ─── */
@@ -102,25 +102,25 @@
         ['title' => 'Google Ads Management', 'tier' => 'Search', 'price' => '$400', 'desc' => 'High-intent search campaign management for maximum lead quality.', 'features' => ['Search campaign setup', 'Keyword research', 'Ad copy creation', 'Conversion tracking', 'Targeting setup', 'Monthly optimization', 'Engagement tracking', 'Basic automation'], 'ticker1' => ['Google Ads', 'Search', 'PMax', 'Shopping'], 'ticker2' => ['Analytics 4', 'GTM', 'Optimizer', 'Merchant Center'], 'highlight' => false, 'icon' => '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>'],
         ['title' => 'Email Marketing', 'tier' => 'Nurture', 'price' => '$200', 'desc' => 'Convert subscribers into loyal customers with strategic email campaigns.', 'features' => ['Up to 24 campaigns/year', 'Template design', 'List setup', 'Monthly report', 'Engagement tracking', 'Basic automation', 'Targeting setup', 'Monthly optimization'], 'ticker1' => ['Mailchimp', 'Klaviyo', 'ActiveCampaign', 'SendGrid'], 'ticker2' => ['Automation', 'Copywriting', 'Design', 'Strategy'], 'highlight' => false, 'icon' => '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>'],
     ];
-$reviews = [
+    $reviews = [
         ['name' => 'Sarah Mitchell', 'role' => 'CEO, ProBuild', 'text' => "the dashboard sync is literally so fast now and the team was super helpful with everything best agency we've worked with tbh", 'image' => '/assets/project/web/1.webp', 'avatar' => '/assets/im1.webp'],
-        ['name' => 'James Okafor', 'role' => 'CTO, EasyBridge', 'text' => 'needed a system that actually scales and these guys delivered everything works perfectly and the quality is top notch really happy with it', 'image' => '/assets/project/custom/3.webp', 'avatar' => null],
-        ['name' => 'Lucas Bernhard', 'role' => 'Researcher, SpaceBound', 'text' => "the app looks so good honestly didn't think it would be this nice but the design is just fire super easy to use too thanks guys", 'image' => '/assets/project/mobile/1.webp', 'avatar' => '/assets/im3.webp'],
-        ['name' => 'Priya Nair', 'role' => 'Partner, Robotech', 'text' => 'handled the complicated ai stuff for our dashboard really well it was a tough project but they made it look easy solid results all around', 'image' => '/assets/project/custom/1.webp', 'avatar' => '/assets/im2.webp'],
-        ['name' => 'Alex Chen', 'role' => 'Founder, DesignFlow', 'text' => 'love how clean the dashboard looks its exactly what i wanted the ui is super minimal and fast they really got our vision from day one', 'image' => '/assets/project/uiux/8.webp', 'avatar' => null],
-        ['name' => 'Sophia Kim', 'role' => 'Manager, StayFit', 'text' => 'mobile app is super smooth no lag at all just a great user experience u can tell they care about the small details highly recommend', 'image' => '/assets/project/mobile/2.webp', 'avatar' => null],
-        ['name' => 'Marcus Thorne', 'role' => 'Founder, TechFlow', 'text' => 'the custom software they built is a game changer for our warehouse operations super efficient and easy for the team to pick up definitely the best choice for us', 'image' => '/assets/project/custom/2.webp', 'avatar' => null],
-        ['name' => 'Elena Rossi', 'role' => 'Director, VibeDesign', 'text' => 'honestly obsessed with the new branding and logo they did it just fits our vibe perfectly and the team was so chill to work with 10/10', 'image' => '/assets/project/uiux/6.webp', 'avatar' => null],
-        ['name' => 'Omar Farouq', 'role' => 'Operations Lead, SyncAI', 'text' => 'honestly was skeptical about ai automation at first but the workflow they built just runs itself now we cut manual hours by like 70% which is insane', 'image' => '/assets/project/aiSol/1.webp', 'avatar' => null],
+        ['name' => 'James Okafor', 'role' => 'CTO, EasyBridge', 'text' => 'needed a system that actually scales and these guys delivered everything works perfectly and the quality is top notch really happy with it', 'image' => '/assets/project/custom/3.webm', 'avatar' => null],
+        ['name' => 'Lucas Bernhard', 'role' => 'Researcher, SpaceBound', 'text' => "the app looks so good honestly didn't think it would be this nice but the design is just fire super easy to use too thanks guys", 'image' => '/assets/project/mobile/1.webm', 'avatar' => '/assets/im3.webp'],
+        ['name' => 'Priya Nair', 'role' => 'Partner, Robotech', 'text' => 'handled the complicated ai stuff for our dashboard really well it was a tough project but they made it look easy solid results all around', 'image' => '/assets/project/custom/1.webm', 'avatar' => '/assets/im2.webp'],
+        ['name' => 'Alex Chen', 'role' => 'Founder, DesignFlow', 'text' => 'love how clean the dashboard looks its exactly what i wanted the ui is super minimal and fast they really got our vision from day one', 'image' => '/assets/project/uiux/8.webm', 'avatar' => null],
+        ['name' => 'Sophia Kim', 'role' => 'Manager, StayFit', 'text' => 'mobile app is super smooth no lag at all just a great user experience u can tell they care about the small details highly recommend', 'image' => '/assets/project/mobile/2.webm', 'avatar' => null],
+        ['name' => 'Marcus Thorne', 'role' => 'Founder, TechFlow', 'text' => 'the custom software they built is a game changer for our warehouse operations super efficient and easy for the team to pick up definitely the best choice for us', 'image' => '/assets/project/custom/2.webm', 'avatar' => null],
+        ['name' => 'Elena Rossi', 'role' => 'Director, VibeDesign', 'text' => 'honestly obsessed with the new branding and logo they did it just fits our vibe perfectly and the team was so chill to work with 10/10', 'image' => '/assets/project/uiux/6.webm', 'avatar' => null],
+        ['name' => 'Omar Farouq', 'role' => 'Operations Lead, SyncAI', 'text' => 'honestly was skeptical about ai automation at first but the workflow they built just runs itself now we cut manual hours by like 70% which is insane', 'image' => '/assets/project/aiSol/1.webm', 'avatar' => null],
         ['name' => 'Nadia Petrov', 'role' => 'Creative Director, PixelMind', 'text' => 'the ai design visuals they created blew us away every concept was unique and on brand felt like they really understood our aesthetic from the very first call', 'image' => '/assets/project/aiDes/ai3.webp', 'avatar' => null],
     ];
 
     $collage = [
         ['src' => '/assets/project/web/1.webp', 'title' => 'ProBuild — Construction', 'desc' => 'Next-gen architectural excellence', 'cls' => 'pf-card-tall', 'h' => 420],
-        ['src' => '/assets/project/custom/3.webp', 'title' => 'EasyBridge — Fintech', 'desc' => 'Seamless mortgage application platform', 'cls' => '', 'h' => 200],
-        ['src' => '/assets/project/mobile/1.webp', 'title' => 'NASA Explorer', 'desc' => 'Interactive space exploration interface', 'cls' => '', 'h' => 200],
-        ['src' => '/assets/project/aiSol/3.webp', 'title' => 'n8n', 'desc' => 'AI', 'cls' => '', 'h' => 210],
-        ['src' => '/assets/project/uiux/7.webp', 'title' => 'Logo', 'desc' => 'FlexFlox', 'cls' => '', 'h' => 210],
+        ['src' => '/assets/project/custom/3.webm', 'title' => 'EasyBridge — Fintech', 'desc' => 'Seamless mortgage application platform', 'cls' => '', 'h' => 200],
+        ['src' => '/assets/project/mobile/1.webm', 'title' => 'NASA Explorer', 'desc' => 'Interactive space exploration interface', 'cls' => '', 'h' => 200],
+        ['src' => '/assets/project/aiSol/3.webm', 'title' => 'n8n', 'desc' => 'AI', 'cls' => '', 'h' => 210],
+        ['src' => '/assets/project/uiux/7.webm', 'title' => 'Logo', 'desc' => 'FlexFlox', 'cls' => '', 'h' => 210],
     ];
     $tickerMask = 'overflow:hidden;width:100%;-webkit-mask-image:linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%);mask-image:linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%)';
     $tickerStyle = 'display:flex;width:max-content;gap:6px;padding:2px 0;animation:tickerScroll 22s linear infinite';
@@ -234,7 +234,7 @@ $reviews = [
                     <div class="dev-hero-cta-row">
                         <a href="/contact" class="dev-hero-btn">
                             Contact Us
-                            {!! $arrowIcon !!}
+                          
                         </a>
                     </div>
                 </div>
@@ -321,7 +321,7 @@ $reviews = [
                         <div style="display:flex;align-items:center;gap:28px;margin-top:14px;flex-wrap:wrap">
                             <a href="/contact" class="dev-hero-btn">
                                 Contact Us
-                                {!! $arrowIcon !!}
+                               
                             </a>
                             <div class="wd-intro-stat">
                                 <strong>150+</strong>
@@ -390,7 +390,7 @@ $reviews = [
                                     <span class="ds-v2-pill">{{ $tech }}</span>
                                 @endforeach
                             </div>
-                            <a href="/contact" class="ds-v2-cta">Get Started</a>
+                            <a href="{{ $svc['link'] ?? '/contact' }}" class="ds-v2-cta">Learn More</a>
                         </div>
                     @endforeach
                 </div>
@@ -472,7 +472,7 @@ $reviews = [
                                 <div class="pc-ticker-wrap pc-ticker--light">
                                     <div style="{{ $tickerMask }}">
                                         <div style="{{ $tickerStyle }}">
-                                            @foreach(array_merge($plan['ticker1'], $plan['ticker1']) as $t)
+                                            @foreach(array_merge(...array_fill(0, 8, $plan['ticker1'])) as $t)
                                                 <span class="ds-v2-pill" style="font-size:0.64rem;padding:4px 12px;border-width:1px;opacity:0.9">{{ $t }}</span>
                                             @endforeach
                                         </div>
@@ -485,7 +485,7 @@ $reviews = [
                                 <div class="pc-ticker-wrap pc-ticker--light">
                                     <div style="{{ $tickerMask }}">
                                         <div style="{{ $tickerStyle2 }}">
-                                            @foreach(array_merge($plan['ticker2'], $plan['ticker2']) as $t)
+                                            @foreach(array_merge(...array_fill(0, 8, $plan['ticker2'])) as $t)
                                                 <span class="ds-v2-pill" style="font-size:0.64rem;padding:4px 12px;border-width:1px;opacity:0.9">{{ $t }}</span>
                                             @endforeach
                                         </div>
@@ -542,7 +542,11 @@ $reviews = [
                 <div class="pf-collage">
                     @foreach($collage as $item)
                         <a href="/portfolio" class="pf-collage-card {{ $item['cls'] }}" style="height:{{ $item['h'] }}px">
-                            <img class="pf-collage-img" src="{{ $item['src'] }}" alt="{{ $item['title'] }}" loading="lazy">
+                            @if(str_ends_with($item['src'], '.webm'))
+                                <video class="pf-collage-img" src="{{ $item['src'] }}" autoplay loop muted playsinline></video>
+                            @else
+                                <img class="pf-collage-img" src="{{ $item['src'] }}" alt="{{ $item['title'] }}" loading="lazy">
+                            @endif
                             <div class="pf-collage-overlay"></div>
                             <div class="pf-collage-content">
                                 <h4 class="pf-collage-title">{{ $item['title'] }}</h4>
@@ -575,21 +579,25 @@ $reviews = [
                     <h2 class="rev-heading">Words from our <br><span>Happy Clients</span></h2>
                 </div>
                 <div class="rev-nav">
-                    <button class="rev-nav-btn" data-rev-dir="-1" aria-label="Previous">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    <button class="rev-nav-btn" data-rev-prev aria-label="Previous">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
                     </button>
-                    <button class="rev-nav-btn" data-rev-dir="1" aria-label="Next">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    <button class="rev-nav-btn" data-rev-next aria-label="Next">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
                     </button>
                 </div>
             </div>
 
-            <div class="rev-track-wrap">
-                <div class="rev-track">
-                    @foreach($reviews as $r)
+            <div class="rev-track-wrap" id="revTrackWrap">
+                <div class="rev-track" id="revTrack" data-rev-track>
+                    @foreach(array_merge($reviews, $reviews) as $r)
                     <div class="rev-card">
                         <div class="rev-card-img-wrap">
-                            <img loading="lazy" decoding="async" src="{{ $r['image'] }}" alt="{{ $r['name'] }}" class="rev-card-img">
+                            @if(str_ends_with($r['image'], '.webm'))
+                                <video loading="lazy" class="rev-card-img" src="{{ $r['image'] }}" autoplay loop muted playsinline></video>
+                            @else
+                                <img loading="lazy" decoding="async" src="{{ $r['image'] }}" alt="{{ $r['name'] }}" class="rev-card-img">
+                            @endif
                             <div class="rev-card-img-overlay"></div>
                         </div>
                         <div class="rev-card-body">
@@ -718,6 +726,77 @@ $reviews = [
             if (entries[0].isIntersecting && fill) { fill.classList.add('hwb-connector-filled'); fo.disconnect(); }
         }, { threshold: 0.3 });
         fo.observe(flow);
+    }
+
+    // Reviews carousel continuous loop
+    var track = scope.querySelector('.rev-track');
+    var wrap = scope.querySelector('.rev-track-wrap');
+    if (track && wrap) {
+        var originals = Array.prototype.slice.call(track.children);
+        var N = originals.length;
+        
+        var SPEED = 1.2;
+        var currentScroll = 0;
+        var manualVelocity = 0;
+        var isHovered = false;
+        var setWidth = 0;
+        var rAF = null;
+
+        function setup() {
+            while (track.children.length > N) track.removeChild(track.lastChild);
+            if (!N) return;
+            var cs = getComputedStyle(track);
+            var gap = parseFloat(cs.columnGap || cs.gap || '28') || 28;
+            setWidth = 0;
+            originals.forEach(function (c) { setWidth += c.getBoundingClientRect().width + gap; });
+            var wrapWidth = wrap.getBoundingClientRect().width;
+            var need = Math.max(2, Math.ceil(wrapWidth / setWidth) + 2);
+            var frag = document.createDocumentFragment();
+            for (var k = 1; k < need; k++) {
+                originals.forEach(function (c) { frag.appendChild(c.cloneNode(true)); });
+            }
+            track.appendChild(frag);
+            track.style.animation = 'none';
+        }
+
+        function tick() {
+            if (!isHovered && Math.abs(manualVelocity) < 0.1) {
+                currentScroll += SPEED;
+            }
+            
+            if (Math.abs(manualVelocity) > 0.1) {
+                currentScroll += manualVelocity;
+                manualVelocity *= 0.92;
+            } else {
+                manualVelocity = 0;
+            }
+
+            if (setWidth > 0) {
+                if (currentScroll >= setWidth) currentScroll -= setWidth;
+                if (currentScroll < 0) currentScroll += setWidth;
+                track.style.transform = 'translate3d(' + (-currentScroll) + 'px, 0, 0)';
+            }
+            rAF = requestAnimationFrame(tick);
+        }
+
+        setup();
+        rAF = requestAnimationFrame(tick);
+
+        track.addEventListener('mouseenter', function() { isHovered = true; });
+        track.addEventListener('mouseleave', function() { isHovered = false; });
+        track.addEventListener('touchstart', function() { isHovered = true; }, {passive: true});
+        track.addEventListener('touchend', function() { isHovered = false; });
+
+        scope.querySelectorAll('.rev-nav-btn').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var dir = btn.hasAttribute('data-rev-prev') ? -1 : (btn.hasAttribute('data-rev-next') ? 1 : 0);
+                if(dir === 0) dir = parseInt(btn.getAttribute('data-rev-dir'), 10) || 0;
+                manualVelocity += dir * 45;
+            });
+        });
+
+        var rt;
+        window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(setup, 200); });
     }
 })();
 </script>

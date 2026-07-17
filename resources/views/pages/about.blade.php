@@ -292,9 +292,9 @@
     </section>
 
     {{-- ── CLIENT LOGO TICKER ── --}}
-    <section class="logos-section">
-        <div class="container">
-            <p class="logos-label">Trusted by Industry Leaders</p>
+    <section class="logos-section reveal">
+        <div class="section-inner">
+            <p class="logos-label">Trusted by <span class="logos-accent">Industry Leaders</span></p>
             <div class="logos-slider-wrap">
                 <div class="logos-track">
                     @foreach (array_merge($clientLogos, $clientLogos, $clientLogos) as $logo)
@@ -310,8 +310,17 @@
         <div class="tb-inner">
             <div class="tb-grid">
                 <div class="tb-left">
-                    <div class="tb-eyebrow"><span class="tb-eyebrow-dot"></span>Certified &amp; Trusted</div>
-                    <h2 class="tb-heading">Custom <span class="tb-hi">AI Agents</span> That<br>Think, Act, &amp; Deliver<br><span class="tb-hi">Real Results</span></h2>
+                    <div style="display: flex; flex-direction: column; align-items: flex-start;">
+                        <div class="section-label-row" style="margin-bottom: 14px;">
+                            <div class="section-robot-badge">{!! $robo !!}</div>
+                            <div class="section-label-pill">
+                                <span class="section-label-dot"></span>
+                                <span class="section-label">Certified &amp; Trusted</span>
+                            </div>
+                        </div>
+                        <div class="section-divider" style="margin-bottom: 0;"></div>
+                    </div>
+                    <h2 class="tb-heading">Custom <span style="color:var(--accent-color)">AI Agents</span> That<br>Think, Act, &amp; Deliver<br><span style="color:var(--accent-color)">Real Results</span></h2>
                     <p class="tb-subtext">Recognised globally for building intelligent automation that drives measurable outcomes — not just demos.</p>
                     <a href="/contact" class="tb-btn">Let's Talk</a>
                 </div>
@@ -386,13 +395,13 @@
                         <div class="bs-view-all-base">
                             <span class="bs-view-all-text">View All Posts</span>
                             <div class="bs-view-all-icon">
-                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                               
                             </div>
                         </div>
                         <div class="bs-view-all-hover">
-                            <span class="bs-view-all-text">Explore Blog</span>
+                            <span class="bs-view-all-text-ts">Explore Blog</span>
                             <div class="bs-view-all-icon">
-                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                                
                             </div>
                         </div>
                     </div>
@@ -449,104 +458,69 @@
     </section>
 
     {{-- ── PORTFOLIO SECTION ── --}}
-    <section class="ps-section">
-        <div class="ps-inner">
-            <div class="ps-left">
-                <div class="ps-label-row">
-                    <div class="ps-robot-badge">{!! $robo !!}</div>
-                    <div class="ps-label-pill">
-                        <span class="ps-label-dot"></span>
-                        <span class="ps-label-text">Portfolio</span>
+     @php
+        $collage = [
+            ['src' => '/assets/project/web/1.webp', 'title' => 'ProBuild — Construction', 'desc' => 'Next-gen architectural excellence', 'style' => 'grid-column:1/2;grid-row:1/3;height:420px;', 'class' => 'pf-collage-card-tall'],
+            ['src' => '/assets/project/custom/3.webm', 'title' => 'EasyBridge — Fintech', 'desc' => 'Seamless mortgage application platform', 'style' => 'grid-column:2/3;grid-row:1/2;height:200px;', 'class' => ''],
+            ['src' => '/assets/project/mobile/1.webm', 'title' => 'NASA Explorer', 'desc' => 'Interactive space exploration interface', 'style' => 'grid-column:3/4;grid-row:1/2;height:200px;', 'class' => ''],
+            ['src' => '/assets/project/aiSol/3.webm', 'title' => 'n8n', 'desc' => 'AI', 'style' => 'grid-column:2/3;grid-row:2/3;height:210px;', 'class' => ''],
+            ['src' => '/assets/project/uiux/7.webm', 'title' => 'Logo', 'desc' => 'FlexFlox', 'style' => 'grid-column:3/4;grid-row:2/3;height:210px;', 'class' => ''],
+        ];
+        $pfStats = [['value' => '200+', 'label' => 'Projects'], ['value' => '5+', 'label' => 'Years'], ['value' => '98%', 'label' => 'Satisfaction']];
+    @endphp
+    <section class="home-section">
+        <div class="pf-home-inner">
+            <div class="pf-left">
+                <div style="display: flex; flex-direction: column; align-items: flex-start;">
+                    <div class="section-label-row" style="margin-bottom: 14px;">
+                        <div class="section-robot-badge">{!! $robo !!}</div>
+                        <div class="section-label-pill">
+                            <span class="section-label-dot"></span>
+                            <span class="section-label">Our Work</span>
+                        </div>
                     </div>
+                    <div class="section-divider" style="margin-bottom: 0;"></div>
                 </div>
-                <h2 class="ps-title">Showcasing Our <span>Latest</span><br>Projects</h2>
-                <p class="ps-desc">
-                    We craft high-quality, scalable, and impactful digital solutions
-                    that drive measurable results. From sleek interfaces to robust
-                    systems every project is built with purpose, precision, and craft.
-                </p>
-                <div class="ps-stats">
-                    <div>
-                        <div class="ps-stat-num">120+<span>.</span></div>
-                        <div class="ps-stat-label">Projects Done</div>
-                    </div>
-                    <div>
-                        <div class="ps-stat-num">98%<span>.</span></div>
-                        <div class="ps-stat-label">Client Satisfaction</div>
-                    </div>
-                    <div>
-                        <div class="ps-stat-num">40+<span>.</span></div>
-                        <div class="ps-stat-label">Industries Served</div>
-                    </div>
+                <h2 class="pf-heading">Work That<br><span class="accent">Speaks</span> Loudly</h2>
+                <p class="pf-desc">From high-performance SaaS dashboards to immersive mobile experiences — every project we ship is crafted with precision, purpose, and a relentless focus on exceptional user experience.</p>
+                <div class="pf-stats">
+                    @foreach ($pfStats as $stat)
+                        <div class="pf-stat">
+                            <span class="pf-stat-val">{{ $stat['value'] }}</span>
+                            <span class="pf-stat-label">{{ $stat['label'] }}</span>
+                        </div>
+                    @endforeach
                 </div>
-                <a href="/portfolio" style="text-decoration:none">
-                    <div class="ps-btn-container">
-                        <div class="ps-btn-base"><span>View Portfolio</span></div>
-                        <div class="ps-btn-hover"><span>Explore Work</span></div>
-                    </div>
-                </a>
+                <a href="/portfolio" class="pf-cta-btn">View Portfolio</a>
             </div>
 
-            <div class="ps-right">
-                <div class="ps-deco-ring"></div>
-                <div class="ps-deco-blob"></div>
-                <div class="ps-img-wrap">
-                    <svg viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;border-radius:inherit" class="ps-dash">
-                        <rect width="680" height="420" rx="16" class="ps-dash-bg"/>
-                        <rect width="680" height="40" rx="16" class="ps-dash-panel"/>
-                        <rect width="680" height="24" y="16" class="ps-dash-panel"/>
-                        <circle cx="22" cy="20" r="5" fill="#ff5f57"/>
-                        <circle cx="38" cy="20" r="5" fill="#febc2e"/>
-                        <circle cx="54" cy="20" r="5" fill="#28c840"/>
-                        <rect x="0" y="40" width="160" height="380" class="ps-dash-panel"/>
-                        <rect x="16" y="70" width="16" height="16" rx="3" class="ps-dash-accent"/>
-                        <rect x="40" y="73" width="60" height="10" rx="3" class="ps-dash-accent" opacity="0.6"/>
-                        <rect x="16" y="100" width="16" height="16" rx="3" class="ps-dash-txt" opacity="0.7"/>
-                        <rect x="40" y="103" width="74" height="10" rx="3" class="ps-dash-txt" opacity="0.5"/>
-                        <rect x="16" y="130" width="16" height="16" rx="3" class="ps-dash-txt" opacity="0.7"/>
-                        <rect x="40" y="133" width="88" height="10" rx="3" class="ps-dash-txt" opacity="0.5"/>
-                        <rect x="16" y="160" width="16" height="16" rx="3" class="ps-dash-txt" opacity="0.7"/>
-                        <rect x="40" y="163" width="60" height="10" rx="3" class="ps-dash-txt" opacity="0.5"/>
-                        <rect x="16" y="190" width="16" height="16" rx="3" class="ps-dash-txt" opacity="0.7"/>
-                        <rect x="40" y="193" width="74" height="10" rx="3" class="ps-dash-txt" opacity="0.5"/>
-                        <line x1="160" y1="40" x2="160" y2="420" class="ps-dash-line" stroke-width="1"/>
-                        <rect x="172" y="52" width="136" height="72" rx="10" class="ps-dash-panel"/>
-                        <text x="182" y="96" font-family="sans-serif" font-weight="800" font-size="18" class="ps-dash-val">$48.2K</text>
-                        <rect x="182" y="108" width="40" height="8" rx="4" class="ps-dash-accent" opacity="0.85"/>
-                        <rect x="322" y="52" width="136" height="72" rx="10" class="ps-dash-panel"/>
-                        <text x="332" y="96" font-family="sans-serif" font-weight="800" font-size="18" class="ps-dash-val">12,840</text>
-                        <rect x="332" y="108" width="40" height="8" rx="4" fill="#D81D1F" opacity="0.85"/>
-                        <rect x="472" y="52" width="136" height="72" rx="10" class="ps-dash-panel"/>
-                        <text x="482" y="96" font-family="sans-serif" font-weight="800" font-size="18" class="ps-dash-val">3.68%</text>
-                        <rect x="482" y="108" width="40" height="8" rx="4" class="ps-dash-accent" opacity="0.85"/>
-                        <rect x="172" y="140" width="310" height="180" rx="10" class="ps-dash-panel"/>
-                        <rect x="200" y="210" width="20" height="80" rx="4" class="ps-dash-accent" opacity="0.85"/>
-                        <rect x="232" y="235" width="20" height="55" rx="4" fill="#D81D1F" opacity="0.85"/>
-                        <rect x="264" y="195" width="20" height="95" rx="4" class="ps-dash-accent" opacity="0.85"/>
-                        <rect x="296" y="222" width="20" height="68" rx="4" fill="#D81D1F" opacity="0.85"/>
-                        <rect x="328" y="180" width="20" height="110" rx="4" class="ps-dash-accent" opacity="0.85"/>
-                        <rect x="360" y="215" width="20" height="75" rx="4" fill="#D81D1F" opacity="0.85"/>
-                        <rect x="392" y="200" width="20" height="90" rx="4" class="ps-dash-accent" opacity="0.85"/>
-                        <rect x="424" y="230" width="20" height="60" rx="4" fill="#D81D1F" opacity="0.85"/>
-                        <rect x="456" y="185" width="20" height="105" rx="4" class="ps-dash-accent" opacity="0.85"/>
-                        <rect x="494" y="140" width="174" height="180" rx="10" class="ps-dash-panel"/>
-                        <polyline points="508,280 530,255 552,265 574,238 596,248 618,220 640,232 662,210" fill="none" class="ps-dash-stroke" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-                        <rect x="172" y="334" width="496" height="80" rx="10" class="ps-dash-panel"/>
-                    </svg>
-                    <div class="ps-badge">
-                        <span class="ps-label-dot"></span>
-                        <span class="ps-badge-text">Live Project</span>
-                    </div>
-                    <div class="ps-stat">
-                        <div class="ps-stat-big">+34%</div>
-                        <div class="ps-stat-sm">Growth</div>
-                    </div>
-                </div>
+            <div class="pf-home-collage">
+                @foreach ($collage as $item)
+                    <a href="/portfolio" class="pf-collage-card {{ $item['class'] }}" style="{{ $item['style'] }}">
+                        @if(str_ends_with($item['src'], '.webm') || str_ends_with($item['src'], '.mp4'))
+                            <video autoplay loop muted playsinline>
+                                <source src="{{ $item['src'] }}" type="{{ str_ends_with($item['src'], '.webm') ? 'video/webm' : 'video/mp4' }}">
+                            </video>
+                        @else
+                            <img src="{{ $item['src'] }}" alt="{{ $item['title'] }}">
+                        @endif
+                        <div class="pf-card-grad"></div>
+                        <div class="pf-card-content">
+                            <h4 class="pf-card-title">{{ $item['title'] }}</h4>
+                            <p class="pf-card-desc">{{ $item['desc'] }}</p>
+                            <div class="pf-card-explore">
+                                <span>Explore</span>
+                                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M1 6H11M6 1L11 6L6 11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                            </div>
+                        </div>
+                        <div class="pf-card-badge"></div>
+                    </a>
+                @endforeach
             </div>
         </div>
     </section>
 
-    {{-- ── TECH TICKER ── --}}
+    {{-- ════════════════ TECH TICKER ════════════════ --}}
     <section class="tt-section">
         <div class="tt-header">
             <h2 class="tt-title">Our <span class="tt-accent">Technology</span> Stack</h2>
@@ -578,11 +552,13 @@
                         'GraphQL' => 'devicon-graphql-plain',
                         'Figma' => 'devicon-figma-plain'
                     ];
+                    $techs = array_keys($devicons);
+                    $techTripled = array_merge($techs, $techs, $techs);
                 @endphp
                 @foreach ($techTripled as $tech)
                     <div class="tt-card">
                         <div class="tt-icon">
-                            <i class="{{ $devicons[$tech] ?? 'devicon-code-plain' }}" style="font-size: clamp(2rem, 4.5vw, 3.2rem);"></i>
+                            <i class="{{ $devicons[$tech] ?? 'devicon-code-plain' }}" style="font-size: clamp(2rem, 4.5vw, 3.2rem); color: var(--soft-text); transition: color 0.35s ease;"></i>
                         </div>
                         <span class="tt-label">{{ $tech }}</span>
                     </div>
@@ -607,7 +583,6 @@
             </div>
 
             <div class="cb-label-pill">
-                <div class="cb-robot-wrapper">{!! $robo !!}</div>
                 <span class="cb-label-dot"></span>
                 <span class="cb-label-text">Let's Work Together</span>
             </div>

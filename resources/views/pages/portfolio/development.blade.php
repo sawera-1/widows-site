@@ -60,33 +60,33 @@
         ['title' => 'Yape Mobility', 'desc' => 'Innovative urban mobility solutions for efficient and sustainable city transport.', 'tag' => 'Mobility', 'image' => '/assets/project/web/9.webp', 'url' => 'https://yapemobility.it/'],
     ];
 
-    $mobileProjects = [
-        ['title' => 'NASA Explorer', 'desc' => 'Interactive space exploration platform providing real-time data from NASA missions and satellite imagery.', 'tag' => 'Science', 'image' => '/assets/project/mobile/1.webp'],
-        ['title' => 'Digital Art Canvas', 'desc' => 'A sophisticated platform for digital artists to showcase, trade, and collaborate on high-fidelity art.', 'tag' => 'Art', 'image' => '/assets/project/mobile/2.webp'],
-        ['title' => 'Fodio — Food App', 'desc' => 'Seamless food ordering and delivery experience with personalized recommendations and live tracking.', 'tag' => 'Lifestyle', 'image' => '/assets/project/mobile/3.webp'],
-        ['title' => 'Aplex AI', 'desc' => 'Advanced AI-powered assistant designed for productivity, creative automation, and data analysis.', 'tag' => 'AI', 'image' => '/assets/project/mobile/4.webp'],
-        ['title' => 'Laxa — Travel Ticket', 'desc' => 'End-to-end travel booking engine for flights and trains with real-time status updates.', 'tag' => 'Travel', 'image' => '/assets/project/mobile/5.webp'],
-        ['title' => 'Mpneto — Digital', 'desc' => 'Secure and intuitive digital financial platform for managing assets and peer-to-peer transactions.', 'tag' => 'Fintech', 'image' => '/assets/project/mobile/6.webp'],
-        ['title' => 'Flex — Home Finder', 'desc' => 'Modern real-time property marketplace helping users find homes with immersive walkthroughs.', 'tag' => 'Real Estate', 'image' => '/assets/project/mobile/7.webp'],
-        ['title' => 'Yoga Flow', 'desc' => 'Personalized wellness and yoga platform featuring expert-led sessions and health tracking.', 'tag' => 'Wellness', 'image' => '/assets/project/mobile/8.webp'],
-        ['title' => 'Premiere League Hub', 'desc' => 'Comprehensive football analytics and live match tracking dashboard for sports enthusiasts.', 'tag' => 'Sports', 'image' => '/assets/project/mobile/9.webp'],
+     $mobileProjects = [
+        ['title' => 'NASA Explorer', 'desc' => 'Interactive space exploration platform providing real-time data from NASA missions and satellite imagery.', 'tag' => 'Science', 'image' => '/assets/project/mobile/1.webm'],
+        ['title' => 'Digital Art Canvas', 'desc' => 'A sophisticated platform for digital artists to showcase, trade, and collaborate on high-fidelity art.', 'tag' => 'Art', 'image' => '/assets/project/mobile/2.webm'],
+        ['title' => 'Fodio — Food App', 'desc' => 'Seamless food ordering and delivery experience with personalized recommendations and live tracking.', 'tag' => 'Lifestyle', 'image' => '/assets/project/mobile/3.webm'],
+        ['title' => 'Aplex AI', 'desc' => 'Advanced AI-powered assistant designed for productivity, creative automation, and data analysis.', 'tag' => 'AI', 'image' => '/assets/project/mobile/4.webm'],
+        ['title' => 'Laxa — Travel Ticket', 'desc' => 'End-to-end travel booking engine for flights and trains with real-time status updates.', 'tag' => 'Travel', 'image' => '/assets/project/mobile/5.webm'],
+        ['title' => 'Mpneto — Digital', 'desc' => 'Secure and intuitive digital financial platform for managing assets and peer-to-peer transactions.', 'tag' => 'Fintech', 'image' => '/assets/project/mobile/6.webm'],
+        ['title' => 'Flex — Home Finder', 'desc' => 'Modern real-time property marketplace helping users find homes with immersive walkthroughs.', 'tag' => 'Real Estate', 'image' => '/assets/project/mobile/7.webm'],
+        ['title' => 'Yoga Flow', 'desc' => 'Personalized wellness and yoga platform featuring expert-led sessions and health tracking.', 'tag' => 'Wellness', 'image' => '/assets/project/mobile/8.webm'],
+        ['title' => 'Premiere League Hub', 'desc' => 'Comprehensive football analytics and live match tracking dashboard for sports enthusiasts.', 'tag' => 'Sports', 'image' => '/assets/project/mobile/9.webm'],
     ];
 
     $aiProjects = [
-        ['id' => 1, 'image' => '/assets/project/aiSol/1.webp', 'title' => 'AI Automation'],
-        ['id' => 2, 'image' => '/assets/project/aiSol/2.webp', 'title' => 'Smart CRM'],
-        ['id' => 3, 'image' => '/assets/project/aiSol/3.webp', 'title' => 'Neural ERP'],
-        ['id' => 4, 'image' => '/assets/project/aiSol/4.webp', 'title' => 'Data Analytics'],
-        ['id' => 5, 'image' => '/assets/project/aiSol/5.webp', 'title' => 'Vision Systems'],
+        ['image' => '/assets/project/aiSol/1.webm', 'title' => 'AI Automation'],
+        ['image' => '/assets/project/aiSol/2.webm', 'title' => 'Smart CRM'],
+        ['image' => '/assets/project/aiSol/3.webm', 'title' => 'Neural ERP'],
+        ['image' => '/assets/project/aiSol/4.webm', 'title' => 'Data Analytics'],
+        ['image' => '/assets/project/aiSol/5.webm', 'title' => 'Vision Systems'],
     ];
 
     $customProjects = [
-        ['title' => 'Robotech', 'shortDesc' => 'Advanced robotics and industrial automation solutions.', 'desc' => 'A cutting-edge platform for robotics technology, showcasing industrial automation, smart machinery, and future-tech solutions for modern manufacturing.', 'tag' => 'AI', 'image' => '/assets/project/custom/1.webp', 'tech' => ['React', 'Three.js', 'Node.js', 'WebGL'], 'features' => ['3D model interaction', 'Real-time telemetry dashboard', 'Automated maintenance scheduling'], 'demo' => ['username' => 'admin@robotech.io', 'password' => 'robot_secure_99'], 'url' => 'https://templates.heydenstd.com/robotech/template-kit/home/?storefront=envato-elementsTB_iframe=true&width=600&height=550'],
-        ['title' => 'AI Foundries', 'shortDesc' => 'Integrated ecosystem for artificial intelligence development.', 'desc' => 'A comprehensive AI development hub providing tools for machine learning, data processing, and neural network training in a collaborative environment.', 'tag' => 'SaaS', 'image' => '/assets/project/custom/2.webp', 'tech' => ['Next.js', 'Python', 'TensorFlow', 'AWS'], 'features' => ['Model training visualization', 'Collaborative workspaces', 'API deployment suite'], 'demo' => ['username' => 'dev@aifoundaries.com', 'password' => 'ai_pro_test_123'], 'url' => 'https://elementor.altdesain.com/aifoundaries/?storefront=envato-elementsTB_iframe%3Dtrue&width=600&height=550'],
-        ['title' => 'EasyBridge', 'shortDesc' => 'Your Bridge to Homeownership.', 'desc' => 'Apply for your mortgage loan online in minutes. Simple, transparent, and stress-free — EasyBridge makes the path to your dream home a reality.', 'tag' => 'Fintech', 'image' => '/assets/project/custom/3.webp', 'tech' => ['PHP', 'Laravel', 'MySQL', 'Stripe'], 'features' => ['Quick mortgage application', 'Real-time status tracking', 'Secure document upload'], 'demo' => ['username' => 'borrower@easybridge.com', 'password' => 'loan_secure_456'], 'url' => 'https://easybridge.corammerswork.com/'],
-        ['title' => 'CPA Connections', 'shortDesc' => 'Financial advisor recruitment and professional networking.', 'desc' => 'A specialized recruitment platform connecting top-tier financial advisors with leading CPA firms, featuring advanced matching algorithms and career management tools.', 'tag' => 'Marketing', 'image' => '/assets/project/custom/4.webp', 'tech' => ['Laravel', 'Vue.js', 'PostgreSQL'], 'features' => ['AI-powered candidate matching', 'Professional profile builder', 'Secure communication portal'], 'demo' => ['username' => 'recruiter@cpaconnect.com', 'password' => 'cpa_network_789'], 'url' => 'https://cpaconnections.com/'],
-        ['title' => 'RippleQuest', 'shortDesc' => 'Interactive digital quest and engagement platform.', 'desc' => 'An immersive platform designed for digital storytelling and community engagement, featuring interactive quests, rewards systems, and social integration.', 'tag' => 'eCommerce', 'image' => '/assets/project/custom/5.webp', 'tech' => ['React', 'Firebase', 'GSAP'], 'features' => ['Dynamic quest builder', 'Reward points ecosystem', 'Real-time community feed'], 'demo' => ['username' => 'player@ripplequest.dev', 'password' => 'quest_start_2026'], 'url' => 'https://ripplequest.corammerswork.com/'],
-        ['title' => 'Gadam', 'shortDesc' => 'Creative portfolio and digital agency toolkit.', 'desc' => 'A premium digital agency platform designed for high-end creative portfolios, featuring advanced layout systems and interactive media presentations.', 'tag' => 'Marketing', 'image' => '/assets/project/custom/6.webp', 'tech' => ['PHP', 'CodeIgniter', 'jQuery', 'GSAP'], 'features' => ['Bespoke animation engine', 'Dynamic project grids', 'Integrated contact management'], 'demo' => ['username' => 'creative@gadam.net', 'password' => 'agency_pro_test'], 'url' => 'https://kits.krakenbox.net/gadam/?storefront=envato-elementsTB_iframe%3Dtrue&width=600&height=550'],
+        ['title' => 'Robotech', 'shortDesc' => 'Advanced robotics and industrial automation solutions.', 'desc' => 'A cutting-edge platform for robotics technology, showcasing industrial automation, smart machinery, and future-tech solutions for modern manufacturing.', 'tag' => 'AI', 'image' => '/assets/project/custom/1.webm', 'tech' => ['React', 'Three.js', 'Node.js', 'WebGL'], 'features' => ['3D model interaction', 'Real-time telemetry dashboard', 'Automated maintenance scheduling'], 'demo' => ['username' => 'admin@robotech.io', 'password' => 'robot_secure_99'], 'url' => 'https://templates.heydenstd.com/robotech/template-kit/home/?storefront=envato-elementsTB_iframe=true&width=600&height=550'],
+        ['title' => 'AI Foundries', 'shortDesc' => 'Integrated ecosystem for artificial intelligence development.', 'desc' => 'A comprehensive AI development hub providing tools for machine learning, data processing, and neural network training in a collaborative environment.', 'tag' => 'SaaS', 'image' => '/assets/project/custom/2.webm', 'tech' => ['Next.js', 'Python', 'TensorFlow', 'AWS'], 'features' => ['Model training visualization', 'Collaborative workspaces', 'API deployment suite'], 'demo' => ['username' => 'dev@aifoundaries.com', 'password' => 'ai_pro_test_123'], 'url' => 'https://elementor.altdesain.com/aifoundaries/?storefront=envato-elementsTB_iframe%3Dtrue&width=600&height=550'],
+        ['title' => 'EasyBridge', 'shortDesc' => 'Your Bridge to Homeownership.', 'desc' => 'Apply for your mortgage loan online in minutes. Simple, transparent, and stress-free — EasyBridge makes the path to your dream home a reality.', 'tag' => 'Fintech', 'image' => '/assets/project/custom/3.webm', 'tech' => ['PHP', 'Laravel', 'MySQL', 'Stripe'], 'features' => ['Quick mortgage application', 'Real-time status tracking', 'Secure document upload'], 'demo' => ['username' => 'borrower@easybridge.com', 'password' => 'loan_secure_456'], 'url' => 'https://easybridge.corammerswork.com/'],
+        ['title' => 'CPA Connections', 'shortDesc' => 'Financial advisor recruitment and professional networking.', 'desc' => 'A specialized recruitment platform connecting top-tier financial advisors with leading CPA firms, featuring advanced matching algorithms and career management tools.', 'tag' => 'Marketing', 'image' => '/assets/project/custom/4.webm', 'tech' => ['Laravel', 'Vue.js', 'PostgreSQL'], 'features' => ['AI-powered candidate matching', 'Professional profile builder', 'Secure communication portal'], 'demo' => ['username' => 'recruiter@cpaconnect.com', 'password' => 'cpa_network_789'], 'url' => 'https://cpaconnections.com/'],
+        ['title' => 'RippleQuest', 'shortDesc' => 'Interactive digital quest and engagement platform.', 'desc' => 'An immersive platform designed for digital storytelling and community engagement, featuring interactive quests, rewards systems, and social integration.', 'tag' => 'eCommerce', 'image' => '/assets/project/custom/5.webm', 'tech' => ['React', 'Firebase', 'GSAP'], 'features' => ['Dynamic quest builder', 'Reward points ecosystem', 'Real-time community feed'], 'demo' => ['username' => 'player@ripplequest.dev', 'password' => 'quest_start_2026'], 'url' => 'https://ripplequest.corammerswork.com/'],
+        ['title' => 'Gadam', 'shortDesc' => 'Creative portfolio and digital agency toolkit.', 'desc' => 'A premium digital agency platform designed for high-end creative portfolios, featuring advanced layout systems and interactive media presentations.', 'tag' => 'Marketing', 'image' => '/assets/project/custom/6.webm', 'tech' => ['PHP', 'CodeIgniter', 'jQuery', 'GSAP'], 'features' => ['Bespoke animation engine', 'Dynamic project grids', 'Integrated contact management'], 'demo' => ['username' => 'creative@gadam.net', 'password' => 'agency_pro_test'], 'url' => 'https://kits.krakenbox.net/gadam/?storefront=envato-elementsTB_iframe%3Dtrue&width=600&height=550'],
     ];
 
     $tabs = [
@@ -197,7 +197,11 @@
                         @php $cfg = $tagWeb[$p['tag']] ?? $tagWeb['SaaS']; @endphp
                         <div class="pf-card pfd-card" data-url="{{ $p['url'] }}" @if($loop->iteration > 3) hidden @endif>
                             <div class="pfd-card-media">
-                                <img src="{{ $p['image'] }}" alt="{{ $p['title'] }}" loading="lazy" class="pf-web-slide-img" style="display:block;width:100%;height:auto;position:absolute;top:0;left:0;will-change:transform">
+                                @if(Str::endsWith($p['image'] ?? '', ['.webm', '.mp4']))
+<video src="{{ $p['image'] }}" autoplay loop muted playsinline class="pf-web-slide-img" style="display:block;width:100%;height:auto;position:absolute;top:0;left:0;will-change:transform"></video>
+@else
+<img src="{{ $p['image'] }}" alt="{{ $p['title'] }}" loading="lazy" class="pf-web-slide-img" style="display:block;width:100%;height:auto;position:absolute;top:0;left:0;will-change:transform">
+@endif
 
                                 <div class="pfd-badge">
                                     <span class="pfd-tag" style="--tag-bg:{{ $cfg['bg'] }};--tag-border:{{ $cfg['border'] }};--tag-color:{{ $cfg['color'] }};--tag-dot:{{ $cfg['dot'] }}">
@@ -247,7 +251,11 @@
                         @php $cfg = $tagCustom[$p['tag']] ?? $tagCustom['SaaS']; @endphp
                         <div class="pf-card pfd-custom-card" @if($loop->iteration > 3) hidden @endif>
                             <div class="pfd-custom-media">
-                                <img src="{{ $p['image'] }}" alt="{{ $p['title'] }}" loading="lazy">
+                                @if(Str::endsWith($p['image'] ?? '', ['.webm', '.mp4']))
+<video src="{{ $p['image'] }}" autoplay loop muted playsinline ></video>
+@else
+<img src="{{ $p['image'] }}" alt="{{ $p['title'] }}" loading="lazy">
+@endif
                                 <div class="pfd-custom-media-grad"></div>
                                 <div style="position:absolute;top:14px;left:14px">
                                     <span class="pfd-tag" style="--tag-bg:{{ $cfg['bg'] }};--tag-border:{{ $cfg['border'] }};--tag-color:{{ $cfg['color'] }};--tag-dot:{{ $cfg['dot'] }};padding:4px 11px">
@@ -327,7 +335,11 @@
                         @php $cfg = $tagMobile[$p['tag']] ?? $tagMobile['AI']; @endphp
                         <div class="pf-card pfd-card" @if($loop->iteration > 3) hidden @endif>
                             <div class="pfd-card-media">
-                                <img src="{{ $p['image'] }}" alt="{{ $p['title'] }}" loading="lazy">
+                                @if(Str::endsWith($p['image'] ?? '', ['.webm', '.mp4']))
+<video src="{{ $p['image'] }}" autoplay loop muted playsinline ></video>
+@else
+<img src="{{ $p['image'] }}" alt="{{ $p['title'] }}" loading="lazy">
+@endif
                                 <div class="pfd-badge">
                                     <span class="pfd-tag" style="--tag-bg:{{ $cfg['bg'] }};--tag-border:{{ $cfg['border'] }};--tag-color:{{ $cfg['color'] }};--tag-dot:{{ $cfg['dot'] }}">
                                         <span class="pfd-tag-dot"></span>
@@ -375,7 +387,11 @@
                     @foreach($aiProjects as $p)
                         <div class="pf-card pfd-ai-card" @if($loop->iteration > 2) hidden @endif>
                             <div class="pfd-ai-media">
-                                <img src="{{ $p['image'] }}" alt="{{ $p['title'] }}" loading="lazy">
+                                @if(Str::endsWith($p['image'] ?? '', ['.webm', '.mp4']))
+<video src="{{ $p['image'] }}" autoplay loop muted playsinline ></video>
+@else
+<img src="{{ $p['image'] }}" alt="{{ $p['title'] }}" loading="lazy">
+@endif
                             </div>
                         </div>
                     @endforeach

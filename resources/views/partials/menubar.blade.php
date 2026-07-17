@@ -32,7 +32,7 @@
                 @foreach (config('site.menu_tree') as $item)
                     @if (!empty($item['id']))
                         <li>
-                            <button class="mp-link" data-menu-open-sub="{{ $item['id'] }}">
+                            <button class="mp-link" data-custom-open-sub="{{ $item['id'] }}">
                                 {{ $item['label'] }}
                                 <svg width="7" height="12" viewBox="0 0 7 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="1 1 6 6 1 11" />
@@ -46,11 +46,11 @@
             </ul>
         </div>
 
-        {{-- Sub-levels (one per parent, toggled by app.js) --}}
+        {{-- Sub-levels --}}
         @foreach (config('site.menu_tree') as $item)
             @if (!empty($item['id']))
                 <div class="mp-sublevel" data-menu-sub="{{ $item['id'] }}" hidden>
-                    <button class="mp-back-btn" data-menu-back aria-label="Back to main menu">← Back</button>
+                    <button class="mp-back-btn" data-custom-menu-back aria-label="Back to main menu">← Back</button>
                     <ul style="padding:2px 0 8px;margin:0;list-style:none">
                         @foreach ($item['children'] as $child)
                             <li><a href="{{ $child['href'] }}" class="mp-link" style="text-decoration:none">{{ $child['label'] }}</a></li>
@@ -61,3 +61,53 @@
         @endforeach
     </div>
 </div>
+
+<script>
+document.querySelectorAll('[data-custom-open-sub]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        var targetId = btn.getAttribute('data-custom-open-sub');
+        var level0 = document.querySelector('[data-menu-level0]');
+        var targetSub = document.querySelector('[data-menu-sub="' + targetId + '"]');
+        
+        if (level0 && targetSub) {
+            targetSub.hidden = false;
+            // Force reflow
+            void targetSub.offsetWidth;
+            level0.classList.add('slide-out');
+            targetSub.classList.add('slide-in');
+        }
+    });
+});
+
+document.querySelectorAll('[data-custom-menu-back]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        var targetSub = btn.closest('.mp-sublevel');
+        var level0 = document.querySelector('[data-menu-level0]');
+        
+        if (level0 && targetSub) {
+            level0.classList.remove('slide-out');
+            targetSub.classList.remove('slide-in');
+            
+            setTimeout(function() {
+                targetSub.hidden = true;
+            }, 350); // Matches the CSS transition time
+        }
+    });
+});
+
+// Reset submenus when the main menu panel is closed
+document.querySelectorAll('[data-close-menu], [data-menu-backdrop]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        var level0 = document.querySelector('[data-menu-level0]');
+        var subs = document.querySelectorAll('.mp-sublevel');
+        
+        setTimeout(function() {
+            if (level0) level0.classList.remove('slide-out');
+            subs.forEach(function(sub) {
+                sub.classList.remove('slide-in');
+                sub.hidden = true;
+            });
+        }, 340);
+    });
+});
+</script>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Blog & Insights — Corammers')
+@section('title', 'Blog — Corammers')
 @section('meta_description', 'Insights on web development, design systems, AI and digital growth from the Corammers engineering team.')
 
 @push('styles')

@@ -11,6 +11,15 @@ Route::view('/', 'pages.home')->name('home');
 Route::view('/about', 'pages.about')->name('about');
 Route::view('/contact', 'pages.contact')->name('contact');
 Route::view('/industry', 'pages.industry')->name('industry');
+Route::view('/industries/law', 'pages.industry.law')->name('industries.law');
+Route::view('/industries/roofing', 'pages.industry.roofing')->name('industries.roofing');
+Route::view('/industries/insurance', 'pages.industry.insurance')->name('industries.insurance');
+Route::view('/industries/auto', 'pages.industry.Auto')->name('industries.auto');
+Route::view('/industries/finance', 'pages.industry.finance')->name('industries.finance');
+Route::view('/industries/aesthetic', 'pages.industry.austhetic')->name('industries.aesthetic');
+Route::view('/industries/travel', 'pages.industry.travel')->name('industries.travel');
+Route::view('/industries/public', 'pages.industry.public')->name('industries.public');
+Route::view('/industries/ecom', 'pages.industry.ecom')->name('industries.ecom');
 Route::view('/blog', 'pages.blog')->name('blog');
 Route::view('/blog/detail', 'pages.blog-detail')->name('blog.detail');
 
@@ -27,6 +36,22 @@ Route::view('/services/development', 'pages.services.development')->name('servic
 Route::view('/services/design', 'pages.services.design')->name('services.design');
 Route::view('/services/marketing', 'pages.services.marketing')->name('services.marketing');
 Route::view('/services/ai', 'pages.services.ai')->name('services.ai');
+Route::view('/services/development/web', 'pages.serviceDetail.webDevelopment')->name('services.development.web');
+Route::view('/services/development/ecom', 'pages.serviceDetail.ecom')->name('services.development.ecom');
+Route::view('/services/development/mobile', 'pages.serviceDetail.mobile')->name('services.development.mobile');
+Route::view('/services/development/custom', 'pages.serviceDetail.custom')->name('services.development.custom');
+Route::view('/services/design/uiux', 'pages.serviceDetail.uiux')->name('services.design.uiux');
+Route::view('/services/design/graphic', 'pages.serviceDetail.graphic')->name('services.design.graphic');
+Route::view('/services/design/video', 'pages.serviceDetail.video')->name('services.design.video');
+Route::view('/services/design/visual', 'pages.serviceDetail.visual')->name('services.design.visual');
+
+Route::view('/services/marketing/social', 'pages.serviceDetail.social')->name('services.marketing.social');
+Route::view('/services/marketing/seo', 'pages.serviceDetail.seo')->name('services.marketing.seo');
+Route::view('/services/marketing/email', 'pages.serviceDetail.email')->name('services.marketing.email');
+Route::view('/services/marketing/media', 'pages.serviceDetail.media')->name('services.marketing.media');
+
+Route::view('/services/ai/automation', 'pages.serviceDetail.aiauto')->name('services.ai.automation');
+Route::view('/services/ai/content', 'pages.serviceDetail.aicontent')->name('services.ai.content');
 
 // Portfolio
 Route::view('/portfolio', 'pages.portfolio.index')->name('portfolio');
@@ -42,9 +67,9 @@ Route::get('/search', \App\Http\Controllers\SearchController::class)->name('sear
 // ─────────────────────────────────────────────────────────────────────────────
 Route::get('/sitemap.xml', function () {
     $pages = [
-        '', 'about', 'contact', 'industry', 'blog', 'blog/detail',
+        '', 'about', 'contact', 'industry', 'industries/law', 'industries/roofing', 'industries/insurance', 'industries/auto', 'industries/finance', 'industries/aesthetic', 'industries/travel', 'industries/public', 'industries/ecom', 'blog', 'blog/detail',
         'staff', 'staff/developer', 'staff/media', 'staff/design', 'staff/marketing',
-        'services', 'services/development', 'services/design', 'services/marketing', 'services/ai',
+        'services', 'services/development', 'services/development/web', 'services/development/ecom', 'services/development/mobile', 'services/development/custom', 'services/design', 'services/design/uiux', 'services/design/graphic', 'services/design/video', 'services/design/visual', 'services/marketing', 'services/marketing/social', 'services/marketing/seo', 'services/marketing/email', 'services/marketing/media', 'services/ai',
         'portfolio', 'portfolio/development', 'portfolio/design',
     ];
     $lastmod = date('Y-m-d', filemtime(base_path('routes/web.php')));

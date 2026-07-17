@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Corammers — Web, Mobile, AI & Digital Marketing Agency')
+@section('title', 'Corammers')
 @section('meta_description', 'Corammers builds high-performance websites, mobile apps, AI solutions and growth marketing. Engineering with vision — human + AI.')
 
 @push('styles')
@@ -29,7 +29,8 @@
         ['left' => 420, 'top' => 32, 'dragX' => '60px',   'rotate' => 1,  'scale' => 1.0,  'rotateY' => -1],
         ['left' => 555, 'top' => 32, 'dragX' => '120px',  'rotate' => 5,  'scale' => 0.95, 'rotateY' => 8],
     ];
-
+ $techStack = ['React', 'Next.js', 'Node.js', 'Express.js', 'Laravel', 'Vue.js', 'TypeScript', 'JavaScript', 'PHP', 'Python', 'HTML5', 'CSS', 'TailwindCSS', 'MongoDB', 'MySQL', 'Firebase', 'Docker', 'Git', 'GitHub', 'Vercel', 'GraphQL', 'Figma'];
+    $techTripled = array_merge($techStack, $techStack, $techStack);
     // Robot badge helper markup (light + dark image swap)
     $robot = '<img loading="lazy" decoding="async" class="robot-light" src="/assets/robo.webp" alt="Robot"><img loading="lazy" decoding="async" class="robot-dark" src="/assets/robo.webp" alt="Robot">';
 @endphp
@@ -97,7 +98,9 @@
     </section>
 
     {{-- ════════════════ ABOUT ════════════════ --}}
-   <div class="home-inner">  <div class="about-label-row label-row">
+    <section class="home-section">
+        <div class="home-inner">
+            <div class="about-label-row label-row">
                 <div class="robot-badge">{!! $robot !!}</div>
                 <div class="label-pill">
                     <span class="label-dot"></span>
@@ -111,10 +114,9 @@
             </h2>
             <p class="about-sub">
                 We are a team of passionate creators, engineers, and strategists dedicated to pushing the boundaries of what's possible in the digital world. Our mission is to empower businesses with cutting-edge technology.
-            </p></div>
-    <section class="hero">
+            </p>
 
-        <div class="about-inner">
+            <div class="about-inner" style="margin-top: 3rem;">
             <div class="about-banner-wrap reveal">
                 <img loading="lazy" decoding="async" src="/assets/about.webp" alt="About Us" class="about-banner-img">
                 <a href="https://www.youtube.com/@codecaks" target="_blank" rel="noopener noreferrer" class="about-video-anchor">
@@ -318,29 +320,32 @@
             </div>
         </div>
     </section>
+    
 
     {{-- ════════════════ PORTFOLIO ════════════════ --}}
     @php
         $collage = [
             ['src' => '/assets/project/web/1.webp', 'title' => 'ProBuild — Construction', 'desc' => 'Next-gen architectural excellence', 'style' => 'grid-column:1/2;grid-row:1/3;height:420px;', 'class' => 'pf-collage-card-tall'],
-            ['src' => '/assets/project/custom/3.webp', 'title' => 'EasyBridge — Fintech', 'desc' => 'Seamless mortgage application platform', 'style' => 'grid-column:2/3;grid-row:1/2;height:200px;', 'class' => ''],
-            ['src' => '/assets/project/mobile/1.webp', 'title' => 'NASA Explorer', 'desc' => 'Interactive space exploration interface', 'style' => 'grid-column:3/4;grid-row:1/2;height:200px;', 'class' => ''],
-            ['src' => '/assets/project/aiSol/3.webp', 'title' => 'n8n', 'desc' => 'AI', 'style' => 'grid-column:2/3;grid-row:2/3;height:210px;', 'class' => ''],
-            ['src' => '/assets/project/uiux/7.webp', 'title' => 'Logo', 'desc' => 'FlexFlox', 'style' => 'grid-column:3/4;grid-row:2/3;height:210px;', 'class' => ''],
+            ['src' => '/assets/project/custom/3.webm', 'title' => 'EasyBridge — Fintech', 'desc' => 'Seamless mortgage application platform', 'style' => 'grid-column:2/3;grid-row:1/2;height:200px;', 'class' => ''],
+            ['src' => '/assets/project/mobile/1.webm', 'title' => 'NASA Explorer', 'desc' => 'Interactive space exploration interface', 'style' => 'grid-column:3/4;grid-row:1/2;height:200px;', 'class' => ''],
+            ['src' => '/assets/project/aiSol/3.webm', 'title' => 'n8n', 'desc' => 'AI', 'style' => 'grid-column:2/3;grid-row:2/3;height:210px;', 'class' => ''],
+            ['src' => '/assets/project/uiux/7.webm', 'title' => 'Logo', 'desc' => 'FlexFlox', 'style' => 'grid-column:3/4;grid-row:2/3;height:210px;', 'class' => ''],
         ];
         $pfStats = [['value' => '200+', 'label' => 'Projects'], ['value' => '5+', 'label' => 'Years'], ['value' => '98%', 'label' => 'Satisfaction']];
     @endphp
     <section class="home-section">
         <div class="pf-home-inner">
             <div class="pf-left">
-                <div class="label-row">
-                    <div class="robot-badge">{!! $robot !!}</div>
-                    <div class="label-pill">
-                        <span class="label-dot"></span>
-                        <span class="label-text">Our Work</span>
+                <div style="display: flex; flex-direction: column; align-items: flex-start;">
+                    <div class="label-row" style="margin-bottom: 14px;">
+                        <div class="robot-badge">{!! $robot !!}</div>
+                        <div class="label-pill">
+                            <span class="label-dot"></span>
+                            <span class="label-text">Our Work</span>
+                        </div>
                     </div>
+                    <div class="section-divider" style="margin-bottom: 0;"></div>
                 </div>
-                <div class="section-divider"></div>
                 <h2 class="pf-heading">Work That<br><span class="accent">Speaks</span> Loudly</h2>
                 <p class="pf-desc">From high-performance SaaS dashboards to immersive mobile experiences — every project we ship is crafted with precision, purpose, and a relentless focus on exceptional user experience.</p>
                 <div class="pf-stats">
@@ -357,7 +362,13 @@
             <div class="pf-home-collage">
                 @foreach ($collage as $item)
                     <a href="/portfolio" class="pf-collage-card {{ $item['class'] }}" style="{{ $item['style'] }}">
-                        <img src="{{ $item['src'] }}" alt="{{ $item['title'] }}" loading="lazy">
+                        @if(str_ends_with($item['src'], '.webm') || str_ends_with($item['src'], '.mp4'))
+                            <video autoplay loop muted playsinline>
+                                <source src="{{ $item['src'] }}" type="{{ str_ends_with($item['src'], '.webm') ? 'video/webm' : 'video/mp4' }}">
+                            </video>
+                        @else
+                            <img src="{{ $item['src'] }}" alt="{{ $item['title'] }}">
+                        @endif
                         <div class="pf-card-grad"></div>
                         <div class="pf-card-content">
                             <h4 class="pf-card-title">{{ $item['title'] }}</h4>
@@ -378,15 +389,15 @@
     @php
         $reviews = [
             ['name' => 'Sarah Mitchell', 'role' => 'CEO, ProBuild', 'text' => 'the dashboard sync is literally so fast now and the team was super helpful with everything best agency we\'ve worked with tbh', 'image' => '/assets/project/web/1.webp', 'avatar' => '/assets/im1.webp'],
-            ['name' => 'James Okafor', 'role' => 'CTO, EasyBridge', 'text' => 'needed a system that actually scales and these guys delivered everything works perfectly and the quality is top notch really happy with it', 'image' => '/assets/project/custom/3.webp', 'avatar' => null],
-            ['name' => 'Lucas Bernhard', 'role' => 'Researcher, SpaceBound', 'text' => 'the app looks so good honestly didn\'t think it would be this nice but the design is just fire super easy to use too thanks guys', 'image' => '/assets/project/mobile/1.webp', 'avatar' => '/assets/im3.webp'],
-            ['name' => 'Priya Nair', 'role' => 'Partner, Robotech', 'text' => 'handled the complicated ai stuff for our dashboard really well it was a tough project but they made it look easy solid results all around', 'image' => '/assets/project/custom/1.webp', 'avatar' => '/assets/im2.webp'],
-            ['name' => 'Alex Chen', 'role' => 'Founder, DesignFlow', 'text' => 'love how clean the dashboard looks its exactly what i wanted the ui is super minimal and fast they really got our vision from day one', 'image' => '/assets/project/uiux/8.webp', 'avatar' => null],
-            ['name' => 'Sophia Kim', 'role' => 'Manager, StayFit', 'text' => 'mobile app is super smooth no lag at all just a great user experience u can tell they care about the small details highly recommend', 'image' => '/assets/project/mobile/2.webp', 'avatar' => null],
-            ['name' => 'Marcus Thorne', 'role' => 'Founder, TechFlow', 'text' => 'the custom software they built is a game changer for our warehouse operations super efficient and easy for the team to pick up definitely the best choice for us', 'image' => '/assets/project/custom/2.webp', 'avatar' => null],
-            ['name' => 'Elena Rossi', 'role' => 'Director, VibeDesign', 'text' => 'honestly obsessed with the new branding and logo they did it just fits our vibe perfectly and the team was so chill to work with 10/10', 'image' => '/assets/project/uiux/6.webp', 'avatar' => null],
-            ['name' => 'Omar Farouq', 'role' => 'Operations Lead, SyncAI', 'text' => 'honestly was skeptical about ai automation at first but the workflow they built just runs itself now we cut manual hours by like 70% which is insane', 'image' => '/assets/project/aiSol/1.webp', 'avatar' => null],
-            ['name' => 'Nadia Petrov', 'role' => 'Creative Director, PixelMind', 'text' => 'the ai design visuals they created blew us away every concept was unique and on brand felt like they really understood our aesthetic from the very first call', 'image' => '/assets/project/aiDes/ai3.webp', 'avatar' => null],
+            ['name' => 'James Okafor', 'role' => 'CTO, EasyBridge', 'text' => 'needed a system that actually scales and these guys delivered everything works perfectly and the quality is top notch really happy with it', 'image' => '/assets/project/custom/3.webm', 'avatar' => null],
+            ['name' => 'Lucas Bernhard', 'role' => 'Researcher, SpaceBound', 'text' => 'the app looks so good honestly didn\'t think it would be this nice but the design is just fire super easy to use too thanks guys', 'image' => '/assets/project/mobile/1.webm', 'avatar' => '/assets/im3.webp'],
+            ['name' => 'Priya Nair', 'role' => 'Partner, Robotech', 'text' => 'handled the complicated ai stuff for our dashboard really well it was a tough project but they made it look easy solid results all around', 'image' => '/assets/project/custom/1.webm', 'avatar' => '/assets/im2.webp'],
+            ['name' => 'Alex Chen', 'role' => 'Founder, DesignFlow', 'text' => 'love how clean the dashboard looks its exactly what i wanted the ui is super minimal and fast they really got our vision from day one', 'image' => '/assets/project/uiux/8.webm', 'avatar' => null],
+            ['name' => 'Sophia Kim', 'role' => 'Manager, StayFit', 'text' => 'mobile app is super smooth no lag at all just a great user experience u can tell they care about the small details highly recommend', 'image' => '/assets/project/mobile/2.webm', 'avatar' => null],
+            ['name' => 'Marcus Thorne', 'role' => 'Founder, TechFlow', 'text' => 'the custom software they built is a game changer for our warehouse operations super efficient and easy for the team to pick up definitely the best choice for us', 'image' => '/assets/project/custom/2.webm', 'avatar' => null],
+            ['name' => 'Elena Rossi', 'role' => 'Director, VibeDesign', 'text' => 'honestly obsessed with the new branding and logo they did it just fits our vibe perfectly and the team was so chill to work with 10/10', 'image' => '/assets/project/uiux/6.webm', 'avatar' => null],
+            ['name' => 'Omar Farouq', 'role' => 'Operations Lead, SyncAI', 'text' => 'honestly was skeptical about ai automation at first but the workflow they built just runs itself now we cut manual hours by like 70% which is insane', 'image' => '/assets/project/aiSol/1.webm', 'avatar' => null],
+            ['name' => 'Nadia Petrov', 'role' => 'Creative Director, PixelMind', 'text' => 'the ai design visuals they created blew us away every concept was unique and on brand felt like they really understood our aesthetic from the very first call', 'image' => '/assets/project/aiDes/ai3.webm', 'avatar' => null],
         ];
         $star = '<svg width="18" height="18" viewBox="0 0 16 16" fill="#ffb33e" style="flex-shrink:0"><path d="M8 1.5L9.7 6H14.3L10.6 8.9L12 13.4L8 10.8L4 13.4L5.4 8.9L1.7 6H6.3L8 1.5Z" stroke="#ffb33e" stroke-width="1.2" stroke-linejoin="round"/></svg>';
     @endphp
@@ -419,7 +430,15 @@
                 <div class="rev-track" id="revTrack">
                     @foreach ($reviews as $r)
                         <div class="rev-card">
-                            <div class="rev-card-img"><img loading="lazy" decoding="async" src="{{ $r['image'] }}" alt="{{ $r['name'] }}"></div>
+                            <div class="rev-card-img">
+                                @if(str_ends_with($r['image'], '.webm') || str_ends_with($r['image'], '.mp4'))
+                                    <video autoplay loop muted playsinline>
+                                        <source src="{{ $r['image'] }}" type="{{ str_ends_with($r['image'], '.webm') ? 'video/webm' : 'video/mp4' }}">
+                                    </video>
+                                @else
+                                    <img loading="lazy" decoding="async" src="{{ $r['image'] }}" alt="{{ $r['name'] }}">
+                                @endif
+                            </div>
                             <div class="rev-card-body">
                                 <div class="rev-stars">{!! str_repeat($star, 5) !!}</div>
                                 <p class="rev-text">{{ $r['text'] }}</p>
@@ -448,22 +467,21 @@
         </div>
     </section>
 
-    {{-- ════════════════ INDUSTRY ════════════════ --}}
     @php
         $indCols = [
             [
-                ['title' => 'Travel & Hospitality', 'desc' => 'Redefining guest experiences through smart digital platforms.', 'img' => '/assets/ind1.webp'],
-                ['title' => 'Public Sector', 'desc' => 'Empowering governments with transparent digital services.', 'img' => '/assets/ind2.webp'],
+                ['title' => 'Travel & Hospitality', 'desc' => 'Travel websites: Exceptional digital experiences that inspire travelers and increase direct bookings.', 'img' => '/assets/ind1.webp', 'link' => '/industries/travel'],
+                ['title' => 'Public Sector', 'desc' => 'Public Sector websites: Secure, accessible, and citizen-focused digital platforms.', 'img' => '/assets/ind2.webp', 'link' => '/industries/public'],
             ],
             [
-                ['title' => 'Telecommunication', 'desc' => 'Connecting people through next-gen telecom infrastructure.', 'img' => '/assets/ind3.webp'],
-                ['title' => 'Retail & CPG', 'desc' => 'Transforming retail with data-driven customer journeys.', 'img' => '/assets/ind4.webp'],
-                ['title' => 'Oil, Gas & Energy', 'desc' => 'Optimizing energy operations with intelligent automation.', 'img' => '/assets/ind5.webp'],
+                ['title' => 'Roofing Companies', 'desc' => 'High-performance roofing sites: Local SEO and instant quotes that turn leads into customers.', 'img' => '/assets/roofing.webp', 'link' => '/industries/roofing'],
+                ['title' => 'Law Firms', 'desc' => 'Attorney websites: Building trust and authority through secure lead capture and expert design.', 'img' => '/assets/law.webp', 'link' => '/industries/law'],
+                ['title' => 'Auto Mobile', 'desc' => 'High-impact auto sites: Interactive inventory and seamless test-drive booking to drive sales.', 'img' => '/assets/auto.webp', 'link' => '/industries/auto'],
             ],
             [
-                ['title' => 'Startups', 'desc' => 'Accelerating startup growth from idea to market launch.', 'img' => '/assets/ind6.webp'],
-                ['title' => 'E-commerce', 'desc' => 'Building scalable storefronts that convert and retain.', 'img' => '/assets/ind7.webp'],
-                ['title' => 'Banking & Fintech', 'desc' => 'Delivering secure, compliant financial technology solutions.', 'img' => '/assets/ind8.webp'],
+                ['title' => 'Financial Advisors', 'desc' => 'Financial websites: Building credibility with secure portals and expert data visualization.', 'img' => '/assets/finance.webp', 'link' => '/industries/finance'],
+                ['title' => 'Aesthetic Clinics', 'desc' => 'Premium beauty sites: Stunning galleries and seamless booking to elevate your clinic.', 'img' => '/assets/medicine.webp', 'link' => '/industries/aesthetic'],
+                ['title' => 'E-Commerce', 'desc' => 'E-commerce websites: High-converting online stores that increase sales and improve customer experience.', 'img' => '/assets/ind7.webp', 'link' => '/industries/ecom'],
             ],
         ];
         $indStats = [['n' => '9+', 'l' => 'Industries'], ['n' => '200+', 'l' => 'Projects'], ['n' => '98%', 'l' => 'Satisfaction']];
@@ -497,7 +515,7 @@
                     <div class="ind-col ind-col-{{ $ci }}">
                         @foreach ($col as $item)
                             <div class="ind-cell">
-                                <div class="ind-card">
+                                <a href="{{ $item['link'] ?? '#' }}" class="ind-card" style="display:block; text-decoration:none;">
                                     <img src="{{ $item['img'] }}" alt="{{ $item['title'] }}" loading="lazy">
                                     <div class="ind-card-overlay"></div>
                                     <div class="ind-card-content">
@@ -507,7 +525,7 @@
                                             <p class="ind-card-desc">{{ $item['desc'] }}</p>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         @endforeach
                     </div>
@@ -570,12 +588,15 @@
     <section class="home-section sa-section">
         <div class="sa-inner">
             <div class="sa-left">
-                <div class="label-row sa-label-row">
-                    <div class="robot-badge">{!! $robot !!}</div>
-                    <div class="label-pill">
-                        <span class="label-dot"></span>
-                        <span class="label-text">Staff Augmentation</span>
+                <div>
+                    <div class="label-row sa-label-row">
+                        <div class="robot-badge">{!! $robot !!}</div>
+                        <div class="label-pill">
+                            <span class="label-dot"></span>
+                            <span class="label-text">Staff Augmentation</span>
+                        </div>
                     </div>
+                    <div class="section-divider" style="margin-bottom: 0;"></div>
                 </div>
                 <h2 class="sa-heading">Scale Your Team with <mark>Pre-Vetted</mark> Developers</h2>
                 <p class="sa-desc">Quickly extend your team with skilled developers tailored to your needs. Our staff augmentation services help you scale efficiently without the overhead, delays, or risks of traditional hiring.</p>
@@ -614,6 +635,300 @@
         </div>
     </section>
 
+@php
+    $testimonialFiles = \Illuminate\Support\Facades\File::files(public_path('assets/testimonial'));
+    
+    // The extracted YouTube video IDs for the testimonials
+    $videoIds = [
+        'dwi0vEG8x_E',
+        'v7gtwhV13e0',
+        'kd3RUBD4moY',
+        'yllaoStcSAg',
+        '8VLoUyJtX0M',
+        'KH9YOKsxb_8',
+        'nXpKtCLT_Ps',
+        'nI0VDH11KgY',
+        'q-sCHdu_90M',
+    ];
+    
+    $testimonials = [];
+    $i = 0;
+    foreach ($testimonialFiles as $file) {
+        if (in_array(strtolower($file->getExtension()), ['webp', 'png', 'jpg', 'jpeg'])) {
+            $filename = $file->getFilename();
+            
+            // Get ID from list or default
+            $vid = $videoIds[$i] ?? 'dQw4w9WgXcQ';
+            
+            $testimonials[] = [
+                'image'   => '/assets/testimonial/' . $filename,
+                'name'    => 'Client Review',
+                'videoId' => $vid,
+                'url'     => 'https://www.youtube.com/watch?v=' . $vid,
+            ];
+            
+            $i++;
+        }
+    }
+
+
+@endphp
+
+{{-- ── Section ── --}}
+<section class="ts-section">
+    <div class="ts-inner">
+        <div style="display: flex; flex-direction: column; align-items: flex-start; margin: 0 auto; width: max-content;">
+            <div class="label-row ts-label-row" style="margin-bottom: 14px;">
+                <div class="robot-badge">{!! $robot !!}</div>
+                <div class="label-pill">
+                    <span class="label-dot"></span>
+                    <span class="label-text">Testimonials</span>
+                </div>
+            </div>
+            <div class="section-divider" style="margin-bottom: 32px;"></div>
+        </div>
+        {{-- Heading --}}
+        <h2 class="ts-heading">What Our <span>Client</span> Say</h2>
+
+        {{-- 3 × 3 grid --}}
+        <div class="ts-grid">
+            @foreach($testimonials as $i => $t)
+                <div
+                    class="ts-card"
+                    role="button"
+                    tabindex="0"
+                    aria-label="Watch testimonial: {{ $t['name'] }}"
+                    data-video-id="{{ $t['videoId'] }}"
+                    data-video-url="{{ $t['url'] }}"
+                    data-channel-name="{{ $t['name'] }}"
+                    onclick="tsOpenModal(this, event)"
+                    onkeydown="if(event.key==='Enter'||event.key===' ')tsOpenModal(this, event)"
+                >
+                    {{-- Thumbnail --}}
+                    <img
+                        src="{{ $t['image'] }}"
+                        alt="{{ $t['name'] }}"
+                        loading="lazy"
+                        decoding="async"
+                        class="ts-img"
+                    >
+
+                    {{-- Play button overlay --}}
+                    <div class="ts-overlay" aria-hidden="true">
+                        <div class="ts-play-wrap" style="left:50%; top:50%;">
+                            <div class="ts-play-btn">
+                                <svg
+                                    width="22"
+                                    height="22"
+                                    viewBox="0 0 24 24"
+                                    fill="#000000"
+                                    aria-hidden="true"
+                                >
+                                    <polygon points="6,3 20,12 6,21"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- /overlay --}}
+
+                </div>
+            @endforeach
+        </div>
+        {{-- /ts-grid --}}
+
+    </div>
+</section>
+
+{{-- ── Video Modal ── --}}
+<div class="ts-modal" id="tsModal" aria-hidden="true">
+    <div class="ts-modal-backdrop" onclick="tsCloseModal()"></div>
+
+    <div class="ts-modal-box" role="dialog" aria-modal="true" aria-labelledby="tsModalChannel">
+        <button class="ts-modal-close" type="button" aria-label="Close video" onclick="tsCloseModal()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+                <line x1="4" y1="4" x2="20" y2="20"/>
+                <line x1="20" y1="4" x2="4" y2="20"/>
+            </svg>
+        </button>
+
+        <div class="ts-modal-header">
+            <span class="ts-modal-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#FF0000" aria-hidden="true">
+                    <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/>
+                </svg>
+                <span id="tsModalChannel">Channel Name</span>
+            </span>
+            <a class="ts-modal-yt-link" id="tsModalYtLink" href="#" target="_blank" rel="noopener noreferrer">
+                Watch on YouTube
+            </a>
+        </div>
+
+        <div class="ts-modal-player" id="tsModalPlayer">
+            {{-- iframe injected here via JS --}}
+        </div>
+    </div>
+</div>
+
+{{-- ── Scripts ── --}}
+<script>
+    /* ---------- Modal open / close ---------- */
+    function tsOpenModal(card, event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        var videoId  = card.getAttribute('data-video-id');
+        var videoUrl = card.getAttribute('data-video-url');
+        var channel  = card.getAttribute('data-channel-name');
+
+        var modal    = document.getElementById('tsModal');
+        var player   = document.getElementById('tsModalPlayer');
+        var ytLink   = document.getElementById('tsModalYtLink');
+        var chNameEl = document.getElementById('tsModalChannel');
+
+        chNameEl.textContent = channel;
+        ytLink.setAttribute('href', videoUrl);
+
+        if (videoId) {
+            player.innerHTML =
+                '<iframe ' +
+                    'src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0&modestbranding=1" ' +
+                    'title="' + channel + '" ' +
+                    'frameborder="0" ' +
+                    'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ' +
+                    'allowfullscreen>' +
+                '</iframe>';
+        } else {
+            // Fallback: no valid video ID found, just link out
+            player.innerHTML = '<div class="ts-modal-fallback">Video unavailable. <a href="' + videoUrl + '" target="_blank" rel="noopener noreferrer">Open on YouTube</a></div>';
+        }
+
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function tsCloseModal() {
+        var modal  = document.getElementById('tsModal');
+        var player = document.getElementById('tsModalPlayer');
+
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        player.innerHTML = ''; // stop playback
+        document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') tsCloseModal();
+    });
+
+    /* ---------- Magnetic play button ---------- */
+    (function () {
+        var cards = document.querySelectorAll('.ts-card');
+
+        cards.forEach(function (card) {
+            var wrap = card.querySelector('.ts-play-wrap');
+            if (!wrap) return;
+
+            var isHovering = false;
+            var rafId = null;
+
+            // Target positions (percentages)
+            var targetX = 50;
+            var targetY = 50;
+            
+            // Current positions (percentages)
+            var currentX = 50;
+            var currentY = 50;
+
+            function updatePosition() {
+                // Smooth interpolation (lerp)
+                currentX += (targetX - currentX) * 0.15;
+                currentY += (targetY - currentY) * 0.15;
+
+                wrap.style.left = currentX + '%';
+                wrap.style.top  = currentY + '%';
+
+                if (isHovering || Math.abs(targetX - currentX) > 0.1 || Math.abs(targetY - currentY) > 0.1) {
+                    rafId = requestAnimationFrame(updatePosition);
+                } else {
+                    rafId = null;
+                }
+            }
+
+            card.addEventListener('mouseenter', function () {
+                isHovering = true;
+                if (!rafId) {
+                    rafId = requestAnimationFrame(updatePosition);
+                }
+            });
+
+            card.addEventListener('mousemove', function (e) {
+                var rect = card.getBoundingClientRect();
+                var x = ((e.clientX - rect.left) / rect.width) * 100;
+                var y = ((e.clientY - rect.top) / rect.height) * 100;
+                
+                // Keep the button completely within the card bounds
+                targetX = Math.max(15, Math.min(85, x));
+                targetY = Math.max(15, Math.min(85, y));
+            });
+
+            card.addEventListener('mouseleave', function () {
+                isHovering = false;
+                targetX = 50;
+                targetY = 50;
+                if (!rafId) {
+                    rafId = requestAnimationFrame(updatePosition);
+                }
+            });
+        });
+    })();
+</script>
+ {{-- ════════════════ TECH TICKER ════════════════ --}}
+    <section class="tt-section">
+        <div class="tt-header">
+            <h2 class="tt-title">Our <span class="tt-accent">Technology</span> Stack</h2>
+        </div>
+        <div class="tt-viewport">
+            <div class="tt-track">
+                @php
+                    $devicons = [
+                        'React' => 'devicon-react-original',
+                        'Next.js' => 'devicon-nextjs-plain',
+                        'Node.js' => 'devicon-nodejs-plain',
+                        'Express.js' => 'devicon-express-original',
+                        'Laravel' => 'devicon-laravel-original',
+                        'Vue.js' => 'devicon-vuejs-plain',
+                        'TypeScript' => 'devicon-typescript-plain',
+                        'JavaScript' => 'devicon-javascript-plain',
+                        'PHP' => 'devicon-php-plain',
+                        'Python' => 'devicon-python-plain',
+                        'HTML5' => 'devicon-html5-plain',
+                        'CSS' => 'devicon-css3-plain',
+                        'TailwindCSS' => 'devicon-tailwindcss-original',
+                        'MongoDB' => 'devicon-mongodb-plain',
+                        'MySQL' => 'devicon-mysql-plain',
+                        'Firebase' => 'devicon-firebase-plain',
+                        'Docker' => 'devicon-docker-plain',
+                        'Git' => 'devicon-git-plain',
+                        'GitHub' => 'devicon-github-original',
+                        'Vercel' => 'devicon-vercel-original',
+                        'GraphQL' => 'devicon-graphql-plain',
+                        'Figma' => 'devicon-figma-plain'
+                    ];
+                    $techs = array_keys($devicons);
+                    $techTripled = array_merge($techs, $techs, $techs);
+                @endphp
+                @foreach ($techTripled as $tech)
+                    <div class="tt-card">
+                        <div class="tt-icon">
+                            <i class="{{ $devicons[$tech] ?? 'devicon-code-plain' }}" style="font-size: clamp(2rem, 4.5vw, 3.2rem); color: var(--soft-text); transition: color 0.35s ease;"></i>
+                        </div>
+                        <span class="tt-label">{{ $tech }}</span>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
     {{-- ════════════════ CONTACT BANNER ════════════════ --}}
     <section class="cb-section home-section">
         <div class="cb-container">
@@ -637,7 +952,6 @@
                 <p class="cb-sub">Whether you're starting from scratch or scaling an existing product, we'd love to hear about it. Send us a message and we'll get back to you within 24 hours.</p>
                 <div class="cb-btn-row">
                     <a href="/contact" class="cb-btn-primary">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="12" x2="16" y2="16"/><line x1="12" y1="12" x2="8" y2="8"/><line x1="12" y1="12" x2="16" y2="8"/><line x1="12" y1="12" x2="8" y2="16"/></svg>
                         Get in Touch
                     </a>
                     <a href="/portfolio" class="cb-btn-secondary">View Portfolio</a>
@@ -656,26 +970,26 @@
     var root = document.querySelector('.pw-home');
     if (!root) return;
 
-    /* ── Reviews: seamless infinite marquee ──
-       Cards scroll continuously; when the first exits on the left it reappears at
-       the end. We clone the original set enough times to always fill the viewport,
-       then a CSS animation shifts the track by exactly one set width and loops. */
+    /* ── Reviews: seamless infinite marquee ── */
     var track = document.getElementById('revTrack');
     var wrap = document.getElementById('revTrackWrap');
     if (track && wrap) {
         var originals = Array.prototype.slice.call(track.children);
         var N = originals.length;
-        var SPEED = 70; // px per second
+        
+        var SPEED = 1.2; // px per frame
+        var currentScroll = 0;
+        var manualVelocity = 0;
+        var isHovered = false;
+        var setWidth = 0;
+        var rAF = null;
 
         function setup() {
-            // drop previous clones, keep the N originals
             while (track.children.length > N) track.removeChild(track.lastChild);
             if (!N) return;
             var cs = getComputedStyle(track);
             var gap = parseFloat(cs.columnGap || cs.gap || '28') || 28;
-            var setWidth = 0;
-            // batch ALL layout reads first, then one DOM write — appending
-            // clone-by-clone to the live track forces a reflow per iteration
+            setWidth = 0;
             originals.forEach(function (c) { setWidth += c.getBoundingClientRect().width + gap; });
             var wrapWidth = wrap.getBoundingClientRect().width;
             var need = Math.max(2, Math.ceil(wrapWidth / setWidth) + 2);
@@ -684,16 +998,42 @@
                 originals.forEach(function (c) { frag.appendChild(c.cloneNode(true)); });
             }
             track.appendChild(frag);
-            track.style.setProperty('--rev-shift', setWidth + 'px');
-            track.style.animationDuration = Math.max(12, setWidth / SPEED) + 's';
+            track.style.animation = 'none';
         }
-        setup();
 
-        // Arrows set the scroll direction (continuous either way)
+        function tick() {
+            if (!isHovered && Math.abs(manualVelocity) < 0.1) {
+                currentScroll += SPEED;
+            }
+            
+            if (Math.abs(manualVelocity) > 0.1) {
+                currentScroll += manualVelocity;
+                manualVelocity *= 0.92; // friction
+            } else {
+                manualVelocity = 0;
+            }
+
+            if (setWidth > 0) {
+                if (currentScroll >= setWidth) currentScroll -= setWidth;
+                if (currentScroll < 0) currentScroll += setWidth;
+                track.style.transform = 'translate3d(' + (-currentScroll) + 'px, 0, 0)';
+            }
+            rAF = requestAnimationFrame(tick);
+        }
+
+        setup();
+        rAF = requestAnimationFrame(tick);
+
+        track.addEventListener('mouseenter', function() { isHovered = true; });
+        track.addEventListener('mouseleave', function() { isHovered = false; });
+        track.addEventListener('touchstart', function() { isHovered = true; }, {passive: true});
+        track.addEventListener('touchend', function() { isHovered = false; });
+
+        // Arrows add smooth manual scrolling velocity
         root.querySelectorAll('.rev-nav-btn').forEach(function (btn) {
             btn.addEventListener('click', function () {
-                track.style.animationDirection =
-                    parseInt(btn.getAttribute('data-rev-dir'), 10) < 0 ? 'reverse' : 'normal';
+                var dir = parseInt(btn.getAttribute('data-rev-dir'), 10);
+                manualVelocity += dir * 45; // inject velocity (45px/frame initially)
             });
         });
 

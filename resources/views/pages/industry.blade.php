@@ -10,15 +10,15 @@
 @php
     /* ── Page data (ported from IndustriesPage/page.js) ── */
     $industries = [
-        ['id' => 'banking', 'name' => 'Banking & Fintech', 'description' => "We architect secure, scalable financial platforms that meet the most stringent regulatory demands empowering banks and fintechs to innovate without compromise.", 'solutions' => ['Secure payment processing & gateway integration', 'AI-powered fraud detection & risk scoring', 'GDPR & PCI-DSS compliance-ready platforms', 'Open banking APIs & core banking modernization', 'Digital wallet & neobank infrastructure']],
-        ['id' => 'healthcare', 'name' => 'Healthcare & Pharmaceuticals', 'description' => "Enabling healthcare providers and pharma companies to deliver better patient outcomes through intelligent data platforms, telemedicine, and clinical automation.", 'solutions' => ['HIPAA-compliant EHR/EMR integrations', 'Telemedicine & virtual consultation platforms', 'AI-assisted diagnostics & imaging analysis', 'Drug discovery data pipelines', 'Patient engagement & care coordination apps']],
-        ['id' => 'ecommerce', 'name' => 'E-commerce', 'description' => "We build high-performance commerce ecosystems that convert browsers into buyers with AI personalization, seamless UX, and infrastructure that scales with demand.", 'solutions' => ['Scalable multi-vendor storefronts', 'AI-based product recommendations', 'Conversion rate & checkout optimization', 'Inventory & supply-chain automation', 'Headless commerce architecture']],
-        ['id' => 'retail', 'name' => 'Retail & CPG', 'description' => "From brick-and-mortar to omnichannel, we help retail and consumer goods brands unify operations and deliver standout in-store and digital experiences.", 'solutions' => ['Omnichannel retail platform development', 'Demand forecasting & inventory intelligence', 'Loyalty programs & customer retention engines', 'POS modernization & in-store analytics', 'Supplier portal & procurement automation']],
-        ['id' => 'telecom', 'name' => 'Telecommunication', 'description' => "Helping telecom operators streamline their networks, reduce churn, and deliver next-generation connectivity services through intelligent automation and analytics.", 'solutions' => ['AI-driven network monitoring & fault prediction', 'Customer churn prediction & retention models', 'BSS/OSS platform modernization', 'Cybersecurity frameworks for network infrastructure', 'Self-service customer portals & CRM integration']],
-        ['id' => 'travel', 'name' => 'Travel & Hospitality', 'description' => "We engineer seamless travel experiences from smart booking engines to real-time personalization helping travel brands delight guests at every touchpoint.", 'solutions' => ['Booking engine with real-time pricing & availability', 'Personalized itinerary & recommendation engines', 'Property & fleet management systems', 'Loyalty & rewards platform integration', 'Multi-language, multi-currency B2B/B2C portals']],
-        ['id' => 'oil', 'name' => 'Oil, Gas & Energy', 'description' => "Delivering mission-critical digital solutions for energy companies improving operational efficiency, safety monitoring, and sustainability reporting.", 'solutions' => ['IoT sensor data ingestion & real-time dashboards', 'Predictive maintenance & asset lifecycle tracking', 'Operational efficiency & process automation', 'HSE (Health, Safety & Environment) compliance tools', 'Renewable energy management platforms']],
-        ['id' => 'public', 'name' => 'Public Sector', 'description' => "Modernizing government services through secure, citizen-first digital platforms that improve transparency, efficiency, and public engagement.", 'solutions' => ['Citizen service portals & e-governance platforms', 'Secure document management & digital workflows', 'Grant & procurement management systems', 'Open data initiatives & analytics dashboards', 'Accessibility-compliant UI/UX design']],
-        ['id' => 'startups', 'name' => 'Startups', 'description' => "We are the technical co-founders startups need turning bold ideas into MVPs fast, then scaling them into market-ready products with precision.", 'solutions' => ['Rapid MVP design, build & launch', 'Product-market fit iteration & analytics', 'Cloud-native architecture for scale', 'Fundraising-ready tech documentation', 'CTO-as-a-Service & technical advisory']],
+        ['id' => 'roofing', 'name' => 'Roofing Companies', 'description' => '', 'solutions' => []],
+        ['id' => 'law', 'name' => 'Law Firms', 'description' => '', 'solutions' => []],
+        ['id' => 'insurance', 'name' => 'Insurance Companies', 'description' => '', 'solutions' => []],
+        ['id' => 'auto', 'name' => 'Auto Mobile', 'description' => '', 'solutions' => []],
+        ['id' => 'finance', 'name' => 'Financial Advisors', 'description' => '', 'solutions' => []],
+        ['id' => 'aesthetic', 'name' => 'Aesthetic Clinics', 'description' => '', 'solutions' => []],
+        ['id' => 'travel', 'name' => 'Travel & Hospitality', 'description' => '', 'solutions' => []],
+        ['id' => 'public', 'name' => 'Public Sector', 'description' => '', 'solutions' => []],
+        ['id' => 'ecom', 'name' => 'E-Commerce', 'description' => '', 'solutions' => []],
     ];
 
     $useCases = [
@@ -132,20 +132,48 @@
                 <h2 class="premium-heading" style="color:var(--ip-s-text)">Industry-Specific<br><span style="color:var(--ip-s-accent)">Digital Solutions</span></h2>
                 <p class="premium-sub" style="color:var(--ip-s-muted)">We don't believe in one-size-fits-all. Every industry has its own language, challenges, and compliance requirements — our solutions are built around yours.</p>
             </div>
+            @php
+                $indImages = [
+                    'roofing'    => '/assets/roofing.webp',
+                    'law'        => '/assets/law.webp',
+                    'insurance'  => '/assets/insurance.webp',
+                    'auto'       => '/assets/auto.webp',
+                    'finance'    => '/assets/finance.webp',
+                    'aesthetic'  => '/assets/medicine.webp',
+                    'travel'     => '/assets/ind1.webp',
+                    'public'     => '/assets/ind2.webp',
+                    'ecom'       => '/assets/ind7.webp',
+                ];
+                $indCaptions = [
+                    'roofing'    => 'High-performance roofing sites: Local SEO and instant quotes that turn leads into customers.',
+                    'law'        => 'Attorney websites: Building trust and authority through secure lead capture and expert design.',
+                    'insurance'  => 'Insurance broker sites: Simplifying complex offers with clear navigation and quote calculators.',
+                    'auto'       => 'High-impact auto sites: Interactive inventory and seamless test-drive booking to drive sales.',
+                    'finance'    => 'Financial websites: Building credibility with secure portals and expert data visualization.',
+                    'aesthetic'  => 'Premium beauty sites: Stunning galleries and seamless booking to elevate your clinic.',
+                    'travel'     => 'Travel websites: Exceptional digital experiences that inspire travelers and increase direct bookings.',
+                    'public'     => 'Public Sector websites: Secure, accessible, and citizen-focused digital platforms.',
+                    'ecom'       => 'E-commerce websites: High-converting online stores that increase sales and improve customer experience.',
+                ];
+            @endphp
             <div class="industry-grid">
                 @foreach ($industries as $i => $ind)
-                    <div class="ind-card reveal reveal-d{{ ($i % 3) + 1 }}">
-                        <div class="ind-card-glow"></div>
-                        <div class="ind-icon-wrap" style="color:var(--ip-accent-color)">{!! $industryIcon($ind['id']) !!}</div>
-                        <h3 class="ind-card-title">{{ $ind['name'] }}</h3>
-                        <p class="ind-card-desc" style="color:var(--ip-s-muted)">{{ $ind['description'] }}</p>
-                        <div class="ind-divider"></div>
-                        <ul class="ind-solution-list">
-                            @foreach ($ind['solutions'] as $sol)
-                                <li class="ind-solution-item" style="color:var(--ip-s-text)">{{ $sol }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
+                    <a href="/industries/{{ $ind['id'] }}" class="ind-card reveal reveal-d{{ ($i % 3) + 1 }}" style="text-decoration:none;">
+                        <img
+                            src="{{ $indImages[$ind['id']] }}"
+                            alt="{{ $ind['name'] }}"
+                            loading="lazy"
+                            decoding="async"
+                        >
+                        <div class="ind-card-overlay"></div>
+                        <div class="ind-card-content">
+                            <span class="ind-card-tag">Industry</span>
+                            <p class="ind-card-title">{{ $ind['name'] }}</p>
+                            <div class="ind-card-desc-wrap">
+                                <p class="ind-card-desc">{{ $indCaptions[$ind['id']] }}</p>
+                            </div>
+                        </div>
+                    </a>
                 @endforeach
             </div>
         </div>
@@ -178,7 +206,7 @@
                     <div class="telecom-feature" style="top:5%;left:28%;color:var(--ip-s-text)"><div class="tf-title">Smarter Network Management</div><div class="tf-desc" style="color:var(--ip-s-muted)">AI-based solutions predict and prevent issues, ensuring reliability.</div></div>
                     <div class="telecom-feature" style="top:52%;left:51%;color:var(--ip-s-text)"><div class="tf-title">Robust Cybersecurity for Telecom</div><div class="tf-desc" style="color:var(--ip-s-muted)">Secure sensitive customer data and network systems with advanced measures.</div></div>
                     <div class="telecom-feature" style="top:34%;right:1%;color:var(--ip-s-text)"><div class="tf-title">Efficient Process Automation</div><div class="tf-desc" style="color:var(--ip-s-muted)">Streamline operations like billing and support to enhance services.</div></div>
-                    <div class="telecom-feature" style="top:62%;right:1%;color:var(--ip-s-text)"><div class="tf-title">Scalable Solutions for Growth</div><div class="tf-desc" style="color:var(--ip-s-muted)">Adapt to demand with flexible cloud infrastructure.</div></div>
+
                 </div>
             </div>
         </div>

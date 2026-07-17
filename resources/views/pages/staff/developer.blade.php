@@ -11,7 +11,7 @@
 <div class="pw-staff-developer sd-wrapper">
 
     {{-- ══════════ HERO BANNER ══════════ --}}
-    <section class="sd-hero" style="--primary:#D81D1F;--primary-rgb:188, 234, 62">
+    <section class="sd-hero" style="--primary:#D81D1F;--primary-rgb:216, 29, 31">
         <div class="sd-hero-bg loaded"></div>
         <div class="sd-hero-overlay"></div>
         <div class="sd-hero-fade"></div>

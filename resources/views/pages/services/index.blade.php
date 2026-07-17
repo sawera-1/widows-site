@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Services — Web, Mobile, AI & Marketing — Corammers')
+@section('title', 'Services — Corammers')
 @section('meta_description', 'Explore Corammers services: web and mobile development, UI/UX design, AI solutions and digital marketing engineered for growth.')
 
 @push('styles')
@@ -342,50 +342,7 @@
       </div>
     </section>
 
-    {{-- ══════════════ TECH TICKER ══════════════ --}}
-    <section class="tt-section">
-      <div class="tt-header">
-        <h2 class="tt-title">Our <span class="tt-accent">Technology</span> Stack</h2>
-      </div>
-      <div class="tt-viewport">
-        <div class="tt-track">
-          @php
-              $devicons = [
-                  'React' => 'devicon-react-original',
-                  'Next.js' => 'devicon-nextjs-plain',
-                  'Node.js' => 'devicon-nodejs-plain',
-                  'Express.js' => 'devicon-express-original',
-                  'Laravel' => 'devicon-laravel-original',
-                  'Vue.js' => 'devicon-vuejs-plain',
-                  'TypeScript' => 'devicon-typescript-plain',
-                  'JavaScript' => 'devicon-javascript-plain',
-                  'PHP' => 'devicon-php-plain',
-                  'Python' => 'devicon-python-plain',
-                  'HTML5' => 'devicon-html5-plain',
-                  'CSS' => 'devicon-css3-plain',
-                  'TailwindCSS' => 'devicon-tailwindcss-original',
-                  'MongoDB' => 'devicon-mongodb-plain',
-                  'MySQL' => 'devicon-mysql-plain',
-                  'Firebase' => 'devicon-firebase-plain',
-                  'Docker' => 'devicon-docker-plain',
-                  'Git' => 'devicon-git-plain',
-                  'GitHub' => 'devicon-github-original',
-                  'Vercel' => 'devicon-vercel-original',
-                  'GraphQL' => 'devicon-graphql-plain',
-                  'Figma' => 'devicon-figma-plain'
-              ];
-          @endphp
-          @foreach(array_merge($techStack, $techStack, $techStack) as $tech)
-            <div class="tt-card">
-              <div class="tt-icon">
-                  <i class="{{ $devicons[$tech] ?? 'devicon-code-plain' }}" style="font-size: clamp(2rem, 4.5vw, 3.2rem);"></i>
-              </div>
-              <span class="tt-label">{{ $tech }}</span>
-            </div>
-          @endforeach
-        </div>
-      </div>
-    </section>
+    
 
     {{-- ══════════════ STAFF AUGMENTATION ══════════════ --}}
     <section class="sa-section">
@@ -494,7 +451,51 @@
         </div>
       </div>
     </section>
-
+  <section class="tt-section">
+        <div class="tt-header">
+            <h2 class="tt-title">Our <span class="tt-accent">Technology</span> Stack</h2>
+        </div>
+        <div class="tt-viewport">
+            <div class="tt-track">
+                @php
+                    $devicons = [
+                        'React' => 'devicon-react-original',
+                        'Next.js' => 'devicon-nextjs-plain',
+                        'Node.js' => 'devicon-nodejs-plain',
+                        'Express.js' => 'devicon-express-original',
+                        'Laravel' => 'devicon-laravel-original',
+                        'Vue.js' => 'devicon-vuejs-plain',
+                        'TypeScript' => 'devicon-typescript-plain',
+                        'JavaScript' => 'devicon-javascript-plain',
+                        'PHP' => 'devicon-php-plain',
+                        'Python' => 'devicon-python-plain',
+                        'HTML5' => 'devicon-html5-plain',
+                        'CSS' => 'devicon-css3-plain',
+                        'TailwindCSS' => 'devicon-tailwindcss-original',
+                        'MongoDB' => 'devicon-mongodb-plain',
+                        'MySQL' => 'devicon-mysql-plain',
+                        'Firebase' => 'devicon-firebase-plain',
+                        'Docker' => 'devicon-docker-plain',
+                        'Git' => 'devicon-git-plain',
+                        'GitHub' => 'devicon-github-original',
+                        'Vercel' => 'devicon-vercel-original',
+                        'GraphQL' => 'devicon-graphql-plain',
+                        'Figma' => 'devicon-figma-plain'
+                    ];
+                    $techs = array_keys($devicons);
+                    $techTripled = array_merge($techs, $techs, $techs);
+                @endphp
+                @foreach ($techTripled as $tech)
+                    <div class="tt-card">
+                        <div class="tt-icon">
+                            <i class="{{ $devicons[$tech] ?? 'devicon-code-plain' }}" style="font-size: clamp(2rem, 4.5vw, 3.2rem); color: var(--soft-text); transition: color 0.35s ease;"></i>
+                        </div>
+                        <span class="tt-label">{{ $tech }}</span>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
     {{-- ══════════════ CONTACT BANNER ══════════════ --}}
     <section class="cb-section">
       <div class="cb-container">
@@ -522,29 +523,12 @@
 
           <div class="cb-btn-row">
             <a href="/contact" class="cb-btn-primary">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="12" x2="16" y2="16"></line><line x1="12" y1="12" x2="8" y2="8"></line><line x1="12" y1="12" x2="16" y2="8"></line><line x1="12" y1="12" x2="8" y2="16"></line></svg>
               Get in Touch
             </a>
             <a href="/portfolio" class="cb-btn-secondary">View Portfolio</a>
           </div>
 
           <p class="cb-micro">Expert Guidance · Scalable Solutions · Global Delivery</p>
-        </div>
-      </div>
-    </section>
-
-    {{-- ══════════════ CLIENT LOGOS ══════════════ --}}
-    <section class="logos-section reveal">
-      <div class="section-inner">
-        <p class="logos-label">Trusted by Industry Leaders</p>
-        <div class="logos-slider-wrap">
-          <div class="logos-track">
-            @foreach(array_merge($clientLogos, $clientLogos, $clientLogos) as $logo)
-              <div class="logo-item">
-                <img loading="lazy" decoding="async" src="{{ $logo['url'] }}" alt="{{ $logo['name'] }}">
-              </div>
-            @endforeach
-          </div>
         </div>
       </div>
     </section>

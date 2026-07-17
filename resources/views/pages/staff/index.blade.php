@@ -17,7 +17,8 @@
 
                 {{-- Left --}}
                 <div class="hero-left go">
-                    <div class="section-label-row">
+                    <div class="badge-group">
+<div class="section-badge">
                         <div class="section-robot-badge">
                             <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
                             <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
@@ -28,33 +29,43 @@
                         </div>
                     </div>
                     <div class="section-divider"></div>
+</div>
 
-                    <h1 class="hero-heading">
+                    <h1 class="section-heading">
                         Hire Top Talent <span class="accent">On-Demand</span> for Your Business Growth
                     </h1>
-
-                    <p class="hero-sub">
-                        From developers to marketers and AI experts — scale your team
-                        with vetted professionals who integrate seamlessly into your workflow.
-                    </p>
-
+                    <p class="section-description" style="margin-bottom:24px">From developers to marketers and AI experts — scale your team with vetted professionals who integrate seamlessly into your workflow. Whether you're a startup, growing business, or enterprise, we connect you with skilled talent who deliver results.</p>
                     <div class="hero-btns">
                         <a href="/contact" class="btn-primary">Hire Talent</a>
                     </div>
 
-                    <div class="hero-trust">
-                        <div class="hero-avatars">
-                            <div class="hero-avatar"><img src="/assets/im1.webp" alt="" loading="lazy"></div>
-                            <div class="hero-avatar"><img src="/assets/im2.webp" alt="" loading="lazy"></div>
-                            <div class="hero-avatar"><img src="/assets/im3.webp" alt="" loading="lazy"></div>
-                        </div>
-                        <div>
-                            <div class="hero-stars-row">
-                                @for ($i = 0; $i < 5; $i++)
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--primary)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
-                                @endfor
+                    <div class="hero-stats-row">
+                        <div class="hero-stat-item">
+                            <div class="hero-stat-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                             </div>
-                            <div class="hero-trust-text"><strong>200+</strong> projects delivered</div>
+                            <div class="hero-stat-text">
+                                <div class="hero-stat-title">98%</div>
+                                <div class="hero-stat-label">Client Satisfaction</div>
+                            </div>
+                        </div>
+                        <div class="hero-stat-item">
+                            <div class="hero-stat-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            </div>
+                            <div class="hero-stat-text">
+                                <div class="hero-stat-title">500+</div>
+                                <div class="hero-stat-label">Professionals</div>
+                            </div>
+                        </div>
+                        <div class="hero-stat-item">
+                            <div class="hero-stat-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            </div>
+                            <div class="hero-stat-text">
+                                <div class="hero-stat-title">24/7</div>
+                                <div class="hero-stat-label">Support</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -87,14 +98,22 @@
         {{-- ══════════ SECTION 2 — STATS ══════════ --}}
         <section class="sec sec-alt">
             <div class="container">
-                <div style="text-align:center;margin-bottom:48px">
-                    <div style="display:flex;flex-direction:column;align-items:center">
-                        <div class="section-label-pill" style="margin-bottom:14px">
-                            <span class="section-label-dot"></span>
-                            <span class="section-label">By The Numbers</span>
+                <div>
+                    <div class="badge-group">
+                        <div class="section-badge">
+                            <div class="section-robot-badge">
+                                <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
+                                <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
+                            </div>
+                            <div class="section-label-pill">
+                                <span class="section-label-dot"></span>
+                                <span class="section-label">By The Numbers</span>
+                            </div>
                         </div>
+                        <div class="section-divider"></div>
                     </div>
-                    <h2 class="sec-heading" style="margin-bottom:0;text-align:center">Our <span class="accent">Track Record</span></h2>
+                    <h2 class="section-heading">Our <span class="accent">Track Record</span></h2>
+                    <p class="section-description">Numbers that reflect our commitment to delivering exceptional results for our clients worldwide.</p>
                 </div>
 
                 <div class="stats-grid">
@@ -147,7 +166,8 @@
 
                         <div class="px-content-col">
                             <div class="reveal">
-                                <div class="section-label-row">
+                                <div class="badge-group">
+<div class="section-badge">
                                     <div class="section-robot-badge">
                                         <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
                                         <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
@@ -158,17 +178,13 @@
                                     </div>
                                 </div>
                                 <div class="section-divider"></div>
+</div>
                             </div>
 
                             <div class="reveal">
-                                <h2 class="px-heading">Don't Let Hiring <span class="px-heading-acc">Slow Your Growth</span></h2>
+                                <h2 class="section-heading">Don't Let Hiring <span class="accent">Slow Your Growth</span></h2>
                             </div>
-                            <div class="reveal">
-                                <p class="px-subtext">Finding the right talent is tough. Freelancers lack consistency. Local hires are expensive. Meanwhile, your agency's growth stalls.</p>
-                            </div>
-                            <div class="reveal">
-                                <p class="px-subtext" style="margin-bottom:0">RepStack helps you scale with vetted virtual team members trained, integrated, and contributing from day one.</p>
-                            </div>
+                            <div class="reveal"><p class="section-description">Finding the right talent is tough. Freelancers lack consistency. Local hires are expensive. Meanwhile, your agency's growth stalls. RepStack helps you scale with vetted virtual team members trained, integrated, and contributing from day one.</p></div>
 
                             <div class="reveal">
                                 <div class="px-highlight">
@@ -207,27 +223,27 @@
 
             <section class="px-s2">
                 <div class="px-s2-inner">
-                    <div class="px-sec-header">
+                    <div class="px-sec-header text-center">
                         <div class="reveal">
-                            <div style="display:flex;flex-direction:column;align-items:center;margin:0 auto 22px;width:fit-content">
-                                <div class="section-label-row">
-                                    <div class="section-robot-badge">
-                                        <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
-                                        <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
-                                    </div>
-                                    <div class="section-label-pill">
-                                        <span class="section-label-dot"></span>
-                                        <span class="section-label">Our Advantages</span>
-                                    </div>
+                            <div class="badge-group">
+<div class="section-badge">
+                                <div class="section-robot-badge">
+                                    <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
+                                    <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
                                 </div>
-                                <div class="section-divider" style="margin-bottom:0"></div>
+                                <div class="section-label-pill">
+                                    <span class="section-label-dot"></span>
+                                    <span class="section-label">Our Advantages</span>
+                                </div>
                             </div>
+                            <div class="section-divider"></div>
+</div>
                         </div>
                         <div class="reveal">
-                            <h2 class="px-sec-heading">Recruit Smarter, <span class="px-heading-acc" style="display:inline">Scale Faster</span></h2>
+                            <h2 class="section-heading">Recruit Smarter, <span class="accent" style="display:inline">Scale Faster</span></h2>
                         </div>
                         <div class="reveal">
-                            <p class="px-sec-subtext">The trusted recruitment partner for digital marketing agencies and SaaS businesses ready to grow.</p>
+                            <p class="section-description">The trusted recruitment partner for digital marketing agencies and SaaS businesses ready to grow.</p>
                         </div>
                     </div>
 
@@ -285,7 +301,8 @@
             <div class="container">
                 <div class="what-inner">
                     <div class="what-left">
-                        <div class="section-label-row">
+                        <div class="badge-group">
+<div class="section-badge">
                             <div class="section-robot-badge">
                                 <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
                                 <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
@@ -296,12 +313,9 @@
                             </div>
                         </div>
                         <div class="section-divider"></div>
-                        <h2 class="sec-heading">What Is <span class="accent">Staff Augmentation</span>?</h2>
-                        <p class="sec-subtext" style="margin-bottom:32px">
-                            Staff augmentation allows you to extend your in-house team with
-                            specialized experts without long hiring processes, overhead
-                            costs, or onboarding delays. You stay in control.
-                        </p>
+</div>
+                        <h2 class="section-heading">What Is <span class="accent">Staff Augmentation</span>?</h2>
+                        <p class="section-description">Staff augmentation allows you to extend your in-house team with specialized experts without long hiring processes, overhead costs, or onboarding delays. You stay in control.</p>
 
                         @php
                             $benefits = [
@@ -382,22 +396,22 @@
         {{-- ══════════ SECTION 4 — CATEGORIES ══════════ --}}
         <section class="sec sec-alt exp-section-bg">
             <div class="container">
-                <div class="cats-header">
-                    <div style="display:flex;flex-direction:column;align-items:center">
-                        <div class="section-label-row">
-                            <div class="section-robot-badge">
-                                <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
-                                <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
-                            </div>
-                            <div class="section-label-pill">
-                                <span class="section-label-dot"></span>
-                                <span class="section-label">Our Experts</span>
-                            </div>
+                <div class="cats-header text-center">
+                    <div class="badge-group">
+<div class="section-badge">
+                        <div class="section-robot-badge">
+                            <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
+                            <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
                         </div>
-                        <div class="section-divider"></div>
+                        <div class="section-label-pill">
+                            <span class="section-label-dot"></span>
+                            <span class="section-label">Our Experts</span>
+                        </div>
                     </div>
-                    <h2 class="sec-heading" style="margin-bottom:16px">Browse Our <span class="accent">Specialized Roles</span></h2>
-                    <p class="sec-subtext" style="margin:0 auto 0">Choose from our diverse pool of vetted talent, ready to hit the ground running.</p>
+                    <div class="section-divider"></div>
+</div>
+                    <h2 class="section-heading">Browse Our <span class="accent">Specialized Roles</span></h2>
+                    <p class="section-description">Choose from our diverse pool of vetted talent, ready to hit the ground running.</p>
                 </div>
 
                 <div class="cats-grid">
@@ -513,8 +527,9 @@
         <section class="sec exp-section-bg">
             <div class="container">
                 <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px;flex-wrap:wrap;gap:22px">
-                    <div style="display:flex;flex-direction:column;gap:6px">
-                        <div class="section-label-row">
+                    <div>
+                        <div class="badge-group">
+<div class="section-badge">
                             <div class="section-robot-badge">
                                 <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
                                 <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
@@ -525,10 +540,11 @@
                             </div>
                         </div>
                         <div class="section-divider"></div>
-                        <h2 class="sec-heading">Meet Our <span class="accent">Experts</span></h2>
-                        <p class="sec-subtext">Hand-picked professionals with years of industry experience.</p>
+</div>
+                        <h2 class="section-heading">Meet Our <span class="accent">Experts</span></h2>
+                        <p class="section-description">Hand-picked professionals with years of industry experience.</p>
                     </div>
-                    <p class="sec-subtext" style="max-width:340px;text-align:right;margin:0">
+                    <p class="section-description" style="max-width:340px;text-align:right;margin:0">
                         Every professional is screened for technical skill,
                         communication, and team compatibility.
                     </p>
@@ -559,9 +575,9 @@
         {{-- ══════════ SECTION 6 — VIDEO ══════════ --}}
         <section class="sec sec-alt exp-section-bg">
             <div class="container">
-                <div style="text-align:center;margin-bottom:56px;display:flex;flex-direction:column;align-items:center">
-                    <div style="display:flex;flex-direction:column;align-items:center">
-                        <div class="section-label-row">
+                <div>
+                    <div class="badge-group">
+                        <div class="section-badge">
                             <div class="section-robot-badge">
                                 <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
                                 <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
@@ -573,8 +589,8 @@
                         </div>
                         <div class="section-divider"></div>
                     </div>
-                    <h2 class="sec-heading" style="margin-bottom:16px">See Us <span class="accent">In Action</span></h2>
-                    <p class="sec-subtext" style="margin:0 auto">A glimpse into our collaborative environment and high standards.</p>
+                    <h2 class="section-heading">See Us <span class="accent">In Action</span></h2>
+                    <p class="section-description">A glimpse into our collaborative environment and high standards.</p>
                 </div>
 
                 <div class="vid-grid">
@@ -609,7 +625,8 @@
         <section class="faq-section-bg">
             <div class="faq-inner">
                 <div>
-                    <div class="section-label-row">
+                    <div class="badge-group">
+                      <div class="section-badge">
                         <div class="section-robot-badge">
                             <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
                             <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
@@ -620,8 +637,9 @@
                         </div>
                     </div>
                     <div class="section-divider"></div>
+                        </div>
 
-                    <h2 class="faq-title">Frequently Asked <br><span style="color:var(--primary)">Questions</span></h2>
+                    <h2 class="section-heading">Frequently Asked <br><span style="color:var(--primary)">Questions</span></h2>
                 </div>
 
                 <div class="faq-list">

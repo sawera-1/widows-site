@@ -10,15 +10,15 @@
 @php
     // ── DESIGN PROJECT DATA (ported verbatim from the Next.js page) ──
     $designProjects = [
-        ['id' => 1,  'type' => 'uiux',        'image' => '/assets/project/uiux/1.webp'],
-        ['id' => 2,  'type' => 'uiux',        'image' => '/assets/project/uiux/2.webp'],
-        ['id' => 3,  'type' => 'uiux',        'image' => '/assets/project/uiux/3.webp'],
-        ['id' => 4,  'type' => 'uiux',        'image' => '/assets/project/uiux/4.webp'],
-        ['id' => 5,  'type' => 'uiux',        'image' => '/assets/project/uiux/5.webp'],
-        ['id' => 6,  'type' => 'uiux',        'image' => '/assets/project/uiux/9.webp'],
-        ['id' => 7,  'type' => 'logo',        'image' => '/assets/project/uiux/7.webp'],
-        ['id' => 8,  'type' => 'logo',        'image' => '/assets/project/uiux/8.webp'],
-        ['id' => 9,  'type' => 'logo',        'image' => '/assets/project/uiux/9.webp'],
+        ['id' => 1,  'type' => 'uiux',        'image' => '/assets/project/uiux/1.webm'],
+        ['id' => 2,  'type' => 'uiux',        'image' => '/assets/project/uiux/2.webm'],
+        ['id' => 3,  'type' => 'uiux',        'image' => '/assets/project/uiux/3.webm'],
+        ['id' => 4,  'type' => 'uiux',        'image' => '/assets/project/uiux/4.webm'],
+        ['id' => 5,  'type' => 'uiux',        'image' => '/assets/project/uiux/5.webm'],
+        ['id' => 6,  'type' => 'uiux',        'image' => '/assets/project/uiux/9.webm'],
+        ['id' => 7,  'type' => 'logo',        'image' => '/assets/project/uiux/7.webm'],
+        ['id' => 8,  'type' => 'logo',        'image' => '/assets/project/uiux/8.webm'],
+        ['id' => 9,  'type' => 'logo',        'image' => '/assets/project/uiux/6.webm'],
         ['id' => 10, 'type' => 'ai-creative', 'image' => '/assets/project/aiDes/ai1.webp', 'url' => 'https://www.youtube.com/watch?v=e_cr04R6vrg&list=PLPGkp4Y87woaZQGn0Do9TBhgNq06hgVQt'],
         ['id' => 11, 'type' => 'ai-creative', 'image' => '/assets/project/aiDes/ai2.webp', 'url' => 'https://www.youtube.com/watch?v=y8wJJ6CyfvY&list=PLPGkp4Y87woaZQGn0Do9TBhgNq06hgVQt&index=3'],
         ['id' => 12, 'type' => 'ai-creative', 'image' => '/assets/project/aiDes/ai3.webp', 'url' => 'https://www.youtube.com/watch?v=Bvt45L4Krtc&list=PLPGkp4Y87woaZQGn0Do9TBhgNq06hgVQt&index=6'],
@@ -146,7 +146,11 @@
                         @foreach ($uiux as $p)
                             <div class="pf-card" @if($loop->iteration > 3) hidden @endif>
                                 <div class="pf-card-img-wrap">
-                                    <img src="{{ $p['image'] }}" alt="Design Project" loading="lazy" class="pf-card-img">
+                                    @if(Str::endsWith($p['image'] ?? '', ['.webm', '.mp4']))
+<video src="{{ $p['image'] }}" autoplay loop muted playsinline class="pf-card-img"></video>
+@else
+<img src="{{ $p['image'] }}" alt="Design Project" loading="lazy" class="pf-card-img">
+@endif
                                 </div>
                             </div>
                         @endforeach
@@ -178,7 +182,11 @@
                         @foreach ($logo as $p)
                             <div class="pf-card" @if($loop->iteration > 2) hidden @endif>
                                 <div class="pf-card-img-wrap">
-                                    <img src="{{ $p['image'] }}" alt="Design Project" loading="lazy" class="pf-card-img">
+                                    @if(Str::endsWith($p['image'] ?? '', ['.webm', '.mp4']))
+<video src="{{ $p['image'] }}" autoplay loop muted playsinline class="pf-card-img"></video>
+@else
+<img src="{{ $p['image'] }}" alt="Design Project" loading="lazy" class="pf-card-img">
+@endif
                                 </div>
                             </div>
                         @endforeach
@@ -206,7 +214,11 @@
                         @foreach ($ai as $p)
                             <a class="pf-ai-card pf-card" href="{{ $p['url'] }}" target="_blank" rel="noopener noreferrer" @if($loop->iteration > 2) hidden @endif>
                                 <div class="pf-ai-card-img-wrap">
-                                    <img src="{{ $p['image'] }}" alt="AI Project" loading="lazy" class="pf-ai-card-img">
+                                    @if(Str::endsWith($p['image'] ?? '', ['.webm', '.mp4']))
+<video src="{{ $p['image'] }}" autoplay loop muted playsinline class="pf-ai-card-img"></video>
+@else
+<img src="{{ $p['image'] }}" alt="AI Project" loading="lazy" class="pf-ai-card-img">
+@endif
                                     <span class="pf-ai-arrow">
                                         <span class="pf-ai-arrow-ring r1"></span>
                                         <span class="pf-ai-arrow-ring r2"></span>

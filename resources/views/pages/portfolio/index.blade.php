@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Portfolio — Our Work — Corammers')
+@section('title', 'Portfolio — Corammers')
 @section('meta_description', 'Selected work by Corammers — websites, mobile apps, AI products and brand experiences delivered for real clients.')
 
 @push('styles')
@@ -33,23 +33,23 @@
     ];
 
     $mobileProjects = [
-        ['title' => 'NASA Explorer', 'desc' => 'Interactive space exploration platform providing real-time data from NASA missions and satellite imagery.', 'tag' => 'Science', 'image' => '/assets/project/mobile/1.webp'],
-        ['title' => 'Digital Art Canvas', 'desc' => 'A sophisticated platform for digital artists to showcase, trade, and collaborate on high-fidelity art.', 'tag' => 'Art', 'image' => '/assets/project/mobile/2.webp'],
-        ['title' => 'Fodio — Food App', 'desc' => 'Seamless food ordering and delivery experience with personalized recommendations and live tracking.', 'tag' => 'Lifestyle', 'image' => '/assets/project/mobile/3.webp'],
-        ['title' => 'Aplex AI', 'desc' => 'Advanced AI-powered assistant designed for productivity, creative automation, and data analysis.', 'tag' => 'AI', 'image' => '/assets/project/mobile/4.webp'],
-        ['title' => 'Laxa — Travel Ticket', 'desc' => 'End-to-end travel booking engine for flights and trains with real-time status updates.', 'tag' => 'Travel', 'image' => '/assets/project/mobile/5.webp'],
-        ['title' => 'Mpneto — Digital', 'desc' => 'Secure and intuitive digital financial platform for managing assets and peer-to-peer transactions.', 'tag' => 'Fintech', 'image' => '/assets/project/mobile/6.webp'],
-        ['title' => 'Flex — Home Finder', 'desc' => 'Modern real-time property marketplace helping users find homes with immersive walkthroughs.', 'tag' => 'Real Estate', 'image' => '/assets/project/mobile/7.webp'],
-        ['title' => 'Yoga Flow', 'desc' => 'Personalized wellness and yoga platform featuring expert-led sessions and health tracking.', 'tag' => 'Wellness', 'image' => '/assets/project/mobile/8.webp'],
-        ['title' => 'Premiere League Hub', 'desc' => 'Comprehensive football analytics and live match tracking dashboard for sports enthusiasts.', 'tag' => 'Sports', 'image' => '/assets/project/mobile/9.webp'],
+        ['title' => 'NASA Explorer', 'desc' => 'Interactive space exploration platform providing real-time data from NASA missions and satellite imagery.', 'tag' => 'Science', 'image' => '/assets/project/mobile/1.webm'],
+        ['title' => 'Digital Art Canvas', 'desc' => 'A sophisticated platform for digital artists to showcase, trade, and collaborate on high-fidelity art.', 'tag' => 'Art', 'image' => '/assets/project/mobile/2.webm'],
+        ['title' => 'Fodio — Food App', 'desc' => 'Seamless food ordering and delivery experience with personalized recommendations and live tracking.', 'tag' => 'Lifestyle', 'image' => '/assets/project/mobile/3.webm'],
+        ['title' => 'Aplex AI', 'desc' => 'Advanced AI-powered assistant designed for productivity, creative automation, and data analysis.', 'tag' => 'AI', 'image' => '/assets/project/mobile/4.webm'],
+        ['title' => 'Laxa — Travel Ticket', 'desc' => 'End-to-end travel booking engine for flights and trains with real-time status updates.', 'tag' => 'Travel', 'image' => '/assets/project/mobile/5.webm'],
+        ['title' => 'Mpneto — Digital', 'desc' => 'Secure and intuitive digital financial platform for managing assets and peer-to-peer transactions.', 'tag' => 'Fintech', 'image' => '/assets/project/mobile/6.webm'],
+        ['title' => 'Flex — Home Finder', 'desc' => 'Modern real-time property marketplace helping users find homes with immersive walkthroughs.', 'tag' => 'Real Estate', 'image' => '/assets/project/mobile/7.webm'],
+        ['title' => 'Yoga Flow', 'desc' => 'Personalized wellness and yoga platform featuring expert-led sessions and health tracking.', 'tag' => 'Wellness', 'image' => '/assets/project/mobile/8.webm'],
+        ['title' => 'Premiere League Hub', 'desc' => 'Comprehensive football analytics and live match tracking dashboard for sports enthusiasts.', 'tag' => 'Sports', 'image' => '/assets/project/mobile/9.webm'],
     ];
 
     $aiSolutionProjects = [
-        ['image' => '/assets/project/aiSol/1.webp', 'title' => 'AI Automation'],
-        ['image' => '/assets/project/aiSol/2.webp', 'title' => 'Smart CRM'],
-        ['image' => '/assets/project/aiSol/3.webp', 'title' => 'Neural ERP'],
-        ['image' => '/assets/project/aiSol/4.webp', 'title' => 'Data Analytics'],
-        ['image' => '/assets/project/aiSol/5.webp', 'title' => 'Vision Systems'],
+        ['image' => '/assets/project/aiSol/1.webm', 'title' => 'AI Automation'],
+        ['image' => '/assets/project/aiSol/2.webm', 'title' => 'Smart CRM'],
+        ['image' => '/assets/project/aiSol/3.webm', 'title' => 'Neural ERP'],
+        ['image' => '/assets/project/aiSol/4.webm', 'title' => 'Data Analytics'],
+        ['image' => '/assets/project/aiSol/5.webm', 'title' => 'Vision Systems'],
     ];
 
     $aiDesignProjects = [
@@ -65,24 +65,24 @@
     
 
     $customProjects = [
-        ['title' => 'Robotech', 'shortDesc' => 'Advanced robotics and industrial automation solutions.', 'desc' => 'A cutting-edge platform for robotics technology, showcasing industrial automation, smart machinery, and future-tech solutions for modern manufacturing.', 'tag' => 'AI', 'image' => '/assets/project/custom/1.webp', 'tech' => ['React', 'Three.js', 'Node.js', 'WebGL'], 'features' => ['3D model interaction', 'Real-time telemetry dashboard', 'Automated maintenance scheduling'], 'demo' => ['username' => 'admin@robotech.io', 'password' => 'robot_secure_99'], 'url' => 'https://templates.heydenstd.com/robotech/template-kit/home/?storefront=envato-elementsTB_iframe=true&width=600&height=550'],
-        ['title' => 'AI Foundries', 'shortDesc' => 'Integrated ecosystem for artificial intelligence development.', 'desc' => 'A comprehensive AI development hub providing tools for machine learning, data processing, and neural network training in a collaborative environment.', 'tag' => 'SaaS', 'image' => '/assets/project/custom/2.webp', 'tech' => ['Next.js', 'Python', 'TensorFlow', 'AWS'], 'features' => ['Model training visualization', 'Collaborative workspaces', 'API deployment suite'], 'demo' => ['username' => 'dev@aifoundaries.com', 'password' => 'ai_pro_test_123'], 'url' => 'https://elementor.altdesain.com/aifoundaries/?storefront=envato-elementsTB_iframe%3Dtrue&width=600&height=550'],
-        ['title' => 'EasyBridge', 'shortDesc' => 'Your Bridge to Homeownership.', 'desc' => 'Apply for your mortgage loan online in minutes. Simple, transparent, and stress-free — EasyBridge makes the path to your dream home a reality.', 'tag' => 'Fintech', 'image' => '/assets/project/custom/3.webp', 'tech' => ['PHP', 'Laravel', 'MySQL', 'Stripe'], 'features' => ['Quick mortgage application', 'Real-time status tracking', 'Secure document upload'], 'demo' => ['username' => 'borrower@easybridge.com', 'password' => 'loan_secure_456'], 'url' => 'https://easybridge.corammerswork.com/'],
-        ['title' => 'CPA Connections', 'shortDesc' => 'Financial advisor recruitment and professional networking.', 'desc' => 'A specialized recruitment platform connecting top-tier financial advisors with leading CPA firms, featuring advanced matching algorithms and career management tools.', 'tag' => 'Marketing', 'image' => '/assets/project/custom/4.webp', 'tech' => ['Laravel', 'Vue.js', 'PostgreSQL'], 'features' => ['AI-powered candidate matching', 'Professional profile builder', 'Secure communication portal'], 'demo' => ['username' => 'recruiter@cpaconnect.com', 'password' => 'cpa_network_789'], 'url' => 'https://cpaconnections.com/'],
-        ['title' => 'RippleQuest', 'shortDesc' => 'Interactive digital quest and engagement platform.', 'desc' => 'An immersive platform designed for digital storytelling and community engagement, featuring interactive quests, rewards systems, and social integration.', 'tag' => 'eCommerce', 'image' => '/assets/project/custom/5.webp', 'tech' => ['React', 'Firebase', 'GSAP'], 'features' => ['Dynamic quest builder', 'Reward points ecosystem', 'Real-time community feed'], 'demo' => ['username' => 'player@ripplequest.dev', 'password' => 'quest_start_2026'], 'url' => 'https://ripplequest.corammerswork.com/'],
-        ['title' => 'Gadam', 'shortDesc' => 'Creative portfolio and digital agency toolkit.', 'desc' => 'A premium digital agency platform designed for high-end creative portfolios, featuring advanced layout systems and interactive media presentations.', 'tag' => 'Marketing', 'image' => '/assets/project/custom/6.webp', 'tech' => ['PHP', 'CodeIgniter', 'jQuery', 'GSAP'], 'features' => ['Bespoke animation engine', 'Dynamic project grids', 'Integrated contact management'], 'demo' => ['username' => 'creative@gadam.net', 'password' => 'agency_pro_test'], 'url' => 'https://kits.krakenbox.net/gadam/?storefront=envato-elementsTB_iframe%3Dtrue&width=600&height=550'],
+        ['title' => 'Robotech', 'shortDesc' => 'Advanced robotics and industrial automation solutions.', 'desc' => 'A cutting-edge platform for robotics technology, showcasing industrial automation, smart machinery, and future-tech solutions for modern manufacturing.', 'tag' => 'AI', 'image' => '/assets/project/custom/1.webm', 'tech' => ['React', 'Three.js', 'Node.js', 'WebGL'], 'features' => ['3D model interaction', 'Real-time telemetry dashboard', 'Automated maintenance scheduling'], 'demo' => ['username' => 'admin@robotech.io', 'password' => 'robot_secure_99'], 'url' => 'https://templates.heydenstd.com/robotech/template-kit/home/?storefront=envato-elementsTB_iframe=true&width=600&height=550'],
+        ['title' => 'AI Foundries', 'shortDesc' => 'Integrated ecosystem for artificial intelligence development.', 'desc' => 'A comprehensive AI development hub providing tools for machine learning, data processing, and neural network training in a collaborative environment.', 'tag' => 'SaaS', 'image' => '/assets/project/custom/2.webm', 'tech' => ['Next.js', 'Python', 'TensorFlow', 'AWS'], 'features' => ['Model training visualization', 'Collaborative workspaces', 'API deployment suite'], 'demo' => ['username' => 'dev@aifoundaries.com', 'password' => 'ai_pro_test_123'], 'url' => 'https://elementor.altdesain.com/aifoundaries/?storefront=envato-elementsTB_iframe%3Dtrue&width=600&height=550'],
+        ['title' => 'EasyBridge', 'shortDesc' => 'Your Bridge to Homeownership.', 'desc' => 'Apply for your mortgage loan online in minutes. Simple, transparent, and stress-free — EasyBridge makes the path to your dream home a reality.', 'tag' => 'Fintech', 'image' => '/assets/project/custom/3.webm', 'tech' => ['PHP', 'Laravel', 'MySQL', 'Stripe'], 'features' => ['Quick mortgage application', 'Real-time status tracking', 'Secure document upload'], 'demo' => ['username' => 'borrower@easybridge.com', 'password' => 'loan_secure_456'], 'url' => 'https://easybridge.corammerswork.com/'],
+        ['title' => 'CPA Connections', 'shortDesc' => 'Financial advisor recruitment and professional networking.', 'desc' => 'A specialized recruitment platform connecting top-tier financial advisors with leading CPA firms, featuring advanced matching algorithms and career management tools.', 'tag' => 'Marketing', 'image' => '/assets/project/custom/4.webm', 'tech' => ['Laravel', 'Vue.js', 'PostgreSQL'], 'features' => ['AI-powered candidate matching', 'Professional profile builder', 'Secure communication portal'], 'demo' => ['username' => 'recruiter@cpaconnect.com', 'password' => 'cpa_network_789'], 'url' => 'https://cpaconnections.com/'],
+        ['title' => 'RippleQuest', 'shortDesc' => 'Interactive digital quest and engagement platform.', 'desc' => 'An immersive platform designed for digital storytelling and community engagement, featuring interactive quests, rewards systems, and social integration.', 'tag' => 'eCommerce', 'image' => '/assets/project/custom/5.webm', 'tech' => ['React', 'Firebase', 'GSAP'], 'features' => ['Dynamic quest builder', 'Reward points ecosystem', 'Real-time community feed'], 'demo' => ['username' => 'player@ripplequest.dev', 'password' => 'quest_start_2026'], 'url' => 'https://ripplequest.corammerswork.com/'],
+        ['title' => 'Gadam', 'shortDesc' => 'Creative portfolio and digital agency toolkit.', 'desc' => 'A premium digital agency platform designed for high-end creative portfolios, featuring advanced layout systems and interactive media presentations.', 'tag' => 'Marketing', 'image' => '/assets/project/custom/6.webm', 'tech' => ['PHP', 'CodeIgniter', 'jQuery', 'GSAP'], 'features' => ['Bespoke animation engine', 'Dynamic project grids', 'Integrated contact management'], 'demo' => ['username' => 'creative@gadam.net', 'password' => 'agency_pro_test'], 'url' => 'https://kits.krakenbox.net/gadam/?storefront=envato-elementsTB_iframe%3Dtrue&width=600&height=550'],
     ];
 
     $designProjects = [
-        ['image' => '/assets/project/uiux/1.webp'],
-        ['image' => '/assets/project/uiux/2.webp'],
-        ['image' => '/assets/project/uiux/3.webp'],
-        ['image' => '/assets/project/uiux/4.webp'],
-        ['image' => '/assets/project/uiux/5.webp'],
-        ['image' => '/assets/project/uiux/6.webp'],
-        ['image' => '/assets/project/uiux/7.webp'],
-        ['image' => '/assets/project/uiux/8.webp'],
-        ['image' => '/assets/project/uiux/9.webp'],
+        ['image' => '/assets/project/uiux/1.webm'],
+        ['image' => '/assets/project/uiux/2.webm'],
+        ['image' => '/assets/project/uiux/3.webm'],
+        ['image' => '/assets/project/uiux/4.webm'],
+        ['image' => '/assets/project/uiux/5.webm'],
+        ['image' => '/assets/project/uiux/6.webm'],
+        ['image' => '/assets/project/uiux/7.webm'],
+        ['image' => '/assets/project/uiux/8.webm'],
+        ['image' => '/assets/project/uiux/9.webm'],
     ];
 
     $tagStyles = [
@@ -241,7 +241,11 @@
                         @foreach($webProjects as $p)
                             <div class="pf-card pf-card-visible"@if($loop->iteration > 3) hidden @endif style="background:var(--surface);cursor:pointer" onclick="window.open('{{ $p['url'] }}','_blank')">
                                 <div style="position:relative;height:252px;overflow:hidden">
-                                    <img src="{{ $p['image'] }}" alt="{{ $p['title'] }}" loading="lazy" class="pf-web-slide-img" style="display:block;width:100%;height:auto;position:absolute;top:0;left:0;will-change:transform">
+                                    @if(Str::endsWith($p['image'] ?? '', ['.webm', '.mp4']))
+<video src="{{ $p['image'] }}" autoplay loop muted playsinline class="pf-web-slide-img" style="display:block;width:100%;height:auto;position:absolute;top:0;left:0;will-change:transform"></video>
+@else
+<img src="{{ $p['image'] }}" alt="{{ $p['title'] }}" loading="lazy" class="pf-web-slide-img" style="display:block;width:100%;height:auto;position:absolute;top:0;left:0;will-change:transform">
+@endif
                                     <div style="position:absolute;top:14px;left:14px;z-index:10">{!! $pfBadge($p['tag']) !!}</div>
                                     <div style="position:absolute;bottom:0;left:0;right:0;height:60px;z-index:4;pointer-events:none;background:linear-gradient(to top,var(--surface),transparent)"></div>
                                 </div>
@@ -289,7 +293,11 @@
                         @foreach($customProjects as $idx => $p)
                             <div class="pf-card pf-card-visible"@if($loop->iteration > 3) hidden @endif style="border-radius:20px;height:auto;display:flex;flex-direction:column;background:var(--surface)">
                                 <div style="position:relative;height:238px;overflow:hidden">
-                                    <img src="{{ $p['image'] }}" alt="{{ $p['title'] }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+                                    @if(Str::endsWith($p['image'] ?? '', ['.webm', '.mp4']))
+<video src="{{ $p['image'] }}" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;display:block"></video>
+@else
+<img src="{{ $p['image'] }}" alt="{{ $p['title'] }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+@endif
                                     <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(0,0,0,0.38) 100%);pointer-events:none"></div>
                                     <div style="position:absolute;top:14px;left:14px">{!! $pfBadge($p['tag']) !!}</div>
                                 </div>
@@ -297,11 +305,11 @@
                                     <h3 style="font-family:'Poppins',sans-serif;font-size:1.1rem;font-weight:700;color:var(--text);margin:0 0 6px;letter-spacing:-0.01em">{{ $p['title'] }}</h3>
                                     <p style="font-family:'Montserrat',sans-serif;font-size:0.78rem;line-height:1.65;color:var(--text-soft);margin:0 0 16px;flex-grow:1">{{ $p['shortDesc'] }}</p>
                                     <div style="display:flex;gap:8px;margin-top:auto">
-                                        <button type="button" onclick="window.open('{{ $p['url'] }}','_blank')" style="flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:9px 0;border-radius:10px;background:var(--primary);border:none;color:var(--filter-text-active);font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;cursor:pointer">
+                                        <button type="button" class="pf-explore-btn" onclick="window.open('{{ $p['url'] }}','_blank')" style="flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:9px 0;border-radius:10px;background:var(--primary);border:none;color:var(--filter-text-active);font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;cursor:pointer;transition:all 0.3s ease">
                                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
                                             Explore
                                         </button>
-                                        <button type="button" class="pf-custom-toggle" data-target="pf-custom-details-{{ $idx }}" style="flex:1;padding:9px 0;border-radius:10px;background:transparent;border:1px solid var(--border);color:var(--text-muted);font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;cursor:pointer">
+                                        <button type="button" class="pf-custom-toggle" data-target="pf-custom-details-{{ $idx }}" style="flex:1;padding:9px 0;border-radius:10px;background:transparent;border:1px solid var(--border);color:var(--text-muted);font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;cursor:pointer;transition:all 0.3s ease">
                                             Details
                                         </button>
                                     </div>
@@ -368,7 +376,11 @@
                         @foreach($mobileProjects as $p)
                             <div class="pf-card pf-card-visible"@if($loop->iteration > 3) hidden @endif style="background:var(--surface)">
                                 <div style="position:relative;height:252px;overflow:hidden">
-                                    <img src="{{ $p['image'] }}" alt="{{ $p['title'] }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+                                    @if(Str::endsWith($p['image'] ?? '', ['.webm', '.mp4']))
+<video src="{{ $p['image'] }}" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;display:block"></video>
+@else
+<img src="{{ $p['image'] }}" alt="{{ $p['title'] }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+@endif
                                     <div style="position:absolute;top:14px;left:14px;z-index:10">{!! $pfBadge($p['tag']) !!}</div>
                                     <div style="position:absolute;bottom:0;left:0;right:0;height:60px;z-index:4;pointer-events:none;background:linear-gradient(to top,var(--surface),transparent)"></div>
                                 </div>
@@ -412,7 +424,11 @@
                         @foreach($aiSolutionProjects as $p)
                             <div class="pf-card pf-card-visible"@if($loop->iteration > 2) hidden @endif style="border-radius:12px;overflow:hidden;position:relative">
                                 <div style="width:100%;aspect-ratio:16/9;overflow:hidden;position:relative">
-                                    <img src="{{ $p['image'] }}" alt="{{ $p['title'] }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+                                    @if(Str::endsWith($p['image'] ?? '', ['.webm', '.mp4']))
+<video src="{{ $p['image'] }}" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;display:block"></video>
+@else
+<img src="{{ $p['image'] }}" alt="{{ $p['title'] }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+@endif
                                 </div>
                             </div>
                         @endforeach
@@ -471,11 +487,15 @@
 
                         <div style="width:100%;aspect-ratio:16/9;overflow:hidden;position:relative">
 
-                            <img src="{{ $p['image'] }}"
+                            @if(Str::endsWith($p['image'] ?? '', ['.webm', '.mp4']))
+<video src="{{ $p['image'] }}" autoplay loop muted playsinline class="pf-card-img" style="width:100%;height:100%;object-fit:cover;display:block"></video>
+@else
+<img src="{{ $p['image'] }}"
                                  alt="{{ $p['title'] }}"
                                  loading="lazy"
                                  class="pf-card-img"
                                  style="width:100%;height:100%;object-fit:cover;display:block">
+@endif
 
                             {{-- NEW: play button overlay with 3 staggered pulse rings --}}
                             <div class="pf-video-overlay">
@@ -535,7 +555,11 @@
                         @foreach($designProjects as $p)
                             <div class="pf-card pf-card-visible"@if($loop->iteration > 3) hidden @endif>
                                 <div class="pf-card-img-wrap">
-                                    <img src="{{ $p['image'] }}" alt="Design Project" loading="lazy" class="pf-card-img">
+                                    @if(Str::endsWith($p['image'] ?? '', ['.webm', '.mp4']))
+<video src="{{ $p['image'] }}" autoplay loop muted playsinline class="pf-card-img"></video>
+@else
+<img src="{{ $p['image'] }}" alt="Design Project" loading="lazy" class="pf-card-img">
+@endif
                                 </div>
                             </div>
                         @endforeach
