@@ -108,7 +108,7 @@
         <div class="about-inner">
             <div class="about-banner-wrap reveal">
                 <img loading="lazy" decoding="async" src="/assets/about.webp" alt="About Us" class="about-banner-img">
-                <a href="https://www.youtube.com/@codecaks" target="_blank" rel="noopener noreferrer" class="about-video-anchor">
+                <a href="https://www.youtube.com/@MediaCorammers" target="_blank" rel="noopener noreferrer" class="about-video-anchor">
                     <span class="video-btn">
                         <span class="vbtn-ring vbtn-ring-1"></span>
                         <span class="vbtn-ring vbtn-ring-2"></span>
