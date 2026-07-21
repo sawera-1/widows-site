@@ -34,10 +34,13 @@
     AddOutputFilterByType BROTLI_COMPRESS text/html text/css application/javascript image/svg+xml
 </IfModule>
 
-# ── Performance: long-lived caching for static assets ────────────────────────
-# CSS/JS URLs carry a ?v=<mtime> version stamp (see asset_v() helper), so a
-# far-future immutable cache is safe: any deploy that changes a file also
-# changes its URL, and browsers fetch the new one immediately.
+# ── Performance: caching for static assets ───────────────────────────────────
+# CSS/JS carry a ?v=<mtime> version stamp (asset_v() helper) and fonts have
+# stable content, so they cache immutably for a year. Images/video use raw
+# filenames and DO get replaced in place, so they must revalidate — otherwise a
+# swapped image stays stale in browsers for a year. ETags make revalidation a
+# cheap 304 when nothing changed. (Cache TTL is a Lighthouse diagnostic only, it
+# does not affect the FCP/LCP/TBT/CLS performance score.)
 <IfModule mod_mime.c>
     AddType font/woff2 .woff2
 </IfModule>
@@ -45,18 +48,23 @@
     ExpiresActive On
     ExpiresByType text/css                "access plus 1 year"
     ExpiresByType application/javascript  "access plus 1 year"
-    ExpiresByType image/webp              "access plus 1 year"
-    ExpiresByType image/png               "access plus 1 year"
-    ExpiresByType image/jpeg              "access plus 1 year"
-    ExpiresByType image/svg+xml           "access plus 1 year"
-    ExpiresByType image/x-icon            "access plus 1 year"
     ExpiresByType font/woff2              "access plus 1 year"
-    ExpiresByType video/mp4               "access plus 1 year"
+    ExpiresByType image/webp              "access plus 1 hour"
+    ExpiresByType image/png               "access plus 1 hour"
+    ExpiresByType image/jpeg              "access plus 1 hour"
+    ExpiresByType image/svg+xml           "access plus 1 hour"
+    ExpiresByType image/x-icon            "access plus 1 hour"
+    ExpiresByType video/mp4               "access plus 1 hour"
     ExpiresByType text/html               "access plus 0 seconds"
 </IfModule>
 <IfModule mod_headers.c>
-    <FilesMatch "\.(css|js|webp|png|jpe?g|svg|ico|woff2|mp4)$">
+    # Versioned + stable assets: cache hard.
+    <FilesMatch "\.(css|js|woff2)$">
         Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    # Images/video: raw filenames, replaced in place — revalidate so updates show.
+    <FilesMatch "\.(webp|png|jpe?g|svg|ico|mp4)$">
+        Header set Cache-Control "public, max-age=3600, must-revalidate"
     </FilesMatch>
 
     # Baseline security headers (also score under Lighthouse best practices)
