@@ -277,7 +277,6 @@
                   <img loading="lazy" decoding="async" src="/assets/service/{{ $i + 1 }}.webp" alt="{{ $svc['title'] }}">
                 </div>
                 <div class="svc-panel-overlay"></div>
-                <div class="svc-panel-dot"><i></i></div>
                 <div class="svc-panel-content">
                   <span class="svc-panel-num">{{ $svc['num'] }}</span>
                   <h3 class="svc-panel-title">{{ $svc['title'] }}</h3>

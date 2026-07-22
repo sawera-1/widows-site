@@ -1697,6 +1697,7 @@ body.no-scroll {
 [data-theme=dark] .logo-on-light {
     display: none
 }
+
 /* ── Services Mega Menu ── */
 .sh-mega {
     min-width: 900px;
@@ -1704,23 +1705,28 @@ body.no-scroll {
     left: 50%;
     transform: translate(-50%) translateY(-8px) scale(0.97);
 }
+
 .sh-nav-item:hover .sh-mega,
 .sh-nav-item:focus-within .sh-mega {
     transform: translate(-50%) translateY(0) scale(1);
 }
+
 .sh-mega-mobile-only {
     display: none;
 }
+
 .sh-mega-desktop-only {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
+
 .sh-mega-header {
     display: flex;
     gap: 30px;
     justify-content: space-between;
 }
+
 .sh-mega-cat {
     flex: 1;
     display: flex;
@@ -1738,21 +1744,25 @@ body.no-scroll {
     transition: background 0.3s ease, color 0.3s ease;
     text-decoration: none;
 }
+
 .sh-mega-cat:hover {
     background: #fff;
     color: #D81D1F;
 }
+
 .sh-mega-body {
     display: flex;
     gap: 30px;
     justify-content: space-between;
 }
+
 .sh-mega-col {
     flex: 1;
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
+
 .sh-mega-link {
     display: block;
     font-family: Montserrat, sans-serif;
@@ -1764,6 +1774,7 @@ body.no-scroll {
     transition: opacity 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
     text-align: left;
 }
+
 .sh-mega-link:hover {
     opacity: 1;
     color: #D81D1F;
@@ -1777,15 +1788,17 @@ body.no-scroll {
         left: 0;
         transform: translateY(-8px) scale(0.97);
     }
+
     .sh-nav-item:hover .sh-mega,
     .sh-nav-item:focus-within .sh-mega {
         transform: translateY(0) scale(1);
     }
+
     .sh-mega-desktop-only {
         display: none !important;
     }
+
     .sh-mega-mobile-only {
         display: block !important;
     }
 }
-
