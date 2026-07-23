@@ -1300,31 +1300,31 @@
 
 .pw-staff-design .logo-item {
     flex-shrink: 0;
-    width: 200px;
+    width: 300px;
     padding: 0 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    filter: grayscale(1) opacity(.5);
+    
     transition: filter .3s ease, opacity .3s ease, transform .3s ease
 }
 
 .pw-staff-design .logo-item:hover {
-    filter: grayscale(0) opacity(1);
+    
     transform: scale(1.1)
 }
 
 [data-theme=dark] .pw-staff-design .logo-item {
-    filter: grayscale(1) invert(1) opacity(.4)
+    
 }
 
 [data-theme=dark] .pw-staff-design .logo-item:hover {
-    filter: grayscale(0) invert(0) opacity(1)
+    
 }
 
 .pw-staff-design .logo-item img {
-    max-width: 120px;
-    max-height: 48px;
+    max-width: 180px;
+    max-height: 80px;
     object-fit: contain
 }
 
@@ -2960,3 +2960,6 @@
 /* ── Dark-theme Load More button fix ── */
 [data-theme=dark] .pw-staff-design .sd-split-btn-default{color:#fff!important}
 [data-theme=dark] .pw-staff-design .sd-split-btn-icon,[data-theme=dark] .pw-staff-design .sd-split-btn-text{background:#ffffff;color:#111}
+
+
+.logos-slider-wrap:hover .logos-track, .logos-track:hover { animation-play-state: paused !important; }

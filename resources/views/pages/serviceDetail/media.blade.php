@@ -140,12 +140,17 @@
         ],
     ];
 
-    $clientLogos = [
-        ['name' => 'Apple', 'url' => 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg'],
-        ['name' => 'Google', 'url' => 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg'],
-        ['name' => 'Microsoft', 'url' => 'https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg'],
-        ['name' => 'Amazon', 'url' => 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg'],
-        ['name' => 'Meta', 'url' => 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg'],
+        $clientLogos = [
+        ['name' => 'Client 1', 'url' => '/assets/client/client1.webp'],
+        ['name' => 'Client 2', 'url' => '/assets/client/client2.webp'],
+        ['name' => 'Client 3', 'url' => '/assets/client/client3.webp'],
+        ['name' => 'Client 4', 'url' => '/assets/client/client4.webp'],
+        ['name' => 'Client 5', 'url' => '/assets/client/client5.webp'],
+        ['name' => 'Client 6', 'url' => '/assets/client/client6.webp'],
+        ['name' => 'Client 7', 'url' => '/assets/client/client7.webp'],
+        ['name' => 'Client 8', 'url' => '/assets/client/client8.webp'],
+        ['name' => 'Client 9', 'url' => '/assets/client/client9.webp'],
+        ['name' => 'Client 10', 'url' => '/assets/client/client10.webp'],
     ];
 @endphp
 
