@@ -232,7 +232,7 @@
                     </p>
 
                     <div class="dev-hero-cta-row">
-                        <a href="/contact" class="dev-hero-btn">
+                        <a href="#consultation" class="dev-hero-btn">
                             Contact Us
                           
                         </a>
@@ -316,10 +316,10 @@
                             </div>
                             <div class="wd-label-pill" style="margin-top:6px"><span class="wd-label-dot"></span><span class="wd-label-text">Our Expertise</span></div>
                         </div>
-                        <h2 class="wd-intro-heading" style="margin:24px 0 0">We Build Marketing Solutions That Drive Real Results</h2>
+                        <h2 class="wd-intro-heading" style="margin:24px 0 0">We Build Marketing Solutions That Drive <span style="color:var(--accent-theme,#D81D1F)">Real Results</span></h2>
                         <p class="wd-intro-text">From data-driven social strategies to precision SEO, our team crafts marketing campaigns that resonate with your audience. We combine technical excellence with strategic thinking — ensuring every campaign serves your goals.</p>
                         <div style="display:flex;align-items:center;gap:28px;margin-top:14px;flex-wrap:wrap">
-                            <a href="/contact" class="dev-hero-btn">
+                            <a href="#consultation" class="dev-hero-btn">
                                 Contact Us
                                
                             </a>
@@ -372,7 +372,7 @@
                         <div class="wd-label-pill"><span class="wd-label-dot"></span><span class="wd-label-text">Our Solutions</span></div>
                     </div>
                     <div class="wd-section-divider"></div>
-                    <h2 class="wd-section-heading">Marketing Services</h2>
+                    <h2 class="wd-section-heading">Marketing <span style="color:var(--accent-theme,#D81D1F)">Services</span></h2>
                     <p class="wd-section-sub">We don't just run ads; we build growth engines. From high-impact social campaigns to precision-targeted SEO, our solutions are designed to scale your brand profitably.</p>
                 </div>
 
@@ -409,7 +409,7 @@
                             </div>
                             <div class="wd-label-pill" style="margin-top:6px"><span class="wd-label-dot"></span><span class="wd-label-text">Our Methodology</span></div>
                         </div>
-                        <h2 class="wd-section-heading" style="margin:24px 0 0">How We Build Scalable Solutions</h2>
+                        <h2 class="wd-section-heading" style="margin:24px 0 0">How We Build <span style="color:var(--accent-theme,#D81D1F)">Scalable Solutions</span></h2>
                     </div>
                     <p class="wd-section-sub">A proven, structured process — from initial discovery to flawless deployment, every phase is intentional and precise.</p>
                 </div>
@@ -443,7 +443,7 @@
                         </div>
                         <div class="wd-label-pill" style="margin-top:6px"><span class="wd-label-dot"></span><span class="wd-label-text">Pricing</span></div>
                     </div>
-                    <h2 class="wd-section-heading" style="margin:24px 0 0">Flexible Marketing Plans</h2>
+                    <h2 class="wd-section-heading" style="margin:24px 0 0">Flexible <span style="color:var(--accent-theme,#D81D1F)">Marketing Plans</span></h2>
                     <p class="wd-section-sub" style="margin:12px 0 0">Choose a strategy that fits your growth stage — no long-term contracts, just results-driven marketing.</p>
                 </div>
 
@@ -508,7 +508,7 @@
                                 @endforeach
                             </ul>
 
-                            <a href="/contact" class="pc-btn">Contact Us</a>
+                            <a href="#consultation" class="pc-btn">Contact Us</a>
                         </div>
                     @endforeach
                 </div>
@@ -629,7 +629,7 @@
         </div>
     </section>
     {{-- BOOK CONSULTATION --}}
-       <section class="wd-section bc-section">
+       <section id="consultation" class="wd-section bc-section">
         <div class="wd-inner">
             <div class="dev-intro-two-col bc-two-col reveal">
 

@@ -77,7 +77,7 @@
             <p class="dev-hero-right-desc" style="font-style: italic;">
                 "Creating Smarter Content with the Power of Artificial Intelligence."
             </p>
-            <a href="/contact" class="dev-connect-btn">
+            <a href="#book-consultation" class="dev-connect-btn">
                 <span>Let's Connect</span>
             </a>
         </div>
@@ -166,7 +166,7 @@
                     </div>
                 </div>
                 <div class="wd-section-divider"></div>
-                <h2 class="wd-section-heading" style="margin:0">AI Content Creation Services</h2>
+                <h2 class="wd-section-heading" style="margin:0">AI Content Creation <span style="color:var(--accent-theme,#D81D1F)">Services</span></h2>
             </div>
             <p class="wd-section-sub">We deliver scalable creative solutions that reduce production time, lower costs, and accelerate your marketing efforts.</p>
         </div>
@@ -211,7 +211,7 @@
                 <h2 class="wc-heading">Why Choose Corammers for<br><span class="wc-accent">AI Content Creation?</span></h2>
                 <p class="wc-para">Corammers combines creativity with the latest AI technologies to produce professional-quality content in a fraction of the traditional production time. Our team helps businesses scale content creation, maintain brand consistency, reduce production costs, and deliver engaging visual experiences that capture attention across digital platforms.</p>
                 <p class="wc-tagline">Corammers – Creating Smarter Content with the Power of Artificial Intelligence.</p>
-                <a href="/contact" class="wc-cta-btn">Start Creating</a>
+                <a href="#book-consultation" class="wc-cta-btn">Start Creating</a>
             </div>
 
             {{-- ── RIGHT: Image + Play Button ── --}}
@@ -434,6 +434,18 @@
         {{-- ══════════ booking══════════ --}}
         <section class="lf-section" id="book-consultation">
     <div class="lf-container">
+          <div style="display: flex; justify-content: center;">
+            <div style="display: flex; flex-direction: column;">
+                <div class="wd-label-row-bl" style="margin-bottom: 12px; justify-content: flex-start;">
+                    <div class="wd-robot-badge-bl">{!! $robo !!}</div>
+                    <div class="wd-label-pill-bl">
+                        <span class="wd-label-dot-bl"></span>
+                        <span class="wd-label-text-bl">Consultation</span>
+                    </div>
+                </div>
+                <div class="wd-section-divider-bl" style="margin-left: 0;"></div>
+            </div>
+        </div>
         <h2 class="lf-heading">Book a Free <span class="accent">Consultation</span></h2>
         <p class="lf-subtitle">Let's discuss how we can scale your content production and accelerate your marketing efforts with AI.</p>
 

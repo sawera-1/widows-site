@@ -15,11 +15,6 @@
     box-sizing: border-box;
 }
 
-.bc-section .wd-intro-heading {
-    font-size: clamp(2rem, 5vw, 4rem) !important;
-    line-height: 1.2 !important;
-    word-wrap: break-word;
-}
 
 @media (max-width: 992px) {
     .bc-section {
@@ -312,7 +307,7 @@
                 </p>
 
                 <div class="dev-hero-cta-row">
-                    <a href="/contact" class="dev-hero-btn">Contact Us</a>
+                    <a href="#consultation" class="dev-hero-btn">Contact Us</a>
                 </div>
             </div>
 
@@ -388,12 +383,12 @@
                                 <span class="wd-label-text">Our Expertise</span>
                             </div>
                         </div>
-                        <h2 class="wd-intro-heading" style="margin:24px 0 0">We Build Web Solutions That Drive Real Results</h2>
+                        <h2 class="wd-intro-heading" style="margin:24px 0 0">We Build Web Solutions That Drive <span style="color:var(--accent-theme,#D81D1F)">Real Results</span></h2>
                     </div>
                     <p class="wd-intro-text">From pixel-perfect frontends to robust backend systems, our team architects digital products that grow with your business. We combine technical excellence with strategic thinking ensuring every line of code serves your goals.</p>
                     <p class="wd-intro-text">Whether you need a stunning marketing site, a complex SaaS platform, or a custom e-commerce solution, we deliver with precision, speed, and long-term scalability.</p>
                     <div style="display:flex;align-items:center;gap:28px;margin-top:14px;flex-wrap:wrap">
-                        <a href="/contact" class="dev-hero-btn">Contact Us</a>
+                        <a href="#consultation" class="dev-hero-btn">Contact Us</a>
                         <div class="wd-intro-stat">
                             <strong>150+</strong>
                             <span>Projects Delivered</span>
@@ -442,7 +437,7 @@
                         </div>
                     </div>
                     <div class="wd-section-divider"></div>
-                    <h2 class="wd-section-heading" style="margin:0">Development Services</h2>
+                    <h2 class="wd-section-heading" style="margin:0">Development <span style="color:var(--accent-theme,#D81D1F)">Services</span></h2>
                 </div>
                 <p class="wd-section-sub">We specialize in building high-end digital products. Every project is scalable, secure, and built to perform.</p>
             </div>
@@ -481,7 +476,7 @@
                         </div>
                     </div>
                     <div class="wd-section-divider"></div>
-                    <h2 class="wd-section-heading" style="margin:0">How We Build Scalable Solutions</h2>
+                    <h2 class="wd-section-heading" style="margin:0">How We Build <span style="color:var(--accent-theme,#D81D1F)">Scalable Solutions</span></h2>
                 </div>
                 <p class="wd-section-sub">A proven, structured process — from initial discovery to flawless deployment, every phase is intentional and precise.</p>
             </div>
@@ -519,7 +514,7 @@
                             <span class="wd-label-text">Pricing</span>
                         </div>
                     </div>
-                    <h2 class="wd-section-heading" style="text-align:center;margin-top:24px;margin-bottom:0">Simple, Transparent Pricing</h2>
+                    <h2 class="wd-section-heading" style="text-align:center;margin-top:24px;margin-bottom:0">Simple, Transparent <span style="color:var(--accent-theme,#D81D1F)">Pricing</span></h2>
                 </div>
                 <p class="wd-section-sub" style="margin:0 auto;text-align:center">Pricing is based on the technology stack — no hidden fees, no surprises. Pick your tech and let&apos;s build.</p>
             </div>
@@ -581,7 +576,7 @@
                         @endforeach
                     </ul>
 
-                    <a href="/contact" class="pc-btn">Contact Us</a>
+                    <a href="#consultation" class="pc-btn">Contact Us</a>
                 </div>
                 @endforeach
             </div>
@@ -701,7 +696,7 @@
     </section>
 
     {{-- ═══ BOOK CONSULTATION SECTION ═══ --}}
-    <section class="wd-section bc-section">
+    <section id="consultation" class="wd-section bc-section">
         <div class="wd-inner">
             <div class="dev-intro-two-col bc-two-col reveal">
 

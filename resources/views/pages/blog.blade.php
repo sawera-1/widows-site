@@ -55,7 +55,7 @@
             </div>
         </div>
 
-        <h2 class="section-title">Stories Worth <mark>Reading</mark></h2>
+        <h2 class="section-title sec-heading">Stories Worth <mark>Reading</mark></h2>
 
         <div class="blog-grid">
             @foreach(config('site.posts') as $i => $post)

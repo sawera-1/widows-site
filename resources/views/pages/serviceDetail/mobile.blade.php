@@ -79,7 +79,7 @@
             <p class="dev-hero-right-desc" style="font-style: italic;">
                 "Empowering businesses through scalable mobile solutions. We transform complex ideas into high-performing digital realities."
             </p>
-            <a href="/contact" class="dev-connect-btn">
+            <a href="#book-consultation" class="dev-connect-btn">
                 <span>Let's Connect</span>
             </a>
         </div>
@@ -168,7 +168,7 @@
                     </div>
                 </div>
                 <div class="wd-section-divider"></div>
-                <h2 class="wd-section-heading" style="margin:0">Mobile App Development Services</h2>
+                <h2 class="wd-section-heading" style="margin:0">Mobile App Development <span style="color:var(--accent-theme,#D81D1F)">Services</span></h2>
             </div>
             <p class="wd-section-sub">Build modern, secure, scalable, and high-performing mobile apps tailored to your business goals. From custom native applications to cross-platform solutions, Corammers delivers complete mobile experiences that drive growth.</p>
         </div>
@@ -213,7 +213,7 @@
                 <h2 class="wc-heading">Why Businesses Choose <span class="wc-accent">Corammers</span><br>To Build Mobile Apps That <span class="wc-accent">Deliver Results</span></h2>
                 <p class="wc-para">We build fast, secure mobile apps that just work — and keep working. Every project moves forward with clear communication and honest timelines, so you're never left guessing. It's why startups and enterprises alike come back to us: not for one project, but for the long run.</p>
                 <p class="wc-tagline">Corammers — Building Digital Experiences That Businesses Trust.</p>
-                <a href="/contact" class="wc-cta-btn">Let's Build Your App</a>
+                <a href="#book-consultation" class="wc-cta-btn">Let's Build Your App</a>
             </div>
 
             {{-- ── RIGHT: Image + Play Button ── --}}
@@ -431,6 +431,18 @@
         {{-- ══════════ booking══════════ --}}
         <section class="lf-section" id="book-consultation">
     <div class="lf-container">
+          <div style="display: flex; justify-content: center;">
+            <div style="display: flex; flex-direction: column;">
+                <div class="wd-label-row-bl" style="margin-bottom: 12px; justify-content: flex-start;">
+                    <div class="wd-robot-badge-bl">{!! $robo !!}</div>
+                    <div class="wd-label-pill-bl">
+                        <span class="wd-label-dot-bl"></span>
+                        <span class="wd-label-text-bl">Consultation</span>
+                    </div>
+                </div>
+                <div class="wd-section-divider-bl" style="margin-left: 0;"></div>
+            </div>
+        </div>
         <h2 class="lf-heading">Book a Free <span class="accent">Consultation</span></h2>
         <p class="lf-subtitle">Let's discuss how we can transform your app idea into a high-performing product.</p>
 

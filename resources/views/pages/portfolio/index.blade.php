@@ -139,7 +139,7 @@
     {{-- ── Hero ── --}}
     <section class="hero">
         <div class="hero-text">
-            <h1 class="hero-heading visible">PORTFOLIO</h1>
+            <h1 class="hero-heading visible">Portfolio</h1>
             <p class="hero-sub visible">
                 Explore our curated selection of high-performance web platforms,<br>
                 mobile applications, and creative digital experiences.

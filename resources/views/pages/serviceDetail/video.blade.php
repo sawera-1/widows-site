@@ -78,7 +78,7 @@
             <p class="dev-hero-right-desc" style="font-style: italic;">
                 "Corammers — Bringing Your Vision to Life Through Creative Video Editing."
             </p>
-            <a href="/contact" class="dev-connect-btn">
+            <a href="#book-consultation" class="dev-connect-btn">
                 <span>Let's Connect</span>
             </a>
         </div>
@@ -167,7 +167,7 @@
                     </div>
                 </div>
                 <div class="wd-section-divider"></div>
-                <h2 class="wd-section-heading" style="margin:0">Video Editing Services</h2>
+                <h2 class="wd-section-heading" style="margin:0">Video Editing <span style="color:var(--accent-theme,#D81D1F)">Services</span></h2>
             </div>
             <p class="wd-section-sub">From engaging social media reels to cinematic corporate films, our professional editing services transform your raw footage into compelling stories that drive measurable business impact.</p>
         </div>
@@ -212,7 +212,7 @@
                 <h2 class="wc-heading">Why Choose Corammers for<br><span class="wc-accent">Video Editing</span></h2>
                 <p class="wc-para">We focus on creative storytelling, cinematic quality, and fast turnarounds to deliver exceptional video content. Our expertise in motion graphics, color grading, and precise audio editing ensures your videos perform perfectly across every platform.</p>
                 <p class="wc-tagline">Corammers — Bringing Your Vision to Life Through Creative Video Editing.</p>
-                <a href="/contact" class="wc-cta-btn">Let's Edit Your Video</a>
+                <a href="#book-consultation" class="wc-cta-btn">Let's Edit Your Video</a>
             </div>
 
             {{-- ── RIGHT: Image + Play Button ── --}}
@@ -435,7 +435,19 @@
         {{-- ══════════ booking══════════ --}}
         <section class="lf-section" id="book-consultation">
     <div class="lf-container">
-        <h2 class="lf-heading">Ready to Transform Your Videos Into <span class="accent">Powerful Marketing Assets?</span></h2>
+          <div style="display: flex; justify-content: center;">
+            <div style="display: flex; flex-direction: column;">
+                <div class="wd-label-row-bl" style="margin-bottom: 12px; justify-content: flex-start;">
+                    <div class="wd-robot-badge-bl">{!! $robo !!}</div>
+                    <div class="wd-label-pill-bl">
+                        <span class="wd-label-dot-bl"></span>
+                        <span class="wd-label-text-bl">Consultation</span>
+                    </div>
+                </div>
+                <div class="wd-section-divider-bl" style="margin-left: 0;"></div>
+            </div>
+        </div>
+         <h2 class="lf-heading">Book a Free <span class="accent">Consultation</span></h2>
         <p class="lf-subtitle">Whether you need promotional videos, corporate content, YouTube editing, commercials, social media reels, podcasts, or cinematic storytelling, Corammers delivers professional video editing solutions that help your brand capture attention, engage audiences, and grow your business through compelling visual content.</p>
 
         <div class="lf-book-grid">

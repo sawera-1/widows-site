@@ -79,7 +79,7 @@
             <p class="dev-hero-right-desc" style="font-style: italic;">
                 "Empowering businesses through scalable e-commerce solutions. We transform complex ideas into high-converting digital storefronts."
             </p>
-            <a href="/contact" class="dev-connect-btn">
+            <a href="#book-consultation" class="dev-connect-btn">
                 <span>Let's Connect</span>
             </a>
         </div>
@@ -168,7 +168,7 @@
                     </div>
                 </div>
                 <div class="wd-section-divider"></div>
-                <h2 class="wd-section-heading" style="margin:0">E-Commerce Development Services</h2>
+                <h2 class="wd-section-heading" style="margin:0">E-Commerce Development <span style="color:var(--accent-theme,#D81D1F)">Services</span></h2>
             </div>
             <p class="wd-section-sub">Build modern, secure, scalable, and high-converting online stores tailored to your business goals. From custom Shopify development to headless commerce solutions, Corammers delivers complete e-commerce experiences that drive sales.</p>
         </div>
@@ -213,7 +213,7 @@
                 <h2 class="wc-heading">Why Businesses Choose <span class="wc-accent">Corammers</span><br>To Build Online Stores That <span class="wc-accent">Drive Sales</span></h2>
                 <p class="wc-para">We build conversion-focused, secure, and fast-loading online stores that just work. With mobile-first shopping experiences, SEO-friendly architectures, and seamless third-party integrations, we ensure your e-commerce platform scales alongside your business. It's why ambitious brands trust us for the long run.</p>
                 <p class="wc-tagline">Corammers — Building Digital Experiences That Businesses Trust.</p>
-                <a href="/contact" class="wc-cta-btn">Let's Build Your Store</a>
+                <a href="#book-consultation" class="wc-cta-btn">Let's Build Your Store</a>
             </div>
 
             {{-- ── RIGHT: Image + Play Button ── --}}
@@ -436,7 +436,19 @@
         {{-- ══════════ booking══════════ --}}
         <section class="lf-section" id="book-consultation">
     <div class="lf-container">
-        <h2 class="lf-heading">Ready to Launch Your <span class="accent">Online Store?</span></h2>
+          <div style="display: flex; justify-content: center;">
+            <div style="display: flex; flex-direction: column;">
+                <div class="wd-label-row-bl" style="margin-bottom: 12px; justify-content: flex-start;">
+                    <div class="wd-robot-badge-bl">{!! $robo !!}</div>
+                    <div class="wd-label-pill-bl">
+                        <span class="wd-label-dot-bl"></span>
+                        <span class="wd-label-text-bl">Consultation</span>
+                    </div>
+                </div>
+                <div class="wd-section-divider-bl" style="margin-left: 0;"></div>
+            </div>
+        </div>
+         <h2 class="lf-heading">Book a Free <span class="accent">Consultation</span></h2>
         <p class="lf-subtitle">Whether you're launching a new brand or upgrading an existing e-commerce platform, Corammers builds secure, scalable, and conversion-focused online stores that help businesses sell more and grow faster.</p>
 
         <div class="lf-book-grid">

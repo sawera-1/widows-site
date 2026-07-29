@@ -458,13 +458,43 @@
 
         if (videoId) {
             player.innerHTML =
+                '<div id="tsModalLoader" class="ts-modal-loader">' +
+                    '<div class="ts-loader-spinner"></div>' +
+                    '<div id="tsLoaderProgress" class="ts-loader-progress">0%</div>' +
+                '</div>' +
                 '<iframe ' +
+                    'id="tsYoutubeIframe" ' +
                     'src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0&modestbranding=1" ' +
                     'title="' + channel + '" ' +
                     'frameborder="0" ' +
+                    'style="opacity:0; transition: opacity 0.4s ease;" ' +
                     'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ' +
                     'allowfullscreen>' +
                 '</iframe>';
+                
+            var iframe = document.getElementById('tsYoutubeIframe');
+            var loader = document.getElementById('tsModalLoader');
+            var progress = document.getElementById('tsLoaderProgress');
+            
+            var pct = 0;
+            var interval = setInterval(function() {
+                pct += Math.floor(Math.random() * 15) + 5;
+                if (pct > 95) pct = 95;
+                if (progress) progress.textContent = pct + '%';
+            }, 100);
+
+            iframe.onload = function() {
+                clearInterval(interval);
+                if (progress) progress.textContent = '100%';
+                setTimeout(function() {
+                    if (loader) {
+                        loader.style.opacity = '0';
+                        loader.style.transition = 'opacity 0.3s ease';
+                        setTimeout(function() { loader.style.display = 'none'; }, 300);
+                    }
+                    iframe.style.opacity = '1';
+                }, 200);
+            };
         } else {
             // Fallback: no valid video ID found, just link out
             player.innerHTML = '<div class="ts-modal-fallback">Video unavailable. <a href="' + videoUrl + '" target="_blank" rel="noopener noreferrer">Open on YouTube</a></div>';

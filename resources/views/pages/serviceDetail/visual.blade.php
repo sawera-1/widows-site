@@ -77,7 +77,7 @@
             <p class="dev-hero-right-desc" style="font-style: italic;">
                 "Corammers – Building Consistent Design Systems for Scalable Digital Products."
             </p>
-            <a href="/contact" class="dev-connect-btn">
+            <a href="#book-consultation" class="dev-connect-btn">
                 <span>Let's Connect</span>
             </a>
         </div>
@@ -166,7 +166,7 @@
                     </div>
                 </div>
                 <div class="wd-section-divider"></div>
-                <h2 class="wd-section-heading" style="margin:0">Design System Services</h2>
+                <h2 class="wd-section-heading" style="margin:0">Design System <span style="color:var(--accent-theme,#D81D1F)">Services</span></h2>
             </div>
             <p class="wd-section-sub">Build scalable Visual Design Systems that bring consistency, efficiency, and clarity to your digital products.</p>
         </div>
@@ -211,7 +211,7 @@
                 <h2 class="wc-heading">Why Choose Corammers for<br><span class="wc-accent">Visual Systems?</span></h2>
                 <p class="wc-para">A strong visual system is the foundation of every successful digital product. We combine design expertise with scalable development to create comprehensive systems that improve collaboration, reduce design debt, and accelerate product delivery.</p>
                 <p class="wc-tagline">Corammers – Building Consistent Design Systems for Scalable Digital Products.</p>
-                <a href="/contact" class="wc-cta-btn">Let's Build Your System</a>
+                <a href="#book-consultation" class="wc-cta-btn">Let's Build Your System</a>
             </div>
 
             {{-- ── RIGHT: Image + Play Button ── --}}
@@ -432,7 +432,19 @@
         {{-- ══════════ booking══════════ --}}
         <section class="lf-section" id="book-consultation">
     <div class="lf-container">
-        <h2 class="lf-heading">Ready to Build a Scalable <span class="accent">Design System?</span></h2>
+          <div style="display: flex; justify-content: center;">
+            <div style="display: flex; flex-direction: column;">
+                <div class="wd-label-row-bl" style="margin-bottom: 12px; justify-content: flex-start;">
+                    <div class="wd-robot-badge-bl">{!! $robo !!}</div>
+                    <div class="wd-label-pill-bl">
+                        <span class="wd-label-dot-bl"></span>
+                        <span class="wd-label-text-bl">Consultation</span>
+                    </div>
+                </div>
+                <div class="wd-section-divider-bl" style="margin-left: 0;"></div>
+            </div>
+        </div>
+         <h2 class="lf-heading">Book a Free <span class="accent">Consultation</span></h2>
         <p class="lf-subtitle">Let's discuss how we can build a scalable visual design system to bring consistency to your digital products.</p>
 
         <div class="lf-book-grid">

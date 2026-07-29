@@ -99,12 +99,12 @@
 
 .hero-heading {
     font-family: Poppins, sans-serif;
-    font-size: clamp(2.6rem, 4.2vw, 4rem);
     font-weight: 800;
-    letter-spacing: -.025em;
-    line-height: 1.1;
-    color: var(--text);
-    margin: 0 0 22px
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.05;
+    color: var(--heading-color);
+    margin: 0 0 24px;
+    letter-spacing: -.03em;
 }
 
 .hero-heading .accent {
@@ -115,10 +115,10 @@
 
 .hero-desc {
     font-family: Montserrat, sans-serif;
-    font-size: 1rem;
     font-weight: 400;
-    line-height: 1.8;
-    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--sub-color);
     max-width: 540px;
     margin: 0 auto 36px
 }
@@ -432,20 +432,22 @@
 
 .section-heading {
     font-family: Poppins, sans-serif;
-    font-size: clamp(2.1rem, 4.8vw, 3.4rem);
     font-weight: 800;
-    letter-spacing: -.02em;
-    line-height: 1.15;
-    color: var(--text);
-    margin: 0 0 20px
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.05;
+    color: var(--heading-color);
+    margin: 0 0 24px;
+    letter-spacing: -.03em;
 }
 
 .section-sub {
     font-family: Montserrat, sans-serif;
+    font-weight: 400;
     font-size: 1rem;
-    color: var(--text-muted);
+    line-height: 1.85;
+    color: var(--sub-color);
     max-width: 540px;
-    line-height: 1.78;
+    
     margin: 0
 }
 
@@ -634,17 +636,20 @@
 
 .process-heading {
     font-family: Poppins, sans-serif;
-    font-size: clamp(2rem, 4vw, 3.2rem);
     font-weight: 800;
-    letter-spacing: -.025em;
-    line-height: 1.15;
-    margin: 0 0 18px
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.05;
+    color: var(--heading-color);
+    margin: 0 0 24px;
+    letter-spacing: -.03em;
 }
 
 .process-sub {
     font-family: Montserrat, sans-serif;
+    font-weight: 400;
     font-size: 1rem;
-    color: var(--text-muted);
+    line-height: 1.85;
+    color: var(--sub-color);
     max-width: 520px;
     line-height: 1.78
 }
@@ -766,8 +771,10 @@
 
 .node-desc {
     font-family: Montserrat, sans-serif;
-    font-size: .85rem;
-    line-height: 1.72;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--sub-color);
     color: var(--text-muted)
 }
 
@@ -896,9 +903,10 @@
 
 .hwb-step-desc {
     font-family: Montserrat, sans-serif;
-    font-size: .83rem;
-    line-height: 1.74;
-    color: var(--text-muted);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--sub-color);
     max-width: 200px;
     margin: 0 auto 14px
 }
@@ -974,8 +982,14 @@
     }
 
     .hero-heading {
-        font-size: 2.4rem
-    }
+    font-family: Poppins, sans-serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.05;
+    color: var(--heading-color);
+    margin: 0 0 24px;
+    letter-spacing: -.03em;
+}
 
     .hero-ticker-group {
         height: 280px;
@@ -1013,9 +1027,14 @@
     }
 
     .hwb-step-desc {
-        margin: 0 0 10px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--sub-color);
+    margin: 0 0 10px;
         max-width: none
-    }
+}
 
     .hwb-icon-ring {
         flex-shrink: 0
@@ -1307,12 +1326,12 @@
 
 .svc-heading {
     font-family: Poppins, sans-serif;
-    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3rem);
     line-height: 1.05;
+    color: var(--heading-color);
     margin: 0 0 24px;
     letter-spacing: -.03em;
-    color: var(--sa-heading)
 }
 
 .svc-heading span {
@@ -1321,17 +1340,19 @@
 
 .svc-sub {
     font-family: Montserrat, sans-serif;
+    font-weight: 400;
     font-size: 1rem;
     line-height: 1.85;
+    color: var(--sub-color);
     margin: 0 0 45px;
     max-width: 680px;
-    font-weight: 400;
+    
     color: var(--sa-desc)
 }
 
 .svc-track {
     position: relative;
-    height: calc(clamp(300px, 46vw, 520px) * var(--panel-count, 1))
+    height: calc(clamp(300px, 46vw, 520px) * (var(--panel-count, 1) * 2 - 1))
 }
 
 .svc-sticky {
@@ -1376,7 +1397,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: .5
+    opacity: 1
 }
 
 .svc-panel-overlay {
@@ -1445,10 +1466,10 @@
 
 .svc-panel-desc {
     font-family: Montserrat, sans-serif;
-    font-size: clamp(.82rem, 1.1vw, .96rem);
     font-weight: 400;
-    line-height: 1.75;
-    color: #ffffffb3;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--sub-color);
     max-width: 420px;
     margin: 0
 }
@@ -1585,8 +1606,13 @@
     }
 
     .svc-panel-desc {
-        font-size: 13px
-    }
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--sub-color);
+    font-size: 13px
+}
 
     .svc-progress {
         display: none
@@ -1905,12 +1931,12 @@
 
 .sa-heading {
     font-family: Poppins, sans-serif;
-    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
     font-weight: 800;
-    line-height: 1.02;
-    margin: 0 0 28px;
-    letter-spacing: -.04em;
-    color: var(--sa-heading)
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.05;
+    color: var(--heading-color);
+    margin: 0 0 24px;
+    letter-spacing: -.03em;
 }
 
 .sa-heading mark {
@@ -1921,11 +1947,13 @@
 
 .sa-desc {
     font-family: Montserrat, sans-serif;
+    font-weight: 400;
     font-size: 1rem;
     line-height: 1.85;
+    color: var(--sub-color);
     margin: 0 0 35px;
     max-width: 480px;
-    font-weight: 400;
+    
     color: var(--sa-desc)
 }
 
@@ -2123,12 +2151,23 @@
     }
 
     .sa-heading {
-        font-size: clamp(28px, 4.5vw, 40px)
-    }
+    font-family: Poppins, sans-serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.05;
+    color: var(--heading-color);
+    margin: 0 0 24px;
+    letter-spacing: -.03em;
+}
 
     .sa-desc {
-        max-width: 100%
-    }
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--sub-color);
+    max-width: 100%
+}
 }
 
 @media(max-width:768px) {
@@ -2464,27 +2503,64 @@
     color: var(--cb-pill-text)
 }
 
+.wd-ticker {
+    background: var(--ticker-bg);
+    color: var(--ticker-text);
+    padding: 24px 0;
+    overflow: hidden;
+    transition: var(--transition)
+}
+
+.wd-ticker-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    animation: tickerScroll 55s linear infinite
+}
+
+.wd-ticker-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 40px;
+    font-family: Montserrat, sans-serif;
+    font-size: .88rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: var(--ticker-text)
+}
+
+.wd-ticker-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #d81d1f;
+    flex-shrink: 0;
+    margin-right: 8px
+}
+
 .cb-heading {
     font-family: Poppins, sans-serif;
-    font-size: clamp(2.2rem, 5vw, 3.8rem);
-    font-weight: 900;
+    font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3rem);
     line-height: 1.05;
-    margin: 0 0 20px;
-    letter-spacing: -.04em;
-    color: var(--cb-heading);
-    max-width: 900px;
-    position: relative;
-    z-index: 1
+    color: #ffffff;
+    margin: 0 0 24px;
+    letter-spacing: -.03em;
 }
 
 .cb-sub {
     font-family: Montserrat, sans-serif;
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: #ffffff;
     margin: 0 0 48px;
     max-width: 650px;
-    color: var(--cb-sub);
-    font-weight: 500;
+    
+    
     position: relative;
     z-index: 1
 }
@@ -2583,4 +2659,140 @@
 
 [data-theme=dark] .pw-services .robot-light {
     display: none
+}
+
+[data-theme=dark] .wd-ticker {
+    background: #d81d1f17;
+    border-top: 1px solid rgba(216, 29, 31, .15);
+    border-bottom: 1px solid rgba(216, 29, 31, .15)
+}
+
+[data-theme=dark] .wd-ticker-item {
+    color: #ffffff;
+}
+
+[data-theme=dark] .wd-ticker-item svg {
+    stroke: #ffffff;
+    fill: none;
+}
+
+/* ---------- Calendly Modal ---------- */
+.cal-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    cursor: default !important;
+}
+
+.cal-modal * {
+    cursor: auto !important;
+}
+
+.cal-modal .cal-modal-backdrop,
+.cal-modal button.cal-modal-close,
+.cal-modal a {
+    cursor: pointer !important;
+}
+
+.cal-modal.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cal-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.cal-modal-box {
+    position: relative;
+    background: #ffffff;
+    width: 100%;
+    max-width: 900px;
+    height: 90vh;
+    max-height: 800px;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    z-index: 2;
+    overflow: hidden;
+    transform: scale(0.95) translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+[data-theme='dark'] .cal-modal-box {
+    background: #111111;
+}
+
+.cal-modal.is-open .cal-modal-box {
+    transform: scale(1) translateY(0);
+}
+
+.cal-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.05);
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    color: #111111;
+    transition: background 0.2s, transform 0.2s;
+}
+
+[data-theme='dark'] .cal-modal-close {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.cal-modal-close:hover {
+    background: rgba(0, 0, 0, 0.1);
+    transform: rotate(90deg);
+}
+
+[data-theme='dark'] .cal-modal-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.cal-modal-content {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 50px;
+}
+
+.cal-modal-title {
+    font-family: Poppins, sans-serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    text-align: center;
+    color: var(--heading-color);
+    margin: 0 0 10px 0;
+    letter-spacing: -.03em;
+}
+
+@media(max-width: 768px) {
+    .cal-modal-box {
+        height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+    }
 }

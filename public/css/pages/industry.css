@@ -129,14 +129,12 @@ h6 {
 
 .page-heading {
     font-family: Poppins, sans-serif;
-    font-size: clamp(36px, 6vw, 68px);
     font-weight: 800;
-    letter-spacing: -.02em;
-    line-height: 1.1;
-    color: #fff !important;
-    margin-bottom: 24px;
-    text-transform: uppercase;
-    text-shadow: 0 4px 28px rgba(0, 0, 0, .5)
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.05;
+    color: #ffffff;
+    margin: 0 0 24px;
+    letter-spacing: -.03em;
 }
 
 .global-reach-section {
@@ -144,9 +142,11 @@ h6 {
 }
 
 .page-desc {
-    font-size: clamp(15px, 1.8vw, 18px);
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
     line-height: 1.85;
-    color: #ffffffd9 !important;
+    color: #ffffff;
     margin: 0 auto;
     max-width: 680px
 }
@@ -305,19 +305,22 @@ h6 {
 
 .premium-heading {
     font-family: Poppins, sans-serif;
-    font-size: clamp(2rem, 4.5vw, 3.2rem);
     font-weight: 800;
-    line-height: 1.1;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.05;
+    color: var(--heading-color);
     margin: 0 0 24px;
-    letter-spacing: -.02em
+    letter-spacing: -.03em;
 }
 
 .premium-sub {
     font-family: Montserrat, sans-serif;
-    font-size: 1.05rem;
-    line-height: 1.8;
-    max-width: 720px;
     font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--sub-color);
+    max-width: 720px;
+
     margin-bottom: 0
 }
 
@@ -485,10 +488,10 @@ h6 {
 .ind-card-desc {
     font-family: Montserrat, sans-serif;
     font-weight: 400;
-    font-size: .9rem;
-    color: #ffffffeb;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: #ffffff;
     margin: 0;
-    line-height: 1.5;
 }
 
 .use-cases-grid {
@@ -585,7 +588,11 @@ h6 {
 }
 
 .uc-desc {
-    font-size: .9rem;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--sub-color);
     line-height: 1.75
 }
 
@@ -779,8 +786,11 @@ h6 {
 }
 
 .compliance-desc {
-    font-size: .9rem;
-    line-height: 1.8;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--sub-color);
     position: relative;
     z-index: 1
 }
@@ -1015,7 +1025,10 @@ h6 {
 
 .tf-desc {
     font-family: Montserrat, sans-serif;
-    font-size: .78rem;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--sub-color);
     line-height: 1.65
 }
 
@@ -1138,16 +1151,20 @@ h6 {
 }
 
 .cta-title {
-    font-size: clamp(2.6rem, 7vw, 4.8rem);
-    font-weight: 900;
-    line-height: 1;
-    margin-bottom: 32px;
-    letter-spacing: -.02em
+    font-family: Poppins, sans-serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.05;
+    letter-spacing: -.03em;
+    margin-bottom: 32px
 }
 
 .cta-sub {
-    font-size: 1.15rem;
-    color: #ffffffb3;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--sub-color);
     margin-bottom: 48px
 }
 
@@ -1186,7 +1203,13 @@ h6 {
     }
 
     .premium-heading {
-        font-size: clamp(2.2rem, 6vw, 3.5rem)
+        font-family: Poppins, sans-serif;
+        font-weight: 800;
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.05;
+        color: var(--heading-color);
+        margin: 0 0 24px;
+        letter-spacing: -.03em;
     }
 
     .insights-grid {
@@ -1208,11 +1231,21 @@ h6 {
     }
 
     .premium-heading {
-        font-size: 2.2rem
+        font-family: Poppins, sans-serif;
+        font-weight: 800;
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.05;
+        color: var(--heading-color);
+        margin: 0 0 24px;
+        letter-spacing: -.03em;
     }
 
     .premium-sub {
-        font-size: .97rem;
+        font-family: Montserrat, sans-serif;
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 1.85;
+        color: var(--sub-color);
         margin-bottom: 0
     }
 
@@ -1309,11 +1342,23 @@ h6 {
     }
 
     .premium-heading {
-        font-size: 1.8rem
+        font-family: Poppins, sans-serif;
+        font-weight: 800;
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.05;
+        color: var(--heading-color);
+        margin: 0 0 24px;
+        letter-spacing: -.03em;
     }
 
     .page-heading {
-        font-size: clamp(28px, 9vw, 42px)
+        font-family: Poppins, sans-serif;
+        font-weight: 800;
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.05;
+        color: #ffffff;
+        margin: 0 0 24px;
+        letter-spacing: -.03em;
     }
 
     .industry-banner {
@@ -1333,7 +1378,13 @@ h6 {
     }
 
     .premium-heading {
-        font-size: clamp(1.8rem, 8vw, 2.5rem)
+        font-family: Poppins, sans-serif;
+        font-weight: 800;
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.05;
+        color: var(--heading-color);
+        margin: 0 0 24px;
+        letter-spacing: -.03em;
     }
 
     .label-row {
@@ -1354,15 +1405,17 @@ h6 {
         width: 40px;
         height: 40px
     }
-
-    .cta-title {
-        font-size: clamp(2rem, 9vw, 3.2rem)
-    }
 }
 
 @media(max-width:400px) {
     .premium-heading {
-        font-size: 1.75rem
+        font-family: Poppins, sans-serif;
+        font-weight: 800;
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.05;
+        color: var(--heading-color);
+        margin: 0 0 24px;
+        letter-spacing: -.03em;
     }
 
     .case-number {
@@ -1416,7 +1469,7 @@ h6 {
     --ip-insight-hover-shadow: 0 28px 56px rgba(216, 29, 31, .15), 0 0 0 1px rgba(216, 29, 31, .14);
     --ip-insight-title-gradient: linear-gradient(135deg, #111 0%, #2d3748 100%);
     --ip-telecom-bg: rgba(255, 255, 255, .97);
-    --ip-telecom-border: rgba(216, 29, 31, .22);
+    --ip-telecom-border: rgba(60, 51, 52, 0.22);
     --ip-telecom-shadow: 0 8px 28px rgba(0, 0, 0, .09), inset 0 1px 0 rgba(255, 255, 255, .9);
     --ip-telecom-hover-shadow: 0 20px 44px rgba(0, 0, 0, .12), 0 0 0 1px rgba(216, 29, 31, .15);
     --ip-cta-bg-opacity: .15;

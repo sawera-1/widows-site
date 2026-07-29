@@ -35,11 +35,8 @@
                         Hire Top Talent <span class="accent">On-Demand</span> for Your Business Growth
                     </h1>
                     <p class="section-description" style="margin-bottom:24px">From developers to marketers and AI experts — scale your team with vetted professionals who integrate seamlessly into your workflow. Whether you're a startup, growing business, or enterprise, we connect you with skilled talent who deliver results.</p>
-                    <div class="hero-btns">
-                        <a href="/contact" class="btn-primary">Hire Talent</a>
-                    </div>
-
-                    <div class="hero-stats-row">
+                    
+                    <div class="hero-stats-row" style="margin-bottom:32px;">
                         <div class="hero-stat-item">
                             <div class="hero-stat-icon">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
@@ -67,6 +64,10 @@
                                 <div class="hero-stat-label">Support</div>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="hero-btns">
+                        <a href="#" onclick="openCalendlyModal(event)" class="btn-primary">Hire Talent</a>
                     </div>
                 </div>
 
@@ -149,7 +150,6 @@
                                 <img loading="lazy" decoding="async" src="/assets/team2.webp" alt="Staff augmentation team">
                                 <div class="px-img-overlay"></div>
                                 <div class="px-img-label">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
                                     Corammers
                                 </div>
                                 <div class="px-float-badge">
@@ -214,7 +214,7 @@
                             </div>
 
                             <div class="reveal">
-                                <a href="/contact" class="px-cta-btn">Book a Discovery Call</a>
+                                <a href="#" onclick="openCalendlyModal(event)" class="px-cta-btn">Book a Discovery Call</a>
                             </div>
                         </div>
                     </div>
@@ -457,71 +457,6 @@
             </div>
         </section>
 
-        {{-- ══════════ TRUST BADGE TICKER ══════════ --}}
-        <section class="bt-section">
-            <p class="bt-eyebrow">Certified &amp; Trusted Globally</p>
-
-            <div class="bt-track-wrap">
-                <div class="bt-track">
-                    @php
-                        $badges = [
-                            ['l1' => 'TOP', 'l2' => 'JAVA DEVS', 'l3' => 'UNITED STATES 2025', 'label' => 'Top Java Developers'],
-                            ['l1' => 'TOP', 'l2' => 'WEB DEVS', 'l3' => 'NORTH CAROLINA 2025', 'label' => 'Top Web Developers'],
-                            ['l1' => 'TOP', 'l2' => 'SOFTWARE', 'l3' => 'NORTH CAROLINA 2025', 'label' => 'Top Software Developers'],
-                            ['l1' => 'TOP', 'l2' => 'AI AGENTS', 'l3' => 'UNITED STATES 2025', 'label' => 'Top AI Agencies'],
-                            ['l1' => 'TOP', 'l2' => 'RATED', 'l3' => 'GLOBAL 2025', 'label' => 'Top Rated Agency'],
-                            ['l1' => 'TOP', 'l2' => 'MOBILE DEV', 'l3' => 'UNITED STATES 2025', 'label' => 'Top Mobile Developers'],
-                            ['l1' => 'TOP', 'l2' => 'CLOUD', 'l3' => 'NORTH CAROLINA 2025', 'label' => 'Top Cloud Providers'],
-                        ];
-                        $tripled = array_merge($badges, $badges, $badges);
-                    @endphp
-                    @foreach ($tripled as $badge)
-                        <div class="bt-badge">
-                            <svg class="bt-hex" viewBox="0 0 54 62" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M27 2L51 16V46L27 60L3 46V16L27 2Z" fill="#242420" stroke="#D81D1F" stroke-width="1.4" stroke-opacity="0.55" />
-                                <text x="27" y="20" text-anchor="middle" fill="rgba(242,242,238,0.5)" font-size="5.5" font-family="Montserrat,sans-serif" font-weight="600" letter-spacing="0.4">{{ $badge['l1'] }}</text>
-                                <text x="27" y="29" text-anchor="middle" fill="rgba(242,242,238,0.5)" font-size="5.5" font-family="Montserrat,sans-serif" font-weight="600" letter-spacing="0.4">{{ $badge['l2'] }}</text>
-                                <text x="27" y="41" text-anchor="middle" fill="#ef4335" font-size="9.5" font-family="Poppins,sans-serif" font-weight="800">Clutch</text>
-                                <text x="27" y="52" text-anchor="middle" fill="rgba(242,242,238,0.5)" font-size="5.5" font-family="Montserrat,sans-serif" font-weight="600" letter-spacing="0.4">{{ $badge['l3'] }}</text>
-                            </svg>
-                            <span class="bt-badge-label">{{ $badge['label'] }}</span>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-
-            <div class="bt-trust-row">
-                <div class="bt-clutch-block">
-                    <span class="bt-clutch-logo">Clutch</span>
-                    <div class="bt-clutch-info">
-                        <div class="bt-rating-row">
-                            <span class="bt-score">5.0</span>
-                            <div class="bt-stars">
-                                @for ($i = 0; $i < 5; $i++)<span class="bt-star">★</span>@endfor
-                            </div>
-                        </div>
-                        <span class="bt-reviews">14 Reviews on Clutch</span>
-                    </div>
-                </div>
-
-                <div class="bt-divider"></div>
-
-                <div class="bt-tech-block">
-                    <div class="bt-tech-icon">
-                        <svg width="20" height="20" viewBox="0 0 22 22" fill="none">
-                            <rect x="1" y="5" width="8" height="3" rx="1" fill="#0050a0" opacity=".8" />
-                            <rect x="1" y="10" width="14" height="3" rx="1" fill="#0050a0" />
-                            <rect x="1" y="15" width="10" height="3" rx="1" fill="#0050a0" opacity=".6" />
-                            <circle cx="17" cy="16.5" r="3.5" fill="#D81D1F" opacity=".9" />
-                        </svg>
-                    </div>
-                    <div class="bt-tech-info">
-                        <span class="bt-tech-label">Trusted on</span>
-                        <span class="bt-tech-name">Tech Behemoths</span>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         {{-- ══════════ SECTION 5 — TEAM ══════════ --}}
         <section class="sec exp-section-bg">
@@ -559,8 +494,8 @@
                             <div class="emp-info">
                                 <div class="emp-name-row">
                                     <span class="emp-name">{{ $emp['name'] }}</span>
-                                    <span style="display:flex;align-items:center;gap:5px;font-size:10px;font-weight:600;color:var(--primary);font-family:'Montserrat',sans-serif">
-                                        <span style="width:6px;height:6px;border-radius:50%;background:var(--primary);box-shadow:0 0 6px var(--primary);display:inline-block"></span>
+                                    <span style="display:flex;align-items:center;gap:5px;font-size:10px;font-weight:600;color:#10B981;font-family:'Montserrat',sans-serif">
+                                        <span style="width:6px;height:6px;border-radius:50%;background:#10B981;box-shadow:0 0 6px #10B981;display:inline-block"></span>
                                         Available
                                     </span>
                                 </div>
@@ -572,54 +507,7 @@
             </div>
         </section>
 
-        {{-- ══════════ SECTION 6 — VIDEO ══════════ --}}
-        <section class="sec sec-alt exp-section-bg">
-            <div class="container">
-                <div>
-                    <div class="badge-group">
-                        <div class="section-badge">
-                            <div class="section-robot-badge">
-                                <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-light" style="width:32px;height:32px;object-fit:contain;display:block">
-                                <img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="robot-dark" style="width:32px;height:32px;object-fit:contain;display:none">
-                            </div>
-                            <div class="section-label-pill">
-                                <span class="section-label-dot"></span>
-                                <span class="section-label">Team Culture</span>
-                            </div>
-                        </div>
-                        <div class="section-divider"></div>
-                    </div>
-                    <h2 class="section-heading">See Us <span class="accent">In Action</span></h2>
-                    <p class="section-description">A glimpse into our collaborative environment and high standards.</p>
-                </div>
 
-                <div class="vid-grid">
-                    @foreach (['/assets/team3.webp', '/assets/team4.webp'] as $thumb)
-                        <div>
-                            <a href="https://www.youtube.com/channel/UCsAe_vu362aRnXjWme2Ci0w/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:block">
-                                <div class="vid-card exp-card-base">
-                                    <div class="exp-card-topline"></div>
-                                    <video poster="{{ $thumb }}" loop playsinline style="width:100%;height:100%;object-fit:cover;display:block"></video>
-                                    <div class="vid-overlay">
-                                        <div class="video-btn" style="flex-direction:column;gap:10px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">
-                                            <div class="vbtn-rings">
-                                                <span class="vbtn-ring vbtn-ring-1"></span>
-                                                <span class="vbtn-ring vbtn-ring-2"></span>
-                                                <span class="vbtn-ring vbtn-ring-3"></span>
-                                                <div class="vbtn-core" style="background:var(--primary)">
-                                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="#ffffff"><polygon points="6 3 20 12 6 21 6 3" /></svg>
-                                                </div>
-                                            </div>
-                                            <span class="vbtn-label" style="background:rgba(0,0,0,0.5);backdrop-filter:blur(4px);padding:6px 14px;font-size:0.7rem">Play</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </section>
 
         {{-- ══════════ FAQ ══════════ --}}
         <section class="faq-section-bg">
@@ -666,6 +554,56 @@
                 </div>
             </div>
         </section>
+
+{{-- ── Calendly Modal ── --}}
+<div class="cal-modal" id="calModal" aria-hidden="true">
+    <div class="cal-modal-backdrop" onclick="closeCalendlyModal()"></div>
+    <div class="cal-modal-box" role="dialog" aria-modal="true" aria-labelledby="calModalTitle">
+        <button class="cal-modal-close" type="button" aria-label="Close modal" onclick="closeCalendlyModal()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+        </button>
+        <div class="cal-modal-content">
+            <h2 class="cal-modal-title">Book a <span style="color:var(--accent-color)">Consultation</span></h2>
+            <div class="calendly-inline-widget" data-url="https://calendly.com/mshayantariq/schedule-a-meeting?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:280px;height:700px;width:100%"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openCalendlyModal(event) {
+        if (event) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        var modal = document.getElementById('calModal');
+        var cc = document.getElementById('customCursor');
+        if (modal) {
+            modal.classList.add('is-open');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            if (cc) cc.style.display = 'none';
+        }
+    }
+
+    function closeCalendlyModal() {
+        var modal = document.getElementById('calModal');
+        var cc = document.getElementById('customCursor');
+        if (modal) {
+            modal.classList.remove('is-open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            if (cc) cc.style.display = '';
+        }
+    }
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeCalendlyModal();
+    });
+</script>
 
     </main>
 </div>

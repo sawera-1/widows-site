@@ -751,12 +751,12 @@ button,
 
 .pw-home .sec-heading {
     font-family: Poppins, sans-serif;
-    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3rem);
     line-height: 1.05;
+    color: var(--heading-color);
     margin: 0 0 24px;
     letter-spacing: -.03em;
-    color: var(--heading-color)
 }
 
 .pw-home .sec-heading .accent {
@@ -775,12 +775,12 @@ button,
 
 .pw-home .about-heading {
     font-family: Poppins, sans-serif;
-    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3rem);
     line-height: 1.05;
+    color: var(--heading-color);
     margin: 0 0 24px;
     letter-spacing: -.03em;
-    color: var(--heading-color)
 }
 
 .pw-home .about-heading .accent {
@@ -904,12 +904,12 @@ button,
 
 .pw-home .svc-heading {
     font-family: Poppins, sans-serif;
-    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3rem);
     line-height: 1.05;
+    color: var(--heading-color);
     margin: 0 0 24px;
     letter-spacing: -.03em;
-    color: var(--heading-color)
 }
 
 .pw-home .svc-heading .accent {
@@ -932,7 +932,7 @@ button,
 
 .pw-home .svc-track {
     position: relative;
-    height: calc(clamp(300px, 46vw, 520px) * var(--panel-count, 1))
+    height: calc(clamp(300px, 46vw, 520px) * (var(--panel-count, 1) * 2 - 1))
 }
 
 .pw-home .svc-sticky {
@@ -977,7 +977,7 @@ button,
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: .5
+    opacity: 1
 }
 
 .pw-home .svc-panel-overlay {
@@ -1612,12 +1612,12 @@ button,
 
 .pw-home .wcu-heading {
     font-family: Poppins, sans-serif;
-    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3rem);
     line-height: 1.05;
+    color: var(--heading-color);
     margin: 0 0 24px;
     letter-spacing: -.03em;
-    color: var(--label-color)
 }
 
 .pw-home .wcu-heading .accent {
@@ -1840,12 +1840,12 @@ button,
 
 .pw-home .pf-heading {
     font-family: Poppins, sans-serif;
-    font-size: clamp(2.4rem, 3.8vw, 3.4rem);
     font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.05;
+    color: var(--heading-color);
+    margin: 0 0 24px;
     letter-spacing: -.03em;
-    line-height: 1.06;
-    color: var(--pf-text);
-    margin: 0
 }
 
 .pw-home .pf-heading .accent {
@@ -2147,12 +2147,12 @@ button,
 
 .pw-home .rev-heading {
     font-family: Poppins, sans-serif;
-    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3rem);
     line-height: 1.05;
+    color: var(--heading-color);
     margin: 0 0 24px;
     letter-spacing: -.03em;
-    color: var(--label-color)
 }
 
 .pw-home .rev-heading .accent {
@@ -2404,7 +2404,7 @@ button,
     line-height: 1.05;
     color: var(--heading-color);
     margin: 0 0 24px;
-    letter-spacing: -.03em
+    letter-spacing: -.03em;
 }
 
 .pw-home .ind-heading .accent {
@@ -2691,12 +2691,12 @@ button,
 
 .pw-home .stats-heading {
     font-family: Poppins, sans-serif;
-    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3rem);
     line-height: 1.05;
+    color: var(--heading-color);
     margin: 0 0 24px;
     letter-spacing: -.03em;
-    color: var(--heading-color)
 }
 
 .pw-home .stats-heading .accent {
@@ -2837,17 +2837,23 @@ button,
 
 .pw-home .sa-heading {
     font-family: Poppins, sans-serif;
-    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
     font-weight: 800;
-    line-height: 1.02;
-    margin: 0;
-    letter-spacing: -.04em;
-    color: var(--label-color)
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.05;
+    color: var(--heading-color);
+    margin: 0 0 24px;
+    letter-spacing: -.03em;
 }
 
 @media(max-width:1024px) {
     .pw-home .sa-heading {
-        font-size: clamp(28px, 4.5vw, 40px)
+        font-family: Poppins, sans-serif;
+        font-weight: 800;
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.05;
+        color: var(--heading-color);
+        margin: 0 0 24px;
+        letter-spacing: -.03em;
     }
 }
 
@@ -3156,15 +3162,12 @@ button,
 
 .pw-home .cb-heading {
     font-family: Poppins, sans-serif;
-    font-size: clamp(2.2rem, 5vw, 3.8rem);
-    font-weight: 900;
+    font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3rem);
     line-height: 1.05;
-    margin: 0 0 20px;
-    letter-spacing: -.04em;
-    color: var(--cb-onbox);
-    max-width: 900px;
-    position: relative;
-    z-index: 1
+    color: var(--heading-color);
+    margin: 0 0 24px;
+    letter-spacing: -.03em;
 }
 
 .pw-home .cb-sub {
@@ -3204,7 +3207,6 @@ button,
     cursor: pointer;
     text-decoration: none;
     transition: transform .3s cubic-bezier(.22, 1, .36, 1), box-shadow .3s ease, background .3s ease
-
 }
 
 .pw-home .cb-btn-primary:hover {
@@ -3212,7 +3214,6 @@ button,
     background: var(--cb-btn-primary-h-bg);
     color: var(--cb-btn-primary-h-color);
     box-shadow: 0 16px 32px #00000038
-
 }
 
 .pw-home {
@@ -3236,7 +3237,6 @@ button,
     cursor: pointer;
     text-decoration: none;
     transition: all .3s ease
-
 }
 
 .pw-home .cb-btn-secondary:hover {
@@ -3244,7 +3244,6 @@ button,
     color: var(--cb-btn2-h-color);
     border-color: #0006;
     transform: translateY(-2px)
-
 }
 
 .pw-home {
@@ -3256,11 +3255,10 @@ button,
 
     .pw-home .cb-btn-primary,
     .pw-home .cb-btn-secondary {
-    height: 52px;
+        height: 52px;
         padding: 0 24px;
         font-size: .9rem
-    
-}
+    }
 }
 
 .pw-home .cb-micro {
@@ -3534,14 +3532,13 @@ button,
 
 /* ── Heading ── */
 .ts-heading {
-    font-family: 'Poppins', sans-serif;
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    font-weight: 700;
-    color: #ffffff;
-    text-align: center;
-    letter-spacing: -0.02em;
-    margin: 0 0 clamp(40px, 6vh, 72px);
-    line-height: 1.15;
+    font-family: Poppins, sans-serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.05;
+    color: var(--heading-color);
+    margin: 0 0 24px;
+    letter-spacing: -.03em;
 }
 
 .ts-heading span {
@@ -4286,6 +4283,138 @@ button,
     color: #fff !important;
     border: none !important;
 }
-.cb-heading, .cb-sub { color: #fff !important; }
-.cb-label-pill { background: rgba(255, 255, 255, 0.15) !important; border: 1px solid rgba(255, 255, 255, 0.4) !important; }
-.cb-label-text { color: #fff !important; }
+
+.cb-heading,
+.cb-sub {
+    color: #fff !important;
+}
+
+.cb-label-pill {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+}
+
+.cb-label-text {
+    color: #fff !important;
+}
+
+/* ---------- Calendly Modal ---------- */
+.cal-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    cursor: default !important;
+}
+
+.cal-modal * {
+    cursor: auto !important;
+}
+
+.cal-modal .cal-modal-backdrop,
+.cal-modal button.cal-modal-close,
+.cal-modal a {
+    cursor: pointer !important;
+}
+
+.cal-modal.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cal-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.cal-modal-box {
+    position: relative;
+    background: #ffffff;
+    width: 100%;
+    max-width: 900px;
+    height: 90vh;
+    max-height: 800px;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    z-index: 2;
+    overflow: hidden;
+    transform: scale(0.95) translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+[data-theme='dark'] .cal-modal-box {
+    background: #111111;
+}
+
+.cal-modal.is-open .cal-modal-box {
+    transform: scale(1) translateY(0);
+}
+
+.cal-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.05);
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    color: #111111;
+    transition: background 0.2s, transform 0.2s;
+}
+
+[data-theme='dark'] .cal-modal-close {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.cal-modal-close:hover {
+    background: rgba(0, 0, 0, 0.1);
+    transform: rotate(90deg);
+}
+
+[data-theme='dark'] .cal-modal-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.cal-modal-content {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 50px;
+}
+
+.cal-modal-title {
+    font-family: Poppins, sans-serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    text-align: center;
+    color: var(--heading-color);
+    margin: 0 0 10px 0;
+    letter-spacing: -.03em;
+}
+
+@media(max-width: 768px) {
+    .cal-modal-box {
+        height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+    }
+}

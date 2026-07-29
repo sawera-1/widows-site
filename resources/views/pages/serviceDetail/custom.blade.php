@@ -79,7 +79,7 @@
             <p class="dev-hero-right-desc" style="font-style: italic;">
                 "Transforming Business Ideas into Powerful Custom Software Solutions."
             </p>
-            <a href="/contact" class="dev-connect-btn">
+            <a href="#book-consultation" class="dev-connect-btn">
                 <span>Let's Connect</span>
             </a>
         </div>
@@ -168,7 +168,7 @@
                     </div>
                 </div>
                 <div class="wd-section-divider"></div>
-                <h2 class="wd-section-heading" style="margin:0">Custom Software Development Services</h2>
+                <h2 class="wd-section-heading" style="margin:0">Custom Software Development <span style="color:var(--accent-theme,#D81D1F)">Services</span></h2>
             </div>
             <p class="wd-section-sub">Develop complete business platforms including SaaS products, management systems, booking platforms, marketplaces, and internal business software tailored to your specific needs.</p>
         </div>
@@ -213,7 +213,7 @@
                 <h2 class="wc-heading">Why Businesses Choose <span class="wc-accent">Corammers</span><br>To Build Custom Software</h2>
                 <p class="wc-para">We deliver tailor-made software solutions built by experienced full-stack developers using modern development frameworks. From API-first development to clean and maintainable code, our focus is on scalable architecture and enterprise security. We prioritize performance optimization alongside agile project management, ensuring transparent communication, long-term technical support, and absolute client satisfaction at every step of the journey.</p>
                 <p class="wc-tagline">Corammers — Building Digital Experiences That Businesses Trust.</p>
-                <a href="/contact" class="wc-cta-btn">Let's Build Your Software</a>
+                <a href="#book-consultation" class="wc-cta-btn">Let's Build Your Software</a>
             </div>
 
             {{-- ── RIGHT: Image + Play Button ── --}}
@@ -436,7 +436,19 @@
         {{-- ══════════ booking══════════ --}}
         <section class="lf-section" id="book-consultation">
     <div class="lf-container">
-        <h2 class="lf-heading">Ready to Build Your <span class="accent">Custom Software Solution?</span></h2>
+          <div style="display: flex; justify-content: center;">
+            <div style="display: flex; flex-direction: column;">
+                <div class="wd-label-row-bl" style="margin-bottom: 12px; justify-content: flex-start;">
+                    <div class="wd-robot-badge-bl">{!! $robo !!}</div>
+                    <div class="wd-label-pill-bl">
+                        <span class="wd-label-dot-bl"></span>
+                        <span class="wd-label-text-bl">Consultation</span>
+                    </div>
+                </div>
+                <div class="wd-section-divider-bl" style="margin-left: 0;"></div>
+            </div>
+        </div>
+         <h2 class="lf-heading">Book a Free <span class="accent">Consultation</span></h2>
         <p class="lf-subtitle">Whether you need a custom business platform, enterprise dashboard, SaaS application, CRM, ERP, or a fully tailored web solution, Corammers delivers scalable software engineered for performance, security, and long-term growth. Let's build technology that gives your business a competitive advantage.</p>
 
         <div class="lf-book-grid">

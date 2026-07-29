@@ -215,7 +215,7 @@
                     </p>
 
                     <div class="dev-hero-cta-row">
-                        <a href="/contact" class="dev-hero-btn">
+                        <a href="#consultation" class="dev-hero-btn">
                             Contact Us
                            
                         </a>
@@ -299,11 +299,11 @@
                             </div>
                             <div class="wd-label-pill" style="margin-top:6px"><span class="wd-label-dot"></span><span class="wd-label-text">Our Expertise</span></div>
                         </div>
-                        <h2 class="wd-intro-heading" style="margin:24px 0 0">We Build Visual Solutions That Drive Real Results</h2>
+                        <h2 class="wd-intro-heading" style="margin:24px 0 0">We Build Visual Solutions That Drive <span style="color:var(--accent-theme,#D81D1F)">Real Results</span></h2>
                         <p class="wd-intro-text">From pixel-perfect interfaces to compelling brand identities, our team designs digital experiences that resonate with your audience. We combine creative intuition with strategic thinking ensuring every element serves your brand goals.</p>
                         <p class="wd-intro-text">Whether you need a cutting-edge UI/UX for your platform, a strong graphic identity, or high-impact video content, we deliver with precision and artistic vision.</p>
                         <div style="display:flex;align-items:center;gap:28px;margin-top:14px;flex-wrap:wrap">
-                            <a href="/contact" class="dev-hero-btn">
+                            <a href="#consultation" class="dev-hero-btn">
                                 Contact Us
                                 
                             </a>
@@ -359,7 +359,7 @@
                             </div>
                             <div class="wd-label-pill" style="margin-top:6px"><span class="wd-label-dot"></span><span class="wd-label-text">Our Solutions</span></div>
                         </div>
-                        <h2 class="wd-section-heading" style="margin:24px 0 0">Designing Services</h2>
+                        <h2 class="wd-section-heading" style="margin:24px 0 0">Designing <span style="color:var(--accent-theme,#D81D1F)">Services</span></h2>
                     </div>
                     <p class="wd-section-sub">We specialize in human-centered design. Every pixel is intentional, every interaction is meaningful, and every result is measurable.</p>
                 </div>
@@ -394,7 +394,7 @@
                         <div class="wd-label-pill"><span class="wd-label-dot"></span><span class="wd-label-text">Our Methodology</span></div>
                     </div>
                     <div class="wd-section-divider"></div>
-                    <h2 class="wd-section-heading">How We Craft Visual Excellence</h2>
+                    <h2 class="wd-section-heading">How We Craft <span style="color:var(--accent-theme,#D81D1F)">Visual Excellence</span></h2>
                     <p class="wd-section-sub">A proven, creative process — from initial discovery to pixel-perfect handoff, every detail is meticulously designed.</p>
                 </div>
                 <div class="hwb-flow">
@@ -427,7 +427,7 @@
                         </div>
                         <div class="wd-label-pill" style="margin-top:6px"><span class="wd-label-dot"></span><span class="wd-label-text">Pricing</span></div>
                     </div>
-                    <h2 class="wd-section-heading" style="margin:24px 0 0">Professional Design Plans</h2>
+                    <h2 class="wd-section-heading" style="margin:24px 0 0">Professional <span style="color:var(--accent-theme,#D81D1F)">Design Plans</span></h2>
                     <p class="wd-section-sub" style="margin:12px 0 0">Tailored design solutions for every stage of your brand — from rapid prototyping to full-scale visual identity.</p>
                 </div>
 
@@ -492,7 +492,7 @@
                                 @endforeach
                             </ul>
 
-                            <a href="/contact" class="pc-btn">Contact Us</a>
+                            <a href="#consultation" class="pc-btn">Contact Us</a>
                         </div>
                     @endforeach
                 </div>
@@ -617,7 +617,7 @@
         </section>
 
         {{-- BOOK CONSULTATION --}}
-       <section class="wd-section bc-section">
+       <section id="consultation" class="wd-section bc-section">
         <div class="wd-inner">
             <div class="dev-intro-two-col bc-two-col reveal">
 

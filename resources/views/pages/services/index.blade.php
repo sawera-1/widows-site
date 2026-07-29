@@ -108,6 +108,15 @@
     $techStack = ['React','Next.js','Node.js','Express.js','Laravel','Vue.js','TypeScript','JavaScript','PHP','Python','HTML5','CSS','TailwindCSS','MongoDB','MySQL','Firebase','Docker','Git','GitHub','Vercel','GraphQL','Figma'];
     $ttGlyph = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>';
 
+    $tickerItems = [
+        ['label' => 'Custom Websites', 'icon' => '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="14" rx="2"></rect><path d="M8 21h8M12 17v4"></path></svg>'],
+        ['label' => 'Scalable Solutions', 'icon' => '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>'],
+        ['label' => 'SEO Optimized', 'icon' => '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>'],
+        ['label' => 'Fast Performance', 'icon' => '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>'],
+        ['label' => 'Secure Systems', 'icon' => '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>'],
+        ['label' => 'React & Next.js', 'icon' => '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>'],
+    ];
+
     /* ─── Staff augmentation image grid ─── */
     $saImages = [
         ['src' => '/assets/team1.webp', 'alt' => 'Team collaboration'],
@@ -212,7 +221,7 @@
           </p>
 
           <div class="hero-cta-row">
-            <a href="/contact" class="btn-primary">Contact Us</a>
+            <a href="#" onclick="openCalendlyModal(event)" class="btn-primary">Contact Us</a>
           </div>
         </div>
 
@@ -252,6 +261,23 @@
 
       </div>
     </section>
+
+    {{-- ═══ TICKER BAND ═══ --}}
+    <div class="wd-ticker">
+        <div class="wd-ticker-track">
+            @for($rep = 0; $rep < 4; $rep++)
+            <div style="display:flex;align-items:center">
+                @foreach($tickerItems as $item)
+                <div class="wd-ticker-item">
+                    <span class="wd-ticker-dot"></span>
+                    <span style="display:flex;align-items:center;opacity:0.85">{!! $item['icon'] !!}</span>
+                    {{ $item['label'] }}
+                </div>
+                @endforeach
+            </div>
+            @endfor
+        </div>
+    </div>
 
     {{-- ══════════════ SERVICES STACK (Service.js) ══════════════ --}}
     <section class="svc-section">
@@ -399,7 +425,7 @@
           </div>
 
           <div class="sa-cta-row">
-            <a href="/contact" class="sa-btn">Book a Discovery Call</a>
+            <a href="#" onclick="openCalendlyModal(event)" class="sa-btn">Book a Consultation</a>
           </div>
         </div>
 
@@ -526,7 +552,7 @@
           <p class="cb-sub">Whether you're starting from scratch or scaling an existing product, we'd love to hear about it. Send us a message and we'll get back to you within 24 hours.</p>
 
           <div class="cb-btn-row">
-            <a href="/contact" class="cb-btn-primary">
+            <a href="#" onclick="openCalendlyModal(event)" class="cb-btn-primary">
               Get in Touch
             </a>
             <a href="/portfolio" class="cb-btn-secondary">View Portfolio</a>
@@ -538,6 +564,57 @@
     </section>
 
   </main>
+
+  {{-- ── Calendly Modal ── --}}
+  <div class="cal-modal" id="calModal" aria-hidden="true">
+      <div class="cal-modal-backdrop" onclick="closeCalendlyModal()"></div>
+      <div class="cal-modal-box" role="dialog" aria-modal="true" aria-labelledby="calModalTitle">
+          <button class="cal-modal-close" type="button" aria-label="Close modal" onclick="closeCalendlyModal()">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <line x1="18" y1="6" x2="6" y2="18"/>
+                  <line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+          </button>
+          <div class="cal-modal-content">
+              <h2 class="cal-modal-title">Book a <span style="color:var(--accent)">Consultation</span></h2>
+              <div class="calendly-inline-widget" data-url="https://calendly.com/mshayantariq/schedule-a-meeting?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:280px;height:700px;width:100%"></div>
+              <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+          </div>
+      </div>
+  </div>
+
+  <script>
+      function openCalendlyModal(event) {
+          if (event) {
+              event.preventDefault();
+              event.stopPropagation();
+          }
+          var modal = document.getElementById('calModal');
+          var cc = document.getElementById('customCursor');
+          if (modal) {
+              modal.classList.add('is-open');
+              modal.setAttribute('aria-hidden', 'false');
+              document.body.style.overflow = 'hidden';
+              if (cc) cc.style.display = 'none';
+          }
+      }
+
+      function closeCalendlyModal() {
+          var modal = document.getElementById('calModal');
+          var cc = document.getElementById('customCursor');
+          if (modal) {
+              modal.classList.remove('is-open');
+              modal.setAttribute('aria-hidden', 'true');
+              document.body.style.overflow = '';
+              if (cc) cc.style.display = '';
+          }
+      }
+
+      document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') closeCalendlyModal();
+      });
+  </script>
+
 </div>
 @endsection
 

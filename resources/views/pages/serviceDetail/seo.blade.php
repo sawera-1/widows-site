@@ -77,7 +77,7 @@
             <p class="dev-hero-right-desc" style="font-style: italic;">
                 "Helping Your Business Rank Higher, Reach Further, and Grow Faster."
             </p>
-            <a href="/contact" class="dev-connect-btn">
+            <a href="#book-consultation" class="dev-connect-btn">
                 <span>Let's Connect</span>
             </a>
         </div>
@@ -166,7 +166,7 @@
                     </div>
                 </div>
                 <div class="wd-section-divider"></div>
-                <h2 class="wd-section-heading" style="margin:0">SEO & AEO Services</h2>
+                <h2 class="wd-section-heading" style="margin:0">SEO & AEO <span style="color:var(--accent-theme,#D81D1F)">Services</span></h2>
             </div>
             <p class="wd-section-sub">We combine proven SEO strategies with modern AEO techniques to help businesses stay ahead of changing search technologies and improve search rankings.</p>
         </div>
@@ -211,7 +211,7 @@
                 <h2 class="wc-heading">Why Choose Corammers for<br><span class="wc-accent">SEO & AEO?</span></h2>
                 <p class="wc-para">At Corammers, we combine proven SEO strategies with modern AEO techniques to help businesses stay ahead of changing search technologies. Our data-driven approach focuses on increasing organic traffic, improving search rankings, enhancing website performance, and ensuring your content is optimized for both traditional search engines and AI-powered answer platforms. We prioritize measurable results, transparent reporting, and long-term digital growth.</p>
                 <p class="wc-tagline">Corammers – Helping Your Business Rank Higher, Reach Further, and Grow Faster.</p>
-                <a href="/contact" class="wc-cta-btn">Improve Your Rankings</a>
+                <a href="#book-consultation" class="wc-cta-btn">Improve Your Rankings</a>
             </div>
 
             {{-- ── RIGHT: Image + Play Button ── --}}
@@ -432,6 +432,18 @@
         {{-- ══════════ booking══════════ --}}
         <section class="lf-section" id="book-consultation">
     <div class="lf-container">
+          <div style="display: flex; justify-content: center;">
+            <div style="display: flex; flex-direction: column;">
+                <div class="wd-label-row-bl" style="margin-bottom: 12px; justify-content: flex-start;">
+                    <div class="wd-robot-badge-bl">{!! $robo !!}</div>
+                    <div class="wd-label-pill-bl">
+                        <span class="wd-label-dot-bl"></span>
+                        <span class="wd-label-text-bl">Consultation</span>
+                    </div>
+                </div>
+                <div class="wd-section-divider-bl" style="margin-left: 0;"></div>
+            </div>
+        </div>
         <h2 class="lf-heading">Book a Free <span class="accent">Consultation</span></h2>
         <p class="lf-subtitle">Let's discuss how we can improve your search rankings and drive qualified organic traffic.</p>
 

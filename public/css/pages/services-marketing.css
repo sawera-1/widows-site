@@ -253,18 +253,20 @@
 
 .wd-section-heading {
     font-family: Poppins, sans-serif;
-    font-size: clamp(2rem, 4vw, 3.2rem);
     font-weight: 800;
-    letter-spacing: -.025em;
-    line-height: 1.15;
-    color: var(--text);
-    margin: 0 0 18px
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.05;
+    color: var(--heading-color);
+    margin: 0 0 24px;
+    letter-spacing: -.03em;
 }
 
 .wd-section-sub {
     font-family: Montserrat, sans-serif;
+    font-weight: 400;
     font-size: 1rem;
-    color: var(--text-muted);
+    line-height: 1.85;
+    color: var(--sub-color);
     max-width: 520px;
     line-height: 1.78
 }
@@ -638,9 +640,10 @@
 
 .pc-desc {
     font-family: Montserrat, sans-serif;
-    font-size: .81rem;
-    line-height: 1.7;
-    color: var(--text-muted);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--sub-color);
     padding: 0 26px;
     margin-bottom: 18px
 }
@@ -867,9 +870,10 @@
 
 .hwb-step-desc {
     font-family: Montserrat, sans-serif;
-    font-size: .83rem;
-    line-height: 1.74;
-    color: var(--text-muted);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--sub-color);
     max-width: 200px;
     margin: 0 auto 14px
 }
@@ -958,9 +962,14 @@
     }
 
     .hwb-step-desc {
-        margin: 0 0 10px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--sub-color);
+    margin: 0 0 10px;
         max-width: none
-    }
+}
 
     .hwb-icon-ring {
         flex-shrink: 0
@@ -992,12 +1001,12 @@
 
 .wd-intro-heading {
     font-family: Poppins, sans-serif;
-    font-size: clamp(1.7rem, 2.8vw, 2.4rem);
     font-weight: 800;
-    letter-spacing: -.025em;
-    line-height: 1.22;
-    color: var(--text);
-    margin-bottom: 20px
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.05;
+    color: var(--heading-color);
+    margin: 0 0 24px;
+    letter-spacing: -.03em;
 }
 
 .wd-intro-text {
@@ -1187,12 +1196,12 @@
 
 .dev-hero-heading {
     font-family: Poppins, sans-serif;
-    font-size: clamp(2.6rem, 4.2vw, 4rem);
     font-weight: 800;
-    letter-spacing: -.025em;
-    line-height: 1.1;
-    color: var(--text);
-    margin: 0 0 22px
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.05;
+    color: var(--heading-color);
+    margin: 0 0 24px;
+    letter-spacing: -.03em;
 }
 
 .dev-hero-accent {
@@ -1203,10 +1212,10 @@
 
 .dev-hero-desc {
     font-family: Montserrat, sans-serif;
-    font-size: 1rem;
     font-weight: 400;
-    line-height: 1.8;
-    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--sub-color);
     max-width: 540px;
     margin: 0 auto 36px
 }
@@ -1494,9 +1503,10 @@
 
 .dev-staff-card-desc {
     font-family: Montserrat, sans-serif;
-    font-size: .9rem;
-    line-height: 1.8;
-    color: var(--text-muted);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--sub-color);
     margin-bottom: 26px
 }
 
@@ -1704,12 +1714,12 @@
 
 .pf-heading {
     font-family: Poppins, sans-serif;
-    font-size: clamp(2.4rem, 3.8vw, 3.4rem);
     font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.05;
+    color: var(--heading-color);
+    margin: 0 0 24px;
     letter-spacing: -.03em;
-    line-height: 1.06;
-    color: var(--pf-text);
-    margin: 0
 }
 
 .pf-heading .pf-accent-txt {
@@ -1718,9 +1728,10 @@
 
 .pf-desc {
     font-family: Montserrat, sans-serif;
+    font-weight: 400;
     font-size: 1rem;
     line-height: 1.85;
-    color: var(--pf-muted);
+    color: var(--sub-color);
     max-width: 420px;
     margin: 0
 }
@@ -1872,9 +1883,10 @@
 
 .pf-collage-desc {
     font-family: Montserrat, sans-serif;
-    font-size: .75rem;
-    font-weight: 500;
-    color: #ffffffc7;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--sub-color);
     margin: 0 0 14px;
     line-height: 1.5
 }
@@ -2100,12 +2112,12 @@
 
 .rev-heading {
     font-family: Poppins, sans-serif;
-    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3rem);
     line-height: 1.05;
+    color: var(--heading-color);
     margin: 0 0 24px;
     letter-spacing: -.03em;
-    color: var(--pf-text)
 }
 
 .rev-heading .rev-accent-txt {
@@ -2480,9 +2492,10 @@
 
 .bc-heading-sub {
     font-family: Montserrat, sans-serif;
-    font-size: 14.5px;
     font-weight: 400;
-    line-height: 1.8;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--sub-color);
     max-width: 440px;
     margin: 14px auto 0;
     transition: color .4s ease;
@@ -2490,6 +2503,11 @@
 }
 
 [data-theme=dark] .pw-services-marketing .bc-heading-sub {
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--sub-color);
     color: #f0f0ec7a
 }
 
@@ -2557,9 +2575,13 @@
     }
 
     .bc-heading-sub {
-        font-size: 13px;
-        max-width: 320px
-    }
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--sub-color);
+    max-width: 320px
+}
 
     .bc-robo-wrap {
         width: 40px;
@@ -2699,12 +2721,12 @@
 
 .pw-services-marketing .pf-heading {
     font-family: Poppins, sans-serif;
-    font-size: clamp(2.4rem, 3.8vw, 3.4rem);
     font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.05;
+    color: var(--heading-color);
+    margin: 0 0 24px;
     letter-spacing: -.03em;
-    line-height: 1.06;
-    color: var(--text);
-    margin: 0
 }
 
 .pw-services-marketing .pf-heading span {
@@ -2713,10 +2735,10 @@
 
 .pw-services-marketing .pf-desc {
     font-family: Montserrat, sans-serif;
-    font-size: 1rem;
     font-weight: 400;
+    font-size: 1rem;
     line-height: 1.85;
-    color: var(--text-muted);
+    color: var(--sub-color);
     max-width: 420px;
     margin: 0
 }
@@ -2875,9 +2897,10 @@
 
 .pw-services-marketing .pf-collage-desc {
     font-family: Montserrat, sans-serif;
-    font-size: .75rem;
-    font-weight: 500;
-    color: #ffffffc7;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--sub-color);
     margin: 0 0 14px;
     line-height: 1.5
 }
@@ -3123,12 +3146,12 @@
 
 .pw-services-marketing .rev-heading {
     font-family: Poppins, sans-serif;
-    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3rem);
     line-height: 1.05;
+    color: var(--heading-color);
     margin: 0 0 24px;
     letter-spacing: -.03em;
-    color: var(--text)
 }
 
 .pw-services-marketing .rev-heading span {

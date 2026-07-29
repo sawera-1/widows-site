@@ -86,10 +86,10 @@
 
 .hero-intro {
     font-family: Montserrat, sans-serif;
-    font-size: 1.05rem;
     font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.85;
     color: #ffffffc7;
-    line-height: 1.75;
     max-width: 780px;
     margin-top: 4px
 }
@@ -219,12 +219,12 @@
 
 .hero-title {
     font-family: Poppins, sans-serif;
-    font-weight: 900;
-    font-size: clamp(1.7rem, 4vw, 2.6rem);
-    letter-spacing: .04em;
+    font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.05;
+    letter-spacing: -.03em;
     text-transform: uppercase;
     color: #fff;
-    line-height: 1.15;
     text-shadow: 0 8px 40px rgba(0, 0, 0, .5)
 }
 
@@ -521,21 +521,21 @@
 .blog-title {
     font-family: Poppins, sans-serif;
     font-weight: 800;
-    font-size: clamp(1.8rem, 3.5vw, 2.45rem);
-    color: var(--text);
-    margin-bottom: 24px;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.05;
     letter-spacing: -.03em;
-    line-height: 1.15;
+    color: var(--heading-color);
+    margin-bottom: 24px;
     max-width: 850px
 }
 
 .blog-intro {
     font-family: Montserrat, sans-serif;
-    font-size: 1.08rem;
-    line-height: 1.82;
-    color: var(--muted);
-    margin-bottom: 45px;
     font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--sub-color);
+    margin-bottom: 45px;
     max-width: 850px;
     padding-bottom: 36px;
     border-bottom: 1px solid var(--border)
@@ -547,11 +547,12 @@
 
 .blog-section-heading {
     font-family: Poppins, sans-serif;
-    font-weight: 700;
-    font-size: 1.15rem;
-    color: var(--text);
-    letter-spacing: -.01em;
-    margin-bottom: 14px
+    font-weight: 800;
+    font-size: clamp(1.8rem, 3.5vw, 2.45rem);
+    line-height: 1.15;
+    color: var(--heading-color);
+    margin: 0 0 24px;
+    letter-spacing: -.03em;
 }
 
 .blog-section-heading:before {
@@ -567,9 +568,10 @@
 
 .blog-para {
     font-family: Montserrat, sans-serif;
-    font-size: 1.15rem;
-    line-height: 1.8;
-    color: var(--muted);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--sub-color);
     white-space: pre-line;
     margin-bottom: 24px
 }
@@ -693,9 +695,10 @@
 
 .form-card-sub {
     font-family: Montserrat, sans-serif;
-    font-size: .78rem;
-    font-weight: 500;
-    color: var(--muted);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--sub-color);
     margin-bottom: 20px;
     line-height: 1.55
 }
@@ -885,10 +888,11 @@ textarea.form-field {
 
 .faq-title {
     font-family: Poppins, sans-serif;
-    font-weight: 700;
-    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
-    color: var(--text);
-    letter-spacing: -.02em
+    font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--heading-color);
+    letter-spacing: -.03em;
+    line-height: 1.05;
 }
 
 .faq-list {
@@ -1071,6 +1075,11 @@ textarea.form-field {
     }
 
     .blog-para {
+        font-family: Montserrat, sans-serif;
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 1.85;
+        color: var(--sub-color);
         font-size: 1rem
     }
 
@@ -1254,4 +1263,41 @@ textarea.form-field {
     background: #d81d1f !important;
     border-color: #d81d1f !important;
     color: #ffffff !important;
+}
+
+.socials-label {
+    font-size: clamp(11px, .8vw, 13px);
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted-color);
+    margin-bottom: 16px
+}
+
+.social-icons {
+    display: flex;
+    gap: 18px;
+    align-items: center
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted-color);
+    transition: color .25s, transform .25s;
+    text-decoration: none
+}
+
+.social-icons a:hover {
+    color: var(--primary);
+    transform: translateY(-2px)
+}
+
+.social-icons svg {
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+    stroke: none;
+    transition: fill 0.25s;
 }

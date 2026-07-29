@@ -103,7 +103,7 @@
     {{-- ── HERO ── --}}
     <section class="hero">
         <div class="hero-text">
-            <h1 class="hero-heading">WE BUILD DIGITAL <br> FUTURES</h1>
+            <h1 class="hero-heading sec-heading">We Build Digital <br> <span style="color:var(--accent-color)">Futures</span></h1>
             <p class="hero-sub">
                 A multidisciplinary tech studio crafting AI-powered apps, immersive VR experiences,<br>
                 and enterprise web platforms that scale without limits.
@@ -125,12 +125,12 @@
                     </span>
                 </a>
                 <div class="about-banner-glass">
-                    <span class="glass-tag">Innovation First</span>
-                    <p class="glass-text">We blend artistic creativity with technical excellence to build products that stand out.</p>
+                    <span class="glass-tag" style="font-family:Poppins, sans-serif; font-weight: 800; letter-spacing: -.03em;">Innovation First</span>
+                    <p class="glass-text sec-sub" style="color: inherit; line-height: 1.5; font-size: .95rem;">We blend artistic creativity with technical excellence to build products that stand out.</p>
                 </div>
                 <div class="about-banner-overlay">
-                    <h3 style="font-family:Poppins;font-size:2rem;color:#fff;margin:0 0 12px;font-weight:800;letter-spacing:-0.02em">United by Vision</h3>
-                    <p style="font-family:Montserrat;font-size:1.05rem;color:rgba(255,255,255,0.9);max-width:540px;line-height:1.7;margin:0">
+                    <h3 style="font-family:Poppins, sans-serif; font-size: clamp(2rem, 4vw, 3rem); color: #fff; margin: 0 0 12px; font-weight: 800; line-height: 1.05; letter-spacing: -.03em;">United by Vision</h3>
+                    <p style="font-family:Montserrat, sans-serif; font-size: 1rem; color: rgba(255,255,255,0.9); max-width: 540px; line-height: 1.85; margin: 0;">
                         Our global team works around the clock to ensure your project is
                         delivered with the highest quality standards and innovative features.
                     </p>
@@ -151,8 +151,8 @@
                     </div>
                 </div>
                 <div class="section-divider"></div>
-                <h2 class="exp-heading">Our<br><span style="color:var(--accent-color)">Experience</span></h2>
-                <p class="exp-intro">
+                <h2 class="exp-heading sec-heading">Our<br><span style="color:var(--accent-color)">Experience</span></h2>
+                <p class="exp-intro sec-sub">
                     Years of delivering digital excellence across development, design, and strategy — turning complex ideas into impactful solutions.
                 </p>
                 <div class="exp-stat-row">
@@ -167,12 +167,12 @@
                         <div class="exp-item-top">
                             <span class="exp-num">{{ $item['num'] }}</span>
                             <div class="exp-item-header">
-                                <span class="exp-sub">{{ $item['sub'] }}</span>
-                                <h3 class="exp-title">{{ $item['title'] }}</h3>
+                                <span class="exp-sub" style="text-transform: uppercase; letter-spacing: .2em; font-size: 0.75rem; font-family: Montserrat, sans-serif; font-weight: 600; color: var(--accent-color);">{{ $item['sub'] }}</span>
+                                <h3 class="exp-title" style="font-family:Poppins, sans-serif; font-weight: 800; letter-spacing: -.03em; line-height: 1.05;">{{ $item['title'] }}</h3>
                             </div>
                         </div>
                         <div class="exp-item-body">
-                            <p class="exp-desc">{{ $item['desc'] }}</p>
+                            <p class="exp-desc sec-sub">{{ $item['desc'] }}</p>
                             <div class="exp-tags">
                                 @foreach ($item['tags'] as $tag)
                                     <span class="exp-tag">{{ $tag }}</span>
@@ -201,8 +201,8 @@
                 </div>
                 <div class="section-divider"></div>
                 <div class="spec-heading-row">
-                    <h2 class="spec-heading">Our <span style="color:var(--accent-color)">Specialties</span></h2>
-                    <p class="spec-sub">
+                    <h2 class="spec-heading sec-heading">Our <span style="color:var(--accent-color)">Specialties</span></h2>
+                    <p class="spec-sub sec-sub">
                         A focused set of disciplines — each executed with precision and depth across development, marketing, and design.
                     </p>
                 </div>
@@ -222,12 +222,12 @@
                 @foreach ($specialties as $i => $item)
                     @php $cat = $catColors[$item['category']] ?? $catColors['Development']; @endphp
                     <div class="spec-item reveal" data-cat="{{ $item['category'] }}" data-index="{{ $i }}">
-                        <div class="spec-trigger">
+                        <div class="spec-trigger" style="cursor: pointer;">
                             <div class="spec-trigger-left">
                                 <span class="spec-num">{{ sprintf('%02d', $i + 1) }}</span>
                                 <div class="spec-trigger-meta">
                                     <span class="spec-category-badge" style="background:{{ $cat['bg'] }};color:{{ $cat['text'] }};border:1px solid {{ $cat['border'] }}">{{ $item['category'] }}</span>
-                                    <span class="spec-q-text">{{ $item['title'] }}</span>
+                                    <span class="spec-q-text" style="font-family:Poppins, sans-serif; font-weight: 800; letter-spacing: -.03em; line-height: 1.05;">{{ $item['title'] }}</span>
                                 </div>
                             </div>
                             <button class="spec-icon-wrap" type="button" aria-expanded="false" aria-label="Open content">
@@ -239,7 +239,7 @@
                         </div>
                         <div class="spec-body">
                             <div class="spec-body-inner">
-                                <p class="spec-desc-text">{{ $item['desc'] }}</p>
+                                <p class="spec-desc-text sec-sub">{{ $item['desc'] }}</p>
                                 <div class="spec-tags">
                                     @foreach ($item['tags'] as $tag)
                                         <span class="spec-tag" style="border-color:{{ $cat['border'] }};color:{{ $cat['text'] }};background:{{ $cat['bg'] }}">{{ $tag }}</span>
@@ -275,8 +275,8 @@
                     </div>
                 </div>
                 <div class="section-divider"></div>
-                <h2 class="approach-heading">Our <span style="color:var(--accent-color)">Approach</span></h2>
-                <p class="approach-sub">
+                <h2 class="approach-heading sec-heading">Our <span style="color:var(--accent-color)">Approach</span></h2>
+                <p class="approach-sub sec-sub">
                     A process built on clarity, collaboration, and relentless attention to quality at every stage.
                 </p>
             </div>
@@ -287,8 +287,8 @@
                         <div class="approach-step-inner">
                             <span class="approach-step-num">{{ $step['num'] }}</span>
                             <div class="approach-step-line"></div>
-                            <h3 class="approach-step-title">{{ $step['title'] }}</h3>
-                            <p class="approach-step-desc">{{ $step['desc'] }}</p>
+                            <h3 class="approach-step-title" style="font-family:Poppins, sans-serif; font-weight: 800; letter-spacing: -.03em; line-height: 1.05;">{{ $step['title'] }}</h3>
+                            <p class="approach-step-desc sec-sub">{{ $step['desc'] }}</p>
                         </div>
                     </div>
                 @endforeach
@@ -299,7 +299,7 @@
     {{-- ── CLIENT LOGO TICKER ── --}}
     <section class="logos-section reveal">
         <div class="section-inner">
-            <p class="logos-label">Trusted by <span class="logos-accent">Industry Leaders</span></p>
+            <p class="logos-label" style="font-family:Poppins, sans-serif; font-weight: 800; letter-spacing: -.03em;">Trusted by <span class="logos-accent">Industry Leaders</span></p>
             <div class="logos-slider-wrap">
                 <div class="logos-track">
                     @foreach (array_merge($clientLogos, $clientLogos, $clientLogos) as $logo)
@@ -310,73 +310,6 @@
         </div>
     </section>
 
-    {{-- ── TRUST BADGES ── --}}
-    <section class="tb-section">
-        <div class="tb-inner">
-            <div class="tb-grid">
-                <div class="tb-left">
-                    <div style="display: flex; flex-direction: column; align-items: flex-start;">
-                        <div class="section-label-row" style="margin-bottom: 14px;">
-                            <div class="section-robot-badge">{!! $robo !!}</div>
-                            <div class="section-label-pill">
-                                <span class="section-label-dot"></span>
-                                <span class="section-label">Certified &amp; Trusted</span>
-                            </div>
-                        </div>
-                        <div class="section-divider" style="margin-bottom: 0;"></div>
-                    </div>
-                    <h2 class="tb-heading">Custom <span style="color:var(--accent-color)">AI Agents</span> That<br>Think, Act, &amp; Deliver<br><span style="color:var(--accent-color)">Real Results</span></h2>
-                    <p class="tb-subtext">Recognised globally for building intelligent automation that drives measurable outcomes — not just demos.</p>
-                    <a href="/contact" class="tb-btn">Let's Talk</a>
-                </div>
-
-                <div class="tb-right">
-                    <div class="tb-badges-wrap">
-                        <div class="tb-badges-row-top">
-                            @foreach (array_slice($badges, 0, 5) as $b)
-                                @include('pages.partials.about-hexbadge', ['b' => $b])
-                            @endforeach
-                        </div>
-                        <div class="tb-badges-row-bot">
-                            @foreach (array_slice($badges, 5, 4) as $b)
-                                @include('pages.partials.about-hexbadge', ['b' => $b])
-                            @endforeach
-                        </div>
-                    </div>
-
-                    <div class="tb-trust-row">
-                        <div class="tb-clutch-block">
-                            <span class="tb-clutch-logo">Clutch</span>
-                            <div class="tb-clutch-info">
-                                <div class="tb-clutch-rating">
-                                    <span class="tb-rating-score">5.0</span>
-                                    <div class="tb-stars">
-                                        @for ($i = 0; $i < 5; $i++)<span class="tb-star">★</span>@endfor
-                                    </div>
-                                </div>
-                                <span class="tb-clutch-reviews">14 Reviews on Clutch</span>
-                            </div>
-                        </div>
-                        <div class="tb-trust-divider"></div>
-                        <div class="tb-tech-block">
-                            <div class="tb-tech-icon">
-                                <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="1" y="5" width="8" height="3" rx="1" fill="#0050a0" opacity=".8"/>
-                                    <rect x="1" y="10" width="14" height="3" rx="1" fill="#0050a0"/>
-                                    <rect x="1" y="15" width="10" height="3" rx="1" fill="#0050a0" opacity=".6"/>
-                                    <circle cx="17" cy="16.5" r="3.5" fill="#D81D1F" opacity=".9"/>
-                                </svg>
-                            </div>
-                            <div class="tb-tech-info">
-                                <span class="tb-tech-label">Trusted on</span>
-                                <span class="tb-tech-name">Tech Behemoths</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     {{-- ── BLOG SECTION ── --}}
     <section class="bs-section">
@@ -391,8 +324,8 @@
                         </div>
                     </div>
                     <div class="bs-divider"></div>
-                    <h2 class="bs-heading">From Our <span>Blog</span></h2>
-                    <p class="bs-headsub">Expert perspectives on growth, hiring, and digital strategy — written for forward-thinking teams.</p>
+                    <h2 class="bs-heading sec-heading">From Our <span>Blog</span></h2>
+                    <p class="bs-headsub sec-sub">Expert perspectives on growth, hiring, and digital strategy — written for forward-thinking teams.</p>
                 </div>
 
                 <a href="/blog" style="text-decoration:none">
@@ -423,7 +356,7 @@
                             <div class="bs-read-overlay"><div class="bs-read-circle"><span>Read</span></div></div>
                             <div class="bs-feat-content">
                                 <div><span class="bs-catpill"><span class="bs-catpill-dot"></span>{{ $featuredPost['category'] }}</span></div>
-                                <h2 class="bs-feat-title">{{ $featuredPost['title'] }}</h2>
+                                <h2 class="bs-feat-title" style="font-family:Poppins, sans-serif; font-weight: 800; letter-spacing: -.03em; line-height: 1.05;">{{ $featuredPost['title'] }}</h2>
                                 <div class="bs-meta">
                                     <img loading="lazy" decoding="async" src="{{ $featuredPost['avatar'] }}" alt="{{ $featuredPost['author'] }}" class="bs-feat-avatar">
                                     <span class="bs-meta-author">{{ $featuredPost['author'] }}</span>
@@ -446,7 +379,7 @@
                                 </div>
                                 <div class="bs-card-body">
                                     <p class="bs-card-cat">{{ $post['category'] }}</p>
-                                    <h3 class="bs-card-title">{{ $post['title'] }}</h3>
+                                    <h3 class="bs-card-title" style="font-family:Poppins, sans-serif; font-weight: 800; letter-spacing: -.03em; line-height: 1.05;">{{ $post['title'] }}</h3>
                                     <div class="bs-card-meta">
                                         <img loading="lazy" decoding="async" src="{{ $post['avatar'] }}" alt="{{ $post['author'] }}" class="bs-card-avatar">
                                         <span class="bs-card-author">{{ $post['author'] }}</span>
@@ -486,8 +419,8 @@
                     </div>
                     <div class="section-divider" style="margin-bottom: 0;"></div>
                 </div>
-                <h2 class="pf-heading">Work That<br><span class="accent">Speaks</span> Loudly</h2>
-                <p class="pf-desc">From high-performance SaaS dashboards to immersive mobile experiences — every project we ship is crafted with precision, purpose, and a relentless focus on exceptional user experience.</p>
+                <h2 class="pf-heading sec-heading">Work That<br><span class="accent">Speaks</span> Loudly</h2>
+                <p class="pf-desc sec-sub">From high-performance SaaS dashboards to immersive mobile experiences — every project we ship is crafted with precision, purpose, and a relentless focus on exceptional user experience.</p>
                 <div class="pf-stats">
                     @foreach ($pfStats as $stat)
                         <div class="pf-stat">
@@ -511,8 +444,8 @@
                         @endif
                         <div class="pf-card-grad"></div>
                         <div class="pf-card-content">
-                            <h4 class="pf-card-title">{{ $item['title'] }}</h4>
-                            <p class="pf-card-desc">{{ $item['desc'] }}</p>
+                            <h4 class="pf-card-title" style="font-family:Poppins, sans-serif; font-weight: 800; letter-spacing: -.03em; line-height: 1.05;">{{ $item['title'] }}</h4>
+                            <p class="pf-card-desc sec-sub">{{ $item['desc'] }}</p>
                             <div class="pf-card-explore">
                                 <span>Explore</span>
                                 <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M1 6H11M6 1L11 6L6 11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
@@ -528,7 +461,7 @@
     {{-- ════════════════ TECH TICKER ════════════════ --}}
     <section class="tt-section">
         <div class="tt-header">
-            <h2 class="tt-title">Our <span class="tt-accent">Technology</span> Stack</h2>
+            <h2 class="tt-title sec-heading">Our <span class="tt-accent">Technology</span> Stack</h2>
         </div>
         <div class="tt-viewport">
             <div class="tt-track">
@@ -592,18 +525,36 @@
                 <span class="cb-label-text">Let's Work Together</span>
             </div>
 
-            <h2 class="cb-heading">Have a Project in Mind?<br>Let's Build It.</h2>
-            <p class="cb-sub">
+            <h2 class="cb-heading sec-heading" style="color: #ffffff !important;">Have a Project in Mind?<br>Let's Build It.</h2>
+            <p class="cb-sub sec-sub" style="color: rgba(255, 255, 255, 0.9) !important;">
                 Whether you're starting from scratch or scaling an existing product, we'd love to hear about it.
                 Let's create something remarkable together.
             </p>
 
             <div class="cb-btn-row">
-                <a href="/contact" class="cb-btn-primary">Contact Me</a>
+                <a href="#" class="cb-btn-primary" onclick="openCalendlyModal(event)">Book A Consultation</a>
                 <a href="/portfolio" class="cb-btn-secondary">View Portfolio</a>
             </div>
         </div>
     </section>
+
+    {{-- ── Calendly Modal ── --}}
+    <div class="cal-modal" id="calModal" aria-hidden="true">
+        <div class="cal-modal-backdrop" onclick="closeCalendlyModal()"></div>
+        <div class="cal-modal-box" role="dialog" aria-modal="true" aria-labelledby="calModalTitle">
+            <button class="cal-modal-close" type="button" aria-label="Close modal" onclick="closeCalendlyModal()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+            <div class="cal-modal-content">
+                <h2 class="cal-modal-title">Book a <span style="color:var(--accent-color)">Consultation</span></h2>
+                <div class="calendly-inline-widget" data-url="https://calendly.com/mshayantariq/schedule-a-meeting?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:280px;height:700px;width:100%"></div>
+                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            </div>
+        </div>
+    </div>
 
 </div>
 @endsection
@@ -647,21 +598,52 @@
 
     /* ── Accordion toggle ── */
     items.forEach(function (item) {
-        var trigger = item.querySelector('.spec-icon-wrap');
+        var triggerRow = item.querySelector('.spec-trigger');
+        var iconWrap = item.querySelector('.spec-icon-wrap');
         var body = item.querySelector('.spec-body');
-        if (!trigger || !body) return;
+        if (!triggerRow || !iconWrap || !body) return;
         body.style.maxHeight = '0px';
-        trigger.addEventListener('click', function () {
+        triggerRow.addEventListener('click', function () {
             var isOpen = item.classList.contains('spec-item--open');
             items.forEach(closeItem);
             if (!isOpen) {
                 item.classList.add('spec-item--open');
-                trigger.classList.add('spec-icon-wrap--open');
-                trigger.setAttribute('aria-expanded', 'true');
+                iconWrap.classList.add('spec-icon-wrap--open');
+                iconWrap.setAttribute('aria-expanded', 'true');
                 body.style.maxHeight = body.scrollHeight + 'px';
             }
         });
     });
 })();
+
+    function openCalendlyModal(event) {
+        if (event) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        var modal = document.getElementById('calModal');
+        var cc = document.getElementById('customCursor');
+        if (modal) {
+            modal.classList.add('is-open');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            if (cc) cc.style.display = 'none';
+        }
+    }
+
+    function closeCalendlyModal() {
+        var modal = document.getElementById('calModal');
+        var cc = document.getElementById('customCursor');
+        if (modal) {
+            modal.classList.remove('is-open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            if (cc) cc.style.display = '';
+        }
+    }
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeCalendlyModal();
+    });
 </script>
 @endpush

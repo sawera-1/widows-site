@@ -14,7 +14,6 @@
     <section class="sd-hero" style="--primary:#D81D1F;--primary-rgb:216, 29, 31">
         <div class="sd-hero-bg loaded"></div>
         <div class="sd-hero-overlay"></div>
-        <div class="sd-hero-fade"></div>
 
         <div class="sd-hero-content">
             <div>
@@ -81,7 +80,7 @@
                     </div>
                 </div>
                 <div class="sd-hero-ctas">
-                    <a href="/contact" class="sd-btn-primary">Hire Developers</a>
+                    <a href="#" onclick="openCalendlyModal(event)" class="sd-btn-primary">Hire Developers</a>
                 </div>
             </div>
             <div class="sd-hero-right">
@@ -212,7 +211,7 @@
                                     </li>
                                 @endforeach
                             </ul>
-                            <a href="/contact" class="sd-svc-hire-btn">
+                            <a href="#" onclick="openCalendlyModal(event)" class="sd-svc-hire-btn">
                                 Hire Now
                                 <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
                                     <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
@@ -298,7 +297,7 @@
                                 </div>
                             </div>
 
-                            <a href="#" class="sd-price-cta">
+                            <a href="#" onclick="openCalendlyModal(event)" class="sd-price-cta">
                                 Contact Us
                                 <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
                                     <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
@@ -353,8 +352,8 @@
                         <div class="emp-info">
                             <div class="emp-name-row">
                                 <span class="emp-name">{{ $emp['name'] }}</span>
-                                <span style="display:flex;align-items:center;gap:5px;font-size:10px;font-weight:600;color:var(--primary);font-family:'Montserrat', sans-serif">
-                                    <span style="width:6px;height:6px;border-radius:50%;background:var(--primary);box-shadow:0 0 6px var(--primary);display:inline-block"></span>
+                                <span style="display:flex;align-items:center;gap:5px;font-size:10px;font-weight:600;color:#10b981;font-family:'Montserrat', sans-serif">
+                                    <span style="width:6px;height:6px;border-radius:50%;background:#10b981;box-shadow:0 0 6px #10b981;display:inline-block"></span>
                                     Available
                                 </span>
                             </div>
@@ -386,6 +385,56 @@
             </div>
         </div>
     </section>
+
+{{-- ── Calendly Modal ── --}}
+<div class="cal-modal" id="calModal" aria-hidden="true">
+    <div class="cal-modal-backdrop" onclick="closeCalendlyModal()"></div>
+    <div class="cal-modal-box" role="dialog" aria-modal="true" aria-labelledby="calModalTitle">
+        <button class="cal-modal-close" type="button" aria-label="Close modal" onclick="closeCalendlyModal()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+        </button>
+        <div class="cal-modal-content">
+            <h2 class="cal-modal-title">Book a <span style="color:var(--accent-color)">Consultation</span></h2>
+            <div class="calendly-inline-widget" data-url="https://calendly.com/mshayantariq/schedule-a-meeting?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:280px;height:700px;width:100%"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openCalendlyModal(event) {
+        if (event) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        var modal = document.getElementById('calModal');
+        var cc = document.getElementById('customCursor');
+        if (modal) {
+            modal.classList.add('is-open');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            if (cc) cc.style.display = 'none';
+        }
+    }
+
+    function closeCalendlyModal() {
+        var modal = document.getElementById('calModal');
+        var cc = document.getElementById('customCursor');
+        if (modal) {
+            modal.classList.remove('is-open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            if (cc) cc.style.display = '';
+        }
+    }
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeCalendlyModal();
+    });
+</script>
 
 </div>
 @endsection

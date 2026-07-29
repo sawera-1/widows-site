@@ -32,10 +32,7 @@
       {{-- Left: contact details --}}
       <div class="details-col fade-up visible delay-1">
         <div class="info-blocks">
-          <div>
-            <p class="info-label">Address</p>
-            <p class="info-value">Chicago, IL, USA</p>
-          </div>
+         
           <div>
             <p class="info-label">Email</p>
             <p class="info-value">
@@ -51,28 +48,34 @@
           <div>
             <p class="socials-label">Socials</p>
             <div class="social-icons">
-              <a href="#" aria-label="Google">
-                <svg viewBox="0 0 24 24">
-                  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09zM12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23zM5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84zM12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="currentColor" stroke="none" />
+              <a href="https://www.youtube.com/@MediaCorammers" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.016 3.016 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.376.55 9.376.55s7.505 0 9.377-.55a3.016 3.016 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                 </svg>
               </a>
-              <a href="#" aria-label="Instagram">
-                <svg viewBox="0 0 24 24">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                  <circle cx="12" cy="12" r="4" />
-                  <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none" />
+              <a href="https://www.instagram.com/corammersmedia?igsh=YTYxdWo1dHlhcjc1" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
                 </svg>
               </a>
-              <a href="#" aria-label="X (Twitter)">
-                <svg viewBox="0 0 24 24">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor" stroke="none" />
+              <a href="https://www.linkedin.com/company/corammers/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                 </svg>
               </a>
-              <a href="#" aria-label="LinkedIn">
-                <svg viewBox="0 0 24 24">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" fill="currentColor" stroke="none" />
-                  <rect x="2" y="9" width="4" height="12" fill="currentColor" stroke="none" />
-                  <circle cx="4" cy="4" r="2" fill="currentColor" stroke="none" />
+              <a href="mailto:corammers@gmail.com" aria-label="Email">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+              </a>
+              <a href="https://www.facebook.com/share/19pNwtaKzg/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+                </svg>
+              </a>
+              <a href="https://wa.me/+923499674499" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                <svg viewBox="0 0 448 512" fill="currentColor">
+                  <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
                 </svg>
               </a>
             </div>
@@ -82,7 +85,7 @@
 
       {{-- Right: contact form --}}
       <div class="fade-up visible delay-2">
-        <h2 class="form-heading">GET IN TOUCH WITH US</h2>
+        <h2 class="form-heading sec-heading">Get in <span style="color:var(--accent-color)">Touch</span> With Us</h2>
         <p class="form-desc">
           We&apos;d love to hear from you! Whether you have a project in mind, need a quote,
           or just want to say hello, feel free to reach out.

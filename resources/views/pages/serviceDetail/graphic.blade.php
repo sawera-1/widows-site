@@ -77,7 +77,7 @@
             <p class="dev-hero-right-desc" style="font-style: italic;">
                 "Corammers – Transforming Ideas into Powerful Visual Experiences."
             </p>
-            <a href="/contact" class="dev-connect-btn">
+            <a href="#book-consultation" class="dev-connect-btn">
                 <span>Let's Connect</span>
             </a>
         </div>
@@ -166,7 +166,7 @@
                     </div>
                 </div>
                 <div class="wd-section-divider"></div>
-                <h2 class="wd-section-heading" style="margin:0">Graphic Design Services</h2>
+                <h2 class="wd-section-heading" style="margin:0">Graphic Design <span style="color:var(--accent-theme,#D81D1F)">Services</span></h2>
             </div>
             <p class="wd-section-sub">Design high-quality brochures, business cards, flyers, packaging, catalogs, banners, and promotional materials that communicate your brand effectively.</p>
         </div>
@@ -211,7 +211,7 @@
                 <h2 class="wc-heading">Why Businesses Choose <span class="wc-accent">Corammers</span><br>For Graphic Design</h2>
                 <p class="wc-para">We combine creativity with strategic thinking to design visuals that strengthen your brand and improve communication. Every design is crafted with consistency and a deep understanding of your business goals to help you stand out.</p>
                 <p class="wc-tagline">Corammers — Building Digital Experiences That Businesses Trust.</p>
-                <a href="/contact" class="wc-cta-btn">Let's Design Your Brand</a>
+                <a href="#book-consultation" class="wc-cta-btn">Let's Design Your Brand</a>
             </div>
 
             {{-- ── RIGHT: Image + Play Button ── --}}
@@ -432,7 +432,19 @@
         {{-- ══════════ booking══════════ --}}
         <section class="lf-section" id="book-consultation">
     <div class="lf-container">
-        <h2 class="lf-heading">Ready to Elevate Your Brand with <span class="accent">Stunning Graphic Design?</span></h2>
+          <div style="display: flex; justify-content: center;">
+            <div style="display: flex; flex-direction: column;">
+                <div class="wd-label-row-bl" style="margin-bottom: 12px; justify-content: flex-start;">
+                    <div class="wd-robot-badge-bl">{!! $robo !!}</div>
+                    <div class="wd-label-pill-bl">
+                        <span class="wd-label-dot-bl"></span>
+                        <span class="wd-label-text-bl">Consultation</span>
+                    </div>
+                </div>
+                <div class="wd-section-divider-bl" style="margin-left: 0;"></div>
+            </div>
+        </div>
+         <h2 class="lf-heading">Book a Free <span class="accent">Consultation</span></h2>
         <p class="lf-subtitle">Whether you're launching a new business, refreshing your brand identity, or creating marketing materials, Corammers delivers creative graphic design solutions that help your business stand out and leave a lasting impression.</p>
 
         <div class="lf-book-grid">

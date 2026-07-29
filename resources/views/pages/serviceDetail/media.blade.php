@@ -77,7 +77,7 @@
             <p class="dev-hero-right-desc" style="font-style: italic;">
                 "Driving More Leads, More Sales, and Greater ROI Through Smarter Advertising."
             </p>
-            <a href="/contact" class="dev-connect-btn">
+            <a href="#book-consultation" class="dev-connect-btn">
                 <span>Let's Connect</span>
             </a>
         </div>
@@ -166,7 +166,7 @@
                     </div>
                 </div>
                 <div class="wd-section-divider"></div>
-                <h2 class="wd-section-heading" style="margin:0">Media Buying & Paid Advertising Services</h2>
+                <h2 class="wd-section-heading" style="margin:0">Media Buying & Paid Advertising <span style="color:var(--accent-theme,#D81D1F)">Services</span></h2>
             </div>
             <p class="wd-section-sub">Generate qualified leads, increase conversions, and maximize return on ad spend (ROAS) through strategic, data-driven advertising campaigns.</p>
         </div>
@@ -211,7 +211,7 @@
                 <h2 class="wc-heading">Why Choose Corammers for<br><span class="wc-accent">Media Buying & Paid Ads?</span></h2>
                 <p class="wc-para">Our advertising specialists combine strategic planning, audience research, creative optimization, and real-time performance analysis to deliver campaigns that generate measurable business growth. We continuously optimize every campaign to reduce acquisition costs, improve conversion rates, and maximize your return on investment across every advertising platform.</p>
                 <p class="wc-tagline">Corammers – Driving More Leads, More Sales, and Greater ROI Through Smarter Advertising.</p>
-                <a href="/contact" class="wc-cta-btn">Start Your Campaign</a>
+                <a href="#book-consultation" class="wc-cta-btn">Start Your Campaign</a>
             </div>
 
             {{-- ── RIGHT: Image + Play Button ── --}}
@@ -432,6 +432,18 @@
         {{-- ══════════ booking══════════ --}}
         <section class="lf-section" id="book-consultation">
     <div class="lf-container">
+          <div style="display: flex; justify-content: center;">
+            <div style="display: flex; flex-direction: column;">
+                <div class="wd-label-row-bl" style="margin-bottom: 12px; justify-content: flex-start;">
+                    <div class="wd-robot-badge-bl">{!! $robo !!}</div>
+                    <div class="wd-label-pill-bl">
+                        <span class="wd-label-dot-bl"></span>
+                        <span class="wd-label-text-bl">Consultation</span>
+                    </div>
+                </div>
+                <div class="wd-section-divider-bl" style="margin-left: 0;"></div>
+            </div>
+        </div>
         <h2 class="lf-heading">Book a Free <span class="accent">Consultation</span></h2>
         <p class="lf-subtitle">Let's discuss how we can accelerate your growth with data-driven advertising campaigns.</p>
 

@@ -92,13 +92,13 @@
 
         {{-- CTAs --}}
         <div class="hero-ctas">
-            <a href="/contact" class="hero-btn hero-btn-primary">Contact Me</a>
+            <a href="/contact" class="hero-btn hero-btn-primary">Contact Us</a>
             <a href="/portfolio" class="hero-btn hero-btn-secondary">Discover Our Work</a>
         </div>
     </section>
 
     {{-- ════════════════ ABOUT ════════════════ --}}
-    <section class="home-section">
+    <section class="home-section" style="padding-bottom: 0;">
         <div class="home-inner">
             <div class="about-label-row label-row">
                 <div class="robot-badge">{!! $robot !!}</div>
@@ -115,9 +115,10 @@
             <p class="about-sub">
                 We are a team of passionate creators, engineers, and strategists dedicated to pushing the boundaries of what's possible in the digital world. Our mission is to empower businesses with cutting-edge technology.
             </p>
+        </div>
 
-            <div class="about-inner" style="margin-top: 3rem;">
-            <div class="about-banner-wrap reveal">
+        <div class="about-inner" style="margin-top: 3rem; width: 100%;">
+            <div class="about-banner-wrap reveal" style="border-radius: 0;">
                 <img loading="lazy" decoding="async" src="/assets/about.webp" alt="About Us" class="about-banner-img">
                 <a href="https://www.youtube.com/@MediaCorammers" target="_blank" rel="noopener noreferrer" class="about-video-anchor">
                     <span class="video-btn">
@@ -166,8 +167,8 @@
                 </div>
             </div>
             <div class="section-divider"></div>
-            <h2 class="svc-heading">Our <span class="accent">Services</span></h2>
-            <p class="svc-sub">We build, design, grow, and automate combining craft with technology to deliver digital experiences that captivate audiences and drive measurable results for ambitious brands.</p>
+            <h2 class="sec-heading">Our <span class="accent">Services</span></h2>
+            <p class="sec-sub">We build, design, grow, and automate combining craft with technology to deliver digital experiences that captivate audiences and drive measurable results for ambitious brands.</p>
 
             <div class="svc-track" style="--panel-count:{{ count($services) }};">
                 <div class="svc-sticky">
@@ -218,7 +219,7 @@
                 </div>
             </div>
             <div class="section-divider"></div>
-            <h2 class="sec-heading">Our Process</h2>
+            <h2 class="sec-heading">Our <span class="accent">Process</span></h2>
             <p class="sec-sub">From first idea to final launch, every step is intentional. Here's how we turn your vision into a world-class digital product.</p>
 
             <div class="exp-grid">
@@ -290,12 +291,12 @@
                         </div>
                     </div>
                     <div class="section-divider"></div>
-                    <h2 class="wcu-heading">
+                    <h2 class="sec-heading">
                         We Build More Than<br>
                         <span class="accent wcu-heading-underline">Products —</span>
                         <span class="wcu-trust-word">We Build Trust</span>
                     </h2>
-                    <p class="wcu-para">Choosing the right partner is everything. We combine technical excellence with creative ambition and a relentless focus on your success — from first commit to final launch and beyond.</p>
+                    <p class="sec-sub" style="opacity: 0.9;">Choosing the right partner is everything. We combine technical excellence with creative ambition and a relentless focus on your success — from first commit to final launch and beyond.</p>
 
                     <div class="wcu-bullets-list">
                         @foreach ($wcuBullets as $b)
@@ -309,7 +310,7 @@
                         @endforeach
                     </div>
 
-                    <a href="/contact" style="text-decoration:none">
+                    <a href="#" onclick="openCalendlyModal(event)" style="text-decoration:none">
                         <div class="wcu-btn-container">
                             <div class="wcu-btn-base"><span>Start Your Journey</span></div>
                             <div class="wcu-btn-hover"><span>Let's Build It</span></div>
@@ -345,8 +346,8 @@
                     </div>
                     <div class="section-divider" style="margin-bottom: 0;"></div>
                 </div>
-                <h2 class="pf-heading">Work That<br><span class="accent">Speaks</span> Loudly</h2>
-                <p class="pf-desc">From high-performance SaaS dashboards to immersive mobile experiences — every project we ship is crafted with precision, purpose, and a relentless focus on exceptional user experience.</p>
+                <h2 class="sec-heading">Work That<br><span class="accent">Speaks</span> Loudly</h2>
+                <p class="sec-sub" style="max-width: 420px; margin: 0;">From high-performance SaaS dashboards to immersive mobile experiences — every project we ship is crafted with precision, purpose, and a relentless focus on exceptional user experience.</p>
                 <div class="pf-stats">
                     @foreach ($pfStats as $stat)
                         <div class="pf-stat">
@@ -396,7 +397,7 @@
             ['name' => 'Marcus Thorne', 'role' => 'Founder, TechFlow', 'text' => 'the custom software they built is a game changer for our warehouse operations super efficient and easy for the team to pick up definitely the best choice for us', 'image' => '/assets/project/custom/2.webm', 'avatar' => null],
             ['name' => 'Elena Rossi', 'role' => 'Director, VibeDesign', 'text' => 'honestly obsessed with the new branding and logo they did it just fits our vibe perfectly and the team was so chill to work with 10/10', 'image' => '/assets/project/uiux/6.webm', 'avatar' => null],
             ['name' => 'Omar Farouq', 'role' => 'Operations Lead, SyncAI', 'text' => 'honestly was skeptical about ai automation at first but the workflow they built just runs itself now we cut manual hours by like 70% which is insane', 'image' => '/assets/project/aiSol/1.webm', 'avatar' => null],
-            ['name' => 'Nadia Petrov', 'role' => 'Creative Director, PixelMind', 'text' => 'the ai design visuals they created blew us away every concept was unique and on brand felt like they really understood our aesthetic from the very first call', 'image' => '/assets/project/aiDes/ai3.webm', 'avatar' => null],
+            ['name' => 'Nadia Petrov', 'role' => 'Creative Director, PixelMind', 'text' => 'the ai design visuals they created blew us away every concept was unique and on brand felt like they really understood our aesthetic from the very first call', 'image' => '/assets/project/aiDes/ai3.webp', 'avatar' => null],
         ];
         $star = '<svg width="18" height="18" viewBox="0 0 16 16" fill="#ffb33e" style="flex-shrink:0"><path d="M8 1.5L9.7 6H14.3L10.6 8.9L12 13.4L8 10.8L4 13.4L5.4 8.9L1.7 6H6.3L8 1.5Z" stroke="#ffb33e" stroke-width="1.2" stroke-linejoin="round"/></svg>';
     @endphp
@@ -412,7 +413,7 @@
                         </div>
                     </div>
                     <div class="section-divider"></div>
-                    <h2 class="rev-heading">Words from our <br><span class="accent">Happy Clients</span></h2>
+                    <h2 class="sec-heading">Words from our <br><span class="accent">Happy Clients</span></h2>
                 </div>
                 <div style="display:flex;gap:16px">
                     <button class="rev-nav-btn" data-rev-dir="-1" aria-label="Previous">
@@ -496,8 +497,8 @@
                     </div>
                 </div>
                 <div class="section-divider"></div>
-                <h2 class="ind-heading">Industries<br><span class="accent">We Serve</span></h2>
-                <p class="ind-para">We deliver tailored digital solutions across a wide range of industries, helping businesses scale, innovate, and stay competitive in the modern digital landscape.</p>
+                <h2 class="sec-heading">Industries<br><span class="accent">We Serve</span></h2>
+                <p class="sec-sub" style="max-width: 340px;">We deliver tailored digital solutions across a wide range of industries, helping businesses scale, innovate, and stay competitive in the modern digital landscape.</p>
                 <div class="ind-stats">
                     @foreach ($indStats as $s)
                         <div class="ind-stat">
@@ -552,8 +553,8 @@
                 </div>
             </div>
             <div class="section-divider"></div>
-            <h2 class="stats-heading">Numbers That <span class="accent">Speak</span> For Themselves</h2>
-            <p class="stats-sub">Milestones built on trust, craft, and consistent delivery across every project.</p>
+            <h2 class="sec-heading">Numbers That <span class="accent">Speak</span> For Themselves</h2>
+            <p class="sec-sub">Milestones built on trust, craft, and consistent delivery across every project.</p>
 
             <div class="stats-grid">
                 @foreach ($stats as $stat)
@@ -597,8 +598,8 @@
                     </div>
                     <div class="section-divider" style="margin-bottom: 0;"></div>
                 </div>
-                <h2 class="sa-heading">Scale Your Team with <mark>Pre-Vetted</mark> Developers</h2>
-                <p class="sa-desc">Quickly extend your team with skilled developers tailored to your needs. Our staff augmentation services help you scale efficiently without the overhead, delays, or risks of traditional hiring.</p>
+                <h2 class="sec-heading">Scale Your Team with <span class="accent">Pre-Vetted</span> Developers</h2>
+                <p class="sec-sub" style="max-width: 480px; margin: 0;">Quickly extend your team with skilled developers tailored to your needs. Our staff augmentation services help you scale efficiently without the overhead, delays, or risks of traditional hiring.</p>
                 <div class="sa-features">
                     @foreach ($saFeatures as $f)
                         <span class="sa-feature-pill">
@@ -615,7 +616,7 @@
                     <span class="sa-trust-text" style="font-size:12px;opacity:0.75">Trustindex</span>
                 </div>
                 <div class="sa-cta-row">
-                    <a href="/contact" class="sa-btn">Book a Discovery Call</a>
+                    <a href="#" onclick="openCalendlyModal(event)" class="sa-btn">Book a Discovery Call</a>
                 </div>
             </div>
 
@@ -676,18 +677,8 @@
 {{-- ── Section ── --}}
 <section class="ts-section">
     <div class="ts-inner">
-        <div style="display: flex; flex-direction: column; align-items: flex-start; margin: 0 auto; width: max-content;">
-            <div class="label-row ts-label-row" style="margin-bottom: 14px;">
-                <div class="robot-badge">{!! $robot !!}</div>
-                <div class="label-pill">
-                    <span class="label-dot"></span>
-                    <span class="label-text">Testimonials</span>
-                </div>
-            </div>
-            <div class="section-divider" style="margin-bottom: 32px;"></div>
-        </div>
         {{-- Heading --}}
-        <h2 class="ts-heading">What Our <span>Client</span> Say</h2>
+        <h2 class="ts-heading" style="text-align: center; color: #ffffff !important;">What Our <span style="color: #ff0000 !important;">Client</span> Say</h2>
 
         {{-- 3 × 3 grid --}}
         <div class="ts-grid">
@@ -789,13 +780,43 @@
 
         if (videoId) {
             player.innerHTML =
+                '<div id="tsLoader" style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #0c0c0c; color: #ffffff; z-index: 10; font-family: monospace; font-size: 1.1rem; transition: opacity 0.4s ease;">' +
+                    '<div style="width: 36px; height: 36px; border: 3px solid rgba(255,255,255,0.15); border-top-color: #ff0000; border-radius: 50%; animation: tsSpin 1s linear infinite; margin-bottom: 16px;"></div>' +
+                    '<div id="tsLoaderText">0%</div>' +
+                '</div>' +
                 '<iframe ' +
+                    'id="tsIframe" ' +
+                    'style="opacity: 0; transition: opacity 0.5s ease; width: 100%; height: 100%;" ' +
                     'src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0&modestbranding=1" ' +
                     'title="' + channel + '" ' +
                     'frameborder="0" ' +
                     'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ' +
                     'allowfullscreen>' +
-                '</iframe>';
+                '</iframe>' +
+                '<style>@keyframes tsSpin { to { transform: rotate(360deg); } }</style>';
+
+            var loaderText = document.getElementById('tsLoaderText');
+            var loader = document.getElementById('tsLoader');
+            var iframe = document.getElementById('tsIframe');
+            
+            var progress = 0;
+            var interval = setInterval(function() {
+                progress += Math.floor(Math.random() * 12) + 4;
+                if (progress >= 99) progress = 99;
+                if (loaderText) loaderText.textContent = progress + '%';
+            }, 60);
+
+            iframe.onload = function() {
+                clearInterval(interval);
+                if (loaderText) loaderText.textContent = '100%';
+                setTimeout(function() {
+                    if (loader) loader.style.opacity = '0';
+                    iframe.style.opacity = '1';
+                    setTimeout(function() {
+                        if (loader) loader.style.display = 'none';
+                    }, 400);
+                }, 150);
+            };
         } else {
             // Fallback: no valid video ID found, just link out
             player.innerHTML = '<div class="ts-modal-fallback">Video unavailable. <a href="' + videoUrl + '" target="_blank" rel="noopener noreferrer">Open on YouTube</a></div>';
@@ -885,7 +906,7 @@
  {{-- ════════════════ TECH TICKER ════════════════ --}}
     <section class="tt-section">
         <div class="tt-header">
-            <h2 class="tt-title">Our <span class="tt-accent">Technology</span> Stack</h2>
+            <h2 class="sec-heading" style="margin: 0;">Our <span class="accent">Technology</span> Stack</h2>
         </div>
         <div class="tt-viewport">
             <div class="tt-track">
@@ -950,7 +971,7 @@
                 <h2 class="cb-heading">Have a Project in Mind?<br>Let's Build It.</h2>
                 <p class="cb-sub">Whether you're starting from scratch or scaling an existing product, we'd love to hear about it. Send us a message and we'll get back to you within 24 hours.</p>
                 <div class="cb-btn-row">
-                    <a href="/contact" class="cb-btn-primary">
+                    <a href="#" onclick="openCalendlyModal(event)" class="cb-btn-primary">
                         Get in Touch
                     </a>
                     <a href="/portfolio" class="cb-btn-secondary">View Portfolio</a>
@@ -959,6 +980,56 @@
             </div>
         </div>
     </section>
+
+{{-- ── Calendly Modal ── --}}
+<div class="cal-modal" id="calModal" aria-hidden="true">
+    <div class="cal-modal-backdrop" onclick="closeCalendlyModal()"></div>
+    <div class="cal-modal-box" role="dialog" aria-modal="true" aria-labelledby="calModalTitle">
+        <button class="cal-modal-close" type="button" aria-label="Close modal" onclick="closeCalendlyModal()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+        </button>
+        <div class="cal-modal-content">
+            <h2 class="cal-modal-title">Book a <span style="color:var(--accent-color)">Consultation</span></h2>
+            <div class="calendly-inline-widget" data-url="https://calendly.com/mshayantariq/schedule-a-meeting?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:280px;height:700px;width:100%"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openCalendlyModal(event) {
+        if (event) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        var modal = document.getElementById('calModal');
+        var cc = document.getElementById('customCursor');
+        if (modal) {
+            modal.classList.add('is-open');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            if (cc) cc.style.display = 'none';
+        }
+    }
+
+    function closeCalendlyModal() {
+        var modal = document.getElementById('calModal');
+        var cc = document.getElementById('customCursor');
+        if (modal) {
+            modal.classList.remove('is-open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            if (cc) cc.style.display = '';
+        }
+    }
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeCalendlyModal();
+    });
+</script>
 
 </div>
 @endsection
