@@ -1,71 +1,128 @@
-{{-- Site footer. Ticker is a CSS marquee (two copies of the segment). --}}
-<footer class="of-footer" role="contentinfo" aria-label="Site footer">
-    <div class="of-top">
-        <div class="of-col-brand">
-            <h2 class="of-headline">Let's make<br>it happen<span class="of-headline-dot">.</span></h2>
+{{-- Monochrome Footer --}}
+<footer class="bg-black text-white font-sans w-full dark:bg-white dark:text-black" aria-labelledby="footer-heading">
+    <h2 id="footer-heading" class="sr-only">Footer</h2>
+    
+    <div class="max-w-[1920px] mx-auto px-4 md:px-6 pt-16 pb-12 lg:pt-24 lg:pb-16">
+        
+        {{-- MAIN FOOTER SECTION (4 Columns) --}}
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-16 lg:mb-20">
+            
+            {{-- Column 1: SHOWROOM --}}
+            <div class="flex flex-col">
+                <h3 class="text-sm font-bold uppercase tracking-[2px] mb-6 text-gray-400 dark:text-gray-500">Showroom</h3>
+                <div class="text-base text-gray-200 dark:text-gray-800 leading-relaxed mb-6">
+                    <p>Unit J, Tungsten Park,</p>
+                    <p>Maple Drive,</p>
+                    <p>Hinckley,</p>
+                    <p>LE10 3BE</p>
+                </div>
+                <div class="text-sm text-gray-400 dark:text-gray-600 mb-8 leading-relaxed">
+                    <p class="font-semibold text-white dark:text-black mb-1">Showroom opening hours:</p>
+                    <p>Monday to Friday 9am &ndash; 4pm</p>
+                    <p>Saturday 9am &ndash; 12pm</p>
+                </div>
+                <div>
+                    {{-- Secondary Button Style --}}
+                    <a href="https://maps.google.com/?q=Unit+J,+Tungsten+Park,+Hinckley+LE10+3BE" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-6 py-2.5 border border-white dark:border-black text-xs font-bold tracking-widest uppercase text-white bg-transparent hover:bg-white hover:text-black dark:text-black dark:hover:bg-black dark:hover:text-white transition-colors">
+                        See Map
+                    </a>
+                </div>
+            </div>
+
+            {{-- Column 2: COLLECTIONS --}}
+            <div class="flex flex-col">
+                <h3 class="text-sm font-bold uppercase tracking-[2px] mb-6 text-gray-400 dark:text-gray-500">Collections</h3>
+                <div class="text-base text-gray-200 dark:text-gray-800 leading-relaxed mb-6">
+                    <p>Unit D3-D4 Fleming Road,</p>
+                    <p>Harrowbrook,</p>
+                    <p>Hinckley,</p>
+                    <p>LE10 3DU</p>
+                </div>
+                <div class="text-sm text-gray-400 dark:text-gray-600 mb-8 leading-relaxed">
+                    <p class="font-semibold text-white dark:text-black mb-1">Collections hours:</p>
+                    <p>Monday to Friday</p>
+                    <p>9am &ndash; 3:30pm</p>
+                </div>
+                <div>
+                    {{-- Secondary Button Style --}}
+                    <a href="https://maps.google.com/?q=Unit+D3-D4+Fleming+Road,+Hinckley+LE10+3DU" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-6 py-2.5 border border-white dark:border-black text-xs font-bold tracking-widest uppercase text-white bg-transparent hover:bg-white hover:text-black dark:text-black dark:hover:bg-black dark:hover:text-white transition-colors">
+                        See Map
+                    </a>
+                </div>
+            </div>
+
+            {{-- Column 3: QUICK LINKS --}}
+            <div class="flex flex-col">
+                <h3 class="text-sm font-bold uppercase tracking-[2px] mb-6 text-gray-400 dark:text-gray-500">Quick Links</h3>
+                <ul class="flex flex-col space-y-4">
+                    <li><a href="/design-and-price" class="text-base text-gray-300 dark:text-gray-700 hover:text-white dark:hover:text-black hover:translate-x-1 transition-all inline-block">Design &amp; Price</a></li>
+                    <li><a href="/delivery" class="text-base text-gray-300 dark:text-gray-700 hover:text-white dark:hover:text-black hover:translate-x-1 transition-all inline-block">Delivery &amp; Collection</a></li>
+                    <li><a href="/heritage" class="text-base text-gray-300 dark:text-gray-700 hover:text-white dark:hover:text-black hover:translate-x-1 transition-all inline-block">Heritage Profile</a></li>
+                    <li><a href="/reviews" class="text-base text-gray-300 dark:text-gray-700 hover:text-white dark:hover:text-black hover:translate-x-1 transition-all inline-block">Independent Reviews</a></li>
+                    <li><a href="/careers" class="text-base text-gray-300 dark:text-gray-700 hover:text-white dark:hover:text-black hover:translate-x-1 transition-all inline-block">Careers</a></li>
+                    <li><a href="/payment" class="text-base text-gray-300 dark:text-gray-700 hover:text-white dark:hover:text-black hover:translate-x-1 transition-all inline-block">Payments</a></li>
+                    <li><a href="/about" class="text-base text-gray-300 dark:text-gray-700 hover:text-white dark:hover:text-black hover:translate-x-1 transition-all inline-block">About Us</a></li>
+                </ul>
+            </div>
+            
+            {{-- Column 4: CONTACT --}}
+            <div class="flex flex-col">
+                <h3 class="text-sm font-bold uppercase tracking-[2px] mb-6 text-gray-400 dark:text-gray-500">Contact</h3>
+                
+                <div class="mb-6">
+                    <a href="mailto:info@ModernUPVCwindows.co.uk" class="text-base font-medium text-white dark:text-black hover:text-gray-400 dark:hover:text-gray-600 transition-colors">info@ModernUPVCwindows.co.uk</a>
+                </div>
+                
+                <div class="mb-8">
+                    <p class="text-sm text-gray-400 dark:text-gray-600 mb-1">Happy to help:</p>
+                    <a href="tel:01455639739" class="text-2xl font-bold text-white dark:text-black hover:text-gray-400 dark:hover:text-gray-600 transition-colors">01455 639 739</a>
+                </div>
+
+                {{-- Social Icons --}}
+                <div class="flex space-x-4 mb-8">
+                    <a href="#" class="text-gray-400 hover:text-white dark:text-gray-600 dark:hover:text-black transition-colors" aria-label="WhatsApp">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white dark:text-gray-600 dark:hover:text-black transition-colors" aria-label="Facebook">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"/></svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white dark:text-gray-600 dark:hover:text-black transition-colors" aria-label="Instagram">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"/></svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white dark:text-gray-600 dark:hover:text-black transition-colors" aria-label="X/Twitter">
+                        <svg class="w-5 h-5 mt-0.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                </div>
+
+                <div>
+                    {{-- Primary Button Style --}}
+                    <a href="/contact" class="inline-flex items-center justify-center px-8 py-3.5 border border-white dark:border-black text-xs font-bold tracking-widest uppercase bg-white text-black dark:bg-black dark:text-white hover:bg-transparent hover:text-white dark:hover:bg-transparent dark:hover:text-black transition-all">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
         </div>
 
-        <div>
-            <p class="of-col-label"><span class="of-col-accent"></span>Social</p>
-            <ul class="of-social-row">
-                <li><a href="https://www.youtube.com/@MediaCorammers" target="_blank" rel="noopener noreferrer" class="of-social-btn" aria-label="YouTube">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" stroke="none"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.016 3.016 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.376.55 9.376.55s7.505 0 9.377-.55a3.016 3.016 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                </a></li>
-                <li><a href="https://www.instagram.com/corammersmedia?igsh=YTYxdWo1dHlhcjc1" target="_blank" rel="noopener noreferrer" class="of-social-btn" aria-label="Instagram">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" stroke="none"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                </a></li>
-                <li><a href="https://www.linkedin.com/company/corammers/" target="_blank" rel="noopener noreferrer" class="of-social-btn" aria-label="LinkedIn">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" stroke="none"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                </a></li>
-                <li><a href="mailto:corammers@gmail.com" class="of-social-btn" aria-label="Email">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" stroke="none"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                </a></li>
-                <li><a href="https://www.facebook.com/share/19pNwtaKzg/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="of-social-btn" aria-label="Facebook">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" stroke="none"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
-                </a></li>
-                <li><a href="https://wa.me/+923499674499" target="_blank" rel="noopener noreferrer" class="of-social-btn" aria-label="WhatsApp">
-                    <svg viewBox="0 0 448 512" width="18" height="18" fill="currentColor" stroke="none"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
-                </a></li>
-            </ul>
+        {{-- FOOTER NAVIGATION BAR --}}
+        <div class="border-t border-gray-800 dark:border-gray-200 pt-8 pb-8 lg:pb-12 flex flex-col items-center justify-center">
+            <nav class="flex flex-wrap justify-center gap-x-6 gap-y-4 text-sm font-medium text-gray-400 dark:text-gray-600 mb-8 w-full" aria-label="Footer secondary navigation">
+                <a href="/price-guarantee" class="hover:text-white dark:hover:text-black transition-colors">Price Guarantee</a>
+                <a href="/brochures" class="hover:text-white dark:hover:text-black transition-colors">Brochures</a>
+                <a href="/installation" class="hover:text-white dark:hover:text-black transition-colors">Installation</a>
+                <a href="/building-regs" class="hover:text-white dark:hover:text-black transition-colors">Building Regs</a>
+                <a href="/terms" class="hover:text-white dark:hover:text-black transition-colors">Terms &amp; Conditions</a>
+                <a href="/privacy" class="hover:text-white dark:hover:text-black transition-colors">Privacy Policy</a>
+                <a href="/returns" class="hover:text-white dark:hover:text-black transition-colors">Returns</a>
+                <a href="/sitemap" class="hover:text-white dark:hover:text-black transition-colors">Sitemap</a>
+            </nav>
+            
+            {{-- LEGAL & COPYRIGHT --}}
+            <div class="text-xs text-gray-500 dark:text-gray-400 leading-loose text-center w-full">
+                <p>&copy; 2014-{{ date('Y') }} Burbage Custom Windows Ltd (CLIENT CONFIRMATION REQUIRED).</p>
+                <p>Company No. 02961904 (CLIENT CONFIRMATION REQUIRED), registered in England &amp; Wales.</p>
+                <p>VAT No 620285663 (CLIENT CONFIRMATION REQUIRED).</p>
+            </div>
         </div>
-
-        <div>
-            <p class="of-col-label"><span class="of-col-accent"></span>Contact</p>
-            <a href="mailto:info@corammers.com" class="of-email">info@corammers.com</a>
-        </div>
-
-        <nav aria-label="Footer pages navigation">
-            <p class="of-col-label"><span class="of-col-accent"></span>Pages</p>
-            <ul class="of-nav-list">
-                <li><a href="/" class="of-nav-link"><span class="of-nav-dot"></span>Home</a></li>
-                <li><a href="/about" class="of-nav-link"><span class="of-nav-dot"></span>About</a></li>
-                <li><a href="/services" class="of-nav-link"><span class="of-nav-dot"></span>Services</a></li>
-                <li><a href="/blog" class="of-nav-link"><span class="of-nav-dot"></span>Blog</a></li>
-            </ul>
-        </nav>
-
-        <nav aria-label="Footer company navigation">
-            <p class="of-col-label"><span class="of-col-accent"></span>Company</p>
-            <ul class="of-nav-list">
-                <li><a href="/industry" class="of-nav-link"><span class="of-nav-dot"></span>Industries We Serve</a></li>
-                <li><a href="/contact" class="of-nav-link"><span class="of-nav-dot"></span>Contact Us</a></li>
-                <li><a href="/staff" class="of-nav-link"><span class="of-nav-dot"></span>Hiring<span class="of-badge">We're Hiring</span></a></li>
-            </ul>
-        </nav>
-    </div>
-
-    <div class="of-divider-wrap"><hr class="of-hr" aria-hidden="true"></div>
-
-    <div class="of-ticker-wrap" aria-hidden="true">
-        <div class="of-ticker-track">
-            <span class="of-ticker-text">Web Development&nbsp;&nbsp;✱&nbsp;&nbsp;Mobile&nbsp;&nbsp;✱&nbsp;&nbsp;E-Commerce&nbsp;&nbsp;✱&nbsp;&nbsp;AI Solutions&nbsp;&nbsp;✱&nbsp;&nbsp;SEO&nbsp;&nbsp;✱&nbsp;&nbsp;UI/UX&nbsp;&nbsp;✱&nbsp;&nbsp;Corammers&nbsp;&nbsp;✱&nbsp;&nbsp;</span>
-            <span class="of-ticker-text">Web Development&nbsp;&nbsp;✱&nbsp;&nbsp;Mobile&nbsp;&nbsp;✱&nbsp;&nbsp;E-Commerce&nbsp;&nbsp;✱&nbsp;&nbsp;AI Solutions&nbsp;&nbsp;✱&nbsp;&nbsp;SEO&nbsp;&nbsp;✱&nbsp;&nbsp;UI/UX&nbsp;&nbsp;✱&nbsp;&nbsp;Corammers&nbsp;&nbsp;✱&nbsp;&nbsp;</span>
-        </div>
-    </div>
-
-    <div class="of-bottom">
-        <div class="of-bottom-inner" style="justify-content: center;">
-            <p class="of-copy" style="text-align: center; width: 100%;">©2026 corammers, All Rights Reserved.</p>
-        </div>
+        
     </div>
 </footer>

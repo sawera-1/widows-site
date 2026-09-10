@@ -9,57 +9,61 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'pages.home')->name('home');
 Route::view('/about', 'pages.about')->name('about');
-Route::view('/contact', 'pages.contact')->name('contact');
-Route::view('/industry', 'pages.industry')->name('industry');
-Route::view('/industries/law', 'pages.industry.law')->name('industries.law');
-Route::view('/industries/roofing', 'pages.industry.roofing')->name('industries.roofing');
-Route::view('/industries/insurance', 'pages.industry.insurance')->name('industries.insurance');
-Route::view('/industries/auto', 'pages.industry.Auto')->name('industries.auto');
-Route::view('/industries/finance', 'pages.industry.finance')->name('industries.finance');
-Route::view('/industries/aesthetic', 'pages.industry.austhetic')->name('industries.aesthetic');
-Route::view('/industries/travel', 'pages.industry.travel')->name('industries.travel');
-Route::view('/industries/public', 'pages.industry.public')->name('industries.public');
-Route::view('/industries/ecom', 'pages.industry.ecom')->name('industries.ecom');
-Route::view('/blog', 'pages.blog')->name('blog');
-Route::view('/blog/detail', 'pages.blog-detail')->name('blog.detail');
-
-// Staff / Hire
+Route::view('/installation', 'pages.installationpage')->name('installation');
+Route::view('/faq', 'pages.faq')->name('faq');
+Route::view('/payment-and-delivery', 'pages.paymentAnddelivery')->name('payment-and-delivery');
 Route::view('/staff', 'pages.staff.index')->name('staff');
-Route::view('/staff/developer', 'pages.staff.developer')->name('staff.developer');
-Route::view('/staff/media', 'pages.staff.media')->name('staff.media');
-Route::view('/staff/design', 'pages.staff.design')->name('staff.design');
-Route::view('/staff/marketing', 'pages.staff.marketing')->name('staff.marketing');
+Route::view('/services', 'pages.service')->name('services');
+Route::view('/services/{slug}', 'pages.serviceDetailPages.service1')->name('services.detail');
+Route::view('/products', 'pages.product')->name('products');
+Route::view('/products/{slug}', 'pages.productDetailPages.product1')->name('products.detail');
+Route::view('/catalog', 'pages.catalog')->name('catalog');
+Route::view('/case-studies', 'pages.caseStudy')->name('case-studies');
+Route::view('/case-studies/custom-corporate-recognition-awards', 'pages.caseStudySubPages.case1')->name('case-studies.detail');
+Route::view('/contact', 'pages.contactus')->name('contact');
+Route::view('/request-a-quote', 'pages.contactus')->name('request-quote');
+Route::post('/contact', [\App\Http\Controllers\ContactController::class, 'submit'])->name('contact.submit');
 
-// Services
-Route::view('/services', 'pages.services.index')->name('services');
-Route::view('/services/development', 'pages.services.development')->name('services.development');
-Route::view('/services/design', 'pages.services.design')->name('services.design');
-Route::view('/services/marketing', 'pages.services.marketing')->name('services.marketing');
-Route::view('/services/ai', 'pages.services.ai')->name('services.ai');
-Route::view('/services/development/web', 'pages.serviceDetail.webDevelopment')->name('services.development.web');
-Route::view('/services/development/ecom', 'pages.serviceDetail.ecom')->name('services.development.ecom');
-Route::view('/services/development/mobile', 'pages.serviceDetail.mobile')->name('services.development.mobile');
-Route::view('/services/development/custom', 'pages.serviceDetail.custom')->name('services.development.custom');
-Route::view('/services/design/uiux', 'pages.serviceDetail.uiux')->name('services.design.uiux');
-Route::view('/services/design/graphic', 'pages.serviceDetail.graphic')->name('services.design.graphic');
-Route::view('/services/design/video', 'pages.serviceDetail.video')->name('services.design.video');
-Route::view('/services/design/visual', 'pages.serviceDetail.visual')->name('services.design.visual');
+// Window & Door product categories
+Route::view('/windows', 'pages.product')->name('windows');
+Route::view('/doors', 'pages.product')->name('doors');
+// Individual window design detail pages (must be BEFORE the wildcard /{slug} route)
+Route::view('/windows/information', 'pages.windows-info')->name('windows.information');
+Route::view('/doors/information',  'pages.doors-info')->name('doors.information');
+Route::view('/windows/standard-casement', 'pages.windows.standarddetail')->name('windows.standard-casement');
+Route::view('/windows/standard-windows',  'pages.windows.standarddetail')->name('windows.standard-windows');
+Route::view('/windows/size',              'pages.windows.sizepage')->name('windows.size');
 
-Route::view('/services/marketing/social', 'pages.serviceDetail.social')->name('services.marketing.social');
-Route::view('/services/marketing/seo', 'pages.serviceDetail.seo')->name('services.marketing.seo');
-Route::view('/services/marketing/email', 'pages.serviceDetail.email')->name('services.marketing.email');
-Route::view('/services/marketing/media', 'pages.serviceDetail.media')->name('services.marketing.media');
+Route::view('/windows/{slug}', 'pages.product')->name('windows.detail');
+Route::view('/doors/{slug}', 'pages.product')->name('doors.detail');
+Route::view('/design-and-price', 'pages.product')->name('design-and-price');
 
-Route::view('/services/ai/automation', 'pages.serviceDetail.aiauto')->name('services.ai.automation');
-Route::view('/services/ai/content', 'pages.serviceDetail.aicontent')->name('services.ai.content');
 
-// Portfolio
-Route::view('/portfolio', 'pages.portfolio.index')->name('portfolio');
-Route::view('/portfolio/development', 'pages.portfolio.development')->name('portfolio.development');
-Route::view('/portfolio/design', 'pages.portfolio.design')->name('portfolio.design');
+
+
+
+// Window & Door Info pages
+Route::view('/info', 'pages.information')->name('info');
+// /info/{slug} removed — superseded by /windows/information and /doors/information
 
 // Search (reads ?q= and echoes it into the results view)
 Route::get('/search', \App\Http\Controllers\SearchController::class)->name('search');
+
+// Cart & Checkout Routes
+Route::get('/cart', [\App\Http\Controllers\CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/add', [\App\Http\Controllers\CartController::class, 'add'])->name('cart.add');
+Route::post('/cart/update/{id}', [\App\Http\Controllers\CartController::class, 'update'])->name('cart.update');
+Route::post('/cart/remove/{id}', [\App\Http\Controllers\CartController::class, 'remove'])->name('cart.remove');
+
+Route::get('/checkout', [\App\Http\Controllers\CheckoutController::class, 'index'])->name('checkout.index');
+Route::post('/checkout', [\App\Http\Controllers\CheckoutController::class, 'process'])->name('checkout.process');
+Route::get('/checkout/success/{id}', [\App\Http\Controllers\CheckoutController::class, 'success'])->name('checkout.success');
+
+// Account / Orders Route
+Route::middleware(['auth'])->group(function () {
+    Route::get('/account/orders', [\App\Http\Controllers\OrderController::class, 'index'])->name('account.orders');
+    Route::get('/account/orders/{id}', [\App\Http\Controllers\OrderController::class, 'show'])->name('account.orders.show');
+});
 
 // ─────────────────────────────────────────────────────────────────────────────
 // SEO: sitemap + robots. Dynamic (not static files) so the domain is derived
@@ -67,10 +71,10 @@ Route::get('/search', \App\Http\Controllers\SearchController::class)->name('sear
 // ─────────────────────────────────────────────────────────────────────────────
 Route::get('/sitemap.xml', function () {
     $pages = [
-        '', 'about', 'contact', 'industry', 'industries/law', 'industries/roofing', 'industries/insurance', 'industries/auto', 'industries/finance', 'industries/aesthetic', 'industries/travel', 'industries/public', 'industries/ecom', 'blog', 'blog/detail',
-        'staff', 'staff/developer', 'staff/media', 'staff/design', 'staff/marketing',
-        'services', 'services/development', 'services/development/web', 'services/development/ecom', 'services/development/mobile', 'services/development/custom', 'services/design', 'services/design/uiux', 'services/design/graphic', 'services/design/video', 'services/design/visual', 'services/marketing', 'services/marketing/social', 'services/marketing/seo', 'services/marketing/email', 'services/marketing/media', 'services/ai',
-        'portfolio', 'portfolio/development', 'portfolio/design',
+        '', 'about', 'catalog', 'case-studies', 'case-studies/custom-corporate-recognition-awards', 'contact', 'request-a-quote', 'industry', 'blog', 'blog/detail',
+        'staff',
+        'services',
+        'portfolio',
     ];
     $lastmod = date('Y-m-d', filemtime(base_path('routes/web.php')));
     $xml = '<?xml version="1.0" encoding="UTF-8"?>'."\n"

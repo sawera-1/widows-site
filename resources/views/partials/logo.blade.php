@@ -1,6 +1,8 @@
-{{-- CORAMMERS logo. Two theme variants swap via [data-theme] (see app.css):
-     logob.webp (black) on light theme, logow.webp (white) on dark theme.
-     $h = pixel height (optional, default 34). --}}
-@php $h = $h ?? 34; @endphp
-<img src="/assets/logo/logob.webp" alt="CORAMMERS" class="cor-logo logo-on-light" style="height:{{ $h }}px" draggable="false">
-<img src="/assets/logo/logow.webp" alt="CORAMMERS" class="cor-logo logo-on-dark"  style="height:{{ $h }}px" draggable="false">
+@php 
+    $type = $type ?? 'header';
+    // The logo uses the Inter font (which is the default sans font in our Tailwind config)
+@endphp
+<div class="flex flex-col">
+    <span class="font-sans font-bold tracking-tight uppercase leading-none text-black dark:text-white {{ $type === 'footer' ? 'text-3xl sm:text-4xl' : 'text-2xl sm:text-3xl' }}">Burbage Custom</span>
+    <span class="font-sans font-medium tracking-widest uppercase text-gray-500 {{ $type === 'footer' ? 'text-sm mt-1' : 'text-[0.65rem] mt-0.5' }}">Windows Ltd</span>
+</div>

@@ -1,105 +1,139 @@
-{{-- Desktop header. Reveal-on-load + hide-on-scroll handled by app.js (adds
-     .is-revealed / .is-hidden). Dropdowns + nav hover are pure CSS. --}}
-<header class="sh-root" data-header>
-    <div class="sh-inner">
+ {{-- Monochrome Header --}}
+<header class="sticky top-0 z-50 bg-white border-b border-black w-full font-sans transition-all duration-300 shadow-sm dark:bg-black dark:border-white" id="main-header">
+    <div class="w-full">
+        
+        {{-- TOP ROW: Logo | Contact | Search --}}
+        <div class="border-b border-gray-200 dark:border-gray-800 transition-all duration-300" id="header-top-row">
+        <div class="max-w-[1920px] mx-auto flex justify-between items-center px-4 md:px-6 py-4 lg:py-5">
+            
+            {{-- Left: Logo --}}
+            <div class="flex-1 flex justify-start items-center">
+                <a href="/" class="focus:outline-none inline-block transition-opacity hover:opacity-70" aria-label="Home">
+                    @include('partials.logo', ['type' => 'header'])
+                </a>
+            </div>
 
-        <a href="/" class="sh-logo" aria-label="Home">
-            @include('partials.logo', ['h' => 36])
-        </a>
+            {{-- Center: Contact Info (Hidden on mobile, adapted on tablet) --}}
+            <div class="hidden md:flex flex-1 justify-center items-center space-x-6">
+                <a href="tel:01455639739" class="flex items-center space-x-2 text-black dark:text-white hover:text-gray-500 transition-colors group">
+                    <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                    <span class="font-medium tracking-wide text-sm whitespace-nowrap">01455 639 739</span>
+                </a>
+                <a href="mailto:info@ModernUPVCwindows.co.uk" class="hidden lg:flex items-center space-x-2 text-black dark:text-white hover:text-gray-500 transition-colors group">
+                    <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    <span class="font-medium tracking-wide text-sm whitespace-nowrap">info@ModernUPVCwindows.co.uk</span>
+                </a>
+            </div>
 
-        <nav class="sh-nav" aria-label="Primary navigation">
-            <ul class="sh-nav-list">
-                @foreach (config('site.nav_items') as $item)
-                    <li class="sh-nav-item{{ !empty($item['children']) ? ' sh-has-drop' : '' }}">
-                        <a href="{{ $item['href'] }}" class="sh-nav-link">
-                            <span class="nav-text-wrap">
-                                <span class="nav-text-default">{{ $item['label'] }}</span>
-                                <span class="nav-text-hover" aria-hidden="true">{{ $item['label'] }}</span>
-                            </span>
-                            @if (!empty($item['children']))
-                                <svg class="sh-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-                            @endif
-                        </a>
-                        @if (!empty($item['children']))
-                            @if ($item['label'] === 'Services')
-                                <div class="sh-dropdown sh-mega">
-                                    <!-- Mobile/Tablet simple dropdown -->
-                                    <div class="sh-mega-mobile-only">
-                                        <a href="/services/development" class="sh-drop-link">Development</a>
-                                        <a href="/services/design" class="sh-drop-link">Design</a>
-                                        <a href="/services/marketing" class="sh-drop-link">Marketing</a>
-                                        <a href="/services/ai" class="sh-drop-link">AI</a>
-                                    </div>
+            {{-- Right: Search & Mobile Toggle --}}
+            <div class="flex-1 flex justify-end items-center space-x-4">
+                
+                {{-- Search Bar (Desktop) --}}
+                <div class="hidden lg:block relative">
+                    <form action="/search" method="GET" class="flex items-center">
+                        <input type="text" name="q" placeholder="Search..." class="w-48 xl:w-64 bg-gray-50 border border-gray-300 text-black text-sm px-4 py-2 focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-colors rounded-none placeholder-gray-400 dark:bg-black dark:border-gray-700 dark:text-white dark:focus:border-white dark:placeholder-gray-600">
+                        <button type="submit" class="absolute right-0 top-0 h-full px-3 text-gray-500 hover:text-black dark:hover:text-white transition-colors" aria-label="Submit search">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        </button>
+                    </form>
+                </div>
 
-                                    <!-- Desktop Mega Menu -->
-                                    <div class="sh-mega-desktop-only">
-                                        <!-- Top Row: Category Buttons -->
-                                        <div class="sh-mega-header">
-                                            <a href="/services/development" class="sh-mega-cat">Development</a>
-                                            <a href="/services/design" class="sh-mega-cat">Design</a>
-                                            <a href="/services/marketing" class="sh-mega-cat">Marketing</a>
-                                            <a href="/services/ai" class="sh-mega-cat">AI</a>
-                                        </div>
-                                        <!-- Bottom Row: Links -->
-                                        <div class="sh-mega-body">
-                                            <!-- Development -->
-                                            <div class="sh-mega-col">
-                                                <a href="/services/development/web" class="sh-mega-link">Website Development</a>
-                                                <a href="/services/development/ecom" class="sh-mega-link">E-Commerce Development</a>
-                                                <a href="/services/development/mobile" class="sh-mega-link">Mobile App Development</a>
-                                                <a href="/services/development/custom" class="sh-mega-link">Custom Development</a>
-                                            </div>
-                                            <!-- Design -->
-                                            <div class="sh-mega-col">
-                                                <a href="/services/design/uiux" class="sh-mega-link">UI/UX Design</a>
-                                                <a href="/services/design/graphic" class="sh-mega-link">Graphic Design</a>
-                                                <a href="/services/design/video" class="sh-mega-link">Video Editing</a>
-                                                <a href="/services/design/visual" class="sh-mega-link">Visual Systems</a>
-                                            </div>
-                                            <!-- Marketing -->
-                                            <div class="sh-mega-col">
-                                                <a href="/services/marketing/social" class="sh-mega-link">Social Media Marketing</a>
-                                                <a href="/services/marketing/media" class="sh-mega-link">Media Buying & Paid Ads</a>
-                                                <a href="/services/marketing/email" class="sh-mega-link">Email Marketing</a>
-                                                <a href="/services/marketing/seo" class="sh-mega-link">SEO / AEO</a>
-                                            </div>
-                                            <!-- AI -->
-                                            <div class="sh-mega-col">
-                                                <a href="/services/ai/automation" class="sh-mega-link">AI Automation</a>
-                                                <a href="/services/ai/content" class="sh-mega-link">AI Content Creation</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @else
-                                <div class="sh-dropdown">
-                                    @foreach ($item['children'] as $c)
-                                        <a href="{{ $c['href'] }}" class="sh-drop-link">{{ $c['label'] }}</a>
-                                    @endforeach
-                                </div>
-                            @endif
-                        @endif
-                    </li>
-                @endforeach
-            </ul>
-        </nav>
+                {{-- Search Icon (Mobile/Tablet) --}}
+                <a href="/search" class="lg:hidden p-2 text-black dark:text-white hover:text-gray-500 transition-colors" aria-label="Search">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </a>
 
-        <div class="sh-right">
-            <button class="sh-search-btn" data-open-search aria-label="Open search">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="8" />
-                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                </svg>
-            </button>
-            <button class="sh-theme-toggle" data-toggle-theme aria-label="Toggle colour theme">
-                <span class="sh-theme-knob"></span>
-            </button>
+                {{-- Mobile menu button --}}
+                <button type="button" class="xl:hidden inline-flex items-center justify-center p-2 text-black dark:text-white hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none transition-colors" aria-controls="mobile-menu" aria-expanded="false" id="mobile-menu-btn">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="block h-7 w-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" id="mobile-menu-icon">
+                        <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
         </div>
 
-        <button class="sh-mobile-menu-btn" data-open-menu aria-label="Open navigation menu">
-            <span>Menu</span>
-            <span class="sh-mobile-burger" aria-hidden="true"><span></span><span></span></span>
-        </button>
+        {{-- SECOND ROW: Full Navigation (Desktop) --}}
+        <nav class="hidden xl:block w-full bg-white dark:bg-black" aria-label="Primary navigation">
+        <div class="max-w-[1920px] mx-auto flex justify-center items-center space-x-1 px-4 md:px-6">
+            @foreach (config('site.nav_items') as $item)
+                @php
+                    $isActive = request()->is(ltrim($item['href'], '/')) || (request()->is('/') && $item['href'] === '/');
+                @endphp
+                
+                <a href="{{ $item['href'] }}" class="relative group py-4 px-5 text-sm font-semibold tracking-wide uppercase text-black dark:text-white transition-colors whitespace-nowrap {{ $isActive ? 'bg-black text-white dark:bg-white dark:text-black' : 'hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black' }}">
+                    {{ $item['label'] }}
+                    @if($isActive)
+                        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-black dark:bg-white hidden"></span>
+                    @endif
+                </a>
+            @endforeach
+        </div>
+        </nav>
+    </div>
 
+    {{-- MOBILE MENU --}}
+    <div class="xl:hidden hidden bg-white dark:bg-black border-b border-black dark:border-white shadow-xl font-sans w-full max-h-[calc(100vh-80px)] overflow-y-auto" id="mobile-menu">
+        <div class="px-0 pt-0 pb-6 w-full">
+            
+            {{-- Mobile Contact Info --}}
+            <div class="bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 p-4 flex flex-col space-y-3">
+                <a href="tel:01455639739" class="flex items-center space-x-3 text-black dark:text-white">
+                    <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                    <span class="font-semibold text-lg tracking-wide">01455 639 739</span>
+                </a>
+                <a href="mailto:info@ModernUPVCwindows.co.uk" class="flex items-center space-x-3 text-black dark:text-white">
+                    <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    <span class="font-medium">info@ModernUPVCwindows.co.uk</span>
+                </a>
+            </div>
+
+            {{-- Mobile Nav Links --}}
+            <div class="flex flex-col w-full">
+                @foreach (config('site.nav_items') as $item)
+                    @php
+                        $isActive = request()->is(ltrim($item['href'], '/')) || (request()->is('/') && $item['href'] === '/');
+                    @endphp
+                    <a href="{{ $item['href'] }}" class="w-full block px-6 py-4 text-base font-semibold tracking-wide uppercase border-b border-gray-100 dark:border-gray-800 transition-colors {{ $isActive ? 'bg-black text-white dark:bg-white dark:text-black' : 'text-black dark:text-white hover:bg-gray-50 dark:hover:bg-gray-900' }}">
+                        {{ $item['label'] }}
+                    </a>
+                @endforeach
+            </div>
+            
+            {{-- Mobile Search Form --}}
+            <div class="px-6 pt-6 pb-2">
+                <form action="/search" method="GET" class="flex items-center w-full relative">
+                    <input type="text" name="q" placeholder="Search for products or advice..." class="w-full bg-white dark:bg-black border border-black dark:border-white text-black dark:text-white text-sm px-4 py-3 focus:outline-none rounded-none placeholder-gray-500">
+                    <button type="submit" class="absolute right-0 top-0 h-full px-4 text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors border-l border-black dark:border-white" aria-label="Submit search">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </button>
+                </form>
+            </div>
+        </div>
     </div>
 </header>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+                btn.setAttribute('aria-expanded', !isExpanded);
+                menu.classList.toggle('hidden');
+                
+                // Toggle burger icon to X (simple visual change)
+                const iconPath = btn.querySelector('path');
+                if (!isExpanded) {
+                    iconPath.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // X icon
+                } else {
+                    iconPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Burger icon
+                }
+            });
+        }
+    });
+</script>

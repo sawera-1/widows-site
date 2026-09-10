@@ -1,649 +1,399 @@
 @extends('layouts.app')
 
-@section('title', 'About Us — Corammers')
-@section('meta_description', 'Meet Corammers: an engineering-led digital agency where human creativity meets AI. Our team, mission and the way we build.')
+@section('title', 'About Us — Modern UPVC Windows')
 
 @push('styles')
-<link rel="stylesheet" href="{{ asset_v('css/pages/about.css') }}">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+<style>
+    /* Global Section Styles */
+    .about-section {
+        padding: clamp(60px, 8vw, 100px) 20px;
+    }
+    .about-container {
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+    
+    /* 1. Hero Section */
+    .hero-section {
+        position: relative;
+        width: 100%;
+        min-height: 50vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #000;
+        overflow: hidden;
+    }
+    .hero-bg {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        object-fit: cover;
+        opacity: 0.4;
+    }
+    .hero-content {
+        position: relative;
+        z-index: 10;
+        text-align: center;
+        color: #fff;
+        max-width: 800px;
+        padding: 0 20px;
+    }
+    .hero-title {
+        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        font-weight: 800;
+        margin-bottom: 24px;
+        line-height: 1.1;
+    }
+    .hero-subtitle {
+        font-size: clamp(1.1rem, 2vw, 1.3rem);
+        color: #ccc;
+        line-height: 1.6;
+    }
+
+    /* 2. About BCW */
+    .about-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        align-items: stretch;
+    }
+    @media(min-width: 900px) {
+        .about-grid { grid-template-columns: 1fr 1fr; gap: 80px; }
+    }
+    .about-text h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 700;
+        margin-bottom: 24px;
+    }
+    .about-text p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        color: var(--mono-grey);
+        margin-bottom: 20px;
+    }
+    .dark .about-text p { color: #a3a3a3; }
+    .logo-container {
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+    }
+    .logo-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* 3. Our Story */
+    .story-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        align-items: center;
+    }
+    @media(min-width: 900px) {
+        /* Reverse order on desktop */
+        .story-grid { grid-template-columns: 1fr 1fr; gap: 80px; }
+        .story-content { order: 2; }
+        .story-image { order: 1; }
+    }
+    .story-images-wrapper {
+        position: relative;
+        width: 100%;
+        padding-bottom: 10%;
+        padding-right: 15%;
+    }
+    .story-img-main {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+    }
+    .story-img-secondary {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 55%;
+        height: auto;
+        object-fit: cover;
+        border: 10px solid #fff;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .dark .story-img-secondary { border-color: #000; }
+
+    /* 4. How Online Quote Works */
+    .quote-bg {
+        background: #f9fafb;
+    }
+    .dark .quote-bg { background: #0a0a0a; border-top: 1px solid #333; border-bottom: 1px solid #333; }
+    
+    .quote-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+    @media(min-width: 900px) {
+        .quote-grid { grid-template-columns: 5fr 7fr; gap: 80px; }
+    }
+    
+    .steps-container {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+    .step-item {
+        display: flex;
+        gap: 20px;
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        padding: 24px;
+        transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .dark .step-item { background: #111; border-color: #333; }
+    .step-item:hover {
+        border-color: #000;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .dark .step-item:hover { border-color: #fff; box-shadow: 0 4px 12px rgba(255,255,255,0.05); }
+    
+    .step-num {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: #000;
+        font-variant-numeric: tabular-nums;
+        line-height: 1;
+    }
+    .dark .step-num { color: #fff; }
+    .step-content h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+    .step-content p {
+        font-size: 0.95rem;
+        color: var(--mono-grey);
+        line-height: 1.5;
+    }
+    
+    /* 5. Showroom Section */
+    .showroom-section {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .showroom-section h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 700;
+        margin-bottom: 24px;
+    }
+    .showroom-section p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        color: var(--mono-grey);
+        margin-bottom: 32px;
+    }
+    .btn-outline {
+        display: inline-block;
+        padding: 16px 32px;
+        border: 2px solid #000;
+        background: transparent;
+        color: #000;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background 0.2s, color 0.2s;
+    }
+    .dark .btn-outline { border-color: #fff; color: #fff; }
+    .btn-outline:hover { background: #000; color: #fff; }
+    .dark .btn-outline:hover { background: #fff; color: #000; }
+
+    /* 5. Final CTA */
+    .cta-section {
+        padding: clamp(40px, 6vw, 80px) 20px;
+        background: #f9fafb;
+    }
+    .dark .cta-section { background: #000; }
+    
+    .cta-container {
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        background: #fff;
+        border: 1px solid #e5e7eb;
+    }
+    .dark .cta-container { background: #111; border-color: #333; }
+
+    .cta-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: stretch;
+    }
+    @media(min-width: 900px) {
+        .cta-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .cta-content {
+        padding: clamp(24px, 3vw, 40px) clamp(20px, 3vw, 40px);
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: #000;
+    }
+    .dark .cta-content { color: #fff; }
+    .cta-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .cta-content h2 {
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+        font-weight: 700;
+        margin-bottom: 16px;
+    }
+    .cta-content p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: var(--mono-grey);
+        margin-bottom: 24px;
+    }
+    .dark .cta-content p { color: #ccc; }
+    .cta-actions {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+    .btn-solid-black {
+        display: inline-block;
+        padding: 16px 32px;
+        background: #000;
+        color: #fff;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background 0.2s;
+    }
+    .btn-solid-black:hover { background: #333; }
+    .dark .btn-solid-black { background: #fff; color: #000; }
+    .dark .btn-solid-black:hover { background: #ccc; }
+</style>
 @endpush
 
 @section('content')
-@php
-    $robo = '<img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="pw-robo-dark" style="width:32px;height:32px;object-fit:contain;display:block"><img loading="lazy" decoding="async" src="/assets/robo.webp" alt="Robot" class="pw-robo-light" style="width:32px;height:32px;object-fit:contain;display:block">';
 
-    $experienceItems = [
-        ['num' => '01', 'title' => 'Web Development Experience', 'sub' => 'Frontend & Backend Mastery', 'desc' => 'From pixel-perfect interfaces to robust server-side architectures, we craft end-to-end web solutions using React, Next.js, Laravel, and Node.js engineered for performance, scalability, and lasting impact.', 'tags' => ['React', 'Next.js', 'Laravel', 'Node.js']],
-        ['num' => '02', 'title' => 'Mobile & App Solutions', 'sub' => 'Cross-Platform Excellence', 'desc' => 'We design and build mobile-first applications for iOS and Android using Flutter and React Native. Every app we deliver is intuitive, fast, and built to grow with your business.', 'tags' => ['Flutter', 'React Native', 'iOS', 'Android']],
-        ['num' => '03', 'title' => 'Enterprise & Custom Projects', 'sub' => 'Large-Scale Digital Infrastructure', 'desc' => 'Complex workflows, integrations, and custom platforms are our specialty. We have delivered enterprise-grade solutions for businesses across industries handling everything from architecture to deployment.', 'tags' => ['SaaS', 'API Design', 'DevOps', 'Custom CMS']],
-    ];
+{{-- 1. HERO SECTION --}}
+<section class="hero-section">
+    <!-- Using a product image as a fallback background until specific assets are provided -->
+    <img src="{{ asset('assets/products/1.1.jpg') }}" alt="UPVC Windows Background" class="hero-bg">
+    <div class="hero-content">
+        <h1 class="hero-title">About Modern UPVC Windows</h1>
+        <p class="hero-subtitle">Quality windows and doors, backed by over 30 years of manufacturing experience.</p>
+    </div>
+</section>
 
-    $specialties = [
-        ['category' => 'Development', 'title' => 'PHP & Laravel Development', 'desc' => 'We build robust, scalable web applications using PHP and the Laravel framework. From RESTful APIs to complex backend systems, our Laravel expertise powers high-performance products used by thousands of users daily.', 'tags' => ['PHP', 'Laravel', 'REST API', 'MySQL']],
-        ['category' => 'Development', 'title' => 'WordPress Solutions', 'desc' => 'Custom themes, plugins, and full WordPress ecosystems tailored to your brand. We go far beyond templates every WordPress project we deliver is unique, fast, and fully maintainable by your team.', 'tags' => ['WordPress', 'WooCommerce', 'Custom Themes', 'Plugins']],
-        ['category' => 'Development', 'title' => 'Custom Web Applications', 'desc' => "When off-the-shelf tools aren't enough, we engineer bespoke web applications from scratch. Fully custom logic, databases, and interfaces designed around your exact business workflows and goals.", 'tags' => ['React', 'Next.js', 'Node.js', 'PostgreSQL']],
-        ['category' => 'Development', 'title' => 'Ecommerce Platforms', 'desc' => 'From WooCommerce to fully custom storefronts, we build ecommerce experiences that convert. Seamless payment integrations, inventory management, and checkout flows optimized for every device.', 'tags' => ['WooCommerce', 'Shopify', 'Stripe', 'Payment Gateways']],
-        ['category' => 'Development', 'title' => 'Mobile App Development', 'desc' => 'Cross-platform mobile apps built with Flutter and React Native. We deliver native-quality experiences on both iOS and Android from a single codebase reducing cost without sacrificing performance.', 'tags' => ['Flutter', 'React Native', 'iOS', 'Android']],
-        ['category' => 'Development', 'title' => 'API & Backend Systems', 'desc' => 'Rock-solid API architecture and backend infrastructure. We design RESTful and GraphQL APIs built for reliability, security, and scale — complete with documentation, versioning, and monitoring.', 'tags' => ['GraphQL', 'REST API', 'DevOps', 'AWS']],
-        ['category' => 'Marketing', 'title' => 'Social Media Marketing', 'desc' => 'Strategic social media campaigns that build communities, drive engagement, and convert followers into loyal customers. We manage content calendars, paid campaigns, and analytics across all major platforms.', 'tags' => ['Instagram', 'LinkedIn', 'Facebook', 'TikTok']],
-        ['category' => 'Marketing', 'title' => 'SEO & AEO', 'desc' => 'Dominate search rankings with our proven SEO and Answer Engine Optimization strategies. We combine technical audits, keyword architecture, and content strategies to drive sustainable organic growth and AI-powered visibility.', 'tags' => ['On-Page SEO', 'Technical SEO', 'AEO', 'Link Building']],
-        ['category' => 'Marketing', 'title' => 'Google Ads', 'desc' => 'High-converting Google Ads campaigns engineered for maximum ROI. From Search and Display to Shopping and YouTube, our PPC specialists create data-driven campaigns that put your brand in front of the right audience at the right moment.', 'tags' => ['Search Ads', 'Display Ads', 'Shopping Ads', 'YouTube Ads']],
-        ['category' => 'Marketing', 'title' => 'Email Marketing', 'desc' => 'Automated email sequences and broadcast campaigns that nurture leads and drive repeat revenue. We craft compelling copy, design beautiful templates, and implement smart segmentation for measurable results.', 'tags' => ['Automation', 'Drip Campaigns', 'Klaviyo', 'Mailchimp']],
-        ['category' => 'Design', 'title' => 'UI/UX Design', 'desc' => 'User interfaces crafted with empathy and precision. Our UX process starts with research and wireframes, moving through interactive prototypes to pixel-perfect final designs that delight users and drive business outcomes.', 'tags' => ['Figma', 'Prototyping', 'User Research', 'Design Systems']],
-        ['category' => 'Design', 'title' => 'Graphic Design', 'desc' => 'Striking visual assets that communicate your brand story with clarity and impact. From social media graphics to print collateral, marketing materials, and everything in between all crafted to stand out.', 'tags' => ['Print Design', 'Social Graphics', 'Infographics', 'Illustrations']],
-        ['category' => 'Design', 'title' => 'Video Editing', 'desc' => 'Professional video production and post-editing for brands that want to captivate. We handle everything from raw footage editing and motion graphics to colour grading, sound design, and final delivery.', 'tags' => ['Motion Graphics', 'Color Grading', 'After Effects', 'Reels']],
-        ['category' => 'Design', 'title' => 'Branding & Identity', 'desc' => 'Complete brand identity systems built from the ground up. We craft logos, typography systems, colour palettes, brand guidelines, and comprehensive visual identities that make your brand unmistakable and unforgettable.', 'tags' => ['Logo Design', 'Brand Guidelines', 'Typography', 'Visual Identity']],
-    ];
-
-    $catColors = [
-        'Development' => ['bg' => 'rgba(234, 62, 62, 0.12)', 'text' => '#b07474', 'border' => 'rgba(234, 62, 62, 0.3)'],
-        'Marketing'   => ['bg' => 'rgba(99,179,237,0.12)', 'text' => '#63b3ed', 'border' => 'rgba(99,179,237,0.3)'],
-        'Design'      => ['bg' => 'rgba(237,137,54,0.12)', 'text' => '#ed8936', 'border' => 'rgba(237,137,54,0.3)'],
-    ];
-
-    $catIcons = [
-        'All' => '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>',
-        'Development' => '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>',
-        'Marketing' => '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>',
-        'Design' => '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"/><line x1="14.83" y1="14.83" x2="19.07" y2="19.07"/><line x1="14.83" y1="9.17" x2="19.07" y2="4.93"/><line x1="4.93" y1="19.07" x2="9.17" y2="14.83"/></svg>',
-    ];
-
-    $specialtyCategories = ['All', 'Development', 'Marketing', 'Design'];
-    $catCounts = ['All' => count($specialties)];
-    foreach (['Development', 'Marketing', 'Design'] as $c) {
-        $catCounts[$c] = count(array_filter($specialties, fn($s) => $s['category'] === $c));
-    }
-
-    $approachSteps = [
-        ['num' => '01', 'title' => 'Understanding Requirements', 'desc' => 'Deep discovery sessions to align on goals, audience, and success metrics before a single line of code is written.'],
-        ['num' => '02', 'title' => 'Strategic Planning', 'desc' => 'Roadmaps, tech stack decisions, and timelines crafted for clarity and speed so nothing is left to guesswork.'],
-        ['num' => '03', 'title' => 'Development & Execution', 'desc' => 'Agile sprints with regular check-ins, transparent progress, and clean code delivery at every milestone.'],
-        ['num' => '04', 'title' => 'Testing & Optimization', 'desc' => 'QA, performance tuning, and real-world validation before every launch because details define excellence.'],
-    ];
-
-        $clientLogos = [
-        ['name' => 'Client 1', 'url' => '/assets/client/client1.webp'],
-        ['name' => 'Client 2', 'url' => '/assets/client/client2.webp'],
-        ['name' => 'Client 3', 'url' => '/assets/client/client3.webp'],
-        ['name' => 'Client 4', 'url' => '/assets/client/client4.webp'],
-        ['name' => 'Client 5', 'url' => '/assets/client/client5.webp'],
-        ['name' => 'Client 6', 'url' => '/assets/client/client6.webp'],
-        ['name' => 'Client 7', 'url' => '/assets/client/client7.webp'],
-        ['name' => 'Client 8', 'url' => '/assets/client/client8.webp'],
-        ['name' => 'Client 9', 'url' => '/assets/client/client9.webp'],
-        ['name' => 'Client 10', 'url' => '/assets/client/client10.webp'],
-    ];
-
-    $badges = [
-        ['l1' => 'TOP', 'l2' => 'JAVA DEVS', 'l3' => 'UNITED STATES 2025', 'label' => "Top Java\nDevelopers"],
-        ['l1' => 'TOP', 'l2' => 'WEB DEVS', 'l3' => 'NORTH CAROLINA 2025', 'label' => "Top Web\nDevelopers"],
-        ['l1' => 'TOP', 'l2' => 'SOFTWARE', 'l3' => 'NORTH CAROLINA 2025', 'label' => "Top Software\nDevelopers"],
-        ['l1' => 'TOP', 'l2' => 'AI AGENTS', 'l3' => 'UNITED STATES 2025', 'label' => "Top AI\nAgencies"],
-        ['l1' => 'TOP', 'l2' => 'RATED', 'l3' => 'GLOBAL 2025', 'label' => "Top Rated\nAgency"],
-        ['l1' => 'TOP', 'l2' => 'APP DEVS', 'l3' => 'NORTH CAROLINA 2025', 'label' => "Top App\nDevelopers"],
-        ['l1' => 'TOP', 'l2' => 'B2B COMP', 'l3' => 'UNITED STATES 2025', 'label' => "Top B2B\nCompanies"],
-        ['l1' => 'TOP', 'l2' => 'ECOMMERCE', 'l3' => 'GLOBAL 2025', 'label' => "Top eCommerce\nDevelopers"],
-        ['l1' => 'TOP', 'l2' => 'UX/UI', 'l3' => 'UNITED STATES 2025', 'label' => "Top UX/UI\nDesigners"],
-    ];
-
-    $featuredPost = ['category' => 'Sales Development', 'title' => 'The Hidden Cost of "Almost Compliant" Global Hiring (And How EOR Fixes It)', 'author' => 'Shayan', 'date' => 'January 12, 2026', 'avatar' => '/assets/4.webp', 'image' => '/assets/ind7.webp', 'href' => '/blog/detail'];
-    $gridPosts = [
-        ['category' => 'Sales Development', 'title' => 'The Team Growth Calculator: How to Forecast Your Next Hire in 2 Minutes', 'author' => 'Shayan', 'date' => 'January 5, 2026', 'avatar' => '/assets/4.webp', 'image' => '/assets/ind2.webp', 'href' => '/blog/detail'],
-        ['category' => 'Executive Assistant · Learning Center · Marketing', 'title' => 'Why Most Agencies Overhire in January (And How to Prevent It)', 'author' => 'Shayan', 'date' => 'December 29, 2025', 'avatar' => '/assets/4.webp', 'image' => '/assets/ind3.webp', 'href' => '/blog/detail'],
-        ['category' => 'Executive Assistant · Marketing', 'title' => 'Team Culture & Virtual Workflows: Building Cohesion Across Borders', 'author' => 'Shayan', 'date' => 'December 21, 2025', 'avatar' => '/assets/4.webp', 'image' => '/assets/ind4.webp', 'href' => '/blog/detail'],
-        ['category' => 'Business · Executive Assistant · Learning Center', 'title' => "When Hiring Feels Urgent, You're Already Late — Plan Ahead Instead", 'author' => 'Shayan', 'date' => 'December 14, 2025', 'avatar' => '/assets/4.webp', 'image' => '/assets/ind5.webp', 'href' => '/blog/detail'],
-    ];
-
-    $techStack = ['React', 'Next.js', 'Node.js', 'Express.js', 'Laravel', 'Vue.js', 'TypeScript', 'JavaScript', 'PHP', 'Python', 'HTML5', 'CSS', 'TailwindCSS', 'MongoDB', 'MySQL', 'Firebase', 'Docker', 'Git', 'GitHub', 'Vercel', 'GraphQL', 'Figma'];
-    $techTripled = array_merge($techStack, $techStack, $techStack);
-@endphp
-
-<div class="pw-about">
-
-    {{-- ── HERO ── --}}
-    <section class="hero">
-        <div class="hero-text">
-            <h1 class="hero-heading sec-heading">We Build Digital <br> <span style="color:var(--accent-color)">Futures</span></h1>
-            <p class="hero-sub">
-                A multidisciplinary tech studio crafting AI-powered apps, immersive VR experiences,<br>
-                and enterprise web platforms that scale without limits.
-            </p>
+{{-- 2. ABOUT BCW --}}
+<section class="about-section bg-white dark:bg-black text-black dark:text-white">
+    <div class="about-container about-grid">
+        <div class="about-text">
+            <h2>About Modern UPVC Windows</h2>
+            <p>Modern UPVC Windows is the online division of Burbage Custom Windows Ltd, a trusted and established window and door manufacturer based in Leicestershire for over 30 years.</p>
+            <p>With a wealth of experience, we've proudly served thousands of satisfied customers across the UK with top-quality windows, doors and roof products. Our commitment to excellence has made us a leading supplier in the region.</p>
+        
         </div>
+        <div class="logo-container">
+            <img src="{{ asset('assets/about/window1.png') }}" alt="About BCW">
+        </div>
+    </div>
+</section>
 
-        <div class="about-inner">
-            <div class="about-banner-wrap reveal">
-                <img loading="lazy" decoding="async" src="/assets/about.webp" alt="About Us" class="about-banner-img">
-                <a href="https://www.youtube.com/@MediaCorammers" target="_blank" rel="noopener noreferrer" class="about-video-anchor">
-                    <span class="video-btn">
-                        <span class="vbtn-ring vbtn-ring-1"></span>
-                        <span class="vbtn-ring vbtn-ring-2"></span>
-                        <span class="vbtn-ring vbtn-ring-3"></span>
-                        <span class="vbtn-core">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>
-                        </span>
-                        <span class="vbtn-label">Play</span>
-                    </span>
-                </a>
-                <div class="about-banner-glass">
-                    <span class="glass-tag" style="font-family:Poppins, sans-serif; font-weight: 800; letter-spacing: -.03em;">Innovation First</span>
-                    <p class="glass-text sec-sub" style="color: inherit; line-height: 1.5; font-size: .95rem;">We blend artistic creativity with technical excellence to build products that stand out.</p>
-                </div>
-                <div class="about-banner-overlay">
-                    <h3 style="font-family:Poppins, sans-serif; font-size: clamp(2rem, 4vw, 3rem); color: #fff; margin: 0 0 12px; font-weight: 800; line-height: 1.05; letter-spacing: -.03em;">United by Vision</h3>
-                    <p style="font-family:Montserrat, sans-serif; font-size: 1rem; color: rgba(255,255,255,0.9); max-width: 540px; line-height: 1.85; margin: 0;">
-                        Our global team works around the clock to ensure your project is
-                        delivered with the highest quality standards and innovative features.
-                    </p>
-                </div>
+{{-- 3. OUR STORY / EXPERIENCE --}}
+<section class="about-section bg-white dark:bg-black text-black dark:text-white pt-0">
+    <div class="about-container story-grid">
+        <div class="about-text story-content">
+            <h2>Our Story &amp; Experience</h2>
+            <p>At the heart of our business is a purpose-built, state-of-the-art factory equipped with advanced machinery and innovative production techniques, ensuring that every product meets the highest standards.</p>
+            <p>From initial design to final assembly, our dedicated team of skilled professionals oversees every step of the process. We rigorously test all our materials to guarantee long-lasting performance and security for your home.</p>
+            <p>We also operate our own fleet of transport vehicles, ensuring your order is handled with care and delivered promptly.</p>
+        </div>
+        <div class="story-images-wrapper">
+            <img src="{{ asset('assets/about/window2.png') }}" alt="Our Experience 1" class="story-img-main">
+            <img src="{{ asset('assets/about/window3.png') }}" alt="Our Experience 2" class="story-img-secondary">
+        </div>
+    </div>
+</section>
+
+{{-- 4. HOW OUR ONLINE QUOTE WORKS --}}
+<section class="about-section quote-bg text-black dark:text-white">
+    <div class="about-container">
+        <div class="quote-grid">
+            
+            <div class="quote-info">
+                <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; margin-bottom: 24px;">How Our Online Quote Works</h2>
+                <p style="font-size: 1.1rem; line-height: 1.7; color: var(--mono-grey); margin-bottom: 20px;" class="dark:text-gray-400">Our website is designed to make getting a quote fast and hassle-free. Just enter your specifications to receive an instant price.</p>
+                
+                <!-- Using window 4 for laptop/quote image -->
+                <img src="{{ asset('assets/about/window4.png') }}" alt="Online Quoting System" style="width: 100%; border: 1px solid #e5e7eb;" class="dark:border-zinc-800">
             </div>
-        </div>
-    </section>
 
-    {{-- ── SECTION 1: EXPERIENCE ── --}}
-    <section class="exp-section">
-        <div class="section-inner exp-grid">
-            <div class="exp-left reveal">
-                <div class="section-label-row">
-                    <div class="section-robot-badge">{!! $robo !!}</div>
-                    <div class="section-label-pill">
-                        <span class="section-label-dot"></span>
-                        <span class="section-label">Since 2018</span>
+            <div class="steps-container">
+                <div class="step-item">
+                    <div class="step-num">01</div>
+                    <div class="step-content">
+                        <h3>Choose Your Product</h3>
+                        <p>Select the window or door you need.</p>
                     </div>
                 </div>
-                <div class="section-divider"></div>
-                <h2 class="exp-heading sec-heading">Our<br><span style="color:var(--accent-color)">Experience</span></h2>
-                <p class="exp-intro sec-sub">
-                    Years of delivering digital excellence across development, design, and strategy — turning complex ideas into impactful solutions.
-                </p>
-                <div class="exp-stat-row">
-                    <div class="exp-stat"><span class="exp-stat-num">200+</span><span class="exp-stat-label">Projects Delivered</span></div>
-                    <div class="exp-stat"><span class="exp-stat-num">6+</span><span class="exp-stat-label">Years Active</span></div>
-                </div>
-            </div>
-
-            <div class="exp-right">
-                @foreach ($experienceItems as $i => $item)
-                    <div class="exp-item reveal">
-                        <div class="exp-item-top">
-                            <span class="exp-num">{{ $item['num'] }}</span>
-                            <div class="exp-item-header">
-                                <span class="exp-sub" style="text-transform: uppercase; letter-spacing: .2em; font-size: 0.75rem; font-family: Montserrat, sans-serif; font-weight: 600; color: var(--accent-color);">{{ $item['sub'] }}</span>
-                                <h3 class="exp-title" style="font-family:Poppins, sans-serif; font-weight: 800; letter-spacing: -.03em; line-height: 1.05;">{{ $item['title'] }}</h3>
-                            </div>
-                        </div>
-                        <div class="exp-item-body">
-                            <p class="exp-desc sec-sub">{{ $item['desc'] }}</p>
-                            <div class="exp-tags">
-                                @foreach ($item['tags'] as $tag)
-                                    <span class="exp-tag">{{ $tag }}</span>
-                                @endforeach
-                            </div>
-                        </div>
-                        @if ($i < count($experienceItems) - 1)
-                            <div class="exp-divider"></div>
-                        @endif
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
-    {{-- ── SECTION 2: SPECIALTIES (accordion + filter tabs) ── --}}
-    <section class="spec-section">
-        <div class="section-inner">
-            <div class="spec-header reveal">
-                <div class="section-label-row">
-                    <div class="section-robot-badge">{!! $robo !!}</div>
-                    <div class="section-label-pill">
-                        <span class="section-label-dot"></span>
-                        <span class="section-label">What We Do</span>
+                
+                <div class="step-item">
+                    <div class="step-num">02</div>
+                    <div class="step-content">
+                        <h3>Enter Your Size</h3>
+                        <p>Enter your required dimensions.</p>
                     </div>
                 </div>
-                <div class="section-divider"></div>
-                <div class="spec-heading-row">
-                    <h2 class="spec-heading sec-heading">Our <span style="color:var(--accent-color)">Specialties</span></h2>
-                    <p class="spec-sub sec-sub">
-                        A focused set of disciplines — each executed with precision and depth across development, marketing, and design.
-                    </p>
-                </div>
-            </div>
 
-            <div class="spec-tabs reveal">
-                @foreach ($specialtyCategories as $cat)
-                    <button type="button" class="spec-tab{{ $cat === 'All' ? ' spec-tab--active' : '' }}" data-cat="{{ $cat }}">
-                        <span class="spec-tab-icon">{!! $catIcons[$cat] !!}</span>
-                        <span>{{ $cat }}</span>
-                        <span class="spec-tab-count">{{ $catCounts[$cat] }}</span>
-                    </button>
-                @endforeach
-            </div>
-
-            <div class="spec-list">
-                @foreach ($specialties as $i => $item)
-                    @php $cat = $catColors[$item['category']] ?? $catColors['Development']; @endphp
-                    <div class="spec-item reveal" data-cat="{{ $item['category'] }}" data-index="{{ $i }}">
-                        <div class="spec-trigger" style="cursor: pointer;">
-                            <div class="spec-trigger-left">
-                                <span class="spec-num">{{ sprintf('%02d', $i + 1) }}</span>
-                                <div class="spec-trigger-meta">
-                                    <span class="spec-category-badge" style="background:{{ $cat['bg'] }};color:{{ $cat['text'] }};border:1px solid {{ $cat['border'] }}">{{ $item['category'] }}</span>
-                                    <span class="spec-q-text" style="font-family:Poppins, sans-serif; font-weight: 800; letter-spacing: -.03em; line-height: 1.05;">{{ $item['title'] }}</span>
-                                </div>
-                            </div>
-                            <button class="spec-icon-wrap" type="button" aria-expanded="false" aria-label="Open content">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="12" y1="5" x2="12" y2="19"></line>
-                                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="spec-body">
-                            <div class="spec-body-inner">
-                                <p class="spec-desc-text sec-sub">{{ $item['desc'] }}</p>
-                                <div class="spec-tags">
-                                    @foreach ($item['tags'] as $tag)
-                                        <span class="spec-tag" style="border-color:{{ $cat['border'] }};color:{{ $cat['text'] }};background:{{ $cat['bg'] }}">{{ $tag }}</span>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-
-            <div class="spec-footer-strip reveal">
-                <div class="spec-stat-item"><span class="spec-stat-num">14+</span><span class="spec-stat-label">Disciplines</span></div>
-                <div class="spec-stat-divider"></div>
-                <div class="spec-stat-item"><span class="spec-stat-num">200+</span><span class="spec-stat-label">Projects</span></div>
-                <div class="spec-stat-divider"></div>
-                <div class="spec-stat-item"><span class="spec-stat-num">6+</span><span class="spec-stat-label">Years</span></div>
-                <div class="spec-stat-divider"></div>
-                <div class="spec-stat-item"><span class="spec-stat-num">50+</span><span class="spec-stat-label">Expert Team</span></div>
-            </div>
-        </div>
-    </section>
-
-    {{-- ── SECTION 3: APPROACH ── --}}
-    <section class="approach-section">
-        <div class="section-inner">
-            <div class="approach-header reveal visible">
-                <div class="section-label-row">
-                    <div class="section-robot-badge">{!! $robo !!}</div>
-                    <div class="section-label-pill">
-                        <span class="section-label-dot"></span>
-                        <span class="section-label">How We Work</span>
+                <div class="step-item">
+                    <div class="step-num">03</div>
+                    <div class="step-content">
+                        <h3>Configure Your Product</h3>
+                        <p>Select the available design, colours, glass, handles and other options.</p>
                     </div>
                 </div>
-                <div class="section-divider"></div>
-                <h2 class="approach-heading sec-heading">Our <span style="color:var(--accent-color)">Approach</span></h2>
-                <p class="approach-sub sec-sub">
-                    A process built on clarity, collaboration, and relentless attention to quality at every stage.
-                </p>
-            </div>
 
-            <div class="approach-steps">
-                @foreach ($approachSteps as $step)
-                    <div class="approach-step reveal visible">
-                        <div class="approach-step-inner">
-                            <span class="approach-step-num">{{ $step['num'] }}</span>
-                            <div class="approach-step-line"></div>
-                            <h3 class="approach-step-title" style="font-family:Poppins, sans-serif; font-weight: 800; letter-spacing: -.03em; line-height: 1.05;">{{ $step['title'] }}</h3>
-                            <p class="approach-step-desc sec-sub">{{ $step['desc'] }}</p>
-                        </div>
+                <div class="step-item">
+                    <div class="step-num">04</div>
+                    <div class="step-content">
+                        <h3>Get Your Instant Price</h3>
+                        <p>See your price based on your selections.</p>
                     </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
-    {{-- ── CLIENT LOGO TICKER ── --}}
-    <section class="logos-section reveal">
-        <div class="section-inner">
-            <p class="logos-label" style="font-family:Poppins, sans-serif; font-weight: 800; letter-spacing: -.03em;">Trusted by <span class="logos-accent">Industry Leaders</span></p>
-            <div class="logos-slider-wrap">
-                <div class="logos-track">
-                    @foreach (array_merge($clientLogos, $clientLogos, $clientLogos) as $logo)
-                        <div class="logo-item"><img loading="lazy" decoding="async" src="{{ $logo['url'] }}" alt="{{ $logo['name'] }}"></div>
-                    @endforeach
                 </div>
-            </div>
-        </div>
-    </section>
 
-
-    {{-- ── BLOG SECTION ── --}}
-    <section class="bs-section">
-        <div class="bs-inner">
-            <div class="bs-head">
-                <div>
-                    <div class="bs-label-row">
-                        <div class="bs-robot">{!! $robo !!}</div>
-                        <div class="bs-pill">
-                            <span class="bs-pill-dot"></span>
-                            <span class="bs-pill-text">Latest Insights</span>
-                        </div>
+                <div class="step-item">
+                    <div class="step-num">05</div>
+                    <div class="step-content">
+                        <h3>Order Online</h3>
+                        <p>Complete your order for delivery or collection.</p>
                     </div>
-                    <div class="bs-divider"></div>
-                    <h2 class="bs-heading sec-heading">From Our <span>Blog</span></h2>
-                    <p class="bs-headsub sec-sub">Expert perspectives on growth, hiring, and digital strategy — written for forward-thinking teams.</p>
-                </div>
-
-                <a href="/blog" style="text-decoration:none">
-                    <div class="bs-view-all-container">
-                        <div class="bs-view-all-base">
-                            <span class="bs-view-all-text">View All Posts</span>
-                            <div class="bs-view-all-icon">
-                               
-                            </div>
-                        </div>
-                        <div class="bs-view-all-hover">
-                            <span class="bs-view-all-text-ts">Explore Blog</span>
-                            <div class="bs-view-all-icon">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="bs-outer-grid">
-                <div>
-                    <a href="{{ $featuredPost['href'] }}" class="bs-feat-link">
-                        <article class="bs-featured-card">
-                            <img loading="lazy" decoding="async" src="{{ $featuredPost['image'] }}" alt="{{ $featuredPost['title'] }}" class="bs-feat-img">
-                            <div class="bs-feat-grad"></div>
-                            <div class="bs-feat-accent"></div>
-                            <div class="bs-read-overlay"><div class="bs-read-circle"><span>Read</span></div></div>
-                            <div class="bs-feat-content">
-                                <div><span class="bs-catpill"><span class="bs-catpill-dot"></span>{{ $featuredPost['category'] }}</span></div>
-                                <h2 class="bs-feat-title" style="font-family:Poppins, sans-serif; font-weight: 800; letter-spacing: -.03em; line-height: 1.05;">{{ $featuredPost['title'] }}</h2>
-                                <div class="bs-meta">
-                                    <img loading="lazy" decoding="async" src="{{ $featuredPost['avatar'] }}" alt="{{ $featuredPost['author'] }}" class="bs-feat-avatar">
-                                    <span class="bs-meta-author">{{ $featuredPost['author'] }}</span>
-                                    <span class="bs-meta-sep">·</span>
-                                    <span class="bs-meta-date">{{ $featuredPost['date'] }}</span>
-                                </div>
-                            </div>
-                        </article>
-                    </a>
-                </div>
-
-                <div class="bs-right-grid">
-                    @foreach ($gridPosts as $post)
-                        <a href="{{ $post['href'] }}" class="bs-card-link">
-                            <article class="bs-card">
-                                <div class="bs-card-imgwrap">
-                                    <img loading="lazy" decoding="async" src="{{ $post['image'] }}" alt="{{ $post['title'] }}" class="bs-card-img">
-                                    <div class="bs-card-imggrad"></div>
-                                    <div class="bs-read-overlay"><div class="bs-read-circle"><span>Read</span></div></div>
-                                </div>
-                                <div class="bs-card-body">
-                                    <p class="bs-card-cat">{{ $post['category'] }}</p>
-                                    <h3 class="bs-card-title" style="font-family:Poppins, sans-serif; font-weight: 800; letter-spacing: -.03em; line-height: 1.05;">{{ $post['title'] }}</h3>
-                                    <div class="bs-card-meta">
-                                        <img loading="lazy" decoding="async" src="{{ $post['avatar'] }}" alt="{{ $post['author'] }}" class="bs-card-avatar">
-                                        <span class="bs-card-author">{{ $post['author'] }}</span>
-                                        <span class="bs-card-sep">·</span>
-                                        <span class="bs-card-date">{{ $post['date'] }}</span>
-                                    </div>
-                                </div>
-                            </article>
-                        </a>
-                    @endforeach
                 </div>
             </div>
-        </div>
-    </section>
 
-    {{-- ── PORTFOLIO SECTION ── --}}
-     @php
-        $collage = [
-            ['src' => '/assets/project/web/1.webp', 'title' => 'ProBuild — Construction', 'desc' => 'Next-gen architectural excellence', 'style' => 'grid-column:1/2;grid-row:1/3;height:420px;', 'class' => 'pf-collage-card-tall'],
-            ['src' => '/assets/project/custom/3.webm', 'title' => 'EasyBridge — Fintech', 'desc' => 'Seamless mortgage application platform', 'style' => 'grid-column:2/3;grid-row:1/2;height:200px;', 'class' => ''],
-            ['src' => '/assets/project/mobile/1.webm', 'title' => 'NASA Explorer', 'desc' => 'Interactive space exploration interface', 'style' => 'grid-column:3/4;grid-row:1/2;height:200px;', 'class' => ''],
-            ['src' => '/assets/project/aiSol/3.webm', 'title' => 'n8n', 'desc' => 'AI', 'style' => 'grid-column:2/3;grid-row:2/3;height:210px;', 'class' => ''],
-            ['src' => '/assets/project/uiux/7.webm', 'title' => 'Logo', 'desc' => 'FlexFlox', 'style' => 'grid-column:3/4;grid-row:2/3;height:210px;', 'class' => ''],
-        ];
-        $pfStats = [['value' => '200+', 'label' => 'Projects'], ['value' => '5+', 'label' => 'Years'], ['value' => '98%', 'label' => 'Satisfaction']];
-    @endphp
-    <section class="home-section">
-        <div class="pf-home-inner">
-            <div class="pf-left">
-                <div style="display: flex; flex-direction: column; align-items: flex-start;">
-                    <div class="section-label-row" style="margin-bottom: 14px;">
-                        <div class="section-robot-badge">{!! $robo !!}</div>
-                        <div class="section-label-pill">
-                            <span class="section-label-dot"></span>
-                            <span class="section-label">Our Work</span>
-                        </div>
-                    </div>
-                    <div class="section-divider" style="margin-bottom: 0;"></div>
+        </div>
+    </div>
+</section>
+
+
+
+{{-- 5. FINAL CTA --}}
+<section class="cta-section">
+    <div class="cta-container">
+        <div class="cta-grid">
+            <img src="{{ asset('assets/about/window5.png') }}" alt="Contact Us Banner" class="cta-image">
+            <div class="cta-content">
+                <h2>Ready to Design Your Windows or Doors?</h2>
+                <p>Configure your product online and get an instant price, or reach out to our team for custom requests and expert advice.</p>
+                <div class="cta-actions">
+                    <a href="{{ route('contact') }}" class="btn-solid-black">Contact Us</a>
                 </div>
-                <h2 class="pf-heading sec-heading">Work That<br><span class="accent">Speaks</span> Loudly</h2>
-                <p class="pf-desc sec-sub">From high-performance SaaS dashboards to immersive mobile experiences — every project we ship is crafted with precision, purpose, and a relentless focus on exceptional user experience.</p>
-                <div class="pf-stats">
-                    @foreach ($pfStats as $stat)
-                        <div class="pf-stat">
-                            <span class="pf-stat-val">{{ $stat['value'] }}</span>
-                            <span class="pf-stat-label">{{ $stat['label'] }}</span>
-                        </div>
-                    @endforeach
-                </div>
-                <a href="/portfolio" class="pf-cta-btn">View Portfolio</a>
-            </div>
-
-            <div class="pf-home-collage">
-                @foreach ($collage as $item)
-                    <a href="/portfolio" class="pf-collage-card {{ $item['class'] }}" style="{{ $item['style'] }}">
-                        @if(str_ends_with($item['src'], '.webm') || str_ends_with($item['src'], '.mp4'))
-                            <video autoplay loop muted playsinline>
-                                <source src="{{ $item['src'] }}" type="{{ str_ends_with($item['src'], '.webm') ? 'video/webm' : 'video/mp4' }}">
-                            </video>
-                        @else
-                            <img src="{{ $item['src'] }}" alt="{{ $item['title'] }}">
-                        @endif
-                        <div class="pf-card-grad"></div>
-                        <div class="pf-card-content">
-                            <h4 class="pf-card-title" style="font-family:Poppins, sans-serif; font-weight: 800; letter-spacing: -.03em; line-height: 1.05;">{{ $item['title'] }}</h4>
-                            <p class="pf-card-desc sec-sub">{{ $item['desc'] }}</p>
-                            <div class="pf-card-explore">
-                                <span>Explore</span>
-                                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M1 6H11M6 1L11 6L6 11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                            </div>
-                        </div>
-                        <div class="pf-card-badge"></div>
-                    </a>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
-    {{-- ════════════════ TECH TICKER ════════════════ --}}
-    <section class="tt-section">
-        <div class="tt-header">
-            <h2 class="tt-title sec-heading">Our <span class="tt-accent">Technology</span> Stack</h2>
-        </div>
-        <div class="tt-viewport">
-            <div class="tt-track">
-                @php
-                    $devicons = [
-                        'React' => 'devicon-react-original',
-                        'Next.js' => 'devicon-nextjs-plain',
-                        'Node.js' => 'devicon-nodejs-plain',
-                        'Express.js' => 'devicon-express-original',
-                        'Laravel' => 'devicon-laravel-original',
-                        'Vue.js' => 'devicon-vuejs-plain',
-                        'TypeScript' => 'devicon-typescript-plain',
-                        'JavaScript' => 'devicon-javascript-plain',
-                        'PHP' => 'devicon-php-plain',
-                        'Python' => 'devicon-python-plain',
-                        'HTML5' => 'devicon-html5-plain',
-                        'CSS' => 'devicon-css3-plain',
-                        'TailwindCSS' => 'devicon-tailwindcss-original',
-                        'MongoDB' => 'devicon-mongodb-plain',
-                        'MySQL' => 'devicon-mysql-plain',
-                        'Firebase' => 'devicon-firebase-plain',
-                        'Docker' => 'devicon-docker-plain',
-                        'Git' => 'devicon-git-plain',
-                        'GitHub' => 'devicon-github-original',
-                        'Vercel' => 'devicon-vercel-original',
-                        'GraphQL' => 'devicon-graphql-plain',
-                        'Figma' => 'devicon-figma-plain'
-                    ];
-                    $techs = array_keys($devicons);
-                    $techTripled = array_merge($techs, $techs, $techs);
-                @endphp
-                @foreach ($techTripled as $tech)
-                    <div class="tt-card">
-                        <div class="tt-icon">
-                            <i class="{{ $devicons[$tech] ?? 'devicon-code-plain' }}" style="font-size: clamp(2rem, 4.5vw, 3.2rem); color: var(--soft-text); transition: color 0.35s ease;"></i>
-                        </div>
-                        <span class="tt-label">{{ $tech }}</span>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
-    {{-- ── CONTACT BANNER ── --}}
-    <section class="cb-section">
-        <div class="cb-box">
-            <div class="cb-bglines">
-                <svg width="100%" height="100%" viewBox="0 0 1200 400" preserveAspectRatio="none">
-                    <path d="M0 100 Q 300 50 600 100 T 1200 100" stroke="black" fill="transparent" stroke-width="2"/>
-                    <path d="M0 200 Q 300 150 600 200 T 1200 200" stroke="black" fill="transparent" stroke-width="2"/>
-                    <path d="M0 300 Q 300 250 600 300 T 1200 300" stroke="black" fill="transparent" stroke-width="2"/>
-                    <circle cx="100" cy="100" r="80" stroke="black" fill="transparent" stroke-width="1"/>
-                    <circle cx="1100" cy="300" r="120" stroke="black" fill="transparent" stroke-width="1"/>
-                    <rect x="400" y="50" width="40" height="40" stroke="black" fill="transparent" stroke-width="1" transform="rotate(45 420 70)"/>
-                    <rect x="800" y="320" width="30" height="30" stroke="black" fill="transparent" stroke-width="1" transform="rotate(15 815 335)"/>
-                </svg>
-            </div>
-
-            <div class="cb-label-pill">
-                <span class="cb-label-dot"></span>
-                <span class="cb-label-text">Let's Work Together</span>
-            </div>
-
-            <h2 class="cb-heading sec-heading" style="color: #ffffff !important;">Have a Project in Mind?<br>Let's Build It.</h2>
-            <p class="cb-sub sec-sub" style="color: rgba(255, 255, 255, 0.9) !important;">
-                Whether you're starting from scratch or scaling an existing product, we'd love to hear about it.
-                Let's create something remarkable together.
-            </p>
-
-            <div class="cb-btn-row">
-                <a href="#" class="cb-btn-primary" onclick="openCalendlyModal(event)">Book A Consultation</a>
-                <a href="/portfolio" class="cb-btn-secondary">View Portfolio</a>
-            </div>
-        </div>
-    </section>
-
-    {{-- ── Calendly Modal ── --}}
-    <div class="cal-modal" id="calModal" aria-hidden="true">
-        <div class="cal-modal-backdrop" onclick="closeCalendlyModal()"></div>
-        <div class="cal-modal-box" role="dialog" aria-modal="true" aria-labelledby="calModalTitle">
-            <button class="cal-modal-close" type="button" aria-label="Close modal" onclick="closeCalendlyModal()">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                    <line x1="18" y1="6" x2="6" y2="18"/>
-                    <line x1="6" y1="6" x2="18" y2="18"/>
-                </svg>
-            </button>
-            <div class="cal-modal-content">
-                <h2 class="cal-modal-title">Book a <span style="color:var(--accent-color)">Consultation</span></h2>
-                <div class="calendly-inline-widget" data-url="https://calendly.com/mshayantariq/schedule-a-meeting?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:280px;height:700px;width:100%"></div>
-                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
             </div>
         </div>
     </div>
+</section>
 
-</div>
 @endsection
-
-@push('scripts')
-<script>
-(function () {
-    var root = document.querySelector('.pw-about');
-    if (!root) return;
-
-    var tabs = root.querySelectorAll('.spec-tab');
-    var items = root.querySelectorAll('.spec-item');
-
-    function closeItem(item) {
-        item.classList.remove('spec-item--open');
-        var body = item.querySelector('.spec-body');
-        var icon = item.querySelector('.spec-icon-wrap');
-        if (body) body.style.maxHeight = '0px';
-        if (icon) { icon.classList.remove('spec-icon-wrap--open'); icon.setAttribute('aria-expanded', 'false'); }
-    }
-
-    /* ── Category filter tabs ── */
-    tabs.forEach(function (tab) {
-        tab.addEventListener('click', function () {
-            var cat = tab.getAttribute('data-cat');
-            tabs.forEach(function (t) { t.classList.remove('spec-tab--active'); });
-            tab.classList.add('spec-tab--active');
-            var visIndex = 0;
-            items.forEach(function (item) {
-                var show = cat === 'All' || item.getAttribute('data-cat') === cat;
-                item.style.display = show ? '' : 'none';
-                closeItem(item);
-                if (show) {
-                    var num = item.querySelector('.spec-num');
-                    if (num) num.textContent = ('0' + (visIndex + 1)).slice(-2);
-                    visIndex++;
-                }
-            });
-        });
-    });
-
-    /* ── Accordion toggle ── */
-    items.forEach(function (item) {
-        var triggerRow = item.querySelector('.spec-trigger');
-        var iconWrap = item.querySelector('.spec-icon-wrap');
-        var body = item.querySelector('.spec-body');
-        if (!triggerRow || !iconWrap || !body) return;
-        body.style.maxHeight = '0px';
-        triggerRow.addEventListener('click', function () {
-            var isOpen = item.classList.contains('spec-item--open');
-            items.forEach(closeItem);
-            if (!isOpen) {
-                item.classList.add('spec-item--open');
-                iconWrap.classList.add('spec-icon-wrap--open');
-                iconWrap.setAttribute('aria-expanded', 'true');
-                body.style.maxHeight = body.scrollHeight + 'px';
-            }
-        });
-    });
-})();
-
-    function openCalendlyModal(event) {
-        if (event) {
-            event.preventDefault();
-            event.stopPropagation();
-        }
-        var modal = document.getElementById('calModal');
-        var cc = document.getElementById('customCursor');
-        if (modal) {
-            modal.classList.add('is-open');
-            modal.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
-            if (cc) cc.style.display = 'none';
-        }
-    }
-
-    function closeCalendlyModal() {
-        var modal = document.getElementById('calModal');
-        var cc = document.getElementById('customCursor');
-        if (modal) {
-            modal.classList.remove('is-open');
-            modal.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-            if (cc) cc.style.display = '';
-        }
-    }
-
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') closeCalendlyModal();
-    });
-</script>
-@endpush

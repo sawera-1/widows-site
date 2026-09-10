@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     {{-- ── Core SEO ─────────────────────────────────────────────────────── --}}
-    <title>@yield('title', 'Corammers — Web, Mobile, AI & Digital Marketing Agency')</title>
-    <meta name="description" content="@yield('meta_description', 'Corammers builds high-performance websites, mobile apps, AI solutions and growth marketing. Engineering with vision — human + AI.')">
+    <title>@yield('title', 'Company Name — Web, Mobile, AI & Digital Marketing Agency')</title>
+    <meta name="description" content="@yield('meta_description', 'Company Name builds high-performance websites, mobile apps, AI solutions and growth marketing. Engineering with vision — human + AI.')">
     <link rel="canonical" href="{{ url()->current() }}">
     <meta name="robots" content="@yield('robots', 'index, follow, max-image-preview:large')">
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
@@ -31,7 +31,37 @@
          requests for font CSS; font-display swap keeps text visible) ─────── --}}
     <style>{!! file_get_contents(public_path('css/fonts.css')) !!}</style>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: ['class', '[data-theme="dark"]'],
+            theme: {
+                extend: {
+                    colors: {
+                        'mono': {
+                            'bg-light': '#ffffff',
+                            'bg-dark': '#000000',
+                            'text-light': '#000000',
+                            'text-dark': '#ffffff',
+                            'border-light': '#e5e7eb',
+                            'border-dark': '#374151',
+                            'grey': '#737373',
+                            'grey-light': '#f5f5f5',
+                            'grey-dark': '#262626'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="{{ asset_v('css/app.css') }}">
     @stack('styles')
 
@@ -41,18 +71,18 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
     {{-- ── Social cards (Open Graph + Twitter) ─────────────────────────── --}}
-    <meta property="og:site_name" content="Corammers">
+    <meta property="og:site_name" content="Company Name">
     <meta property="og:type" content="@yield('og_type', 'website')">
-    <meta property="og:title" content="@yield('title', 'Corammers — Web, Mobile, AI & Digital Marketing Agency')">
-    <meta property="og:description" content="@yield('meta_description', 'Corammers builds high-performance websites, mobile apps, AI solutions and growth marketing. Engineering with vision — human + AI.')">
+    <meta property="og:title" content="@yield('title', 'Company Name — Web, Mobile, AI & Digital Marketing Agency')">
+    <meta property="og:description" content="@yield('meta_description', 'Company Name builds high-performance websites, mobile apps, AI solutions and growth marketing. Engineering with vision — human + AI.')">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:image" content="@yield('og_image', asset('assets/logo/og-image.png'))">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="@yield('title', 'Corammers — Web, Mobile, AI & Digital Marketing Agency')">
-    <meta name="twitter:description" content="@yield('meta_description', 'Corammers builds high-performance websites, mobile apps, AI solutions and growth marketing. Engineering with vision — human + AI.')">
+    <meta name="twitter:title" content="@yield('title', 'Company Name — Web, Mobile, AI & Digital Marketing Agency')">
+    <meta name="twitter:description" content="@yield('meta_description', 'Company Name builds high-performance websites, mobile apps, AI solutions and growth marketing. Engineering with vision — human + AI.')">
     <meta name="twitter:image" content="@yield('og_image', asset('assets/logo/og-image.png'))">
 
     {{-- ── Structured data: Organization + WebSite (+ auto breadcrumbs) ── --}}
@@ -60,20 +90,20 @@
         $ldOrg = [
             '@context' => 'https://schema.org',
             '@type' => 'Organization',
-            'name' => 'Corammers',
+            'name' => 'Company Name',
             'url' => url('/'),
             'logo' => asset('assets/logo/logo.png'),
-            'email' => 'info@corammers.com',
+            'email' => 'info@example.com',
             'contactPoint' => [[
                 '@type' => 'ContactPoint',
-                'email' => 'info@corammers.com',
+                'email' => 'info@example.com',
                 'contactType' => 'customer support',
             ]],
         ];
         $ldSite = [
             '@context' => 'https://schema.org',
             '@type' => 'WebSite',
-            'name' => 'Corammers',
+            'name' => 'Company Name',
             'url' => url('/'),
             'potentialAction' => [
                 '@type' => 'SearchAction',
@@ -113,18 +143,13 @@
     @stack('schema')
 </head>
 <body>
-    @include('partials.loader')
     @include('partials.header')
-    @include('partials.menubar')
-    @include('partials.search')
-    @include('partials.cursor')
 
     <div class="page-wrapper page-ready">
         @yield('content')
     </div>
 
     @include('partials.footer')
-    @include('partials.scroll-top')
 
     <script src="{{ asset_v('js/app.js') }}" defer></script>
     @stack('scripts')

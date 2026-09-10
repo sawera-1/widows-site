@@ -1,0 +1,906 @@
+/* =============================================================================
+   INFORMATION PAGES — information.css
+   Shared stylesheet for: windows-info.blade.php & doors-info.blade.php
+   Palette: pure black / white / grey — NO blue accent.
+   Prefix: .wi- (windows-info)
+   ============================================================================= */
+
+/* ── Design tokens ── */
+:root {
+  --wi-page-bg:      #f4f4f2;
+  --wi-card-bg:      #ffffff;
+  --wi-border:       #e0e0e0;
+  --wi-border-dark:  #c8c8c8;
+  --wi-text-dark:    #111111;
+  --wi-text-body:    #444444;
+  --wi-text-muted:   #888888;
+  --wi-accent:       #111111;    /* black: replaces every "blue" reference */
+  --wi-accent-bg:    #f0f0ee;
+  --wi-shadow:       0 1px 3px rgba(0,0,0,.05), 0 4px 14px rgba(0,0,0,.07);
+  --wi-shadow-hover: 0 4px 10px rgba(0,0,0,.1), 0 12px 28px rgba(0,0,0,.1);
+  --wi-radius:       0px;        /* sharp corners — architectural feel */
+  --wi-gap:          1px;        /* tight grid gap → tiles look */
+  --wi-pad:          clamp(28px, 3.5vw, 44px);
+}
+
+[data-theme=dark] {
+  --wi-page-bg:   #0e0e0e;
+  --wi-card-bg:   #181818;
+  --wi-border:    #2a2a2a;
+  --wi-border-dark: #404040;
+  --wi-text-dark: #f0f0f0;
+  --wi-text-body: #bdbdbd;
+  --wi-text-muted:#777777;
+  --wi-accent-bg: #1f1f1f;
+  --wi-shadow:       0 1px 3px rgba(0,0,0,.4), 0 4px 14px rgba(0,0,0,.4);
+  --wi-shadow-hover: 0 4px 10px rgba(0,0,0,.7), 0 12px 28px rgba(0,0,0,.5);
+}
+
+/* ── Page wrapper ── */
+.wi-page { background: var(--wi-page-bg); }
+
+/* ── Container ── */
+.wi-container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 40px);
+}
+
+/* =============================================================================
+   HERO
+   ============================================================================= */
+.wi-hero {
+  position: relative;
+  width: 100%;
+  min-height: 52vh;
+  display: flex;
+  align-items: flex-end;
+  background: #111;
+  overflow: hidden;
+}
+.wi-hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: .35;
+  filter: grayscale(30%);
+}
+.wi-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.82) 0%, rgba(0,0,0,.25) 60%, transparent 100%);
+}
+.wi-hero__inner {
+  position: relative;
+  z-index: 2;
+  padding: clamp(40px, 7vw, 80px) clamp(20px, 6vw, 80px);
+  max-width: 860px;
+}
+.wi-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.55);
+  margin-bottom: 18px;
+}
+.wi-hero__eyebrow::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: rgba(255,255,255,.45);
+}
+.wi-hero__title {
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.08;
+  letter-spacing: -.03em;
+  margin-bottom: 20px;
+}
+.wi-hero__sub {
+  font-size: clamp(.95rem, 1.8vw, 1.15rem);
+  color: rgba(255,255,255,.6);
+  line-height: 1.7;
+  max-width: 580px;
+  margin-bottom: 28px;
+}
+.wi-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 30px;
+  background: #fff;
+  color: #000;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .5px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background .2s, color .2s;
+}
+.wi-hero__cta:hover { background: #e8e8e8; }
+.wi-hero__cta svg { width: 16px; height: 16px; }
+
+/* =============================================================================
+   SECTION CHROME
+   ============================================================================= */
+.wi-section {
+  padding: clamp(56px, 8vw, 96px) 0;
+  background: var(--wi-page-bg);
+}
+.wi-section--dark {
+  background: #111;
+}
+.wi-section__header {
+  margin-bottom: clamp(40px, 5vw, 64px);
+}
+.wi-section__eyebrow {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--wi-text-muted);
+  margin-bottom: 12px;
+}
+.wi-section__title {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  color: var(--wi-text-dark);
+  line-height: 1.1;
+  letter-spacing: -.025em;
+  margin-bottom: 16px;
+}
+.wi-section__desc {
+  font-size: 1.05rem;
+  color: var(--wi-text-muted);
+  line-height: 1.7;
+  max-width: 520px;
+}
+
+/* ── Full-width divider ── */
+.wi-divider-banner {
+  padding: clamp(48px, 6vw, 72px) 0;
+  background: #111;
+}
+[data-theme=dark] .wi-divider-banner { background: #000; border-top: 1px solid #2a2a2a; border-bottom: 1px solid #2a2a2a; }
+.wi-divider-banner__eyebrow {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 14px;
+}
+.wi-divider-banner__title {
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -.025em;
+  margin-bottom: 14px;
+}
+.wi-divider-banner__sub {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,.5);
+  max-width: 520px;
+  line-height: 1.65;
+}
+
+/* =============================================================================
+   CARD GRID
+   ============================================================================= */
+.wi-grid {
+  display: grid;
+  gap: var(--wi-gap);   /* 1px gap — tiles/mosaic look */
+  background: var(--wi-border); /* gap colour shows through */
+}
+.wi-grid--2   { grid-template-columns: 1fr 1fr; }
+.wi-grid--3   { grid-template-columns: repeat(3, 1fr); }
+.wi-grid--4   { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 767px) {
+  .wi-grid--2,
+  .wi-grid--3,
+  .wi-grid--4 { grid-template-columns: 1fr; }
+}
+@media (min-width: 640px) and (max-width: 1023px) {
+  .wi-grid--3 { grid-template-columns: 1fr 1fr; }
+  .wi-grid--4 { grid-template-columns: 1fr 1fr; }
+}
+.wi-col-full { grid-column: 1 / -1; }
+
+/* wrapper that provides the outer border of the tile group */
+.wi-grid-wrap {
+  border: 1px solid var(--wi-border);
+  overflow: hidden;
+}
+
+/* =============================================================================
+   CARD BASE
+   ============================================================================= */
+.wi-card {
+  background: var(--wi-card-bg);
+  padding: var(--wi-pad);
+  border: none;           /* border comes from the grid gap */
+  transition: background .2s;
+  overflow: hidden;
+}
+/* Very subtle hover — no lifting, keeps the "flat architectural" feel */
+.wi-card:hover { background: #fafafa; }
+[data-theme=dark] .wi-card:hover { background: #1e1e1e; }
+.wi-card--dark {
+  background: #111;
+  color: #fff;
+}
+[data-theme=dark] .wi-card--dark { background: #000; }
+.wi-card--grey {
+  background: var(--wi-accent-bg);
+}
+
+/* ── Card heading ── */
+.wi-card__title {
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  font-weight: 800;
+  color: var(--wi-text-dark);
+  margin-bottom: 12px;
+  line-height: 1.2;
+  letter-spacing: -.015em;
+}
+.wi-card--dark .wi-card__title { color: #fff; }
+
+.wi-card__sub {
+  font-size: .82rem;
+  font-weight: 700;
+  color: var(--wi-text-muted);
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+.wi-card__body {
+  font-size: .96rem;
+  line-height: 1.75;
+  color: var(--wi-text-body);
+}
+.wi-card--dark .wi-card__body { color: rgba(255,255,255,.6); }
+.wi-card__body p { margin-bottom: 12px; }
+.wi-card__body p:last-child { margin-bottom: 0; }
+
+/* ── Card image ── */
+.wi-card__img {
+  width: 100%;
+  overflow: hidden;
+  background: #e8e8e8;
+  margin-bottom: 24px;
+}
+[data-theme=dark] .wi-card__img { background: #1a1a1a; }
+.wi-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s ease;
+}
+.wi-card:hover .wi-card__img img { transform: scale(1.02); }
+
+/* =============================================================================
+   SECTION TAG (eyebrow in a card)
+   ============================================================================= */
+.wi-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--wi-text-muted);
+  margin-bottom: 14px;
+}
+.wi-tag::before {
+  content: '';
+  width: 18px; height: 1px;
+  background: var(--wi-text-muted);
+}
+
+/* =============================================================================
+   CHECKLIST
+   ============================================================================= */
+.wi-checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 18px 0 0;
+}
+.wi-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: .93rem;
+  color: var(--wi-text-body);
+  line-height: 1.5;
+}
+.wi-checklist__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px; height: 20px;
+  border: 1.5px solid var(--wi-text-dark);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.wi-checklist__icon svg { width: 11px; height: 11px; color: var(--wi-text-dark); }
+.wi-card--dark .wi-checklist li { color: rgba(255,255,255,.65); }
+.wi-card--dark .wi-checklist__icon { border-color: rgba(255,255,255,.5); }
+.wi-card--dark .wi-checklist__icon svg { color: #fff; }
+
+/* =============================================================================
+   BULLET LIST
+   ============================================================================= */
+.wi-bullet-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin: 14px 0 0;
+}
+.wi-bullet-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: .93rem;
+  color: var(--wi-text-body);
+  line-height: 1.5;
+}
+.wi-bullet-list li::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--wi-text-dark);
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+.wi-card--dark .wi-bullet-list li { color: rgba(255,255,255,.65); }
+.wi-card--dark .wi-bullet-list li::before { background: rgba(255,255,255,.6); }
+
+/* =============================================================================
+   SPEC TABLE
+   ============================================================================= */
+.wi-spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 18px;
+  font-size: .91rem;
+}
+.wi-spec-table td {
+  padding: 11px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--wi-border);
+  color: var(--wi-text-body);
+  vertical-align: top;
+}
+.wi-spec-table td:first-child {
+  font-weight: 700;
+  color: var(--wi-text-dark);
+  width: 42%;
+}
+.wi-spec-table tr:last-child td { border-bottom: none; }
+
+/* =============================================================================
+   SPEC PILLS (tags row)
+   ============================================================================= */
+.wi-spec-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+.wi-spec-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px;
+  background: var(--wi-card-bg);
+  border: 1px solid var(--wi-border-dark);
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--wi-text-dark);
+  letter-spacing: .3px;
+}
+.wi-spec-pill svg { width: 13px; height: 13px; }
+.wi-card--dark .wi-spec-pill { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.15); color: rgba(255,255,255,.8); }
+
+/* =============================================================================
+   BADGE / TAG PILL
+   ============================================================================= */
+.wi-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--wi-text-dark);
+  background: var(--wi-accent-bg);
+  border: 1px solid var(--wi-border-dark);
+  padding: 5px 11px;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+.wi-badge svg { width: 12px; height: 12px; flex-shrink: 0; }
+
+/* =============================================================================
+   PRODUCT STRIP (mini linked cards)
+   ============================================================================= */
+.wi-product-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 1px;
+  background: var(--wi-border);
+  margin-top: 24px;
+  border: 1px solid var(--wi-border);
+}
+.wi-product-mini {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: var(--wi-card-bg);
+  padding: 14px 8px;
+  text-decoration: none;
+  text-align: center;
+  transition: background .2s;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--wi-text-dark);
+  letter-spacing: .3px;
+  text-transform: uppercase;
+}
+.wi-product-mini:hover { background: var(--wi-accent-bg); }
+.wi-product-mini__img {
+  width: 72px; height: 50px;
+  object-fit: cover;
+}
+.wi-product-mini__arrow {
+  width: 14px; height: 14px;
+  color: var(--wi-text-muted);
+  transition: transform .2s;
+}
+.wi-product-mini:hover .wi-product-mini__arrow { transform: translateX(3px); color: var(--wi-text-dark); }
+
+/* =============================================================================
+   ENERGY RATING CHART
+   ============================================================================= */
+.wi-energy-rating {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 20px 0;
+}
+.wi-energy-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 34px;
+  padding: 0 12px;
+  font-size: .82rem;
+  font-weight: 800;
+  color: #fff;
+  position: relative;
+}
+.wi-energy-bar span { flex: 1; }
+.wi-energy-bar .wi-energy-bar__label { font-size: .78rem; font-weight: 600; opacity: .9; text-align: right; }
+.wi-energy-bar--app { background: #1a6b2c; width: 70%; }
+.wi-energy-bar--ap  { background: #2d9a3e; width: 80%; }
+.wi-energy-bar--a   { background: #4db84e; width: 72%; }
+.wi-energy-bar--b   { background: #8cc63f; width: 64%; }
+.wi-energy-bar--c   { background: #f0d000; width: 56%; color: #333; }
+.wi-energy-bar--d   { background: #f0a500; width: 48%; }
+.wi-energy-bar--e   { background: #f06800; width: 40%; }
+.wi-energy-bar--selected { filter: brightness(1.08); outline: 2px solid #111; outline-offset: 0; }
+.wi-energy-bar--selected::after {
+  content: '✓ OUR STANDARD';
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #fff;
+  position: absolute;
+  right: 10px;
+  background: rgba(0,0,0,.25);
+  padding: 2px 7px;
+}
+
+/* =============================================================================
+   SECURITY FEATURE GRID
+   ============================================================================= */
+.wi-security-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--wi-border);
+  margin-top: 20px;
+}
+@media (max-width: 767px) { .wi-security-grid { grid-template-columns: 1fr; } }
+
+.wi-security-feat {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px 18px;
+  background: var(--wi-card-bg);
+}
+[data-theme=dark] .wi-security-feat { background: #181818; }
+
+.wi-security-feat__icon {
+  width: 34px; height: 34px;
+  background: var(--wi-text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+[data-theme=dark] .wi-security-feat__icon { background: #fff; }
+.wi-security-feat__icon svg { width: 17px; height: 17px; color: #fff; }
+[data-theme=dark] .wi-security-feat__icon svg { color: #000; }
+
+.wi-security-feat__text h4 {
+  font-size: .88rem;
+  font-weight: 800;
+  color: var(--wi-text-dark);
+  margin-bottom: 4px;
+  letter-spacing: -.005em;
+}
+.wi-security-feat__text p {
+  font-size: .82rem;
+  color: var(--wi-text-muted);
+  line-height: 1.5;
+}
+
+/* on dark card variant */
+.wi-card--dark .wi-security-feat { background: rgba(255,255,255,.04); }
+.wi-card--dark .wi-security-feat__icon { background: #fff; }
+.wi-card--dark .wi-security-feat__icon svg { color: #000; }
+.wi-card--dark .wi-security-feat__text h4 { color: #fff; }
+.wi-card--dark .wi-security-feat__text p  { color: rgba(255,255,255,.5); }
+
+/* =============================================================================
+   WARRANTY / NUMBERS GRID
+   ============================================================================= */
+.wi-warranty-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--wi-border);
+  margin-top: 20px;
+}
+@media (min-width: 640px) { .wi-warranty-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 479px) { .wi-warranty-grid { grid-template-columns: 1fr; } }
+
+.wi-warranty-item {
+  text-align: center;
+  padding: 28px 16px 22px;
+  background: var(--wi-card-bg);
+}
+[data-theme=dark] .wi-warranty-item { background: #181818; }
+
+.wi-warranty-item__num {
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: var(--wi-text-dark);
+  line-height: 1;
+  margin-bottom: 4px;
+  letter-spacing: -.04em;
+}
+.wi-warranty-item__unit {
+  font-size: .72rem;
+  font-weight: 700;
+  color: var(--wi-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  display: block;
+  margin-bottom: 12px;
+}
+.wi-warranty-item__label {
+  font-size: .84rem;
+  font-weight: 800;
+  color: var(--wi-text-dark);
+  margin-bottom: 5px;
+  letter-spacing: -.005em;
+}
+.wi-warranty-item__desc {
+  font-size: .76rem;
+  color: var(--wi-text-muted);
+  line-height: 1.4;
+}
+
+/* =============================================================================
+   BLIND TYPE CARDS
+   ============================================================================= */
+.wi-blind-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--wi-border);
+  margin-top: 20px;
+}
+@media (max-width: 767px) { .wi-blind-grid { grid-template-columns: 1fr; } }
+
+.wi-blind-item {
+  padding: 20px 18px;
+  background: var(--wi-accent-bg);
+}
+[data-theme=dark] .wi-blind-item { background: #1a1a1a; }
+.wi-blind-item h4 {
+  font-size: .84rem;
+  font-weight: 800;
+  color: var(--wi-text-dark);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.wi-blind-item p {
+  font-size: .84rem;
+  color: var(--wi-text-body);
+  line-height: 1.55;
+}
+
+/* =============================================================================
+   COMPARISON (side-by-side images)
+   ============================================================================= */
+.wi-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--wi-border);
+  margin-top: 20px;
+}
+@media (max-width: 479px) { .wi-compare { grid-template-columns: 1fr; } }
+
+.wi-compare-item {
+  background: var(--wi-card-bg);
+  overflow: hidden;
+}
+.wi-compare-item__img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+.wi-compare-item__label {
+  padding: 10px 14px;
+  font-size: .78rem;
+  font-weight: 700;
+  color: var(--wi-text-muted);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: var(--wi-accent-bg);
+  border-top: 1px solid var(--wi-border);
+}
+
+/* =============================================================================
+   PRODUCTION SECTION (dark-card highlights)
+   ============================================================================= */
+.wi-production-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,.1);
+  margin-top: 0;
+}
+@media (max-width: 767px) { .wi-production-highlights { grid-template-columns: 1fr; } }
+
+.wi-prod-highlight {
+  text-align: center;
+  padding: 32px 20px;
+  background: rgba(255,255,255,.04);
+}
+.wi-prod-highlight__icon {
+  width: 48px; height: 48px;
+  border: 1px solid rgba(255,255,255,.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+.wi-prod-highlight__icon svg { width: 24px; height: 24px; color: rgba(255,255,255,.7); }
+.wi-prod-highlight h3 {
+  font-size: .84rem;
+  font-weight: 800;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 6px;
+}
+.wi-prod-highlight p { font-size: .84rem; color: rgba(255,255,255,.45); line-height: 1.5; }
+
+/* =============================================================================
+   A++ RATING BADGE
+   ============================================================================= */
+.wi-rating-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: #1a6b2c;
+  color: #fff;
+  font-size: .86rem;
+  font-weight: 800;
+  letter-spacing: .5px;
+  margin-top: 18px;
+}
+.wi-rating-badge__num {
+  font-size: 1.4rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* =============================================================================
+   PAS24 BADGE CIRCLE
+   ============================================================================= */
+.wi-pas24 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100px; height: 100px;
+  border: 2px solid var(--wi-text-dark);
+  color: var(--wi-text-dark);
+  text-align: center;
+  flex-shrink: 0;
+}
+[data-theme=dark] .wi-pas24 { border-color: #fff; color: #fff; }
+.wi-card--dark .wi-pas24 { border-color: rgba(255,255,255,.5); color: #fff; }
+.wi-pas24__label { font-size: .58rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+.wi-pas24__num   { font-size: 1.25rem; font-weight: 900; line-height: 1.1; }
+.wi-pas24__year  { font-size: .65rem; font-weight: 600; }
+
+/* =============================================================================
+   COLOUR SWATCHES
+   ============================================================================= */
+.wi-swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 16px 0;
+}
+.wi-swatch {
+  width: 30px; height: 30px;
+  border: 1px solid rgba(0,0,0,.12);
+  flex-shrink: 0;
+}
+
+/* =============================================================================
+   FLOAT IMAGE
+   ============================================================================= */
+.wi-img-float {
+  float: right;
+  width: 40%;
+  margin: 0 0 16px 20px;
+  overflow: hidden;
+}
+.wi-img-float img { width: 100%; display: block; }
+@media (max-width: 599px) { .wi-img-float { float: none; width: 100%; margin: 0 0 16px; } }
+
+/* =============================================================================
+   CARD CTA LINK (inline link inside card)
+   ============================================================================= */
+.wi-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+  padding: 11px 20px;
+  background: var(--wi-text-dark);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background .2s;
+}
+.wi-card-cta:hover { background: #333; }
+.wi-card-cta svg { width: 14px; height: 14px; transition: transform .2s; }
+.wi-card-cta:hover svg { transform: translateX(3px); }
+[data-theme=dark] .wi-card-cta { background: #fff; color: #000; }
+[data-theme=dark] .wi-card-cta:hover { background: #ddd; }
+
+/* =============================================================================
+   CTA SECTION (bottom of page)
+   ============================================================================= */
+.wi-cta-section {
+  padding: clamp(56px, 8vw, 96px) 0;
+  background: #111;
+}
+[data-theme=dark] .wi-cta-section { background: #000; border-top: 1px solid #222; }
+.wi-cta-section__inner { text-align: center; }
+.wi-cta-section__title {
+  font-size: clamp(1.9rem, 4vw, 3.2rem);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -.025em;
+  margin-bottom: 16px;
+}
+.wi-cta-section__sub {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,.5);
+  line-height: 1.7;
+  max-width: 520px;
+  margin-inline: auto;
+  margin-bottom: 40px;
+}
+.wi-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+.wi-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 32px;
+  background: #fff;
+  color: #000;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background .2s;
+}
+.wi-btn-primary:hover { background: #e8e8e8; }
+.wi-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 32px;
+  background: transparent;
+  color: rgba(255,255,255,.7);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,.3);
+  text-decoration: none;
+  transition: border-color .2s, color .2s;
+}
+.wi-btn-outline:hover { border-color: rgba(255,255,255,.8); color: #fff; }
+
+/* =============================================================================
+   MISC UTILITIES
+   ============================================================================= */
+.wi-divider-line {
+  width: 36px;
+  height: 2px;
+  background: var(--wi-text-dark);
+  margin-bottom: 20px;
+}
+.wi-card--dark .wi-divider-line { background: rgba(255,255,255,.4); }
+.wi-mt-4 { margin-top: 16px; }
+.wi-mt-6 { margin-top: 24px; }
+
+/* production full-width wrapper */
+.wi-prod-wrapper {
+  background: #111;
+  padding: clamp(52px, 7vw, 84px) 0;
+}
+[data-theme=dark] .wi-prod-wrapper { background: #000; }
+
+.wi-prod-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  .wi-prod-layout { grid-template-columns: 1fr; gap: 32px; }
+}

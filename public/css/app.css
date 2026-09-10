@@ -221,7 +221,7 @@ button {
 
 @media(hover:hover)and (pointer:fine) {
 
-    body,
+    /* body,
     a,
     button,
     .hero-card,
@@ -235,7 +235,7 @@ button {
     [class*=card],
     [class*=trigger] {
         cursor: none !important
-    }
+    } */
 
     #customCursor {
         display: block
