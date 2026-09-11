@@ -118,7 +118,7 @@
                     @foreach($cart as $id => $item)
                         <div class="cart-item">
                             <div class="ci-details">
-                                <div class="ci-title">{{ ucwords(str_replace('-', ' ', $item['design_slug'])) }}</div>
+                                <div class="ci-title">{{ $item['product_name'] ?? ucwords(str_replace('-', ' ', $item['design_slug'])) }}</div>
                                 <div class="ci-meta">
                                     Size: {{ $item['width'] }}mm &times; {{ $item['height'] }}mm
                                 </div>
@@ -127,14 +127,29 @@
                                     @if(is_array($item['panes']))
                                         @foreach($item['panes'] as $index => $pane)
                                             <div class="ci-pane">
-                                                <div class="ci-pane-title">Pane {{ $index + 1 }}</div>
+                                                <div class="ci-pane-title">{{ ($item['product_type'] ?? '') === 'door' ? 'Door Configuration' : 'Pane ' . ($index + 1) }}</div>
                                                 <div><strong>Opening:</strong> {{ ucwords(str_replace('-', ' ', $pane['opening_type'] ?? 'Fixed')) }}</div>
-                                                @if(($pane['opening_type'] ?? 'fixed') !== 'fixed')
-                                                    <div><strong>Hinged:</strong> {{ ucfirst($pane['hinged_at'] ?? 'N/A') }}</div>
-                                                    <div><strong>Hinge Type:</strong> {{ ucfirst(str_replace('-', ' ', $pane['hinge_type'] ?? 'Standard')) }}</div>
-                                                    <div><strong>Handle:</strong> {{ ucfirst($pane['handle_color'] ?? 'White') }}</div>
+                                                @if(!empty($pane['hinged_at']) && $pane['hinged_at'] !== 'N/A')
+                                                    <div><strong>Hinged:</strong> {{ ucfirst($pane['hinged_at']) }}</div>
                                                 @endif
-                                                <div><strong>Glass:</strong> {{ ucfirst(str_replace('-', ' ', $pane['glass_type'] ?? 'Clear')) }}</div>
+                                                @if(!empty($pane['hinge_type']))
+                                                    <div><strong>Hinge Type:</strong> {{ ucfirst(str_replace('-', ' ', $pane['hinge_type'])) }}</div>
+                                                @endif
+                                                @if(!empty($pane['handle']) || !empty($pane['handle_color']))
+                                                    <div><strong>Handle:</strong> {{ ucfirst($pane['handle'] ?? $pane['handle_color']) }}</div>
+                                                @endif
+                                                @if(!empty($pane['glass']) || !empty($pane['glass_type']))
+                                                    <div><strong>Glass:</strong> {{ ucfirst(str_replace('-', ' ', $pane['glass'] ?? $pane['glass_type'])) }}</div>
+                                                @endif
+                                                @if(!empty($pane['colour']))
+                                                    <div><strong>Colour:</strong> {{ ucfirst($pane['colour']) }}</div>
+                                                @endif
+                                                @if(!empty($pane['lock']))
+                                                    <div><strong>Lock:</strong> {{ ucfirst($pane['lock']) }}</div>
+                                                @endif
+                                                @if(!empty($pane['cill']) && $pane['cill'] !== 'none')
+                                                    <div><strong>Cill:</strong> {{ ucfirst($pane['cill']) }}</div>
+                                                @endif
                                                 @if(!empty($pane['trickle_vent']) && $pane['trickle_vent'] !== 'none')
                                                     <div><strong>Vent:</strong> {{ ucfirst(str_replace('-', ' ', $pane['trickle_vent'])) }}</div>
                                                 @endif

@@ -12,6 +12,17 @@
         margin: 0 auto;
     }
 
+    .wi-section__eyebrow {
+        display: block;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #666;
+        margin-bottom: 12px;
+    }
+    .dark .wi-section__eyebrow { color: #a3a3a3; }
+
     /* 1. Hero Banner */
     .hero-section {
         position: relative;
@@ -250,6 +261,7 @@
 
         <?php $__currentLoopData = $faqData; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $categoryName => $questions): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="faq-category">
+                <span class="wi-section__eyebrow">Questions</span>
                 <h2><?php echo e($categoryName); ?></h2>
                 
                 <div class="faq-list">
@@ -285,6 +297,7 @@
     <div class="cta-container">
         <div class="cta-grid">
             <div class="cta-content">
+                <span class="wi-section__eyebrow" style="color: rgba(255,255,255,.6);">Help & Support</span>
                 <h2>Still Have a Question?</h2>
                 <p>Our team is happy to help with your windows, doors, measurements, orders and installation.</p>
                 <div class="cta-actions">

@@ -58,15 +58,16 @@
         text-align: center;
         margin-bottom: clamp(40px, 5vw, 64px);
     }
-    .info-section-header .eyebrow {
+    .wi-section__eyebrow {
         display: block;
-        font-size: 11.5px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
+        font-size: 0.8rem;
         font-weight: 700;
-        color: #888;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #666;
         margin-bottom: 12px;
     }
+    .dark .wi-section__eyebrow { color: #a3a3a3; }
     .info-section-header h2 {
         font-size: clamp(1.9rem, 3.5vw, 2.75rem);
         font-weight: 700;
@@ -247,7 +248,7 @@
     <div class="info-gc">
 
         <div class="info-section-header">
-            <span class="eyebrow">Our Products</span>
+            <span class="wi-section__eyebrow">Our Products</span>
             <h2>Windows & Doors</h2>
             <p>Browse our range of premium uPVC windows and doors. Click a product to find out more.</p>
         </div>

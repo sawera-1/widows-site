@@ -12,6 +12,17 @@
         margin: 0 auto;
     }
     
+    .wi-section__eyebrow {
+        display: block;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #666;
+        margin-bottom: 12px;
+    }
+    .dark .wi-section__eyebrow { color: #a3a3a3; }
+    
     /* 1. Hero Banner */
     .hero-section {
         position: relative;
@@ -294,6 +305,7 @@
 <section class="inst-section bg-white dark:bg-black text-black dark:text-white">
     <div class="inst-container intro-grid">
         <div class="intro-text">
+            <span class="wi-section__eyebrow">The Service</span>
             <h2>Hassle-Free Installation</h2>
             <p>Choosing the right windows and doors is only half the process; professional installation is crucial to ensure they perform exactly as they should. Our dedicated team of fully trained installers takes pride in delivering an exceptional fit and finish.</p>
             <p>From the moment we arrive at your property to the final sign-off, we treat your home with the utmost respect. We ensure that everything is fitted securely, sealed correctly, and left clean and tidy, giving you complete peace of mind for years to come.</p>
@@ -308,6 +320,7 @@
 <section class="inst-section benefits-bg text-black dark:text-white">
     <div class="inst-container">
         <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <span class="wi-section__eyebrow" style="margin-bottom: 16px;">Our Guarantees</span>
             <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; margin-bottom: 24px;">Why Choose Our Installers?</h2>
             <p style="font-size: 1.1rem; color: var(--mono-grey);" class="dark:text-gray-400">We don't cut corners. Our installation service is designed to be seamless, professional, and fully certified.</p>
         </div>
@@ -336,6 +349,7 @@
 <section class="inst-section bg-white dark:bg-black text-black dark:text-white">
     <div class="inst-container areas-grid">
         <div class="areas-content">
+            <span class="wi-section__eyebrow">Coverage</span>
             <h2>Where We Install</h2>
             <p style="font-size: 1.1rem; color: var(--mono-grey); margin-bottom: 20px;" class="dark:text-gray-400">Based in Hinckley, Leicestershire, our installation teams cover a wide area across the Midlands. If you're unsure whether we cover your specific location, please get in touch.</p>
             <p style="font-size: 1.1rem; color: var(--mono-grey); margin-bottom: 24px;" class="dark:text-gray-400">Our expert fitting teams are fully equipped and prepared to travel, ensuring your home benefits from our premium products and professional service.</p>
@@ -377,6 +391,7 @@
 <section class="inst-section process-bg">
     <div class="inst-container">
         <div class="process-header">
+            <span class="wi-section__eyebrow" style="margin-bottom: 16px;">Step By Step</span>
             <h2>How It Works</h2>
         </div>
         
@@ -409,6 +424,7 @@
 <section class="inst-section bg-white dark:bg-black text-black dark:text-white">
     <div class="inst-container">
         <div style="max-width: 800px; margin: 0 auto;">
+            <span class="wi-section__eyebrow">Important Details</span>
             <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 700;">What Isn't Included?</h2>
             <p style="font-size: 1.1rem; color: var(--mono-grey); margin-top: 16px;" class="dark:text-gray-400">We strive for transparency. While we provide a comprehensive window and door installation service, there are a few structural and decorative tasks we do not cover.</p>
             

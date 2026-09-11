@@ -118,7 +118,7 @@
                     <?php $__currentLoopData = $cart; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $id => $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="cart-item">
                             <div class="ci-details">
-                                <div class="ci-title"><?php echo e(ucwords(str_replace('-', ' ', $item['design_slug']))); ?></div>
+                                <div class="ci-title"><?php echo e($item['product_name'] ?? ucwords(str_replace('-', ' ', $item['design_slug']))); ?></div>
                                 <div class="ci-meta">
                                     Size: <?php echo e($item['width']); ?>mm &times; <?php echo e($item['height']); ?>mm
                                 </div>
@@ -127,14 +127,29 @@
                                     <?php if(is_array($item['panes'])): ?>
                                         <?php $__currentLoopData = $item['panes']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $pane): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <div class="ci-pane">
-                                                <div class="ci-pane-title">Pane <?php echo e($index + 1); ?></div>
+                                                <div class="ci-pane-title"><?php echo e(($item['product_type'] ?? '') === 'door' ? 'Door Configuration' : 'Pane ' . ($index + 1)); ?></div>
                                                 <div><strong>Opening:</strong> <?php echo e(ucwords(str_replace('-', ' ', $pane['opening_type'] ?? 'Fixed'))); ?></div>
-                                                <?php if(($pane['opening_type'] ?? 'fixed') !== 'fixed'): ?>
-                                                    <div><strong>Hinged:</strong> <?php echo e(ucfirst($pane['hinged_at'] ?? 'N/A')); ?></div>
-                                                    <div><strong>Hinge Type:</strong> <?php echo e(ucfirst(str_replace('-', ' ', $pane['hinge_type'] ?? 'Standard'))); ?></div>
-                                                    <div><strong>Handle:</strong> <?php echo e(ucfirst($pane['handle_color'] ?? 'White')); ?></div>
+                                                <?php if(!empty($pane['hinged_at']) && $pane['hinged_at'] !== 'N/A'): ?>
+                                                    <div><strong>Hinged:</strong> <?php echo e(ucfirst($pane['hinged_at'])); ?></div>
                                                 <?php endif; ?>
-                                                <div><strong>Glass:</strong> <?php echo e(ucfirst(str_replace('-', ' ', $pane['glass_type'] ?? 'Clear'))); ?></div>
+                                                <?php if(!empty($pane['hinge_type'])): ?>
+                                                    <div><strong>Hinge Type:</strong> <?php echo e(ucfirst(str_replace('-', ' ', $pane['hinge_type']))); ?></div>
+                                                <?php endif; ?>
+                                                <?php if(!empty($pane['handle']) || !empty($pane['handle_color'])): ?>
+                                                    <div><strong>Handle:</strong> <?php echo e(ucfirst($pane['handle'] ?? $pane['handle_color'])); ?></div>
+                                                <?php endif; ?>
+                                                <?php if(!empty($pane['glass']) || !empty($pane['glass_type'])): ?>
+                                                    <div><strong>Glass:</strong> <?php echo e(ucfirst(str_replace('-', ' ', $pane['glass'] ?? $pane['glass_type']))); ?></div>
+                                                <?php endif; ?>
+                                                <?php if(!empty($pane['colour'])): ?>
+                                                    <div><strong>Colour:</strong> <?php echo e(ucfirst($pane['colour'])); ?></div>
+                                                <?php endif; ?>
+                                                <?php if(!empty($pane['lock'])): ?>
+                                                    <div><strong>Lock:</strong> <?php echo e(ucfirst($pane['lock'])); ?></div>
+                                                <?php endif; ?>
+                                                <?php if(!empty($pane['cill']) && $pane['cill'] !== 'none'): ?>
+                                                    <div><strong>Cill:</strong> <?php echo e(ucfirst($pane['cill'])); ?></div>
+                                                <?php endif; ?>
                                                 <?php if(!empty($pane['trickle_vent']) && $pane['trickle_vent'] !== 'none'): ?>
                                                     <div><strong>Vent:</strong> <?php echo e(ucfirst(str_replace('-', ' ', $pane['trickle_vent']))); ?></div>
                                                 <?php endif; ?>

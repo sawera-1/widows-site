@@ -14,6 +14,17 @@
         margin: 0 auto;
     }
     
+    .wi-section__eyebrow {
+        display: block;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #666;
+        margin-bottom: 12px;
+    }
+    .dark .wi-section__eyebrow { color: #a3a3a3; }
+    
     /* 1. Hero Section */
     .hero-section {
         position: relative;
@@ -292,6 +303,7 @@
 <section class="about-section bg-white dark:bg-black text-black dark:text-white">
     <div class="about-container about-grid">
         <div class="about-text">
+            <span class="wi-section__eyebrow">Who We Are</span>
             <h2>About Modern UPVC Windows</h2>
             <p>Modern UPVC Windows is the online division of Burbage Custom Windows Ltd, a trusted and established window and door manufacturer based in Leicestershire for over 30 years.</p>
             <p>With a wealth of experience, we've proudly served thousands of satisfied customers across the UK with top-quality windows, doors and roof products. Our commitment to excellence has made us a leading supplier in the region.</p>
@@ -307,6 +319,7 @@
 <section class="about-section bg-white dark:bg-black text-black dark:text-white pt-0">
     <div class="about-container story-grid">
         <div class="about-text story-content">
+            <span class="wi-section__eyebrow">Our Background</span>
             <h2>Our Story &amp; Experience</h2>
             <p>At the heart of our business is a purpose-built, state-of-the-art factory equipped with advanced machinery and innovative production techniques, ensuring that every product meets the highest standards.</p>
             <p>From initial design to final assembly, our dedicated team of skilled professionals oversees every step of the process. We rigorously test all our materials to guarantee long-lasting performance and security for your home.</p>
@@ -325,6 +338,7 @@
         <div class="quote-grid">
             
             <div class="quote-info">
+                <span class="wi-section__eyebrow">The Process</span>
                 <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; margin-bottom: 24px;">How Our Online Quote Works</h2>
                 <p style="font-size: 1.1rem; line-height: 1.7; color: var(--mono-grey); margin-bottom: 20px;" class="dark:text-gray-400">Our website is designed to make getting a quote fast and hassle-free. Just enter your specifications to receive an instant price.</p>
                 
@@ -374,24 +388,6 @@
                 </div>
             </div>
 
-        </div>
-    </div>
-</section>
-
-
-
-{{-- 5. FINAL CTA --}}
-<section class="cta-section">
-    <div class="cta-container">
-        <div class="cta-grid">
-            <img src="{{ asset('assets/about/window5.png') }}" alt="Contact Us Banner" class="cta-image">
-            <div class="cta-content">
-                <h2>Ready to Design Your Windows or Doors?</h2>
-                <p>Configure your product online and get an instant price, or reach out to our team for custom requests and expert advice.</p>
-                <div class="cta-actions">
-                    <a href="{{ route('contact') }}" class="btn-solid-black">Contact Us</a>
-                </div>
-            </div>
         </div>
     </div>
 </section>

@@ -12,6 +12,17 @@
         margin: 0 auto;
     }
 
+    .wi-section__eyebrow {
+        display: block;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #666;
+        margin-bottom: 12px;
+    }
+    .dark .wi-section__eyebrow { color: #a3a3a3; }
+
     /* 1. Hero Banner */
     .hero-section {
         position: relative;
@@ -451,6 +462,7 @@
 
         
         <div class="payment-info">
+            <span class="wi-section__eyebrow">Payment</span>
             <h2>Secure Payment Information</h2>
             <p class="payment-col-text">We accept most credit and debit cards including American Express. A unique benefit of our online payment system is that we receive payment without ever seeing your financial details. All financial details are processed securely through Worldpay and PayPal.</p>
         </div>
@@ -493,6 +505,7 @@
 <section class="pd-section bg-white dark:bg-black text-black dark:text-white" style="padding-top: 0;">
     <div class="pd-container">
         <div class="delivery-intro">
+            <span class="wi-section__eyebrow">Logistics</span>
             <h2>Delivery & Collection</h2>
             <h3>Lead Times — Updated Weekly</h3>
             <p>We take a lot of pride in the quality of our windows and doors and want them to arrive with you in great condition. Therefore, in most cases we use our own vehicles and drivers to help ensure your order is delivered safely and reliably.</p>
@@ -567,6 +580,7 @@
 
 <section class="pd-section info-section text-black dark:text-white">
     <div class="pd-container">
+        <span class="wi-section__eyebrow" style="text-align: center; margin-bottom: 16px;">Guidelines</span>
         <h2 style="font-size: clamp(2rem, 4vw, 2.5rem); font-weight: 700; text-align: center;">Important Delivery Information</h2>
         
         <div class="info-grid">
@@ -610,6 +624,7 @@
     <div class="cta-container">
         <div class="cta-grid">
             <div class="cta-content">
+                <span class="wi-section__eyebrow" style="color: rgba(255,255,255,.6);">Next Steps</span>
                 <h2>Ready to Order Your Windows or Doors?</h2>
                 <p>Choose your product, configure your requirements and get an instant price online.</p>
                 <div class="cta-actions">

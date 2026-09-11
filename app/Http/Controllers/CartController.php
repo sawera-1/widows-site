@@ -12,7 +12,7 @@ class CartController extends Controller
         
         $subtotal = 0;
         foreach ($cart as $item) {
-            $subtotal += $item['line_total'];
+            $subtotal += ($item['line_total'] ?? 0);
         }
         
         $tax = $subtotal * 0.20; // 20% VAT standard in UK
@@ -23,28 +23,49 @@ class CartController extends Controller
 
     public function add(Request $request)
     {
+        $designSlug = $request->input('design') ?? $request->input('design_slug') ?? $request->input('product_id');
+
+        // Validation 1: Require valid product design / ID (Do not enter product into cart if missing)
+        if (!$designSlug) {
+            return redirect()->back()->with('error', 'Please select a valid product before adding to cart.');
+        }
+
+        // Extract price from request fields
+        $rawPrice = $request->input('line_total') ?? $request->input('price') ?? $request->input('unit_price') ?? 0;
+        $unitPrice = (float) $rawPrice;
+
+        // Validation 2: Require valid price > 0
+        if ($unitPrice <= 0) {
+            return redirect()->back()->with('error', 'Invalid product price. Please configure your product dimensions and options.');
+        }
+
+        $productName = $request->input('product_name') ?? ucwords(str_replace('-', ' ', $designSlug));
+        $width = (int) $request->input('width', 1200);
+        $height = (int) $request->input('height', 1500);
+        $productType = $request->input('product_type', str_contains($designSlug, 'door') ? 'door' : 'window');
+
+        $panesRaw = $request->input('panes_json');
+        $panes = is_string($panesRaw) ? (json_decode($panesRaw, true) ?? []) : (is_array($panesRaw) ? $panesRaw : []);
+
         $cart = session()->get('cart', []);
-        
-        // Use a unique ID for each cart item so we can identify and remove specific ones
         $itemId = uniqid();
 
-        // Decode JSON configurations from the frontend string
-        $panes = json_decode($request->input('panes_json'), true) ?? [];
-
         $cart[$itemId] = [
-            'id' => $itemId,
-            'design_slug' => $request->input('design', 'standard-casement'),
-            'width' => (int) $request->input('width', 1200),
-            'height' => (int) $request->input('height', 1500),
-            'panes' => $panes,
-            'quantity' => 1,
-            'unit_price' => (float) $request->input('line_total', 0),
-            'line_total' => (float) $request->input('line_total', 0),
+            'id'           => $itemId,
+            'product_name' => $productName,
+            'design_slug'  => $designSlug,
+            'product_type' => $productType,
+            'width'        => $width,
+            'height'       => $height,
+            'panes'        => $panes,
+            'quantity'     => 1,
+            'unit_price'   => $unitPrice,
+            'line_total'   => $unitPrice,
         ];
 
         session()->put('cart', $cart);
 
-        return redirect()->route('cart.index')->with('success', 'Item added to cart.');
+        return redirect()->route('cart.index')->with('success', $productName . ' (Width: ' . $width . 'mm, Height: ' . $height . 'mm) added to your cart.');
     }
 
     public function update(Request $request, $id)

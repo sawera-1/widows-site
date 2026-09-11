@@ -291,6 +291,17 @@
 }
 .wi-card:hover .wi-card__img img { transform: scale(1.02); }
 
+/* Full image — no forced aspect-ratio, shows complete image */
+.wi-card__img--full {
+  aspect-ratio: unset;
+  height: auto;
+}
+.wi-card__img--full img {
+  height: auto;
+  object-fit: contain;
+  background: var(--wi-accent-bg);
+}
+
 /* =============================================================================
    SECTION TAG (eyebrow in a card)
    ============================================================================= */
@@ -550,6 +561,17 @@
 .wi-security-feat__icon svg { width: 17px; height: 17px; color: #fff; }
 [data-theme=dark] .wi-security-feat__icon svg { color: #000; }
 
+/* Icon-only variant — no background box, just the SVG icon */
+.wi-security-feat__icon--borderless {
+  background: transparent !important;
+  border: none;
+  width: 36px; height: 36px;
+}
+.wi-security-feat__icon--borderless svg {
+  width: 28px; height: 28px;
+  color: rgba(255,255,255,.85);
+}
+
 .wi-security-feat__text h4 {
   font-size: .88rem;
   font-weight: 800;
@@ -582,6 +604,15 @@
 }
 @media (min-width: 640px) { .wi-warranty-grid { grid-template-columns: repeat(4, 1fr); } }
 @media (max-width: 479px) { .wi-warranty-grid { grid-template-columns: 1fr; } }
+
+/* 3-column centered warranty grid */
+.wi-warranty-grid--center {
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 640px;
+  margin-inline: auto;
+}
+@media (min-width: 640px) { .wi-warranty-grid--center { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 479px) { .wi-warranty-grid--center { grid-template-columns: 1fr; } }
 
 .wi-warranty-item {
   text-align: center;

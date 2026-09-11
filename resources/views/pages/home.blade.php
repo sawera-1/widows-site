@@ -5,9 +5,19 @@
 
 @push('styles')
 <style>
-    /* ===== GLOBAL CONTAINER ===== */
     .gc { width:100%; max-width:1280px; margin-inline:auto; padding-inline:16px; }
     @media(min-width:768px){ .gc { padding-inline:24px; } }
+
+    .wi-section__eyebrow {
+        display: block;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #666;
+        margin-bottom: 12px;
+    }
+    .dark .wi-section__eyebrow { color: #a3a3a3; }
 
     /* ===== SECTION SPACING ===== */
     .sec-sm { padding-block:32px; }
@@ -145,7 +155,7 @@
                         <div class="hero-slide-content">
                             <h2>Premium uPVC Windows</h2>
                             <p>Design your perfect window online. Choose your style, size, colour and glazing — get an instant price.</p>
-                            <a href="/windows" class="hero-btn">Browse Windows <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                            <a href="#products" class="hero-btn">Browse Windows</a>
                         </div>
                     </div>
 
@@ -164,7 +174,7 @@
                         <div class="hero-slide-content">
                             <h2>Quality uPVC Doors</h2>
                             <p>Front doors, French doors, patio doors — configure online and order direct with fast UK delivery.</p>
-                            <a href="/doors" class="hero-btn">Browse Doors <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                            <a href="#products" class="hero-btn">Browse Doors</a>
                         </div>
                     </div>
 
@@ -184,19 +194,11 @@
                         <div class="hero-slide-content">
                             <h2>Design &amp; Price Online</h2>
                             <p>Use our online configurator to customise your windows and doors. Get instant pricing with no obligation.</p>
-                            <a href="/design-and-price" class="hero-btn">Start Designing <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                            <a href="#products" class="hero-btn">Start Designing</a>
                         </div>
                     </div>
 
                 </div>
-
-                {{-- Arrows --}}
-                <button class="hero-arrow hero-arrow--prev" id="heroPrev" aria-label="Previous slide">
-                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
-                </button>
-                <button class="hero-arrow hero-arrow--next" id="heroNext" aria-label="Next slide">
-                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
-                </button>
 
                 {{-- Dots --}}
                 <div class="hero-dots" id="heroDots"></div>
@@ -208,6 +210,10 @@
     ═══════════════════════════════════════════════════════════════════ --}}
     <section class="w-full bg-white dark:bg-black sec-md border-b border-gray-200 dark:border-gray-800" aria-label="How it works">
         <div class="gc">
+            <div class="text-center mb-12">
+                <span class="wi-section__eyebrow">The Process</span>
+                <h2 class="fs-h2 text-black dark:text-white">How It Works</h2>
+            </div>
             <div class="benefits-grid">
 
                 {{-- Benefit 01 --}}
@@ -255,40 +261,40 @@
                 'name'   => 'Standard Windows',
                 'slug'   => 'standard-casement',
                 'type'   => 'windows',
-                'img1'   => '1.1.jpg',
-                'img2'   => '1.2.jpg',
+                'img1'   => '4.1.jpg',
+                'img2'   => '4.2.jpg',
             ],
             [
                 'name'   => 'French Windows',
                 'slug'   => 'french-windows',
                 'type'   => 'windows',
-                'img1'   => '2.1.jpg',
-                'img2'   => '2.2.jpg',
+                'img1'   => '3.1.jpg',
+                'img2'   => '3.2.jpg',
             ],
             [
                 'name'   => 'Tilt & Turn Windows',
                 'slug'   => 'tilt-and-turn-windows',
                 'type'   => 'windows',
-                'img1'   => '3.1.jpg',
-                'img2'   => '3.2.jpg',
+                'img1'   => '2.1.jpg',
+                'img2'   => '2.2.jpg',
             ],
             [
-                'name'   => 'Flush Windows',
-                'slug'   => 'flush-windows',
-                'type'   => 'windows',
-                'img1'   => '4.1.jpg',
-                'img2'   => '4.2.jpg',
-            ],
-            [
-                'name'   => 'Sash Windows',
-                'slug'   => 'sash-windows',
+                'name'   => 'Flash Windows',
+                'slug'   => 'flash-windows',
                 'type'   => 'windows',
                 'img1'   => '5.1.jpg',
                 'img2'   => '5.2.jpg',
             ],
             [
-                'name'   => 'PVC Doors',
-                'slug'   => 'pvc-doors',
+                'name'   => 'Sash Windows',
+                'slug'   => 'sash-windows',
+                'type'   => 'windows',
+                'img1'   => '6.1.jpg',
+                'img2'   => '6.2.jpg',
+            ],
+            [
+                'name'   => 'UPVC Doors',
+                'slug'   => 'upvc-doors',
                 'type'   => 'doors',
                 'img1'   => 'door1.1.jpg',
                 'img2'   => 'door1.2.jpg',
@@ -301,8 +307,8 @@
                 'img2'   => 'door2.2.jpg',
             ],
             [
-                'name'   => 'French Doors',
-                'slug'   => 'french-doors',
+                'name'   => 'Stable Doors',
+                'slug'   => 'stable-doors',
                 'type'   => 'doors',
                 'img1'   => 'door3.1.jpg',
                 'img2'   => 'door3.2.jpg',
@@ -315,7 +321,7 @@
 
             {{-- Section heading --}}
             <div class="text-center mb-12 md:mb-16">
-                <p class="text-xs font-bold uppercase tracking-[3px] text-gray-400 dark:text-gray-500 mb-3">Our Products</p>
+                <span class="wi-section__eyebrow">Our Products</span>
                 <h2 class="fs-h2 text-black dark:text-white mb-4">Windows &amp; Doors</h2>
                 <p class="fs-body text-gray-500 dark:text-gray-400 max-w-xl mx-auto">Browse our range of premium uPVC windows and doors. Design online, get an instant price, and order with confidence.</p>
             </div>

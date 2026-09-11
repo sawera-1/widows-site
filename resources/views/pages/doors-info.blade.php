@@ -19,7 +19,7 @@
     <div class="wi-hero__inner">
         <span class="wi-hero__eyebrow">Doors</span>
         <h1 class="wi-hero__title">What makes our doors <em>exceptional</em></h1>
-        <p class="wi-hero__sub">We manufacture our doors in our own factory — giving us complete freedom to deliver PAS24 certified, energy efficient, bespoke UPVC doors precisely to your specification.</p>
+        <p class="wi-hero__sub">We manufacture our doors in our own factory  giving us complete freedom to deliver PAS24 certified, energy efficient, bespoke UPVC doors precisely to your specification.</p>
         <a href="/doors" class="wi-hero__cta" id="hero-cta-doors">
             Explore Door Designs
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -44,8 +44,8 @@
 
             {{-- S1 — Door Designs --}}
             <div class="wi-card">
-                <div class="wi-card__img" style="aspect-ratio:16/9;">
-                    <img src="{{ asset('assets/products/door1.2.jpg') }}" alt="UPVC Door Designs" loading="lazy">
+                <div class="wi-card__img wi-card__img--full">
+                    <img src="{{ asset('assets/products/door2.1.jpg') }}" alt="UPVC Door Designs" loading="lazy">
                 </div>
                 <h2 class="wi-card__title">Door Designs</h2>
                 <div class="wi-card__body">
@@ -77,7 +77,7 @@
                 </div>
                 <div class="wi-energy-rating">
                     <div class="wi-energy-bar wi-energy-bar--app"><span>A++</span><span class="wi-energy-bar__label">Triple Glazed Option</span></div>
-                    <div class="wi-energy-bar wi-energy-bar--ap wi-energy-bar--selected"><span>A+</span><span class="wi-energy-bar__label">Our Standard</span></div>
+                    <div class="wi-energy-bar wi-energy-bar--ap wi-energy-bar--selected"><span>A+</span></div>
                     <div class="wi-energy-bar wi-energy-bar--a"><span>A</span></div>
                     <div class="wi-energy-bar wi-energy-bar--b"><span>B</span></div>
                 </div>
@@ -117,32 +117,32 @@
         <div class="wi-security-grid" style="background:#2a2a2a;">
 
             <div class="wi-security-feat" style="background:#181818;">
-                <div class="wi-security-feat__icon" style="background:#fff;"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg></div>
+                <div class="wi-security-feat__icon wi-security-feat__icon--borderless"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg></div>
                 <div class="wi-security-feat__text"><h4 style="color:#fff;">Ingenious 5-Point Security Lock</h4><p style="color:rgba(255,255,255,.45);">Industry-leading multipoint locking mechanism for maximum door security.</p></div>
             </div>
 
             <div class="wi-security-feat" style="background:#181818;">
-                <div class="wi-security-feat__icon" style="background:#fff;"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"/></svg></div>
+                <div class="wi-security-feat__icon wi-security-feat__icon--borderless"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"/></svg></div>
                 <div class="wi-security-feat__text"><h4 style="color:#fff;">Hookbolts</h4><p style="color:rgba(255,255,255,.45);">Hookbolts engage into the frame preventing the door being forced open from outside.</p></div>
             </div>
 
             <div class="wi-security-feat" style="background:#181818;">
-                <div class="wi-security-feat__icon" style="background:#fff;"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+                <div class="wi-security-feat__icon wi-security-feat__icon--borderless"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
                 <div class="wi-security-feat__text"><h4 style="color:#fff;">PAS24:2022 Compliant</h4><p style="color:rgba(255,255,255,.45);">Full accreditation making our doors stronger against break-ins. Required under Document Q.</p></div>
             </div>
 
             <div class="wi-security-feat" style="background:#181818;">
-                <div class="wi-security-feat__icon" style="background:#fff;"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6z"/></svg></div>
+                <div class="wi-security-feat__icon wi-security-feat__icon--borderless"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6z"/></svg></div>
                 <div class="wi-security-feat__text"><h4 style="color:#fff;">Internal Glazing Beads</h4><p style="color:rgba(255,255,255,.45);">Glass panels can only be removed from the inside — enhanced external security.</p></div>
             </div>
 
             <div class="wi-security-feat" style="background:#181818;">
-                <div class="wi-security-feat__icon" style="background:#fff;"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg></div>
+                <div class="wi-security-feat__icon wi-security-feat__icon--borderless"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg></div>
                 <div class="wi-security-feat__text"><h4 style="color:#fff;">Anti-Drill Cylinder</h4><p style="color:rgba(255,255,255,.45);">Our standard cylinder resists drilling and picking attacks for everyday security.</p></div>
             </div>
 
             <div class="wi-security-feat" style="background:#181818;">
-                <div class="wi-security-feat__icon" style="background:#fff;"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+                <div class="wi-security-feat__icon wi-security-feat__icon--borderless"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
                 <div class="wi-security-feat__text"><h4 style="color:#fff;">Ultion Upgrade Available</h4><p style="color:rgba(255,255,255,.45);">Upgrade to Ultion 11-pin cylinder with a £1,000 break-in guarantee — the most secure cylinder available.</p></div>
             </div>
 
@@ -151,7 +151,7 @@
 
         {{-- Ultion Upgrade Feature --}}
         <div style="margin-top:1px;background:#131313;padding:var(--wi-pad);display:flex;align-items:flex-start;gap:20px;flex-wrap:wrap;border-top:1px solid #2a2a2a;">
-            <div style="flex:1;min-width:280px;">
+            <div style="flex:1;min-width:280px;">7 
                 <span class="wi-badge" style="margin-bottom:14px;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.7);">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
                     Optional Upgrade
@@ -219,7 +219,7 @@
 
             {{-- S6 — Colours --}}
             <div class="wi-card">
-                <div class="wi-card__img" style="aspect-ratio:3/1;">
+                <div class="wi-card__img wi-card__img--full">
                     <img src="{{ asset('assets/products/door2.1.jpg') }}" alt="Door Colour Finishes" loading="lazy">
                 </div>
                 <h2 class="wi-card__title">Colours &amp; Finishes</h2>
@@ -423,20 +423,30 @@
 {{-- ═══════════════════════════════════════════════════════════════════════════
      CTA
      ═══════════════════════════════════════════════════════════════════════════ --}}
-<section class="wi-cta-section">
+<section class="wi-section" style="padding-top:40px;">
     <div class="wi-container">
-        <div class="wi-cta-section__inner">
-            <h2 class="wi-cta-section__title">Ready to design your door?</h2>
-            <p class="wi-cta-section__sub">Browse our three door styles, configure your exact specification and get an instant online price.</p>
-            <div class="wi-cta-actions">
-                <a href="/doors" class="wi-btn-primary" id="cta-design-doors">
-                    Design &amp; Price Your Doors
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </a>
-                <a href="/contact" class="wi-btn-outline" id="cta-contact-doors">
-                    Speak to an Expert
-                </a>
+        <div class="wi-card wi-col-full" style="padding:0;">
+            <div style="display:grid; grid-template-columns: 1fr 1fr; align-items: stretch;" class="wi-cta-split">
+                <div class="wi-cta-split__img">
+                    <img src="{{ asset('assets/about/p3.png') }}" alt="Design your doors" style="width:100%; height:100%; object-fit:cover; display:block;" loading="lazy">
+                </div>
+                <div style="padding: clamp(32px, 5vw, 64px); display:flex; flex-direction:column; justify-content:center;">
+                    <h2 class="wi-section__title" style="margin-bottom:16px;">Ready to design your doors?</h2>
+                    <p class="wi-section__desc" style="margin-bottom:32px; max-width:100%;">Browse our three door styles, configure your exact specification and get an instant online price.</p>
+                    <div class="wi-cta-actions" style="justify-content:flex-start;">
+                        <a href="/contact" class="wi-btn-primary" style="background:var(--wi-text-dark); color:var(--wi-card-bg);" id="cta-design-doors">
+                            Design &amp; Price Your Doors
+                        </a>
+                    </div>
+                </div>
             </div>
+            <style>
+            @media(max-width:767px){
+                .wi-cta-split{grid-template-columns:1fr!important;}
+                .wi-cta-split__img{height:250px;}
+            }
+            [data-theme=dark] #cta-design-doors { background:#fff !important; color:#000 !important; }
+            </style>
         </div>
     </div>
 </section>

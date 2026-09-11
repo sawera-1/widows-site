@@ -30,6 +30,16 @@
     .contact-header {
         margin-bottom: 24px;
     }
+    .wi-section__eyebrow {
+        display: block;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #666;
+        margin-bottom: 12px;
+    }
+    .dark .wi-section__eyebrow { color: #a3a3a3; }
     .contact-header h1 {
         font-size: 2.5rem;
         font-weight: 700;
@@ -234,6 +244,7 @@
             <!-- Left Column: Contact Information -->
             <div class="contact-info">
                 <div class="contact-header">
+                    <span class="wi-section__eyebrow">Get In Touch</span>
                     <h1>Contact Us</h1>
                     <p>Have a question or need a custom quote? Reach out to us using the details below or fill out the form.</p>
                 </div>
@@ -330,6 +341,7 @@
 
 <section class="bg-white dark:bg-black text-black dark:text-white pb-20">
     <div class="contact-container">
+        <span class="wi-section__eyebrow">Location</span>
         <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 24px;">Find Us</h2>
         <div style="border: 1px solid #e5e7eb; padding: 4px; background: #fff;" class="dark:border-zinc-800 dark:bg-zinc-900">
             <!-- We apply filter: grayscale(100%) to perfectly match the monochrome aesthetic -->

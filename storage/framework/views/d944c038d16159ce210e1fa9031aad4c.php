@@ -55,12 +55,12 @@
             <div class="flex flex-col">
                 <h3 class="text-sm font-bold uppercase tracking-[2px] mb-6 text-gray-400 dark:text-gray-500">Quick Links</h3>
                 <ul class="flex flex-col space-y-4">
-                    <li><a href="/design-and-price" class="text-base text-gray-300 dark:text-gray-700 hover:text-white dark:hover:text-black hover:translate-x-1 transition-all inline-block">Design &amp; Price</a></li>
-                    <li><a href="/delivery" class="text-base text-gray-300 dark:text-gray-700 hover:text-white dark:hover:text-black hover:translate-x-1 transition-all inline-block">Delivery &amp; Collection</a></li>
-                    <li><a href="/heritage" class="text-base text-gray-300 dark:text-gray-700 hover:text-white dark:hover:text-black hover:translate-x-1 transition-all inline-block">Heritage Profile</a></li>
-                    <li><a href="/reviews" class="text-base text-gray-300 dark:text-gray-700 hover:text-white dark:hover:text-black hover:translate-x-1 transition-all inline-block">Independent Reviews</a></li>
-                    <li><a href="/careers" class="text-base text-gray-300 dark:text-gray-700 hover:text-white dark:hover:text-black hover:translate-x-1 transition-all inline-block">Careers</a></li>
-                    <li><a href="/payment" class="text-base text-gray-300 dark:text-gray-700 hover:text-white dark:hover:text-black hover:translate-x-1 transition-all inline-block">Payments</a></li>
+                    <li><a href="/" class="text-base text-gray-300 dark:text-gray-700 hover:text-white dark:hover:text-black hover:translate-x-1 transition-all inline-block">Design &amp; Price</a></li>
+                    <li><a href="/payment-and-delivery" class="text-base text-gray-300 dark:text-gray-700 hover:text-white dark:hover:text-black hover:translate-x-1 transition-all inline-block">Delivery &amp; Collection</a></li>
+                    <li><a href="/windows/information" class="text-base text-gray-300 dark:text-gray-700 hover:text-white dark:hover:text-black hover:translate-x-1 transition-all inline-block">Heritage Profile</a></li>
+                    <li><a href="/about" class="text-base text-gray-300 dark:text-gray-700 hover:text-white dark:hover:text-black hover:translate-x-1 transition-all inline-block">Independent Reviews</a></li>
+                    <li><a href="/about" class="text-base text-gray-300 dark:text-gray-700 hover:text-white dark:hover:text-black hover:translate-x-1 transition-all inline-block">Careers</a></li>
+                    <li><a href="/payment-and-delivery" class="text-base text-gray-300 dark:text-gray-700 hover:text-white dark:hover:text-black hover:translate-x-1 transition-all inline-block">Payments</a></li>
                     <li><a href="/about" class="text-base text-gray-300 dark:text-gray-700 hover:text-white dark:hover:text-black hover:translate-x-1 transition-all inline-block">About Us</a></li>
                 </ul>
             </div>
@@ -106,14 +106,14 @@
         
         <div class="border-t border-gray-800 dark:border-gray-200 pt-8 pb-8 lg:pb-12 flex flex-col items-center justify-center">
             <nav class="flex flex-wrap justify-center gap-x-6 gap-y-4 text-sm font-medium text-gray-400 dark:text-gray-600 mb-8 w-full" aria-label="Footer secondary navigation">
-                <a href="/price-guarantee" class="hover:text-white dark:hover:text-black transition-colors">Price Guarantee</a>
-                <a href="/brochures" class="hover:text-white dark:hover:text-black transition-colors">Brochures</a>
+                <a href="/windows/information" class="hover:text-white dark:hover:text-black transition-colors">Price Guarantee</a>
+                <a href="/catalog" class="hover:text-white dark:hover:text-black transition-colors">Brochures</a>
                 <a href="/installation" class="hover:text-white dark:hover:text-black transition-colors">Installation</a>
-                <a href="/building-regs" class="hover:text-white dark:hover:text-black transition-colors">Building Regs</a>
-                <a href="/terms" class="hover:text-white dark:hover:text-black transition-colors">Terms &amp; Conditions</a>
-                <a href="/privacy" class="hover:text-white dark:hover:text-black transition-colors">Privacy Policy</a>
-                <a href="/returns" class="hover:text-white dark:hover:text-black transition-colors">Returns</a>
-                <a href="/sitemap" class="hover:text-white dark:hover:text-black transition-colors">Sitemap</a>
+                <a href="/windows/information" class="hover:text-white dark:hover:text-black transition-colors">Building Regs</a>
+                <a href="/info" class="hover:text-white dark:hover:text-black transition-colors">Terms &amp; Conditions</a>
+                <a href="/info" class="hover:text-white dark:hover:text-black transition-colors">Privacy Policy</a>
+                <a href="/payment-and-delivery" class="hover:text-white dark:hover:text-black transition-colors">Returns</a>
+                <a href="/sitemap.xml" class="hover:text-white dark:hover:text-black transition-colors">Sitemap</a>
             </nav>
             
             

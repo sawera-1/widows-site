@@ -30,9 +30,19 @@ Route::view('/doors', 'pages.product')->name('doors');
 // Individual window design detail pages (must be BEFORE the wildcard /{slug} route)
 Route::view('/windows/information', 'pages.windows-info')->name('windows.information');
 Route::view('/doors/information',  'pages.doors-info')->name('doors.information');
+Route::view('/doors/upvc-doors',   'pages.doors.upvcdoor')->name('doors.upvc-doors');
+Route::view('/doors/upvc',         'pages.doors.upvcdoor')->name('doors.upvc');
+Route::view('/doors/flush-doors',  'pages.doors.flushdoor')->name('doors.flush-doors');
+Route::view('/doors/flush',        'pages.doors.flushdoor')->name('doors.flush');
+Route::view('/doors/stable-doors', 'pages.doors.stabledoor')->name('doors.stable-doors');
+Route::view('/doors/stable',       'pages.doors.stabledoor')->name('doors.stable');
+Route::view('/doors/size',         'pages.doors.size')->name('doors.size');
 Route::view('/windows/standard-casement', 'pages.windows.standarddetail')->name('windows.standard-casement');
-Route::view('/windows/standard-windows',  'pages.windows.standarddetail')->name('windows.standard-windows');
-Route::view('/windows/size',              'pages.windows.sizepage')->name('windows.size');
+Route::view('/windows/french-windows',     'pages.windows.frenchwindow')->name('windows.french-windows');
+Route::view('/windows/tilt-and-turn-windows', 'pages.windows.tiltwindow')->name('windows.tilt-and-turn-windows');
+Route::view('/windows/sash-windows',           'pages.windows.sashwidow')->name('windows.sash-windows');
+Route::view('/windows/sash',                   'pages.windows.sashwidow')->name('windows.sash');
+Route::view('/windows/size',                   'pages.windows.sizepage')->name('windows.size');
 
 Route::view('/windows/{slug}', 'pages.product')->name('windows.detail');
 Route::view('/doors/{slug}', 'pages.product')->name('doors.detail');
@@ -58,6 +68,14 @@ Route::post('/cart/remove/{id}', [\App\Http\Controllers\CartController::class, '
 Route::get('/checkout', [\App\Http\Controllers\CheckoutController::class, 'index'])->name('checkout.index');
 Route::post('/checkout', [\App\Http\Controllers\CheckoutController::class, 'process'])->name('checkout.process');
 Route::get('/checkout/success/{id}', [\App\Http\Controllers\CheckoutController::class, 'success'])->name('checkout.success');
+
+// Order Tracking
+Route::get('/track-order', [\App\Http\Controllers\TrackOrderController::class, 'index'])->name('track-order');
+Route::post('/track-order', [\App\Http\Controllers\TrackOrderController::class, 'track'])->name('track-order.submit');
+
+// Advice Centre
+Route::get('/advice-centre', [\App\Http\Controllers\AdviceCentreController::class, 'index'])->name('advice.index');
+Route::get('/advice-centre/{slug}', [\App\Http\Controllers\AdviceCentreController::class, 'show'])->name('advice.show');
 
 // Account / Orders Route
 Route::middleware(['auth'])->group(function () {

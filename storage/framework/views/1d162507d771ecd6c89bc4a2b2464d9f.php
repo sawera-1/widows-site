@@ -15,10 +15,9 @@
     <div class="wi-hero__inner">
         <span class="wi-hero__eyebrow">Windows</span>
         <h1 class="wi-hero__title">What makes our windows <em>exceptional</em></h1>
-        <p class="wi-hero__sub">We manufacture our windows right here in our own factory — giving us the freedom to deliver A+ rated, PAS24 certified, bespoke UPVC windows with no compromise.</p>
-        <a href="/windows" class="wi-hero__cta" id="hero-cta-windows">
+        <p class="wi-hero__sub">We manufacture our windows right here in our own factory giving us the freedom to deliver A+ rated, PAS24 certified, bespoke UPVC windows with no compromise.</p>
+        <a href="/" class="wi-hero__cta" id="hero-cta-windows">
             Explore Window Designs
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
     </div>
 </section>
@@ -38,7 +37,7 @@
 
             
             <div class="wi-card">
-                <div class="wi-card__img" style="aspect-ratio:16/9;">
+                <div class="wi-card__img wi-card__img--full">
                     <img src="<?php echo e(asset('assets/products/1.2.jpg')); ?>" alt="Premium UPVC Window Designs" loading="lazy">
                 </div>
                 <h2 class="wi-card__title">Window Designs</h2>
@@ -73,7 +72,7 @@
                 </div>
                 <div class="wi-energy-rating">
                     <div class="wi-energy-bar wi-energy-bar--app"><span>A++</span><span class="wi-energy-bar__label">Triple Glazed</span></div>
-                    <div class="wi-energy-bar wi-energy-bar--ap wi-energy-bar--selected"><span>A+</span><span class="wi-energy-bar__label">Our Standard</span></div>
+                    <div class="wi-energy-bar wi-energy-bar--ap wi-energy-bar--selected"><span>A+</span></div>
                     <div class="wi-energy-bar wi-energy-bar--a"><span>A</span></div>
                     <div class="wi-energy-bar wi-energy-bar--b"><span>B</span></div>
                     <div class="wi-energy-bar wi-energy-bar--c"><span>C</span></div>
@@ -153,32 +152,32 @@
         <div class="wi-security-grid" style="background:#2a2a2a;">
 
             <div class="wi-security-feat" style="background:#181818;">
-                <div class="wi-security-feat__icon" style="background:#fff;"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+                <div class="wi-security-feat__icon wi-security-feat__icon--borderless"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
                 <div class="wi-security-feat__text"><h4 style="color:#fff;">PAS24:2022 Accreditation</h4><p style="color:rgba(255,255,255,.45);">Strengthened against break-ins. Required for new builds &amp; extensions to comply with Document Q.</p></div>
             </div>
 
             <div class="wi-security-feat" style="background:#181818;">
-                <div class="wi-security-feat__icon" style="background:#fff;"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg></div>
+                <div class="wi-security-feat__icon wi-security-feat__icon--borderless"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg></div>
                 <div class="wi-security-feat__text"><h4 style="color:#fff;">Yale Locking System</h4><p style="color:rgba(255,255,255,.45);">Free upgrade to Yale shootbolt locking — a highly secure, multi-point window lock.</p></div>
             </div>
 
             <div class="wi-security-feat" style="background:#181818;">
-                <div class="wi-security-feat__icon" style="background:#fff;"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg></div>
+                <div class="wi-security-feat__icon wi-security-feat__icon--borderless"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg></div>
                 <div class="wi-security-feat__text"><h4 style="color:#fff;">Internal Glazing Beads</h4><p style="color:rgba(255,255,255,.45);">Glass can only be removed from the inside — preventing external removal of panes.</p></div>
             </div>
 
             <div class="wi-security-feat" style="background:#181818;">
-                <div class="wi-security-feat__icon" style="background:#fff;"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"/></svg></div>
+                <div class="wi-security-feat__icon wi-security-feat__icon--borderless"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"/></svg></div>
                 <div class="wi-security-feat__text"><h4 style="color:#fff;">Two-Stage Locking</h4><p style="color:rgba(255,255,255,.45);">First position fully closes; second locks with a small ventilation gap — security without sacrificing airflow.</p></div>
             </div>
 
             <div class="wi-security-feat" style="background:#181818;">
-                <div class="wi-security-feat__icon" style="background:#fff;"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg></div>
+                <div class="wi-security-feat__icon wi-security-feat__icon--borderless"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg></div>
                 <div class="wi-security-feat__text"><h4 style="color:#fff;">Key-Locking Handles</h4><p style="color:rgba(255,255,255,.45);">Key-locked handles add an additional barrier against unauthorised entry.</p></div>
             </div>
 
             <div class="wi-security-feat" style="background:#181818;">
-                <div class="wi-security-feat__icon" style="background:#fff;"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+                <div class="wi-security-feat__icon wi-security-feat__icon--borderless"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
                 <div class="wi-security-feat__text"><h4 style="color:#fff;">Yale Shootbolt Upgrade</h4><p style="color:rgba(255,255,255,.45);">Optional shootbolt upgrade for even greater multi-point locking performance.</p></div>
             </div>
 
@@ -227,7 +226,7 @@
 
             
             <div class="wi-card">
-                <div class="wi-card__img" style="aspect-ratio:3/1;">
+                <div class="wi-card__img wi-card__img--full">
                     <img src="<?php echo e(asset('assets/products/5.1.jpg')); ?>" alt="UPVC Colour Finishes" loading="lazy">
                 </div>
                 <h2 class="wi-card__title">Colours &amp; Finishes</h2>
@@ -315,9 +314,8 @@
                     <span class="wi-spec-pill">Apex</span>
                     <span class="wi-spec-pill">+ More</span>
                 </div>
-                <a href="/windows" class="wi-card-cta" style="margin-top:24px;" id="cta-odd-shapes">
+                <a href="/" class="wi-card-cta" style="margin-top:24px;" id="cta-odd-shapes">
                     Explore Window Designs
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
             </div>
 
@@ -350,7 +348,6 @@
                 </div>
                 <a href="/windows/flush-windows" class="wi-card-cta" id="cta-flush">
                     View Flush Windows
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
             </div>
 
@@ -365,7 +362,6 @@
                 </div>
                 <a href="/windows/french-windows" class="wi-card-cta" id="cta-french">
                     View French Windows
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
             </div>
 
@@ -380,7 +376,6 @@
                 </div>
                 <a href="/windows/tilt-and-turn-windows" class="wi-card-cta" id="cta-tilt">
                     View Tilt &amp; Turn
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
             </div>
 
@@ -395,7 +390,6 @@
                 </div>
                 <a href="/windows/sash-windows" class="wi-card-cta" id="cta-sash">
                     View Sash Windows
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
             </div>
 
@@ -410,7 +404,6 @@
                 </div>
                 <a href="/windows/standard-casement" class="wi-card-cta" id="cta-standard">
                     View Standard Windows
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
             </div>
 
@@ -420,30 +413,21 @@
                 <div class="wi-card__body">
                     <p>Industry-leading warranty cover — complete peace of mind from the moment of installation.</p>
                 </div>
-                <div class="wi-warranty-grid" style="margin-top:20px;">
+                <div class="wi-warranty-grid wi-warranty-grid--center" style="margin-top:20px;">
                     <div class="wi-warranty-item">
                         <div class="wi-warranty-item__num">10</div>
                         <span class="wi-warranty-item__unit">Years</span>
                         <div class="wi-warranty-item__label">Frames</div>
-                        <div class="wi-warranty-item__desc">UPVC frame guarantee</div>
                     </div>
                     <div class="wi-warranty-item">
                         <div class="wi-warranty-item__num">10</div>
                         <span class="wi-warranty-item__unit">Years</span>
                         <div class="wi-warranty-item__label">Sealed Glass</div>
-                        <div class="wi-warranty-item__desc">Against condensation</div>
                     </div>
                     <div class="wi-warranty-item">
                         <div class="wi-warranty-item__num">2</div>
                         <span class="wi-warranty-item__unit">Years</span>
                         <div class="wi-warranty-item__label">Astragal Bars</div>
-                        <div class="wi-warranty-item__desc">Decorative bar guarantee</div>
-                    </div>
-                    <div class="wi-warranty-item">
-                        <div class="wi-warranty-item__num">1</div>
-                        <span class="wi-warranty-item__unit">Year</span>
-                        <div class="wi-warranty-item__label">Moving Hardware</div>
-                        <div class="wi-warranty-item__desc">Against failure in operation</div>
                     </div>
                 </div>
             </div>
@@ -495,20 +479,32 @@
 
 
 
-<section class="wi-cta-section">
+<section class="wi-section" style="padding-top:40px;">
     <div class="wi-container">
-        <div class="wi-cta-section__inner">
-            <h2 class="wi-cta-section__title">Ready to design your windows?</h2>
-            <p class="wi-cta-section__sub">Browse our five window styles, configure your exact specification and get an instant online price.</p>
-            <div class="wi-cta-actions">
-                <a href="/windows" class="wi-btn-primary" id="cta-design-windows">
-                    Design &amp; Price Your Windows
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </a>
-                <a href="/contact" class="wi-btn-outline" id="cta-contact-windows">
-                    Speak to an Expert
-                </a>
+        <div class="wi-card wi-col-full" style="padding:0;">
+            <div style="display:grid; grid-template-columns: 1fr 1fr; align-items: stretch;" class="wi-cta-split">
+                <div class="wi-cta-split__img">
+                    <img src="<?php echo e(asset('assets/about/p3.png')); ?>" alt="Design your windows" style="width:100%; height:100%; object-fit:cover; display:block;" loading="lazy">
+                </div>
+                <div style="padding: clamp(32px, 5vw, 64px); display:flex; flex-direction:column; justify-content:center;">
+                    <h2 class="wi-section__title" style="margin-bottom:16px;">Ready to design your windows?</h2>
+                    <p class="wi-section__desc" style="margin-bottom:32px; max-width:100%;">Browse our five window styles, configure your exact specification and get an instant online price.</p>
+                    <div class="wi-cta-actions" style="justify-content:flex-start;">
+                        <a href="/contact" class="wi-btn-primary" style="background:var(--wi-text-dark); color:var(--wi-card-bg);" id="cta-design-windows">
+                            Design &amp; Price Your Windows
+                        </a>
+                        
+                    </div>
+                </div>
             </div>
+            <style>
+            @media(max-width:767px){
+                .wi-cta-split{grid-template-columns:1fr!important;}
+                .wi-cta-split__img{height:250px;}
+            }
+            [data-theme=dark] #cta-design-windows { background:#fff !important; color:#000 !important; }
+            [data-theme=dark] #cta-contact-windows { border-color:rgba(255,255,255,.3) !important; color:rgba(255,255,255,.8) !important; }
+            </style>
         </div>
     </div>
 </section>
