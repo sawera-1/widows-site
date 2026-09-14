@@ -38,9 +38,24 @@
     .dark .odc-item { border-color: #333; }
     .odc-item:last-child { border-bottom: none; }
     
-    .btn-primary { display: inline-block; padding: 14px 28px; background: var(--primary-color); color: white; border-radius: 8px; font-weight: 600; text-decoration: none; margin-right: 12px; }
-    .btn-secondary { display: inline-block; padding: 14px 28px; background: var(--mono-grey-light); color: black; border-radius: 8px; font-weight: 600; text-decoration: none; }
-    .dark .btn-secondary { background: #333; color: white; }
+    .chk-items-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+    .chk-items-table th { text-align: left; padding: 12px 16px; background: #f3f4f6; border-bottom: 2px solid #e5e7eb; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--mono-grey); }
+    .dark .chk-items-table th { background: #1f2937; border-color: #374151; }
+    .chk-items-table td { padding: 16px; border-bottom: 1px solid #e5e7eb; vertical-align: top; }
+    .dark .chk-items-table td { border-color: #374151; }
+    
+    .btn-black { display: flex; align-items: center; justify-content: center; min-width: 180px; padding: 16px 28px; background: #000; color: #fff; border-radius: 0; font-weight: 600; font-size: 1.05rem; text-decoration: none; transition: background 0.2s; }
+    .btn-black:hover { background: #333; }
+    .dark .btn-black { background: #fff; color: #000; }
+    .dark .btn-black:hover { background: #e5e5e5; }
+    
+    .btn-secondary { display: flex; align-items: center; justify-content: center; min-width: 180px; padding: 16px 28px; background: #e5e7eb; color: #000; border-radius: 0; font-weight: 600; font-size: 1.05rem; text-decoration: none; transition: all 0.2s; border: 1px solid transparent; }
+    .btn-secondary:hover { background: #000; color: #fff; }
+    .dark .btn-secondary { background: #333; color: #fff; }
+    .dark .btn-secondary:hover { background: #fff; color: #000; }
+    
+    .action-buttons { display: flex; flex-direction: column; gap: 16px; align-items: center; justify-content: center; margin-top: 24px; }
+    @media(min-width: 600px) { .action-buttons { flex-direction: row; } }
 </style>
 @endpush
 
@@ -85,18 +100,28 @@
             </div>
             
             <h2 class="odc-items-title">Order Items</h2>
-            <div style="margin-bottom: 24px;">
-                @foreach($order->items as $item)
-                    <div class="odc-item">
-                        <div>
-                            <strong>{{ $item->product_name }}</strong> &times; {{ $item->quantity }}<br>
-                            <span style="font-size: 0.85rem; color: var(--mono-grey);">{{ $item->width }}mm &times; {{ $item->height }}mm</span>
-                        </div>
-                        <div style="font-weight: 500;">
-                            &pound;{{ number_format($item->line_total, 2) }}
-                        </div>
-                    </div>
-                @endforeach
+            <div style="overflow-x: auto;">
+                <table class="chk-items-table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th style="text-align: center;">Qty</th>
+                            <th style="text-align: right;">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($order->items as $item)
+                            <tr>
+                                <td>
+                                    <strong>{{ $item->product_name }}</strong><br>
+                                    <span style="font-size: 0.85rem; color: var(--mono-grey);">{{ $item->width }}mm &times; {{ $item->height }}mm</span>
+                                </td>
+                                <td style="text-align: center;">{{ $item->quantity }}</td>
+                                <td style="text-align: right; font-weight: 500;">&pound;{{ number_format($item->line_total, 2) }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
             
             <div style="display: flex; justify-content: space-between; border-top: 2px solid var(--mono-border-light); padding-top: 16px; font-weight: 700; font-size: 1.1rem;" class="dark:border-zinc-800">
@@ -105,11 +130,9 @@
             </div>
         </div>
         
-        <div>
-            @if(auth()->check())
-                <a href="{{ route('account.orders') }}" class="btn-primary">View My Orders</a>
-            @endif
-            <a href="{{ route('windows') }}" class="btn-secondary">Continue Shopping</a>
+        <div class="action-buttons">
+            <a href="{{ route('track-order') }}" class="btn-black">Track Order</a>
+            <a href="{{ url('/') }}" class="btn-secondary">Continue Shopping</a>
         </div>
     </div>
 </section>

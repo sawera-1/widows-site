@@ -110,7 +110,7 @@
         @if(empty($cart))
             <div class="empty-cart">
                 <p>Your cart is currently empty.</p>
-                <a href="{{ route('windows') }}" class="btn-continue">Continue Shopping</a>
+                <a href="{{ url('/') }}" class="btn-continue">Continue Shopping</a>
             </div>
         @else
             <div class="cart-layout">

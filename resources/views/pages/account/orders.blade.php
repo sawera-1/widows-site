@@ -47,7 +47,7 @@
         @if($orders->isEmpty())
             <div class="empty-state">
                 <p>You haven't placed any orders yet.</p>
-                <a href="{{ route('windows') }}" class="btn-view" style="display:inline-block; margin-top:16px;">Shop Windows</a>
+                <a href="{{ url('/') }}" class="btn-view" style="display:inline-block; margin-top:16px;">Shop Windows</a>
             </div>
         @else
             <div class="order-list">

@@ -391,6 +391,7 @@
                 <?php
                     // Define the chronological order statuses
                     $timelineStatuses = [
+                        'pending',
                         'confirmed', 
                         'processing', 
                         'manufacturing', 

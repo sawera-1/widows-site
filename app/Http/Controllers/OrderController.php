@@ -18,6 +18,7 @@ class OrderController extends Controller
         }
 
         $orders = Order::where('user_id', auth()->id())
+            ->orWhere('email', auth()->user()->email)
             ->orderBy('created_at', 'desc')
             ->get();
 
@@ -30,7 +31,11 @@ class OrderController extends Controller
             return redirect('/');
         }
 
-        $order = Order::with('items')->where('user_id', auth()->id())->findOrFail($id);
+        $order = Order::with('items')->findOrFail($id);
+
+        if ($order->user_id !== auth()->id() && $order->email !== auth()->user()->email) {
+            abort(403, 'Unauthorized access to this order.');
+        }
 
         return view('pages.account.order-detail', compact('order'));
     }

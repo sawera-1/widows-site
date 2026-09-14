@@ -47,10 +47,7 @@ class TrackOrderController extends Controller
              return back()->withInput()->with('error', "We couldn't find an order matching those details. Please check your order number and postcode and try again.");
         }
 
-        // Logic: Orders start as 'pending' out of checkout.
-        if (strtolower($order->status) === 'pending') {
-            return back()->withInput()->with('error', "Your order has not been processed for tracking yet. Please check again later.");
-        }
+        // Logic: Orders start as 'pending' out of checkout. We now allow users to track them immediately.
 
         // Return the view with the verified order
         return view('pages.trackorder', compact('order'));

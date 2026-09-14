@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@php
+    $leadTimes = \App\Models\DeliveryLeadTime::where('is_active', 1)->orderBy('sort_order')->get();
+    $contentIntro = \App\Models\DeliveryContent::where('section_key', 'intro')->where('is_active', 1)->first();
+    $contentFleet = \App\Models\DeliveryContent::where('section_key', 'fleet')->where('is_active', 1)->first();
+@endphp
+
 @section('title', 'Payment & Delivery — Modern UPVC Windows')
 
 @push('styles')
@@ -508,9 +514,12 @@
     <div class="pd-container">
         <div class="delivery-intro">
             <span class="wi-section__eyebrow">Logistics</span>
-            <h2>Delivery & Collection</h2>
-            <h3>Lead Times — Updated Weekly</h3>
-            <p>We take a lot of pride in the quality of our windows and doors and want them to arrive with you in great condition. Therefore, in most cases we use our own vehicles and drivers to help ensure your order is delivered safely and reliably.</p>
+            <h2>{{ $contentIntro->title ?? 'Delivery & Collection' }}</h2>
+            @if($contentIntro && $contentIntro->content)
+                {!! $contentIntro->content !!}
+            @else
+                <p>We take a lot of pride in the quality of our windows and doors and want them to arrive with you in great condition. Therefore, in most cases we use our own vehicles and drivers to help ensure your order is delivered safely and reliably.</p>
+            @endif
         </div>
         
         {{-- 4. DELIVERY GRID (Table + Map) --}}
@@ -529,6 +538,13 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @forelse($leadTimes as $lt)
+                            <tr>
+                                <td>{{ $lt->product_type }}</td>
+                                <td>{{ $lt->delivery_time ?: '—' }}</td>
+                                <td>{{ $lt->collection_time ?: '—' }}</td>
+                            </tr>
+                            @empty
                             <tr>
                                 <td>UPVC windows / doors</td>
                                 <td>1–3 weeks</td>
@@ -559,6 +575,7 @@
                                 <td>6 weeks</td>
                                 <td>—</td>
                             </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
@@ -569,9 +586,12 @@
             <div class="delivery-map-container">
                 <img src="{{ asset('assets/about/p2.png') }}" alt="Delivery Areas Map" class="delivery-image">
                 <div class="delivery-map-info">
-                    <h3>Delivery & Installation Areas</h3>
-                    <p>Delivery charges are calculated based on distance, and availability varies by location. Additional charges may apply depending on the delivery area and service availability, with final costs confirmed before delivery.
-</p>
+                    <h3>{{ $contentFleet->title ?? 'Delivery & Installation Areas' }}</h3>
+                    @if($contentFleet && $contentFleet->content)
+                        {!! $contentFleet->content !!}
+                    @else
+                        <p>Delivery charges are calculated based on distance, and availability varies by location. Additional charges may apply depending on the delivery area and service availability, with final costs confirmed before delivery.</p>
+                    @endif
                 </div>
             </div>
 

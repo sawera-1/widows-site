@@ -48,11 +48,11 @@ class CheckoutController extends Controller
             'phone' => 'nullable|string|max:20',
             'billing_address' => 'required|string|max:255',
             'billing_city' => 'required|string|max:255',
-            'billing_county' => 'nullable|string|max:255',
             'billing_postcode' => 'required|string|max:20',
             'billing_country' => 'required|string|max:255',
             'delivery_method' => 'required|in:delivery,collection',
-            'delivery_address' => 'nullable|string|max:255',
+            'delivery_address' => 'required_if:delivery_method,delivery|nullable|string|max:255',
+            'payment_method' => 'required|in:cod',
         ]);
 
         // Calculate totals securely on the backend
@@ -65,19 +65,38 @@ class CheckoutController extends Controller
         $delivery_cost = $request->input('delivery_method') === 'delivery' ? 50 : 0; // Example flat rate
         $total = $subtotal + $tax + $delivery_cost;
 
+        $payment_status = $validated['payment_method'] === 'cod' ? 'unpaid' : 'paid';
+
+        // Customer Capture Logic
+        $user_id = auth()->id();
+        
+        // If they are not logged in, OR they are logged in but provided a different email
+        if (!$user_id || (auth()->user() && auth()->user()->email !== $validated['email'])) {
+            $user = \App\Models\User::where('email', $validated['email'])->first();
+            if (!$user) {
+                $user = \App\Models\User::create([
+                    'name' => $validated['first_name'] . ' ' . $validated['last_name'],
+                    'email' => $validated['email'],
+                    'password' => bcrypt(\Illuminate\Support\Str::random(16)),
+                    'role' => 'Customer',
+                ]);
+            }
+            $user_id = $user->id;
+        }
+
         // Create the order
         $order = Order::create([
             'order_number' => 'ORD-' . strtoupper(uniqid()),
-            'user_id' => auth()->id(), // null if not logged in
+            'user_id' => $user_id,
             'status' => 'pending',
-            'payment_status' => 'paid', // Simulating successful payment
+            'payment_status' => $payment_status,
             'first_name' => $validated['first_name'],
             'last_name' => $validated['last_name'],
             'email' => $validated['email'],
             'phone' => $validated['phone'],
             'billing_address' => $validated['billing_address'],
             'billing_city' => $validated['billing_city'],
-            'billing_county' => $validated['billing_county'],
+            'billing_county' => null,
             'billing_postcode' => $validated['billing_postcode'],
             'billing_country' => $validated['billing_country'],
             'delivery_method' => $validated['delivery_method'],
@@ -109,16 +128,20 @@ class CheckoutController extends Controller
         // Clear cart
         session()->forget('cart');
 
-        return redirect()->route('checkout.success', ['id' => $order->id]);
+        return redirect()->route('checkout.success', ['id' => $order->id])->with('success_order_id', $order->id);
     }
 
     public function success($id)
     {
         $order = Order::with('items')->findOrFail($id);
         
-        // Simple authorization: if users are authenticated, ensure they own the order
-        if ($order->user_id && $order->user_id !== auth()->id()) {
-            abort(403);
+        // Allow if they are an admin, OR if they literally just placed this exact order, OR if they own the order
+        $isAdmin = auth()->check() && in_array(auth()->user()->role, ['Super Admin', 'Order Manager']);
+        
+        if (!$isAdmin && session('success_order_id') != $id) {
+            if ($order->user_id && $order->user_id !== auth()->id()) {
+                abort(403);
+            }
         }
         
         return view('pages.checkout-success', compact('order'));

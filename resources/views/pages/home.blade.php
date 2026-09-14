@@ -255,66 +255,7 @@
     {{-- ═══════════════════════════════════════════════════════════════════
          3. PRODUCT CATEGORIES
     ═══════════════════════════════════════════════════════════════════ --}}
-    @php
-        $products = [
-            [
-                'name'   => 'Standard Windows',
-                'slug'   => 'standard-casement',
-                'type'   => 'windows',
-                'img1'   => '4.1.jpg',
-                'img2'   => '4.2.jpg',
-            ],
-            [
-                'name'   => 'French Windows',
-                'slug'   => 'french-windows',
-                'type'   => 'windows',
-                'img1'   => '3.1.jpg',
-                'img2'   => '3.2.jpg',
-            ],
-            [
-                'name'   => 'Tilt & Turn Windows',
-                'slug'   => 'tilt-and-turn-windows',
-                'type'   => 'windows',
-                'img1'   => '2.1.jpg',
-                'img2'   => '2.2.jpg',
-            ],
-            [
-                'name'   => 'Flash Windows',
-                'slug'   => 'flash-windows',
-                'type'   => 'windows',
-                'img1'   => '5.1.jpg',
-                'img2'   => '5.2.jpg',
-            ],
-            [
-                'name'   => 'Sash Windows',
-                'slug'   => 'sash-windows',
-                'type'   => 'windows',
-                'img1'   => '6.1.jpg',
-                'img2'   => '6.2.jpg',
-            ],
-            [
-                'name'   => 'UPVC Doors',
-                'slug'   => 'upvc-doors',
-                'type'   => 'doors',
-                'img1'   => 'door1.1.jpg',
-                'img2'   => 'door1.2.jpg',
-            ],
-            [
-                'name'   => 'Flush Doors',
-                'slug'   => 'flush-doors',
-                'type'   => 'doors',
-                'img1'   => 'door2.1.jpg',
-                'img2'   => 'door2.2.jpg',
-            ],
-            [
-                'name'   => 'Stable Doors',
-                'slug'   => 'stable-doors',
-                'type'   => 'doors',
-                'img1'   => 'door3.1.jpg',
-                'img2'   => 'door3.2.jpg',
-            ],
-        ];
-    @endphp
+
 
     <section class="w-full bg-white dark:bg-black sec-lg" aria-label="Product categories" id="products">
         <div class="gc">
@@ -329,23 +270,23 @@
             {{-- Product Grid --}}
             <div class="products-grid">
                 @foreach($products as $product)
-                    <a href="/{{ $product['type'] }}/{{ $product['slug'] }}" class="product-card group" aria-label="{{ $product['name'] }}">
+                    <a href="/{{ $product->category }}/{{ $product->slug }}" class="product-card group" aria-label="{{ $product->name }}">
 
-                        {{-- Image area: .1 shown by default, .2 shown on hover --}}
+                        {{-- Image area: primary shown by default, hover_image shown on hover --}}
                         <div class="product-card__img">
                             <img class="img-primary"
-                                 src="{{ asset('assets/products/' . $product['img1']) }}"
-                                 alt="{{ $product['name'] }}"
+                                 src="{{ asset('assets/products/' . $product->image) }}"
+                                 alt="{{ $product->name }}"
                                  loading="lazy">
                             <img class="img-hover"
-                                 src="{{ asset('assets/products/' . $product['img2']) }}"
-                                 alt="{{ $product['name'] }} — alternate view"
+                                 src="{{ asset('assets/products/' . $product->hover_image) }}"
+                                 alt="{{ $product->name }} — alternate view"
                                  loading="lazy">
                         </div>
 
                         {{-- Card body --}}
                         <div class="product-card__body">
-                            <span class="product-card__name">{{ $product['name'] }}</span>
+                            <span class="product-card__name">{{ $product->name }}</span>
                             <span class="product-card__cta">
                                 Design &amp; Price
                                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>

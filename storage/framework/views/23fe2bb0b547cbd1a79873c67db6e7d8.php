@@ -110,7 +110,7 @@
         <?php if(empty($cart)): ?>
             <div class="empty-cart">
                 <p>Your cart is currently empty.</p>
-                <a href="<?php echo e(route('windows')); ?>" class="btn-continue">Continue Shopping</a>
+                <a href="<?php echo e(url('/')); ?>" class="btn-continue">Continue Shopping</a>
             </div>
         <?php else: ?>
             <div class="cart-layout">

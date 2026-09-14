@@ -247,66 +247,7 @@
     </section>
 
     
-    <?php
-        $products = [
-            [
-                'name'   => 'Standard Windows',
-                'slug'   => 'standard-casement',
-                'type'   => 'windows',
-                'img1'   => '4.1.jpg',
-                'img2'   => '4.2.jpg',
-            ],
-            [
-                'name'   => 'French Windows',
-                'slug'   => 'french-windows',
-                'type'   => 'windows',
-                'img1'   => '3.1.jpg',
-                'img2'   => '3.2.jpg',
-            ],
-            [
-                'name'   => 'Tilt & Turn Windows',
-                'slug'   => 'tilt-and-turn-windows',
-                'type'   => 'windows',
-                'img1'   => '2.1.jpg',
-                'img2'   => '2.2.jpg',
-            ],
-            [
-                'name'   => 'Flash Windows',
-                'slug'   => 'flash-windows',
-                'type'   => 'windows',
-                'img1'   => '5.1.jpg',
-                'img2'   => '5.2.jpg',
-            ],
-            [
-                'name'   => 'Sash Windows',
-                'slug'   => 'sash-windows',
-                'type'   => 'windows',
-                'img1'   => '6.1.jpg',
-                'img2'   => '6.2.jpg',
-            ],
-            [
-                'name'   => 'UPVC Doors',
-                'slug'   => 'upvc-doors',
-                'type'   => 'doors',
-                'img1'   => 'door1.1.jpg',
-                'img2'   => 'door1.2.jpg',
-            ],
-            [
-                'name'   => 'Flush Doors',
-                'slug'   => 'flush-doors',
-                'type'   => 'doors',
-                'img1'   => 'door2.1.jpg',
-                'img2'   => 'door2.2.jpg',
-            ],
-            [
-                'name'   => 'Stable Doors',
-                'slug'   => 'stable-doors',
-                'type'   => 'doors',
-                'img1'   => 'door3.1.jpg',
-                'img2'   => 'door3.2.jpg',
-            ],
-        ];
-    ?>
+
 
     <section class="w-full bg-white dark:bg-black sec-lg" aria-label="Product categories" id="products">
         <div class="gc">
@@ -321,23 +262,23 @@
             
             <div class="products-grid">
                 <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <a href="/<?php echo e($product['type']); ?>/<?php echo e($product['slug']); ?>" class="product-card group" aria-label="<?php echo e($product['name']); ?>">
+                    <a href="/<?php echo e($product->category); ?>/<?php echo e($product->slug); ?>" class="product-card group" aria-label="<?php echo e($product->name); ?>">
 
                         
                         <div class="product-card__img">
                             <img class="img-primary"
-                                 src="<?php echo e(asset('assets/products/' . $product['img1'])); ?>"
-                                 alt="<?php echo e($product['name']); ?>"
+                                 src="<?php echo e(asset('assets/products/' . $product->image)); ?>"
+                                 alt="<?php echo e($product->name); ?>"
                                  loading="lazy">
                             <img class="img-hover"
-                                 src="<?php echo e(asset('assets/products/' . $product['img2'])); ?>"
-                                 alt="<?php echo e($product['name']); ?> — alternate view"
+                                 src="<?php echo e(asset('assets/products/' . $product->hover_image)); ?>"
+                                 alt="<?php echo e($product->name); ?> — alternate view"
                                  loading="lazy">
                         </div>
 
                         
                         <div class="product-card__body">
-                            <span class="product-card__name"><?php echo e($product['name']); ?></span>
+                            <span class="product-card__name"><?php echo e($product->name); ?></span>
                             <span class="product-card__cta">
                                 Design &amp; Price
                                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>

@@ -1,13 +1,22 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
+
+Route::get('/dev/migrate', function () {
+    Artisan::call('migrate', ['--force' => true, '--path' => 'database/migrations/new']);
+    return Artisan::output();
+});
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Every page is a static Blade view. No controllers, no DB queries — the whole
 // site renders from config('site.*'), which keeps responses extremely fast.
 // ─────────────────────────────────────────────────────────────────────────────
 
-Route::view('/', 'pages.home')->name('home');
+Route::get('/', function () {
+    $products = \App\Models\Product::where('is_active', 1)->orderBy('sort_order', 'asc')->get();
+    return view('pages.home', compact('products'));
+})->name('home');
 Route::view('/about', 'pages.about')->name('about');
 Route::view('/installation', 'pages.installationpage')->name('installation');
 Route::view('/faq', 'pages.faq')->name('faq');
@@ -111,4 +120,60 @@ Route::get('/robots.txt', function () {
 
     return response($txt, 200, ['Content-Type' => 'text/plain'])
         ->header('Cache-Control', 'public, max-age=3600');
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Admin Panel Routes
+// ─────────────────────────────────────────────────────────────────────────────
+Route::prefix('admin')->group(function () {
+    // Auth Routes
+    Route::get('login', [\App\Http\Controllers\Admin\AdminAuthController::class, 'showLoginForm'])->name('admin.login');
+    Route::post('login', [\App\Http\Controllers\Admin\AdminAuthController::class, 'login'])->name('admin.login.submit');
+    Route::post('logout', [\App\Http\Controllers\Admin\AdminAuthController::class, 'logout'])->name('admin.logout');
+
+    // Protected Admin Routes
+    Route::middleware(['auth', 'admin'])->group(function () {
+        Route::get('dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
+        
+        // Orders (Order Manager, Super Admin)
+        Route::middleware('role:Super Admin,Order Manager')->group(function () {
+            Route::get('orders', [\App\Http\Controllers\Admin\OrderController::class, 'index'])->name('admin.orders.index');
+            Route::get('orders/{id}', [\App\Http\Controllers\Admin\OrderController::class, 'show'])->name('admin.orders.show');
+            Route::post('orders/{id}/status', [\App\Http\Controllers\Admin\OrderController::class, 'updateStatus'])->name('admin.orders.status');
+            
+            Route::get('customers', [\App\Http\Controllers\Admin\CustomerController::class, 'index'])->name('admin.customers.index');
+            Route::get('customers/{id}', [\App\Http\Controllers\Admin\CustomerController::class, 'show'])->name('admin.customers.show');
+            
+            Route::get('delivery', [\App\Http\Controllers\Admin\DeliveryController::class, 'index'])->name('admin.delivery.index');
+            Route::post('delivery/method', [\App\Http\Controllers\Admin\DeliveryController::class, 'storeMethod'])->name('admin.delivery.method.store');
+            Route::post('delivery/method/{id}', [\App\Http\Controllers\Admin\DeliveryController::class, 'updateMethod'])->name('admin.delivery.method.update');
+            Route::post('delivery/area', [\App\Http\Controllers\Admin\DeliveryController::class, 'storeArea'])->name('admin.delivery.area.store');
+            Route::post('delivery/area/{id}', [\App\Http\Controllers\Admin\DeliveryController::class, 'updateArea'])->name('admin.delivery.area.update');
+            Route::post('delivery/charge', [\App\Http\Controllers\Admin\DeliveryController::class, 'storeCharge'])->name('admin.delivery.charge.store');
+            Route::post('delivery/charge/{id}', [\App\Http\Controllers\Admin\DeliveryController::class, 'updateCharge'])->name('admin.delivery.charge.update');
+            Route::post('delivery/leadtime', [\App\Http\Controllers\Admin\DeliveryController::class, 'storeLeadTime'])->name('admin.delivery.leadtime.store');
+            Route::post('delivery/leadtime/{id}', [\App\Http\Controllers\Admin\DeliveryController::class, 'updateLeadTime'])->name('admin.delivery.leadtime.update');
+            Route::post('delivery/content', [\App\Http\Controllers\Admin\DeliveryController::class, 'storeContent'])->name('admin.delivery.content.store');
+        });
+
+        // Products (Product Manager, Super Admin)
+        Route::middleware('role:Super Admin,Product Manager')->group(function () {
+            Route::resource('products', \App\Http\Controllers\Admin\ProductController::class)->names('admin.products');
+        });
+
+        // Content (Content Manager, Super Admin)
+        Route::middleware('role:Super Admin,Content Manager')->group(function () {
+            Route::get('enquiries', [\App\Http\Controllers\Admin\EnquiryController::class, 'index'])->name('admin.enquiries.index');
+            Route::get('enquiries/{enquiry}', [\App\Http\Controllers\Admin\EnquiryController::class, 'show'])->name('admin.enquiries.show');
+            Route::post('enquiries/{enquiry}/reply', [\App\Http\Controllers\Admin\EnquiryController::class, 'reply'])->name('admin.enquiries.reply');
+            Route::put('enquiries/{enquiry}/status', [\App\Http\Controllers\Admin\EnquiryController::class, 'updateStatus'])->name('admin.enquiries.update_status');
+            Route::get('enquiries/{enquiry}/attachment', [\App\Http\Controllers\Admin\EnquiryController::class, 'downloadAttachment'])->name('admin.enquiries.attachment');
+        });
+
+        // Settings (Super Admin Only)
+        Route::middleware('role:Super Admin')->group(function () {
+            Route::get('settings', [\App\Http\Controllers\Admin\SettingController::class, 'index'])->name('admin.settings.index');
+            Route::post('settings', [\App\Http\Controllers\Admin\SettingController::class, 'store'])->name('admin.settings.store');
+        });
+    });
 });
