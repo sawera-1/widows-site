@@ -3,7 +3,7 @@
 @section('content')
 
 <div style="margin-bottom: 20px;">
-    <a href="{{ route('admin.customers.index') }}" class="btn btn-outline">&larr; Back to Customers</a>
+    <a href="{{ route('admin.customers.index') }}" class="btn btn-outline">Back to Customers</a>
 </div>
 
 <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 24px;">
@@ -52,13 +52,13 @@
                                 <td><strong>{{ $order->order_number }}</strong></td>
                                 <td>{{ $order->created_at->format('M j, Y') }}</td>
                                 <td>
-                                    <span class="badge {{ $order->status === 'completed' ? 'badge-success' : ($order->status === 'cancelled' ? 'badge-dark' : '') }}" style="text-transform: capitalize;">
+                                    <span class="badge {{ $order->status === 'completed' ? 'badge-success' : (in_array($order->status, ['cancelled', 'pending']) ? 'badge-dark' : '') }}" style="text-transform: capitalize;">
                                         {{ $order->status }}
                                     </span>
                                 </td>
                                 <td>£{{ number_format($order->total, 2) }}</td>
                                 <td>
-                                    <a href="{{ route('admin.orders.show', $order->id) }}" class="btn btn-outline" style="padding:4px 8px; font-size:0.75rem;">View</a>
+                                    <a href="{{ route('admin.orders.show', $order->id) }}" class="btn btn-primary btn-sm">View</a>
                                 </td>
                             </tr>
                             @endforeach

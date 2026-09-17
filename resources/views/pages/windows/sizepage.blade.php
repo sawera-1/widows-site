@@ -31,7 +31,7 @@
 /* ── Column 1 (LEFT 30%): Configuration form ─────────────────────── */
 .cfg-col { display: flex; flex-direction: column; gap: 0; }
 
-.cfg-section { border:1px solid #e5e5e5; border-radius:4px; margin-bottom:14px; overflow:hidden; background:#fff; }
+.cfg-section { border:1px solid #e5e5e5; border-radius:4px; margin-bottom:14px; overflow:hidden; background:#fff; flex-shrink:0; }
 [data-theme="dark"] .cfg-section { border-color:#2a2a2a; background:#111; }
 
 .cfg-section-head {
@@ -345,13 +345,18 @@ select.wdc-select:focus { outline:none; border-color:#000; }
 /* ── Column 3 (RIGHT 30%): Smart Information Panel ─────────────────── */
 .info-col {
     position: sticky; top: 140px;
-    max-height: calc(100vh - 160px); overflow-y: auto;
+    max-height: calc(100vh - 160px);
     display: flex; flex-direction: column; gap: 14px;
+}
+#sec-summary {
+    overflow-y: auto;
+    flex-shrink: 1;
 }
 
 .smart-info-panel {
     border: 1px solid #e5e5e5; border-radius: 6px; padding: 20px; background: #ffffff;
     box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+    flex-shrink: 0;
 }
 [data-theme="dark"] .smart-info-panel { border-color: #262626; background: #111; }
 
@@ -1014,49 +1019,7 @@ $paneCount = count($cfg['cells']);
                 </div>
             </div>
 
-            {{-- ── 12. Configuration Summary & Add to Cart ── --}}
-            <div class="cfg-section is-open" id="sec-summary">
-                <div class="cfg-section-head" data-section="sec-summary">
-                    <h3>Your Configuration</h3>
-                    <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg>
-                </div>
-                <div class="cfg-section-body">
-                    <table class="summary-table" id="summaryTable">
-                        <tr><td>Window Design</td><td id="s-name">{{ $cfg['name'] }}</td></tr>
-                        <tr><td>Dimensions</td><td id="s-size">{{ $selected['width'] }}mm × {{ $selected['height'] }}mm</td></tr>
-                        <tr><td>Frame Colour</td><td id="s-frame-colour">White Flat</td></tr>
-                        <tr><td>Configured Pane</td><td id="s-pane">Pane 1 of {{ $paneCount }}</td></tr>
-                        <tr><td>Opening Style</td><td id="s-opening">Casement</td></tr>
-                        <tr><td>Glass Pattern</td><td id="s-glass">Clear</td></tr>
-                        <tr><td>Handle Style</td><td id="s-handle">White</td></tr>
-                        <tr><td>Trickle Vent</td><td id="s-vent">None</td></tr>
-                        <tr><td>Internal Blind</td><td id="s-blind">None</td></tr>
-                        <tr><td>External Cill</td><td id="s-cill">No Cill</td></tr>
-                    </table>
-                    <hr class="summary-divider">
-                    <div class="price-total-line">
-                        <span class="pt-label">Total Price</span>
-                        <span class="pt-value" id="totalPrice">£{{ $basePrices[$selected['slug']] ?? 189 }}</span>
-                    </div>
-                    <form method="POST" action="{{ url('/cart/add') }}" id="addCartForm">
-                        @csrf
-                        <input type="hidden" name="product_name"   value="{{ $cfg['name'] }}">
-                        <input type="hidden" name="design"         value="{{ $selected['slug'] }}">
-                        <input type="hidden" name="product_type"   value="window">
-                        <input type="hidden" name="sash_style"     value="{{ request('sash_style') }}">
-                        <input type="hidden" name="glazing_design" value="{{ request('glazing_design') }}">
-                        <input type="hidden" name="width"          id="hWidth"      value="{{ $selected['width'] }}">
-                        <input type="hidden" name="height"         id="hHeight"     value="{{ $selected['height'] }}">
-                        <input type="hidden" name="panes_json"     id="hPanesJson">
-                        <input type="hidden" name="price"          id="hPrice"      value="{{ $basePrices[$selected['slug']] ?? 189 }}">
-                        <input type="hidden" name="line_total"     id="hLineTotal"  value="{{ $basePrices[$selected['slug']] ?? 189 }}">
-                        <button type="submit" class="btn-atc">
-                            <svg style="width:16px;height:16px;" viewBox="0 0 20 20" fill="currentColor"><path d="M3 1a1 1 0 0 0 0 2h1.22l.305 1.222a.997.997 0 0 0 .01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 0 0 0-2H6.414l1-1H14a1 1 0 0 0 .894-.553l3-6A1 1 0 0 0 17 3H6.28l-.31-1.243A1 1 0 0 0 5 1H3ZM16 16.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0ZM6.5 18a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/></svg>
-                            Add to Cart
-                        </button>
-                    </form>
-                </div>
-            </div>
+
 
         </div>{{-- /cfg-col --}}
 
@@ -1087,6 +1050,7 @@ $paneCount = count($cfg['cells']);
              COLUMN 3 (RIGHT 30%) — Smart Information & Guidance Panel
         ══════════════════════════════════════════════════════ --}}
         <div class="info-col">
+
             <div class="smart-info-panel">
                 
                 {{-- 1. Dimensions & Egress Info --}}
@@ -1214,6 +1178,50 @@ $paneCount = count($cfg['cells']);
                 </div>
 
             </div>{{-- /smart-info-panel --}}
+
+            {{-- ── Configuration Summary & Add to Cart ── --}}
+            <div class="cfg-section is-open" id="sec-summary">
+                <div class="cfg-section-head" data-section="sec-summary">
+                    <h3>Your Configuration</h3>
+                    <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg>
+                </div>
+                <div class="cfg-section-body">
+                    <table class="summary-table" id="summaryTable">
+                        <tr><td>Window Design</td><td id="s-name">{{ $cfg['name'] }}</td></tr>
+                        <tr><td>Dimensions</td><td id="s-size">{{ $selected['width'] }}mm × {{ $selected['height'] }}mm</td></tr>
+                        <tr><td>Frame Colour</td><td id="s-frame-colour">White Flat</td></tr>
+                        <tr><td>Configured Pane</td><td id="s-pane">Pane 1 of {{ $paneCount }}</td></tr>
+                        <tr><td>Opening Style</td><td id="s-opening">Casement</td></tr>
+                        <tr><td>Glass Pattern</td><td id="s-glass">Clear</td></tr>
+                        <tr><td>Handle Style</td><td id="s-handle">White</td></tr>
+                        <tr><td>Trickle Vent</td><td id="s-vent">None</td></tr>
+                        <tr><td>Internal Blind</td><td id="s-blind">None</td></tr>
+                        <tr><td>External Cill</td><td id="s-cill">No Cill</td></tr>
+                    </table>
+                    <hr class="summary-divider">
+                    <div class="price-total-line">
+                        <span class="pt-label">Total Price</span>
+                        <span class="pt-value" id="totalPrice">£{{ $basePrices[$selected['slug']] ?? 189 }}</span>
+                    </div>
+                    <form method="POST" action="{{ url('/cart/add') }}" id="addCartForm">
+                        @csrf
+                        <input type="hidden" name="product_name"   value="{{ $cfg['name'] }}">
+                        <input type="hidden" name="design"         value="{{ $selected['slug'] }}">
+                        <input type="hidden" name="product_type"   value="window">
+                        <input type="hidden" name="sash_style"     value="{{ request('sash_style') }}">
+                        <input type="hidden" name="glazing_design" value="{{ request('glazing_design') }}">
+                        <input type="hidden" name="width"          id="hWidth"      value="{{ $selected['width'] }}">
+                        <input type="hidden" name="height"         id="hHeight"     value="{{ $selected['height'] }}">
+                        <input type="hidden" name="panes_json"     id="hPanesJson">
+                        <input type="hidden" name="price"          id="hPrice"      value="{{ $basePrices[$selected['slug']] ?? 189 }}">
+                        <input type="hidden" name="line_total"     id="hLineTotal"  value="{{ $basePrices[$selected['slug']] ?? 189 }}">
+                        <button type="submit" class="btn-atc">
+                            <svg style="width:16px;height:16px;" viewBox="0 0 20 20" fill="currentColor"><path d="M3 1a1 1 0 0 0 0 2h1.22l.305 1.222a.997.997 0 0 0 .01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 0 0 0-2H6.414l1-1H14a1 1 0 0 0 .894-.553l3-6A1 1 0 0 0 17 3H6.28l-.31-1.243A1 1 0 0 0 5 1H3ZM16 16.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0ZM6.5 18a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/></svg>
+                            Add to Cart
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>{{-- /info-col --}}
 
     </div>{{-- /three-col --}}

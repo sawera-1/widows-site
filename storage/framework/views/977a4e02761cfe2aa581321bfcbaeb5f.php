@@ -1,18 +1,19 @@
 <?php $__env->startSection('content'); ?>
 
-<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px;">
-    <h1 class="page-title" style="margin-bottom:0;">Super Admin Settings</h1>
+<div style="margin-bottom:28px;">
+    <h1 class="page-title">Super Admin Settings</h1>
+    <p class="page-subtitle" style="margin-bottom:0;">Manage your account details and password.</p>
 </div>
 
 <?php if(session('success')): ?>
-    <div style="background-color: #d1fae5; color: #065f46; padding: 15px; border-radius: 4px; margin-bottom: 20px;">
+    <div style="background-color: #d1fae5; color: #065f46; padding: 15px; border-radius: 0; margin-bottom: 20px;">
         <?php echo e(session('success')); ?>
 
     </div>
 <?php endif; ?>
 
 <?php if($errors->any()): ?>
-    <div style="background-color: #fee2e2; color: #991b1b; padding: 15px; border-radius: 4px; margin-bottom: 20px;">
+    <div style="background-color: #fee2e2; color: #991b1b; padding: 15px; border-radius: 0; margin-bottom: 20px;">
         <ul style="margin: 0; padding-left: 20px;">
             <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <li><?php echo e($error); ?></li>
@@ -21,7 +22,7 @@
     </div>
 <?php endif; ?>
 
-<div class="card" style="max-width: 600px;">
+<div class="card" style="border-radius: 0;">
     <form action="<?php echo e(route('admin.settings.store')); ?>" method="POST">
         <?php echo csrf_field(); ?>
 

@@ -1,12 +1,40 @@
 <?php $__env->startSection('content'); ?>
 
-<h1 class="page-title mb-4">Delivery CMS</h1>
+<div style="margin-bottom:28px;">
+    <h1 class="page-title">Delivery Settings</h1>
+    <p class="page-subtitle" style="margin-bottom:0;">Configure delivery methods, areas, matrices, and lead times.</p>
+</div>
+
+<!-- ─── STAT CARDS ─── -->
+<div class="grid-cards" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 24px;">
+    <div class="stat-card">
+        <div class="stat-card-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"/></svg>
+        </div>
+        <div class="stat-card-title">Active Methods</div>
+        <div class="stat-card-value"><?php echo e(collect($methods)->where('is_active', 1)->count()); ?></div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-card-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <div class="stat-card-title">Delivery Areas</div>
+        <div class="stat-card-value"><?php echo e(collect($areas)->where('is_active', 1)->count()); ?></div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-card-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+        </div>
+        <div class="stat-card-title">Charge Rules</div>
+        <div class="stat-card-value"><?php echo e(collect($charges)->where('is_active', 1)->count()); ?></div>
+    </div>
+</div>
 
 <?php if(session('success')): ?>
-    <div class="alert alert-success mb-4" style="background:#e6f4ea; color:#1e4620; padding:15px; border-radius:4px;"><?php echo e(session('success')); ?></div>
+    <div class="alert alert-success mb-4" style="background:#e6f4ea; color:#1e4620; padding:15px; border-radius:0;"><?php echo e(session('success')); ?></div>
 <?php endif; ?>
 <?php if($errors->any()): ?>
-    <div class="alert alert-danger mb-4" style="background:#fce8e6; color:#a50e0e; padding:15px; border-radius:4px;">
+    <div class="alert alert-danger mb-4" style="background:#fce8e6; color:#a50e0e; padding:15px; border-radius:0;">
         <ul class="mb-0">
             <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <li><?php echo e($error); ?></li>
@@ -66,7 +94,7 @@
         <p class="text-muted">E.g., Standard Delivery, Express, Supply Only, Local Collection.</p>
         <hr>
         
-        <table class="table mb-4">
+        <table class="admin-table">
             <thead>
                 <tr>
                     <th>Sort</th>
@@ -87,7 +115,7 @@
                         <td><input type="number" step="0.01" name="base_price" class="form-control form-control-sm" value="<?php echo e($method->base_price); ?>"></td>
                         <td><input type="text" name="estimated_lead_time" class="form-control form-control-sm" value="<?php echo e($method->estimated_lead_time); ?>"></td>
                         <td><input type="checkbox" name="is_active" value="1" <?php echo e($method->is_active ? 'checked' : ''); ?>></td>
-                        <td><button type="submit" class="btn btn-sm btn-secondary">Save</button></td>
+                        <td><button type="submit" class="btn btn-sm btn-primary">Save</button></td>
                     </form>
                 </tr>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -113,7 +141,7 @@
         <p class="text-muted">E.g., Local (Within 20 miles), National (Mainland UK), Highlands.</p>
         <hr>
         
-        <table class="table mb-4">
+        <table class="admin-table">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -130,7 +158,7 @@
                         <td><input type="text" name="name" class="form-control form-control-sm" value="<?php echo e($area->name); ?>" required></td>
                         <td><input type="text" name="postcode_rule" class="form-control form-control-sm" value="<?php echo e($area->postcode_rule); ?>" placeholder="Regex or comma separated"></td>
                         <td><input type="checkbox" name="is_active" value="1" <?php echo e($area->is_active ? 'checked' : ''); ?>></td>
-                        <td><button type="submit" class="btn btn-sm btn-secondary">Save</button></td>
+                        <td><button type="submit" class="btn btn-sm btn-primary">Save</button></td>
                     </form>
                 </tr>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -154,7 +182,7 @@
         <p class="text-muted">Map a Delivery Method + Area to a final Price. (Overrides base price).</p>
         <hr>
         
-        <table class="table mb-4">
+        <table class="admin-table">
             <thead>
                 <tr>
                     <th>Method</th>
@@ -173,7 +201,7 @@
                         <td><?php echo e($charge->area->name ?? 'Deleted Area'); ?></td>
                         <td><input type="number" step="0.01" name="charge" class="form-control form-control-sm" value="<?php echo e($charge->charge); ?>" required></td>
                         <td><input type="checkbox" name="is_active" value="1" <?php echo e($charge->is_active ? 'checked' : ''); ?>></td>
-                        <td><button type="submit" class="btn btn-sm btn-secondary">Save</button></td>
+                        <td><button type="submit" class="btn btn-sm btn-primary">Save</button></td>
                     </form>
                 </tr>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -208,7 +236,7 @@
         <p class="text-muted">Display expected times for Delivery vs Collection per product type.</p>
         <hr>
         
-        <table class="table mb-4">
+        <table class="admin-table">
             <thead>
                 <tr>
                     <th>Sort</th>
@@ -229,7 +257,7 @@
                         <td><input type="text" name="delivery_time" class="form-control form-control-sm" value="<?php echo e($lt->delivery_time); ?>"></td>
                         <td><input type="text" name="collection_time" class="form-control form-control-sm" value="<?php echo e($lt->collection_time); ?>"></td>
                         <td><input type="checkbox" name="is_active" value="1" <?php echo e($lt->is_active ? 'checked' : ''); ?>></td>
-                        <td><button type="submit" class="btn btn-sm btn-secondary">Save</button></td>
+                        <td><button type="submit" class="btn btn-sm btn-primary">Save</button></td>
                     </form>
                 </tr>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

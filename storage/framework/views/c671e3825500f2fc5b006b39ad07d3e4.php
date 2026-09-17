@@ -51,7 +51,7 @@
     @media(max-width: 767px)  { .hero-slider { height: clamp(280px, 65vw, 420px); } }
     @media(max-width: 479px)  { .hero-slider { height: clamp(260px, 80vw, 380px); } }
     @media(max-width: 360px)  { .hero-slider { height: 280px; } }
-    .hero-track { display:flex; height:100%; transition:transform 0.6s cubic-bezier(0.4,0,0.2,1); }
+    .hero-track { display:flex; height:100%; transition:transform 1.2s cubic-bezier(0.65, 0, 0.35, 1); }
     .hero-slide { flex:0 0 100%; height:100%; position:relative; display:flex; align-items:center; justify-content:center; }
     .hero-slide-bg { position:absolute; inset:0; }
     .hero-slide-bg img { width:100%; height:100%; object-fit:cover; }
@@ -120,6 +120,150 @@
     [data-theme="dark"] .product-card__cta { color:#fff; border-color:#333; }
     [data-theme="dark"] .product-card__body { border-color:#333; }
     [data-theme="dark"] .product-card__body .product-card__cta { border-color:#333; }
+
+    .anim-composite {
+        display: flex;
+        gap: 3rem;
+        align-items: flex-end;
+        justify-content: center;
+        background: radial-gradient(circle at center, rgba(255,255,255,0.08) 0%, transparent 70%);
+        padding: 4rem 3rem;
+        border-radius: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: inset 0 0 40px rgba(0,0,0,0.5), 0 20px 50px rgba(0,0,0,0.5);
+    }
+
+    .anim-window {
+        position: relative;
+        width: 220px;
+        height: 320px;
+        perspective: 1200px;
+        transform-style: preserve-3d;
+    }
+
+    .anim-door {
+        position: relative;
+        width: 220px;
+        height: 460px;
+        perspective: 1200px;
+        transform-style: preserve-3d;
+    }
+
+    .anim-frame {
+        position: absolute;
+        inset: 0;
+        border: 4px solid rgba(255,255,255,0.65);
+        border-radius: 6px;
+        background: linear-gradient(135deg, rgba(20,20,20,0.6) 0%, rgba(40,40,40,0.2) 100%);
+        box-shadow: inset 0 5px 15px rgba(0,0,0,0.8), 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .anim-mullion-h {
+        position: absolute;
+        left: 0; right: 0; top: 40%;
+        height: 6px;
+        background: rgba(255,255,255,0.65);
+        transform: translateY(-50%);
+        z-index: 2;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+
+    .anim-top-glass {
+        position: absolute;
+        top: 6px; left: 6px; right: 6px; bottom: 60%;
+        background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.02) 100%);
+        border: 1px solid rgba(255,255,255,0.2);
+        border-radius: 2px;
+        overflow: hidden;
+    }
+
+    .anim-sash {
+        position: absolute;
+        top: 40%; bottom: 6px;
+        width: calc(50% - 6px);
+        border: 3px solid rgba(255,255,255,0.65);
+        background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.01) 100%);
+        overflow: hidden;
+        z-index: 1;
+        border-radius: 2px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    /* Door overrides */
+    .anim-door .anim-sash {
+        top: 6px; bottom: 6px;
+        width: calc(100% - 12px);
+        left: 6px;
+        transform-origin: left;
+        animation: openLeft 6s infinite alternate cubic-bezier(0.5, 0, 0.2, 1);
+        animation-delay: 2s; /* Offset animation timing */
+    }
+    
+    .door-handle {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        width: 6px;
+        height: 48px;
+        background: linear-gradient(to bottom, #999, #fff, #999);
+        border-radius: 3px;
+        transform: translateY(-50%);
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    }
+    
+    .door-mail-slot {
+        position: absolute;
+        left: 50%;
+        bottom: 50px;
+        width: 50px;
+        height: 8px;
+        background: rgba(255,255,255,0.7);
+        border-radius: 4px;
+        transform: translateX(-50%);
+        box-shadow: inset 0 2px 4px rgba(0,0,0,0.8);
+    }
+
+    .anim-sash-left {
+        left: 6px;
+        transform-origin: left;
+        animation: openLeft 6s infinite alternate cubic-bezier(0.5, 0, 0.2, 1);
+    }
+
+    .anim-sash-right {
+        right: 6px;
+        transform-origin: right;
+        animation: openRight 6s infinite alternate cubic-bezier(0.5, 0, 0.2, 1);
+        animation-delay: 0.5s;
+    }
+
+    @keyframes openLeft {
+        0%, 20% { transform: rotateY(0deg); }
+        80%, 100% { transform: rotateY(-35deg); }
+    }
+
+    @keyframes openRight {
+        0%, 20% { transform: rotateY(0deg); }
+        80%, 100% { transform: rotateY(35deg); }
+    }
+
+    .glass-reflection {
+        position: absolute;
+        top: -100%; left: -100%;
+        width: 300%; height: 300%;
+        background: linear-gradient(135deg, 
+            rgba(255,255,255,0) 0%, 
+            rgba(255,255,255,0) 35%, 
+            rgba(255,255,255,0.2) 45%, 
+            rgba(255,255,255,0.4) 50%, 
+            rgba(255,255,255,0.1) 55%, 
+            rgba(255,255,255,0) 65%, 
+            rgba(255,255,255,0) 100%);
+        animation: shine 4s infinite linear;
+    }
+
+    .anim-top-glass .glass-reflection {
+        animation-delay: 2s;
+    }
 </style>
 <?php $__env->stopPush(); ?>
 
@@ -136,15 +280,13 @@
                     <div class="hero-slide">
                         <div class="hero-slide-bg" style="background:#1a1a1a;">
                             <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
-                                <svg viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;opacity:0.15;">
-                                    <rect x="200" y="60" width="400" height="280" rx="2" stroke="#fff" stroke-width="2"/>
-                                    <line x1="400" y1="60" x2="400" y2="340" stroke="#fff" stroke-width="1.5"/>
-                                    <line x1="200" y1="200" x2="600" y2="200" stroke="#fff" stroke-width="1"/>
-                                    <rect x="220" y="80" width="160" height="100" rx="1" stroke="#fff" stroke-width="0.5" opacity="0.5"/>
-                                    <rect x="420" y="80" width="160" height="100" rx="1" stroke="#fff" stroke-width="0.5" opacity="0.5"/>
-                                    <rect x="220" y="220" width="160" height="100" rx="1" stroke="#fff" stroke-width="0.5" opacity="0.5"/>
-                                    <rect x="420" y="220" width="160" height="100" rx="1" stroke="#fff" stroke-width="0.5" opacity="0.5"/>
-                                </svg>
+                                <div class="anim-window" style="transform: scale(1.35);">
+                                    <div class="anim-frame"></div>
+                                    <div class="anim-mullion-h"></div>
+                                    <div class="anim-top-glass"><div class="glass-reflection"></div></div>
+                                    <div class="anim-sash anim-sash-left"><div class="glass-reflection"></div></div>
+                                    <div class="anim-sash anim-sash-right"><div class="glass-reflection"></div></div>
+                                </div>
                             </div>
                         </div>
                         <div class="hero-slide-overlay"></div>
@@ -159,11 +301,13 @@
                     <div class="hero-slide">
                         <div class="hero-slide-bg" style="background:#111;">
                             <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
-                                <svg viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;opacity:0.15;">
-                                    <rect x="320" y="40" width="160" height="320" rx="2" stroke="#fff" stroke-width="2"/>
-                                    <rect x="330" y="50" width="140" height="250" rx="1" stroke="#fff" stroke-width="0.5" opacity="0.5"/>
-                                    <circle cx="460" cy="200" r="6" stroke="#fff" stroke-width="1.5"/>
-                                </svg>
+                                <div class="anim-door" style="transform: scale(1.15);">
+                                    <div class="anim-frame"></div>
+                                    <div class="anim-sash">
+                                        <div class="door-handle"></div>
+                                        <div class="glass-reflection"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="hero-slide-overlay"></div>
@@ -178,12 +322,23 @@
                     <div class="hero-slide">
                         <div class="hero-slide-bg" style="background:#0d0d0d;">
                             <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
-                                <svg viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;opacity:0.12;">
-                                    <rect x="100" y="100" width="250" height="200" rx="2" stroke="#fff" stroke-width="1.5"/>
-                                    <rect x="450" y="100" width="250" height="200" rx="2" stroke="#fff" stroke-width="1.5"/>
-                                    <path d="M100 200h250M450 200h250" stroke="#fff" stroke-width="0.5"/>
-                                    <text x="400" y="380" text-anchor="middle" fill="#fff" font-size="14" opacity="0.4">DESIGN &amp; PRICE ONLINE</text>
-                                </svg>
+                                <div class="anim-composite" style="transform: scale(1.15);">
+                                    <div class="anim-window">
+                                        <div class="anim-frame"></div>
+                                        <div class="anim-mullion-h"></div>
+                                        <div class="anim-top-glass"><div class="glass-reflection"></div></div>
+                                        <div class="anim-sash anim-sash-left"><div class="glass-reflection"></div></div>
+                                        <div class="anim-sash anim-sash-right"><div class="glass-reflection"></div></div>
+                                    </div>
+                                    <div class="anim-door">
+                                        <div class="anim-frame"></div>
+                                        <div class="anim-sash">
+                                            <div class="door-handle"></div>
+                                            <div class="door-mail-slot"></div>
+                                            <div class="glass-reflection"></div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="hero-slide-overlay"></div>
@@ -343,8 +498,10 @@
         interval = setInterval(next, INTERVAL_MS);
     }
 
-    document.getElementById('heroNext').addEventListener('click', function() { next(); play(); });
-    document.getElementById('heroPrev').addEventListener('click', function() { prev(); play(); });
+    const nextBtn = document.getElementById('heroNext');
+    const prevBtn = document.getElementById('heroPrev');
+    if (nextBtn) nextBtn.addEventListener('click', function() { next(); play(); });
+    if (prevBtn) prevBtn.addEventListener('click', function() { prev(); play(); });
 
     // Touch support
     let touchStartX = 0;

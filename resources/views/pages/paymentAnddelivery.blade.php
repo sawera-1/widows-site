@@ -35,7 +35,7 @@
     .hero-section {
         position: relative;
         width: 100%;
-        min-height: 50vh;
+        height: clamp(280px, 45vw, 450px);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -45,8 +45,10 @@
     .hero-bg {
         position: absolute;
         top: 0; left: 0; width: 100%; height: 100%;
-        object-fit: cover;
-        opacity: 0.4;
+        background: #050505;
+    }
+    .hero-overlay {
+        position: absolute; inset: 0; background: rgba(0,0,0,0.45);
     }
     .hero-content {
         position: relative;
@@ -54,18 +56,22 @@
         text-align: center;
         color: #fff;
         max-width: 800px;
-        padding: 0 20px;
+        padding: 0 24px;
+        box-sizing: border-box;
     }
     .hero-title {
-        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        font-size: clamp(2rem, 4vw + 0.5rem, 3.5rem);
         font-weight: 800;
-        margin-bottom: 24px;
+        margin-bottom: 16px;
         line-height: 1.1;
+        letter-spacing: -0.02em;
     }
     .hero-subtitle {
-        font-size: clamp(1.1rem, 2vw, 1.3rem);
-        color: #ccc;
+        font-size: clamp(0.9375rem, 1vw + 0.25rem, 1.125rem);
+        color: #fff;
+        opacity: 0.9;
         line-height: 1.6;
+        margin-bottom: 0;
     }
 
     /* 2. Secure Payment Section — 3-column layout */
@@ -374,9 +380,10 @@
         width: 100%;
         max-width: 1280px;
         margin: 0 auto;
-        background: #111;
-        border: 1px solid #333;
+        background: #fff;
+        border: 1px solid #e5e7eb;
     }
+    .dark .cta-container { background: #111; border-color: #333; }
     
     .cta-grid {
         display: grid;
@@ -393,8 +400,9 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        color: #fff;
+        color: #000;
     }
+    .dark .cta-content { color: #fff; }
     
     .cta-image-wrapper {
         display: flex;
@@ -417,47 +425,85 @@
     .cta-content p {
         font-size: 1.1rem;
         line-height: 1.6;
-        color: #aaa;
+        color: var(--mono-grey);
         margin-bottom: 32px;
     }
+    .dark .cta-content p { color: #ccc; }
     
     .cta-actions {
         display: flex;
         gap: 16px;
         flex-wrap: wrap;
     }
-    .btn-solid-white {
-        display: inline-block;
+    
+    .btn-solid-black {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         padding: 16px 32px;
-        background: #fff;
-        color: #000;
+        background: #000;
+        color: #fff;
         font-weight: 600;
         text-decoration: none;
         transition: background 0.2s;
     }
-    .btn-solid-white:hover { background: #e5e7eb; }
-    .btn-outline-white {
-        display: inline-block;
+    .btn-solid-black:hover { background: #333; }
+    .dark .btn-solid-black { background: #fff; color: #000; }
+    .dark .btn-solid-black:hover { background: #ccc; }
+    
+    .btn-outline {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         padding: 16px 32px;
+        border: 2px solid #000;
         background: transparent;
-        border: 2px solid #fff;
-        color: #fff;
+        color: #000;
         font-weight: 600;
         text-decoration: none;
         transition: background 0.2s, color 0.2s;
     }
-    .btn-outline-white:hover {
-        background: #fff;
-        color: #000;
-    }
+    .dark .btn-outline { border-color: #fff; color: #fff; }
+    .btn-outline:hover { background: #000; color: #fff; }
+    .dark .btn-outline:hover { background: #fff; color: #000; }
 </style>
 @endpush
 
 @section('content')
 
 {{-- 1. HERO BANNER --}}
-<section class="hero-section">
-    <img src="{{ asset('assets/about/p3.png') }}" alt="Payment and Delivery" class="hero-bg">
+<section class="hero-section" aria-label="Payment & Delivery Hero">
+    <div class="hero-bg">
+        <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+            <div class="anim-composite">
+                <!-- Animated Window -->
+                <div class="anim-window">
+                    <div class="anim-frame"></div>
+                    <div class="anim-mullion-h"></div>
+                    <div class="anim-top-glass">
+                        <div class="glass-reflection"></div>
+                    </div>
+                    <div class="anim-sash anim-sash-left">
+                        <div class="glass-reflection"></div>
+                    </div>
+                    <div class="anim-sash anim-sash-right">
+                        <div class="glass-reflection"></div>
+                    </div>
+                </div>
+                
+                <!-- Animated Door -->
+                <div class="anim-door">
+                    <div class="anim-frame"></div>
+                    <div class="anim-sash">
+                        <div class="door-handle"></div>
+                        <div class="door-mail-slot"></div>
+                        <div class="glass-reflection"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hero-overlay"></div>
     <div class="hero-content">
         <h1 class="hero-title">Payment & Delivery</h1>
         <p class="hero-subtitle">Secure payment, reliable delivery and convenient collection for your windows and doors.</p>
@@ -646,12 +692,12 @@
     <div class="cta-container">
         <div class="cta-grid">
             <div class="cta-content">
-                <span class="wi-section__eyebrow" style="color: rgba(255,255,255,.6);">Next Steps</span>
+                <span class="wi-section__eyebrow">Next Steps</span>
                 <h2>Ready to Order Your Windows or Doors?</h2>
                 <p>Choose your product, configure your requirements and get an instant price online.</p>
                 <div class="cta-actions">
-                    <a href="/" class="btn-solid-white">Design & Price</a>
-                    <a href="{{ route('contact') }}" class="btn-outline-white">Contact Us</a>
+                    <a href="/" class="btn-solid-black">Design & Price</a>
+                    <a href="{{ route('contact') }}" class="btn-outline">Contact Us</a>
                 </div>
             </div>
             <div class="cta-image-wrapper">

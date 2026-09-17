@@ -2,18 +2,19 @@
 
 @section('content')
 
-<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px;">
-    <h1 class="page-title" style="margin-bottom:0;">Super Admin Settings</h1>
+<div style="margin-bottom:28px;">
+    <h1 class="page-title">Super Admin Settings</h1>
+    <p class="page-subtitle" style="margin-bottom:0;">Manage your account details and password.</p>
 </div>
 
 @if(session('success'))
-    <div style="background-color: #d1fae5; color: #065f46; padding: 15px; border-radius: 4px; margin-bottom: 20px;">
+    <div style="background-color: #d1fae5; color: #065f46; padding: 15px; border-radius: 0; margin-bottom: 20px;">
         {{ session('success') }}
     </div>
 @endif
 
 @if($errors->any())
-    <div style="background-color: #fee2e2; color: #991b1b; padding: 15px; border-radius: 4px; margin-bottom: 20px;">
+    <div style="background-color: #fee2e2; color: #991b1b; padding: 15px; border-radius: 0; margin-bottom: 20px;">
         <ul style="margin: 0; padding-left: 20px;">
             @foreach($errors->all() as $error)
                 <li>{{ $error }}</li>
@@ -22,7 +23,7 @@
     </div>
 @endif
 
-<div class="card" style="max-width: 600px;">
+<div class="card" style="border-radius: 0;">
     <form action="{{ route('admin.settings.store') }}" method="POST">
         @csrf
 

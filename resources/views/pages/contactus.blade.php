@@ -40,7 +40,7 @@
         margin-bottom: 12px;
     }
     .dark .wi-section__eyebrow { color: #a3a3a3; }
-    .contact-header h1 {
+    .contact-header h2 {
         font-size: 2.5rem;
         font-weight: 700;
         margin-bottom: 16px;
@@ -51,6 +51,23 @@
         line-height: 1.6;
     }
     
+    /* ===== HERO ===== */
+    .contact-hero {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: clamp(280px, 45vw, 450px);
+        background: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .contact-hero-bg { position:absolute; inset:0; background:#050505; }
+    .contact-hero-overlay { position:absolute; inset:0; background:rgba(0,0,0,0.45); }
+    .contact-hero-content { position:relative; z-index:2; text-align:center; color:#fff; width:100%; max-width:700px; padding:0 24px; box-sizing:border-box; }
+    .contact-hero-content h1 { font-size:clamp(2rem,4vw + 0.5rem,3.5rem); font-weight:800; line-height:1.1; margin:0; letter-spacing:-0.02em; }
+    .contact-hero-content p { font-size:clamp(0.9375rem,1vw + 0.25rem,1.125rem); line-height:1.6; margin-top:16px; margin-bottom:0; opacity:0.9; }
+
     .info-block {
         display: flex;
         gap: 20px;
@@ -237,6 +254,45 @@
 @endpush
 
 @section('content')
+
+<section class="contact-hero" aria-label="Contact Us Hero">
+    <div class="contact-hero-bg">
+        <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+            <div class="anim-composite">
+                <!-- Animated Window -->
+                <div class="anim-window">
+                    <div class="anim-frame"></div>
+                    <div class="anim-mullion-h"></div>
+                    <div class="anim-top-glass">
+                        <div class="glass-reflection"></div>
+                    </div>
+                    <div class="anim-sash anim-sash-left">
+                        <div class="glass-reflection"></div>
+                    </div>
+                    <div class="anim-sash anim-sash-right">
+                        <div class="glass-reflection"></div>
+                    </div>
+                </div>
+                
+                <!-- Animated Door -->
+                <div class="anim-door">
+                    <div class="anim-frame"></div>
+                    <div class="anim-sash">
+                        <div class="door-handle"></div>
+                        <div class="door-mail-slot"></div>
+                        <div class="glass-reflection"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contact-hero-overlay"></div>
+    <div class="contact-hero-content">
+        <h1>Contact Us</h1>
+        <p>Get in touch with our team for questions, support, and custom quotes.</p>
+    </div>
+</section>
+
 <section class="contact-section bg-white dark:bg-black text-black dark:text-white min-h-screen">
     <div class="contact-container">
         <div class="contact-grid">
@@ -245,7 +301,7 @@
             <div class="contact-info">
                 <div class="contact-header">
                     <span class="wi-section__eyebrow">Get In Touch</span>
-                    <h1>Contact Us</h1>
+                    <h2>Send a Message</h2>
                     <p>Have a question or need a custom quote? Reach out to us using the details below or fill out the form.</p>
                 </div>
                 

@@ -13,7 +13,7 @@
     .ac-hero {
         position: relative;
         width: 100%;
-        min-height: 50vh;
+        height: clamp(280px, 45vw, 450px);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -23,8 +23,10 @@
     .ac-hero-bg {
         position: absolute;
         top: 0; left: 0; width: 100%; height: 100%;
-        object-fit: cover;
-        opacity: 0.4;
+        background: #050505;
+    }
+    .ac-hero-overlay {
+        position: absolute; inset: 0; background: rgba(0,0,0,0.45);
     }
     .ac-hero-content {
         position: relative;
@@ -32,18 +34,22 @@
         text-align: center;
         color: #fff;
         max-width: 800px;
-        padding: 0 20px;
+        padding: 0 24px;
+        box-sizing: border-box;
     }
     .ac-hero-title {
-        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        font-size: clamp(2rem, 4vw + 0.5rem, 3.5rem);
         font-weight: 800;
-        margin-bottom: 24px;
+        margin-bottom: 16px;
         line-height: 1.1;
+        letter-spacing: -0.02em;
     }
     .ac-hero-subtitle {
-        font-size: clamp(1.1rem, 2vw, 1.3rem);
-        color: #ccc;
+        font-size: clamp(0.9375rem, 1vw + 0.25rem, 1.125rem);
+        color: #fff;
+        opacity: 0.9;
         line-height: 1.6;
+        margin-bottom: 0;
     }
 
     /* ===== RESOURCES SECTION ===== */
@@ -303,8 +309,38 @@
 @section('content')
 
 {{-- 1. HERO --}}
-<section class="ac-hero">
-    <img src="{{ asset('assets/about/window5.png') }}" alt="Advice Centre" class="ac-hero-bg">
+<section class="ac-hero" aria-label="Advice Centre Hero">
+    <div class="ac-hero-bg">
+        <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+            <div class="anim-composite">
+                <!-- Animated Window -->
+                <div class="anim-window">
+                    <div class="anim-frame"></div>
+                    <div class="anim-mullion-h"></div>
+                    <div class="anim-top-glass">
+                        <div class="glass-reflection"></div>
+                    </div>
+                    <div class="anim-sash anim-sash-left">
+                        <div class="glass-reflection"></div>
+                    </div>
+                    <div class="anim-sash anim-sash-right">
+                        <div class="glass-reflection"></div>
+                    </div>
+                </div>
+                
+                <!-- Animated Door -->
+                <div class="anim-door">
+                    <div class="anim-frame"></div>
+                    <div class="anim-sash">
+                        <div class="door-handle"></div>
+                        <div class="door-mail-slot"></div>
+                        <div class="glass-reflection"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ac-hero-overlay"></div>
     <div class="ac-hero-content">
         <h1 class="ac-hero-title">Advice Centre</h1>
         <p class="ac-hero-subtitle">Expert guidance, installation tips, design inspiration, videos and downloads to help you choose and fit your windows and doors with confidence.</p>

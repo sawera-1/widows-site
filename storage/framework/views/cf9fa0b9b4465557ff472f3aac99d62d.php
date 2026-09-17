@@ -27,7 +27,7 @@
     .hero-section {
         position: relative;
         width: 100%;
-        min-height: 50vh;
+        height: clamp(280px, 45vw, 450px);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -37,8 +37,10 @@
     .hero-bg {
         position: absolute;
         top: 0; left: 0; width: 100%; height: 100%;
-        object-fit: cover;
-        opacity: 0.4;
+        background: #050505;
+    }
+    .hero-overlay {
+        position: absolute; inset: 0; background: rgba(0,0,0,0.45);
     }
     .hero-content {
         position: relative;
@@ -46,18 +48,22 @@
         text-align: center;
         color: #fff;
         max-width: 800px;
-        padding: 0 20px;
+        padding: 0 24px;
+        box-sizing: border-box;
     }
     .hero-title {
-        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        font-size: clamp(2rem, 4vw + 0.5rem, 3.5rem);
         font-weight: 800;
-        margin-bottom: 24px;
+        margin-bottom: 16px;
         line-height: 1.1;
+        letter-spacing: -0.02em;
     }
     .hero-subtitle {
-        font-size: clamp(1.1rem, 2vw, 1.3rem);
-        color: #ccc;
+        font-size: clamp(0.9375rem, 1vw + 0.25rem, 1.125rem);
+        color: #fff;
+        opacity: 0.9;
         line-height: 1.6;
+        margin-bottom: 0;
     }
 
     /* 2. About BCW */
@@ -288,9 +294,38 @@
 <?php $__env->startSection('content'); ?>
 
 
-<section class="hero-section">
-    <!-- Using a product image as a fallback background until specific assets are provided -->
-    <img src="<?php echo e(asset('assets/products/1.1.jpg')); ?>" alt="UPVC Windows Background" class="hero-bg">
+<section class="hero-section" aria-label="About Us Hero">
+    <div class="hero-bg">
+        <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+            <div class="anim-composite">
+                <!-- Animated Window -->
+                <div class="anim-window">
+                    <div class="anim-frame"></div>
+                    <div class="anim-mullion-h"></div>
+                    <div class="anim-top-glass">
+                        <div class="glass-reflection"></div>
+                    </div>
+                    <div class="anim-sash anim-sash-left">
+                        <div class="glass-reflection"></div>
+                    </div>
+                    <div class="anim-sash anim-sash-right">
+                        <div class="glass-reflection"></div>
+                    </div>
+                </div>
+                
+                <!-- Animated Door -->
+                <div class="anim-door">
+                    <div class="anim-frame"></div>
+                    <div class="anim-sash">
+                        <div class="door-handle"></div>
+                        <div class="door-mail-slot"></div>
+                        <div class="glass-reflection"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hero-overlay"></div>
     <div class="hero-content">
         <h1 class="hero-title">About Modern UPVC Windows</h1>
         <p class="hero-subtitle">Quality windows and doors, backed by over 30 years of manufacturing experience.</p>
@@ -386,6 +421,25 @@
                 </div>
             </div>
 
+        </div>
+    </div>
+</section>
+
+
+<section class="cta-section">
+    <div class="cta-container">
+        <div class="cta-grid">
+            <div>
+                <img src="<?php echo e(asset('assets/about/d1.png')); ?>" alt="Modern UPVC Windows" class="cta-image">
+            </div>
+            <div class="cta-content">
+                <h2>Ready to Start Your Project?</h2>
+                <p>Get in touch with our team today to discuss your requirements, or browse our product range to design and price your perfect windows and doors online.</p>
+                <div class="cta-actions">
+                    <a href="/contact" class="btn-solid-black">Contact Us</a>
+                    <a href="/" class="btn-outline">Browse Products</a>
+                </div>
+            </div>
         </div>
     </div>
 </section>

@@ -13,7 +13,7 @@
     .info-hero {
         position: relative;
         width: 100%;
-        min-height: 50vh;
+        height: clamp(280px, 45vw, 450px);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -22,11 +22,11 @@
     }
     .info-hero__bg {
         position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0.38;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: #050505; /* Darkened to match home page vibe */
+    }
+    .info-hero-overlay {
+        position: absolute; inset: 0; background: rgba(0,0,0,0.45); /* Matched home page overlay opacity */
     }
     .info-hero__content {
         position: relative;
@@ -34,20 +34,22 @@
         text-align: center;
         color: #fff;
         max-width: 800px;
-        padding: 0 20px;
+        padding: 0 24px;
+        box-sizing: border-box;
     }
     .info-hero__title {
-        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        font-size: clamp(2rem, 4vw + 0.5rem, 3.5rem);
         font-weight: 800;
-        margin-bottom: 20px;
+        margin-bottom: 16px;
         line-height: 1.1;
+        letter-spacing: -0.02em;
     }
     .info-hero__sub {
-        font-size: clamp(1.05rem, 2vw, 1.25rem);
-        color: #ccc;
-        line-height: 1.65;
-        max-width: 600px;
-        margin-inline: auto;
+        font-size: clamp(0.9375rem, 1vw + 0.25rem, 1.125rem);
+        color: #fff;
+        opacity: 0.9;
+        line-height: 1.6;
+        margin-bottom: 0;
     }
 
     /* ── Section chrome ── */
@@ -167,15 +169,191 @@
         height: 15px;
         transition: transform 0.3s;
     }
-    .info-product-card:hover .info-card__cta svg { transform: translateX(4px); }
+    /* ─── ANIMATED VISUAL (WINDOW & DOOR) ─── */
+    .anim-composite {
+        display: flex;
+        gap: 3rem;
+        align-items: flex-end;
+        justify-content: center;
+        background: transparent;
+        transform: scale(1.15);
+    }
+
+    .anim-window {
+        position: relative;
+        width: 140px;
+        height: 200px;
+        perspective: 1200px;
+        transform-style: preserve-3d;
+    }
+
+    .anim-door {
+        position: relative;
+        width: 140px;
+        height: 320px;
+        perspective: 1200px;
+        transform-style: preserve-3d;
+    }
+
+    .anim-frame {
+        position: absolute;
+        inset: 0;
+        border: 4px solid rgba(255,255,255,0.65);
+        border-radius: 6px;
+        background: linear-gradient(135deg, rgba(20,20,20,0.6) 0%, rgba(40,40,40,0.2) 100%);
+        box-shadow: inset 0 5px 15px rgba(0,0,0,0.8), 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .anim-mullion-h {
+        position: absolute;
+        left: 0; right: 0; top: 40%;
+        height: 6px;
+        background: rgba(255,255,255,0.65);
+        transform: translateY(-50%);
+        z-index: 2;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+
+    .anim-top-glass {
+        position: absolute;
+        top: 6px; left: 6px; right: 6px; bottom: 60%;
+        background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.02) 100%);
+        border: 1px solid rgba(255,255,255,0.2);
+        border-radius: 2px;
+        overflow: hidden;
+    }
+
+    .anim-sash {
+        position: absolute;
+        top: 40%; bottom: 6px;
+        width: calc(50% - 6px);
+        border: 3px solid rgba(255,255,255,0.65);
+        background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.01) 100%);
+        overflow: hidden;
+        z-index: 1;
+        border-radius: 2px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    /* Door overrides */
+    .anim-door .anim-sash {
+        top: 6px; bottom: 6px;
+        width: calc(100% - 12px);
+        left: 6px;
+        transform-origin: left;
+        animation: openLeft 6s infinite alternate cubic-bezier(0.5, 0, 0.2, 1);
+        animation-delay: 2s;
+    }
+    
+    .door-handle {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        width: 6px;
+        height: 48px;
+        background: linear-gradient(to bottom, #999, #fff, #999);
+        border-radius: 3px;
+        transform: translateY(-50%);
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    }
+    
+    .door-mail-slot {
+        position: absolute;
+        left: 50%;
+        bottom: 50px;
+        width: 50px;
+        height: 8px;
+        background: rgba(255,255,255,0.7);
+        border-radius: 4px;
+        transform: translateX(-50%);
+        box-shadow: inset 0 2px 4px rgba(0,0,0,0.8);
+    }
+
+    .anim-sash-left {
+        left: 6px;
+        transform-origin: left;
+        animation: openLeft 6s infinite alternate cubic-bezier(0.5, 0, 0.2, 1);
+    }
+
+    .anim-sash-right {
+        right: 6px;
+        transform-origin: right;
+        animation: openRight 6s infinite alternate cubic-bezier(0.5, 0, 0.2, 1);
+        animation-delay: 0.5s;
+    }
+
+    @keyframes openLeft {
+        0%, 20% { transform: rotateY(0deg); }
+        80%, 100% { transform: rotateY(-35deg); }
+    }
+
+    @keyframes openRight {
+        0%, 20% { transform: rotateY(0deg); }
+        80%, 100% { transform: rotateY(35deg); }
+    }
+
+    /* Glass reflection */
+    .glass-reflection {
+        position: absolute;
+        top: -100%; left: -100%;
+        width: 300%; height: 300%;
+        background: linear-gradient(135deg, 
+            rgba(255,255,255,0) 0%, 
+            rgba(255,255,255,0) 35%, 
+            rgba(255,255,255,0.2) 45%, 
+            rgba(255,255,255,0.4) 50%, 
+            rgba(255,255,255,0.1) 55%, 
+            rgba(255,255,255,0) 65%, 
+            rgba(255,255,255,0) 100%);
+        animation: shine 4s infinite linear;
+    }
+
+    .anim-top-glass .glass-reflection {
+        animation-delay: 2s;
+    }
+
+    @keyframes shine {
+        0% { transform: translateY(-50%); }
+        100% { transform: translateY(100%); }
+    }
 </style>
 @endpush
 
 @section('content')
 
 {{-- 1. HERO --}}
-<section class="info-hero">
-    <img src="{{ asset('assets/products/5.1.jpg') }}" alt="Window & Door Information" class="info-hero__bg">
+<section class="info-hero" aria-label="Information Hero">
+    <div class="info-hero__bg">
+        <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+            <div class="anim-composite">
+                <!-- Animated Window -->
+                <div class="anim-window">
+                    <div class="anim-frame"></div>
+                    <div class="anim-mullion-h"></div>
+                    <div class="anim-top-glass">
+                        <div class="glass-reflection"></div>
+                    </div>
+                    <div class="anim-sash anim-sash-left">
+                        <div class="glass-reflection"></div>
+                    </div>
+                    <div class="anim-sash anim-sash-right">
+                        <div class="glass-reflection"></div>
+                    </div>
+                </div>
+                
+                <!-- Animated Door -->
+                <div class="anim-door">
+                    <div class="anim-frame"></div>
+                    <div class="anim-sash">
+                        <div class="door-handle"></div>
+                        <div class="door-mail-slot"></div>
+                        <div class="glass-reflection"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="info-hero-overlay"></div>
     <div class="info-hero__content">
         <h1 class="info-hero__title">Window & Door Info</h1>
         <p class="info-hero__sub">Browse our full range of premium uPVC windows and doors. Click any product to explore options, learn more and get an instant price.</p>
@@ -189,36 +367,36 @@
             'name' => 'Standard Windows',
             'slug' => 'standard-casement',
             'type' => 'windows',
-            'img1' => '1.1.jpg',
-            'img2' => '1.2.jpg',
+            'img1' => '4.1.jpg',
+            'img2' => '4.2.jpg',
         ],
         [
             'name' => 'French Windows',
             'slug' => 'french-windows',
             'type' => 'windows',
-            'img1' => '2.1.jpg',
-            'img2' => '2.2.jpg',
+            'img1' => '3.1.jpg',
+            'img2' => '3.2.jpg',
         ],
         [
             'name' => 'Tilt & Turn Windows',
             'slug' => 'tilt-and-turn-windows',
             'type' => 'windows',
-            'img1' => '3.1.jpg',
-            'img2' => '3.2.jpg',
+            'img1' => '2.1.jpg',
+            'img2' => '2.2.jpg',
         ],
         [
             'name' => 'Flush Windows',
             'slug' => 'flush-windows',
             'type' => 'windows',
-            'img1' => '4.1.jpg',
-            'img2' => '4.2.jpg',
+            'img1' => '5.1.jpg',
+            'img2' => '5.2.jpg',
         ],
         [
             'name' => 'Sash Windows',
             'slug' => 'sash-windows',
             'type' => 'windows',
-            'img1' => '5.1.jpg',
-            'img2' => '5.2.jpg',
+            'img1' => '6.1.jpg',
+            'img2' => '6.2.jpg',
         ],
         [
             'name' => 'PVC Doors',

@@ -3,21 +3,25 @@
 @section('content')
 
 <div style="margin-bottom: 20px;">
-    <a href="{{ route('admin.products.index') }}" class="btn btn-outline">&larr; Back to Products</a>
+    <a href="{{ route('admin.products.index') }}" class="btn btn-outline">Back to Products</a>
 </div>
 
-<div class="card" style="max-width: 800px;">
+<div style="margin-bottom: 28px;">
     <h1 class="page-title">Edit Product: {{ $product->name }}</h1>
+    <p class="page-subtitle" style="margin-bottom:0;">Update product details, pricing, and imagery.</p>
+</div>
 
-    @if($errors->any())
-        <div style="background-color: #fee2e2; color: #991b1b; padding: 15px; border-radius: 4px; margin-bottom: 20px;">
-            <ul style="margin: 0; padding-left: 20px;">
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+@if($errors->any())
+    <div style="background-color: #fee2e2; color: #991b1b; padding: 15px; border-radius: 0; margin-bottom: 20px; border: 1px solid #fca5a5;">
+        <ul style="margin: 0; padding-left: 20px;">
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+<div class="card" style="border-radius: 0;">
 
     <form action="{{ route('admin.products.update', $product->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -61,7 +65,7 @@
                 <label class="form-label">Current Primary Image</label>
                 @if($product->image)
                     <div style="margin-bottom: 10px;">
-                        <img src="{{ asset('assets/products/' . $product->image) }}" style="max-height: 100px; border-radius: 4px; border: 1px solid #e5e7eb;">
+                        <img src="{{ asset('assets/products/' . $product->image) }}" style="max-height: 100px; border-radius: 0; border: 1px solid #e5e7eb;">
                     </div>
                 @else
                     <p style="color: var(--text-muted); font-size: 0.875rem;">No image set</p>
@@ -74,7 +78,7 @@
                 <label class="form-label">Current Hover Image</label>
                 @if($product->hover_image)
                     <div style="margin-bottom: 10px;">
-                        <img src="{{ asset('assets/products/' . $product->hover_image) }}" style="max-height: 100px; border-radius: 4px; border: 1px solid #e5e7eb;">
+                        <img src="{{ asset('assets/products/' . $product->hover_image) }}" style="max-height: 100px; border-radius: 0; border: 1px solid #e5e7eb;">
                     </div>
                 @else
                     <p style="color: var(--text-muted); font-size: 0.875rem;">No hover image set</p>

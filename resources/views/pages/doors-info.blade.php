@@ -14,17 +14,28 @@
      HERO
      ═══════════════════════════════════════════════════════════════════════════ --}}
 <section class="wi-hero" aria-label="Doors Information">
-    <img src="{{ asset('assets/products/door1.1.jpg') }}" alt="Premium UPVC Doors" class="wi-hero__bg" loading="eager">
+    <div class="wi-hero__bg">
+        <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+            <div class="anim-composite">
+                <!-- Animated Door -->
+                <div class="anim-door">
+                    <div class="anim-frame"></div>
+                    <div class="anim-sash">
+                        <div class="door-handle"></div>
+                        <div class="door-mail-slot"></div>
+                        <div class="glass-reflection"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="wi-hero__overlay" aria-hidden="true"></div>
     <div class="wi-hero__inner">
-        <span class="wi-hero__eyebrow">Doors</span>
-        <h1 class="wi-hero__title">What makes our doors <em>exceptional</em></h1>
-        <p class="wi-hero__sub">We manufacture our doors in our own factory  giving us complete freedom to deliver PAS24 certified, energy efficient, bespoke UPVC doors precisely to your specification.</p>
-        <a href="/doors" class="wi-hero__cta" id="hero-cta-doors">
-            Explore Door Designs
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-    </div>
+
+    <h1 class="wi-hero__title" style="margin-bottom: 0;">What makes our doors <em>exceptional</em></h1>
+            <p class="wi-hero__sub">We manufacture our doors in our own factory  giving us complete freedom to deliver PAS24 certified, energy efficient, bespoke UPVC doors precisely to your specification.</p>
+
+</div>
 </section>
 
 
@@ -45,7 +56,7 @@
             {{-- S1 — Door Designs --}}
             <div class="wi-card">
                 <div class="wi-card__img wi-card__img--full">
-                    <img src="{{ asset('assets/products/door2.1.jpg') }}" alt="UPVC Door Designs" loading="lazy">
+                    <img src="{{ asset('assets/products/door2.2.jpg') }}" alt="UPVC Door Designs" loading="lazy">
                 </div>
                 <h2 class="wi-card__title">Door Designs</h2>
                 <div class="wi-card__body">
@@ -53,18 +64,74 @@
                     <p>Side panels and lights are manufactured separately to the door and include a <strong>free reinforced 15 mm coupler</strong> for added strength.</p>
                 </div>
                 <div class="wi-product-strip">
-                    @php $doorProducts = [
-                        ['name' => 'PVC Doors',   'slug' => 'pvc-doors',    'img' => 'door1.1.jpg'],
-                        ['name' => 'Flush Doors',  'slug' => 'flush-doors',  'img' => 'door2.1.jpg'],
-                        ['name' => 'French Doors', 'slug' => 'french-doors', 'img' => 'door3.1.jpg'],
+                    @php 
+                    $infoProducts = [
+                        [
+                            'name' => 'Standard Windows',
+                            'slug' => 'standard-casement',
+                            'type' => 'windows',
+                            'img1' => '4.1.jpg',
+                            'img2' => '4.2.jpg',
+                        ],
+                        [
+                            'name' => 'French Windows',
+                            'slug' => 'french-windows',
+                            'type' => 'windows',
+                            'img1' => '3.1.jpg',
+                            'img2' => '3.2.jpg',
+                        ],
+                        [
+                            'name' => 'Tilt & Turn Windows',
+                            'slug' => 'tilt-and-turn-windows',
+                            'type' => 'windows',
+                            'img1' => '2.1.jpg',
+                            'img2' => '2.2.jpg',
+                        ],
+                        [
+                            'name' => 'Flush Windows',
+                            'slug' => 'flush-windows',
+                            'type' => 'windows',
+                            'img1' => '5.1.jpg',
+                            'img2' => '5.2.jpg',
+                        ],
+                        [
+                            'name' => 'Sash Windows',
+                            'slug' => 'sash-windows',
+                            'type' => 'windows',
+                            'img1' => '6.1.jpg',
+                            'img2' => '6.2.jpg',
+                        ],
+                        [
+                            'name' => 'PVC Doors',
+                            'slug' => 'pvc-doors',
+                            'type' => 'doors',
+                            'img1' => 'door1.1.jpg',
+                            'img2' => 'door1.2.jpg',
+                        ],
+                        [
+                            'name' => 'Flush Doors',
+                            'slug' => 'flush-doors',
+                            'type' => 'doors',
+                            'img1' => 'door2.1.jpg',
+                            'img2' => 'door2.2.jpg',
+                        ],
+                        [
+                            'name' => 'French Doors',
+                            'slug' => 'french-doors',
+                            'type' => 'doors',
+                            'img1' => 'door3.1.jpg',
+                            'img2' => 'door3.2.jpg',
+                        ],
                     ]; @endphp
-                    @foreach($doorProducts as $dp)
+                    @foreach($infoProducts as $dp)
+                    @if($dp['type'] === 'doors')
                     <a href="/doors/{{ $dp['slug'] }}" class="wi-product-mini" id="mini-{{ $dp['slug'] }}">
-                        <img src="{{ asset('assets/products/' . $dp['img']) }}" alt="{{ $dp['name'] }}" class="wi-product-mini__img" loading="lazy">
+                        <img src="{{ asset('assets/products/' . $dp['img1']) }}" alt="{{ $dp['name'] }}" class="wi-product-mini__img" loading="lazy">
                         {{ $dp['name'] }}
-                        <svg class="wi-product-mini__arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
+                    @endif
                     @endforeach
+
                 </div>
             </div>
 
@@ -81,12 +148,19 @@
                     <div class="wi-energy-bar wi-energy-bar--a"><span>A</span></div>
                     <div class="wi-energy-bar wi-energy-bar--b"><span>B</span></div>
                 </div>
-                <ul class="wi-checklist" style="margin-top:16px;">
+                <ul class="wi-checklist" style="margin-top:16px; margin-bottom: 24px;">
                     <li><span class="wi-checklist__icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></span>Argon gas filled glass units</li>
                     <li><span class="wi-checklist__icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></span>Heat-reflecting glass coating</li>
                     <li><span class="wi-checklist__icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></span>Thermally broken threshold options</li>
                     <li><span class="wi-checklist__icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></span>Minimised cold-bridging at frame</li>
                 </ul>
+                <div style="padding-top: 20px; border-top: 1px solid var(--wi-border);">
+                    <ul class="wi-bullet-list" style="margin: 0;">
+                        <li><strong>Lower heating bills:</strong> Maximum thermal retention keeps your home naturally warmer.</li>
+                        <li><strong>Reduced carbon footprint:</strong> Sustainable manufacturing and improved energy efficiency.</li>
+                        <li><strong>Eliminate draughts:</strong> Precision engineering ensures a perfect, airtight seal.</li>
+                    </ul>
+                </div>
             </div>
 
         </div>
@@ -196,7 +270,7 @@
             <div class="wi-card">
                 <h2 class="wi-card__title">Glass Technology</h2>
                 <div class="wi-card__body">
-                    <p>Glazed door panels use the same advanced glass specification as our A+ windows — <strong>Pilkington KS inner pane</strong> with Optiwhite outer, argon gas filled, black SuperSpacer.</p>
+                    <p>Glazed door panels use the same advanced glass specification as our A+ windows — <strong>Pilkington KS inner pane</strong> with Optiwhite outer, argon gas filled, and black SuperSpacer.</p>
                 </div>
                 <table class="wi-spec-table">
                     <tbody>
@@ -215,12 +289,25 @@
                     <span class="wi-spec-pill">Lead-Lined Glass</span>
                     <span class="wi-spec-pill">Toughened Safety Glass</span>
                 </div>
+
+                <div style="margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--wi-border);">
+                    <h2 class="wi-card__title">Performance &amp; Protection</h2>
+                    <div class="wi-card__body">
+                        <p>Designed to provide excellent thermal performance, security and durability, our door systems combine high-quality glazing with robust profiles and hardware for everyday residential use.</p>
+                    </div>
+                    <div class="wi-spec-pills" style="margin-top:16px;">
+                        <span class="wi-spec-pill">Energy Efficient</span>
+                        <span class="wi-spec-pill">Secure Multi-Point Locking</span>
+                        <span class="wi-spec-pill">Weather Resistant</span>
+                        <span class="wi-spec-pill">Low Maintenance</span>
+                    </div>
+                </div>
             </div>
 
             {{-- S6 — Colours --}}
             <div class="wi-card">
                 <div class="wi-card__img wi-card__img--full">
-                    <img src="{{ asset('assets/products/door2.1.jpg') }}" alt="Door Colour Finishes" loading="lazy">
+                    <img src="{{ asset('assets/products/door1.2.jpg') }}" alt="Door Colour Finishes" loading="lazy">
                 </div>
                 <h2 class="wi-card__title">Colours &amp; Finishes</h2>
                 <div class="wi-card__body">
@@ -294,7 +381,7 @@
             {{-- S9 — PVC Doors --}}
             <div class="wi-card">
                 <div class="wi-card__img" style="aspect-ratio:4/3;">
-                    <img src="{{ asset('assets/products/door1.1.jpg') }}" alt="PVC UPVC Front Doors" loading="lazy">
+                    <img src="{{ asset('assets/products/door1.1.jpg') }}" alt="PVC UPVC Front Doors" loading="lazy" style="object-fit: contain; background: #fff;">
                 </div>
                 <h2 class="wi-card__title">PVC Doors</h2>
                 <div class="wi-card__body">
@@ -302,14 +389,13 @@
                 </div>
                 <a href="/doors/pvc-doors" class="wi-card-cta" id="cta-pvc-doors">
                     View PVC Doors
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
             </div>
 
             {{-- S10 — Flush Doors --}}
             <div class="wi-card">
                 <div class="wi-card__img" style="aspect-ratio:4/3;">
-                    <img src="{{ asset('assets/products/door2.1.jpg') }}" alt="Flush UPVC Doors" loading="lazy">
+                    <img src="{{ asset('assets/products/door2.1.jpg') }}" alt="Flush UPVC Doors" loading="lazy" style="object-fit: contain; background: #fff;">
                 </div>
                 <h2 class="wi-card__title">Flush Doors</h2>
                 <div class="wi-card__body">
@@ -317,14 +403,13 @@
                 </div>
                 <a href="/doors/flush-doors" class="wi-card-cta" id="cta-flush-doors">
                     View Flush Doors
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
             </div>
 
             {{-- S11 — French Doors --}}
             <div class="wi-card">
                 <div class="wi-card__img" style="aspect-ratio:4/3;">
-                    <img src="{{ asset('assets/products/door3.1.jpg') }}" alt="French UPVC Doors" loading="lazy">
+                    <img src="{{ asset('assets/products/door3.1.jpg') }}" alt="French UPVC Doors" loading="lazy" style="object-fit: contain; background: #fff;">
                 </div>
                 <h2 class="wi-card__title">French Doors</h2>
                 <div class="wi-card__body">
@@ -332,7 +417,6 @@
                 </div>
                 <a href="/doors/french-doors" class="wi-card-cta" id="cta-french-doors">
                     View French Doors
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
             </div>
 
@@ -428,7 +512,7 @@
         <div class="wi-card wi-col-full" style="padding:0;">
             <div style="display:grid; grid-template-columns: 1fr 1fr; align-items: stretch;" class="wi-cta-split">
                 <div class="wi-cta-split__img">
-                    <img src="{{ asset('assets/about/p3.png') }}" alt="Design your doors" style="width:100%; height:100%; object-fit:cover; display:block;" loading="lazy">
+                    <img src="{{ asset('assets/about/p2.png') }}" alt="Design your doors" style="width:100%; height:100%; object-fit:cover; display:block;" loading="lazy">
                 </div>
                 <div style="padding: clamp(32px, 5vw, 64px); display:flex; flex-direction:column; justify-content:center;">
                     <h2 class="wi-section__title" style="margin-bottom:16px;">Ready to design your doors?</h2>
@@ -445,7 +529,10 @@
                 .wi-cta-split{grid-template-columns:1fr!important;}
                 .wi-cta-split__img{height:250px;}
             }
+            #cta-design-doors { transition: background 0.3s; }
+            #cta-design-doors:hover { background: #555 !important; color: #fff !important; }
             [data-theme=dark] #cta-design-doors { background:#fff !important; color:#000 !important; }
+            [data-theme=dark] #cta-design-doors:hover { background:#ccc !important; color:#000 !important; }
             </style>
         </div>
     </div>

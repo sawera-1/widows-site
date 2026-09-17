@@ -3,13 +3,13 @@
 @section('content')
 
 <div style="margin-bottom: 20px;">
-    <a href="{{ route('admin.orders.index') }}" class="btn btn-outline">&larr; Back to Orders</a>
+    <a href="{{ route('admin.orders.index') }}" class="btn btn-outline">Back to Orders</a>
 </div>
 
 <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px;">
     <div>
         <h1 class="page-title" style="margin-bottom: 8px;">Order {{ $order->order_number }}</h1>
-        <p style="color: var(--text-muted); font-size: 0.95rem;">Placed on {{ $order->created_at->format('M j, Y h:i A') }}</p>
+        <p class="page-subtitle" style="margin-bottom:0;">Placed on {{ $order->created_at->format('M j, Y h:i A') }}</p>
     </div>
     <div style="display: flex; gap: 12px; align-items: center;">
         <span class="badge {{ $order->payment_status === 'paid' ? 'badge-success' : 'badge-dark' }}">
@@ -17,7 +17,7 @@
         </span>
         <form action="{{ route('admin.orders.status', $order->id) }}" method="POST" style="display:flex; gap:8px;">
             @csrf
-            <select name="status" class="form-control" style="width: auto; padding: 4px 12px;" onchange="this.form.submit()">
+            <select name="status" class="form-control" style="width:auto; padding:10px 40px 10px 14px; font-size:0.875rem; font-weight:600; border-radius:0; border:2px solid #111; background:#fff; color:#111; cursor:pointer; min-width:160px;" onchange="this.form.submit()">
                 <option value="pending" {{ $order->status === 'pending' ? 'selected' : '' }}>Pending</option>
                 <option value="processing" {{ $order->status === 'processing' ? 'selected' : '' }}>Processing</option>
                 <option value="completed" {{ $order->status === 'completed' ? 'selected' : '' }}>Completed</option>
@@ -27,14 +27,41 @@
     </div>
 </div>
 
+<!-- ─── STAT CARDS ─── -->
+<div class="grid-cards" style="grid-template-columns: repeat(3, 1fr); margin-bottom:24px;">
+    <div class="stat-card">
+        <div class="stat-card-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div class="stat-card-title">Order Total</div>
+        <div class="stat-card-value">£{{ number_format($order->total, 2) }}</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-card-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+        </div>
+        <div class="stat-card-title">Items</div>
+        <div class="stat-card-value">{{ $order->items->count() }}</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-card-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"/></svg>
+        </div>
+        <div class="stat-card-title">Delivery</div>
+        <div class="stat-card-value" style="font-size:1.25rem; text-transform:capitalize;">{{ $order->delivery_method }}</div>
+    </div>
+</div>
+
 <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px;">
     {{-- Left Column: Order Items --}}
     <div>
         <div class="card" style="margin-bottom: 24px;">
-            <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border-color);">Items Ordered</h2>
+            <div class="card-header">
+                <h2>Items Ordered</h2>
+            </div>
             
             @foreach($order->items as $item)
-                <div style="border: 1px solid var(--border-color); border-radius: 6px; padding: 16px; margin-bottom: 16px;">
+                <div style="border: 1px solid var(--border-color); padding: 16px; margin-bottom: 16px;">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
                         <div>
                             <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 4px;">{{ $item->product_name }}</h3>
@@ -46,7 +73,7 @@
                         </div>
                     </div>
 
-                    <div style="background: var(--bg-body); padding: 12px; border-radius: 4px;">
+                    <div style="background: #F7F7F7; padding: 12px;">
                         <h4 style="font-size: 0.95rem; font-weight: 600; margin-bottom: 8px;">Configuration Details (Size Form)</h4>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 0.9rem;">
                             <div>
@@ -68,7 +95,7 @@
                                     <h5 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 8px;">Pane Specifics</h5>
                                     <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px;">
                                         @foreach($panes as $index => $pane)
-                                            <div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 8px; border-radius: 4px; font-size: 0.85rem;">
+                                            <div style="background: #fff; border: 1px solid var(--border-color); padding: 8px; font-size: 0.85rem;">
                                                 <strong style="display: block; margin-bottom: 4px;">Pane {{ $index + 1 }}</strong>
                                                 <div style="color: var(--text-muted);">
                                                     <div>Type: <span style="color: var(--text-main); font-weight: 500;">{{ $pane['type'] ?? 'Fixed' }}</span></div>
@@ -86,7 +113,9 @@
         </div>
 
         <div class="card">
-            <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border-color);">Order Summary</h2>
+            <div class="card-header">
+                <h2>Order Summary</h2>
+            </div>
             <div style="display: flex; flex-direction: column; gap: 12px; max-width: 300px; margin-left: auto;">
                 <div style="display: flex; justify-content: space-between;">
                     <span style="color: var(--text-muted);">Subtotal</span>
@@ -100,7 +129,7 @@
                     <span style="color: var(--text-muted);">VAT (20%)</span>
                     <span>£{{ number_format($order->tax, 2) }}</span>
                 </div>
-                <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--border-color); padding-top: 12px; font-weight: 700; font-size: 1.2rem;">
+                <div style="display: flex; justify-content: space-between; border-top: 2px solid #111; padding-top: 12px; font-weight: 700; font-size: 1.2rem;">
                     <span>Total</span>
                     <span>£{{ number_format($order->total, 2) }}</span>
                 </div>
@@ -111,11 +140,13 @@
     {{-- Right Column: Customer Info --}}
     <div>
         <div class="card" style="margin-bottom: 24px;">
-            <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border-color);">Customer Details</h2>
+            <div class="card-header">
+                <h2>Customer Details</h2>
+            </div>
             
             @if($order->user)
                 <div style="margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
-                    <div style="width: 40px; height: 40px; background: #000; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600;">
+                    <div style="width: 40px; height: 40px; background: #000; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 600;">
                         {{ substr($order->first_name, 0, 1) }}{{ substr($order->last_name, 0, 1) }}
                     </div>
                     <div>
@@ -134,7 +165,9 @@
         </div>
 
         <div class="card" style="margin-bottom: 24px;">
-            <h2 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 12px;">Billing Address</h2>
+            <div class="card-header">
+                <h2>Billing Address</h2>
+            </div>
             <address style="font-style: normal; color: var(--text-muted); line-height: 1.5; font-size: 0.95rem;">
                 {{ $order->billing_address }}<br>
                 {{ $order->billing_city }}<br>
@@ -145,7 +178,9 @@
         </div>
 
         <div class="card">
-            <h2 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 12px;">Delivery Method</h2>
+            <div class="card-header">
+                <h2>Delivery Method</h2>
+            </div>
             <div style="font-size: 0.95rem; margin-bottom: 12px;">
                 <strong style="text-transform: capitalize;">{{ $order->delivery_method }}</strong>
             </div>

@@ -14,15 +14,31 @@
      HERO
      ═══════════════════════════════════════════════════════════════════════════ --}}
 <section class="wi-hero" aria-label="Windows Information">
-    <img src="{{ asset('assets/products/1.1.jpg') }}" alt="Premium UPVC Windows" class="wi-hero__bg" loading="eager">
+    <div class="wi-hero__bg">
+        <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+            <div class="anim-composite">
+                <!-- Animated Window -->
+                <div class="anim-window">
+                    <div class="anim-frame"></div>
+                    <div class="anim-mullion-h"></div>
+                    <div class="anim-top-glass">
+                        <div class="glass-reflection"></div>
+                    </div>
+                    <div class="anim-sash anim-sash-left">
+                        <div class="glass-reflection"></div>
+                    </div>
+                    <div class="anim-sash anim-sash-right">
+                        <div class="glass-reflection"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="wi-hero__overlay" aria-hidden="true"></div>
     <div class="wi-hero__inner">
-        <span class="wi-hero__eyebrow">Windows</span>
-        <h1 class="wi-hero__title">What makes our windows <em>exceptional</em></h1>
-        <p class="wi-hero__sub">We manufacture our windows right here in our own factory giving us the freedom to deliver A+ rated, PAS24 certified, bespoke UPVC windows with no compromise.</p>
-        <a href="/" class="wi-hero__cta" id="hero-cta-windows">
-            Explore Window Designs
-        </a>
+        <h1 class="wi-hero__title" style="margin-bottom: 0;">What makes our windows <em>exceptional</em></h1>
+            <p class="wi-hero__sub">We manufacture our windows right here in our own factory giving us the freedom to deliver A+ rated, PAS24 certified, bespoke UPVC windows with no compromise.</p>
+
     </div>
 </section>
 
@@ -44,26 +60,79 @@
             {{-- S1 — Window Designs --}}
             <div class="wi-card">
                 <div class="wi-card__img wi-card__img--full">
-                    <img src="{{ asset('assets/products/1.2.jpg') }}" alt="Premium UPVC Window Designs" loading="lazy">
+                    <img src="{{ asset('assets/products/4.2.jpg') }}" alt="Premium UPVC Window Designs" loading="lazy">
                 </div>
                 <h2 class="wi-card__title">Window Designs</h2>
                 <div class="wi-card__body">
                     <p>Because we manufacture your windows in our own factory we are not restricted to supplier design limitations. We tailor your windows to your exact needs using our unique online window designer.</p>
                 </div>
                 <div class="wi-product-strip">
-                    @php $winProducts = [
-                        ['name' => 'Standard', 'slug' => 'standard-casement', 'img' => '1.1.jpg'],
-                        ['name' => 'French',   'slug' => 'french-windows',    'img' => '2.1.jpg'],
-                        ['name' => 'Tilt & Turn','slug'=> 'tilt-and-turn-windows','img'=>'3.1.jpg'],
-                        ['name' => 'Flush',    'slug' => 'flush-windows',     'img' => '4.1.jpg'],
-                        ['name' => 'Sash',     'slug' => 'sash-windows',      'img' => '5.1.jpg'],
+                    @php 
+                    $infoProducts = [
+                        [
+                            'name' => 'Standard Windows',
+                            'slug' => 'standard-casement',
+                            'type' => 'windows',
+                            'img1' => '4.1.jpg',
+                            'img2' => '4.2.jpg',
+                        ],
+                        [
+                            'name' => 'French Windows',
+                            'slug' => 'french-windows',
+                            'type' => 'windows',
+                            'img1' => '3.1.jpg',
+                            'img2' => '3.2.jpg',
+                        ],
+                        [
+                            'name' => 'Tilt & Turn Windows',
+                            'slug' => 'tilt-and-turn-windows',
+                            'type' => 'windows',
+                            'img1' => '2.1.jpg',
+                            'img2' => '2.2.jpg',
+                        ],
+                        [
+                            'name' => 'Flush Windows',
+                            'slug' => 'flush-windows',
+                            'type' => 'windows',
+                            'img1' => '5.1.jpg',
+                            'img2' => '5.2.jpg',
+                        ],
+                        [
+                            'name' => 'Sash Windows',
+                            'slug' => 'sash-windows',
+                            'type' => 'windows',
+                            'img1' => '6.1.jpg',
+                            'img2' => '6.2.jpg',
+                        ],
+                        [
+                            'name' => 'PVC Doors',
+                            'slug' => 'pvc-doors',
+                            'type' => 'doors',
+                            'img1' => 'door1.1.jpg',
+                            'img2' => 'door1.2.jpg',
+                        ],
+                        [
+                            'name' => 'Flush Doors',
+                            'slug' => 'flush-doors',
+                            'type' => 'doors',
+                            'img1' => 'door2.1.jpg',
+                            'img2' => 'door2.2.jpg',
+                        ],
+                        [
+                            'name' => 'French Doors',
+                            'slug' => 'french-doors',
+                            'type' => 'doors',
+                            'img1' => 'door3.1.jpg',
+                            'img2' => 'door3.2.jpg',
+                        ],
                     ]; @endphp
-                    @foreach($winProducts as $wp)
+                    @foreach($infoProducts as $wp)
+                    @if($wp['type'] === 'windows')
                     <a href="/windows/{{ $wp['slug'] }}" class="wi-product-mini" id="mini-{{ $wp['slug'] }}">
-                        <img src="{{ asset('assets/products/' . $wp['img']) }}" alt="{{ $wp['name'] }} Windows" class="wi-product-mini__img" loading="lazy">
+                        <img src="{{ asset('assets/products/' . $wp['img1']) }}" alt="{{ $wp['name'] }}" class="wi-product-mini__img" loading="lazy">
                         {{ $wp['name'] }}
-                        <svg class="wi-product-mini__arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
+                    @endif
                     @endforeach
                 </div>
             </div>
@@ -88,6 +157,14 @@
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                     Exceeds Building Regulations
                 </span>
+                
+                <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--wi-border);">
+                    <ul class="wi-bullet-list" style="margin: 0;">
+                        <li><strong>Lower heating bills:</strong> Maximum thermal retention keeps your home naturally warmer.</li>
+                        <li><strong>Reduced carbon footprint:</strong> Sustainable manufacturing and improved energy efficiency.</li>
+                        <li><strong>Eliminate draughts:</strong> Precision engineering ensures a perfect, airtight seal.</li>
+                    </ul>
+                </div>
             </div>
 
             {{-- S3 — Home Energy Efficiency --}}
@@ -112,11 +189,11 @@
             <div class="wi-card">
                 <div class="wi-compare" style="margin-top:0;">
                     <div class="wi-compare-item">
-                        <img src="{{ asset('assets/products/1.1.jpg') }}" alt="Standard UPVC Window" class="wi-compare-item__img" loading="lazy">
+                        <img src="{{ asset('assets/products/4.1.jpg') }}" alt="Standard UPVC Window" class="wi-compare-item__img" loading="lazy">
                         <div class="wi-compare-item__label">Double Glazed A+</div>
                     </div>
                     <div class="wi-compare-item">
-                        <img src="{{ asset('assets/products/4.1.jpg') }}" alt="Flush UPVC Window" class="wi-compare-item__img" loading="lazy">
+                        <img src="{{ asset('assets/products/5.1.jpg') }}" alt="Flush UPVC Window" class="wi-compare-item__img" loading="lazy">
                         <div class="wi-compare-item__label">Triple Glazed A++</div>
                     </div>
                 </div>
@@ -236,7 +313,7 @@
             {{-- S6 — Colours --}}
             <div class="wi-card">
                 <div class="wi-card__img wi-card__img--full">
-                    <img src="{{ asset('assets/products/5.1.jpg') }}" alt="UPVC Colour Finishes" loading="lazy">
+                    <img src="{{ asset('assets/products/5.2.jpg') }}" alt="UPVC Colour Finishes" loading="lazy">
                 </div>
                 <h2 class="wi-card__title">Colours &amp; Finishes</h2>
                 <div class="wi-card__body">
@@ -351,7 +428,7 @@
             {{-- S10 — Flush Windows --}}
             <div class="wi-card">
                 <div class="wi-card__img" style="aspect-ratio:4/3;">
-                    <img src="{{ asset('assets/products/4.1.jpg') }}" alt="Flush UPVC Windows" loading="lazy">
+                    <img src="{{ asset('assets/products/5.1.jpg') }}" alt="Flush UPVC Windows" loading="lazy">
                 </div>
                 <h2 class="wi-card__title">Flush Windows</h2>
                 <div class="wi-card__body">
@@ -365,7 +442,7 @@
             {{-- S11 — French Windows --}}
             <div class="wi-card">
                 <div class="wi-card__img" style="aspect-ratio:4/3;">
-                    <img src="{{ asset('assets/products/2.1.jpg') }}" alt="French UPVC Windows" loading="lazy">
+                    <img src="{{ asset('assets/products/3.1.jpg') }}" alt="French UPVC Windows" loading="lazy">
                 </div>
                 <h2 class="wi-card__title">French Windows</h2>
                 <div class="wi-card__body">
@@ -379,7 +456,7 @@
             {{-- S12 — Tilt & Turn --}}
             <div class="wi-card">
                 <div class="wi-card__img" style="aspect-ratio:4/3;">
-                    <img src="{{ asset('assets/products/3.1.jpg') }}" alt="Tilt & Turn UPVC Windows" loading="lazy">
+                    <img src="{{ asset('assets/products/2.1.jpg') }}" alt="Tilt & Turn UPVC Windows" loading="lazy">
                 </div>
                 <h2 class="wi-card__title">Tilt &amp; Turn Windows</h2>
                 <div class="wi-card__body">
@@ -393,7 +470,7 @@
             {{-- S13 — Sash Windows --}}
             <div class="wi-card">
                 <div class="wi-card__img" style="aspect-ratio:4/3;">
-                    <img src="{{ asset('assets/products/5.1.jpg') }}" alt="Sash UPVC Windows" loading="lazy">
+                    <img src="{{ asset('assets/products/6.1.jpg') }}" alt="Sash UPVC Windows" loading="lazy">
                 </div>
                 <h2 class="wi-card__title">Sash Windows</h2>
                 <div class="wi-card__body">
@@ -407,7 +484,7 @@
             {{-- S14 — Standard Casement --}}
             <div class="wi-card">
                 <div class="wi-card__img" style="aspect-ratio:4/3;">
-                    <img src="{{ asset('assets/products/1.1.jpg') }}" alt="Standard Casement UPVC Windows" loading="lazy">
+                    <img src="{{ asset('assets/products/4.1.jpg') }}" alt="Standard Casement UPVC Windows" loading="lazy">
                 </div>
                 <h2 class="wi-card__title">Standard Casement Windows</h2>
                 <div class="wi-card__body">
@@ -517,7 +594,10 @@
                 .wi-cta-split{grid-template-columns:1fr!important;}
                 .wi-cta-split__img{height:250px;}
             }
+            #cta-design-windows { transition: background 0.3s; }
+            #cta-design-windows:hover { background: #555 !important; color: #fff !important; }
             [data-theme=dark] #cta-design-windows { background:#fff !important; color:#000 !important; }
+            [data-theme=dark] #cta-design-windows:hover { background:#ccc !important; color:#000 !important; }
             [data-theme=dark] #cta-contact-windows { border-color:rgba(255,255,255,.3) !important; color:rgba(255,255,255,.8) !important; }
             </style>
         </div>

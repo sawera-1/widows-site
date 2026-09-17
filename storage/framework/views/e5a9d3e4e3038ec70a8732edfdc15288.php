@@ -44,6 +44,11 @@
                 </a>
 
                 
+                <a href="<?php echo e(route('admin.login')); ?>" class="p-2 text-black dark:text-white hover:text-gray-500 transition-colors" aria-label="Login">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                </a>
+
+                
                 <button type="button" class="xl:hidden inline-flex items-center justify-center p-2 text-black dark:text-white hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none transition-colors" aria-controls="mobile-menu" aria-expanded="false" id="mobile-menu-btn">
                     <span class="sr-only">Open main menu</span>
                     <svg class="block h-7 w-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" id="mobile-menu-icon">
